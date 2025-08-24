@@ -350,3 +350,73 @@ h6,
 .footer .copyright a:hover {
     color: var(--dark);
 }
+
+/*** Custom Animations ***/
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.wave-animation {
+    transition: transform 0.3s ease-in-out;
+    animation: wave 2s infinite;
+}
+
+.wave-animation:hover {
+    animation-play-state: paused;
+}
+
+/*** Dollar Sign Styling ***/
+.dollar-sign {
+    font-size: 0.8em;
+    vertical-align: super;
+    margin-right: 2px;
+    color: #4CAF50;
+}
+
+/*** Affiliate Cards ***/
+.shadow-hover {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shadow-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/*** Carousel Custom Styling ***/
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: #007BFF;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-item img {
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+/*** Logo Styling ***/
+.logo-img {
+    width: 45px;
+}
+
+/*** Section Containers ***/
+.section-header {
+    max-width: 500px;
+}
+
+.section-header-wide {
+    max-width: 800px;
+}
