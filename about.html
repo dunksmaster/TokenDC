@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>CryptoCoin - Free Cryptocurrency Website Template</title>
@@ -19,6 +18,7 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -29,6 +29,294 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+      /* Profile Card Styles */
+      .profile-card {
+        width: 360px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+        margin: 0 auto;
+      }
+
+      .image-container {
+        width: 100%;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .share-btn {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+        width: 70px;
+        height: 32px;
+        background-color: #ff7d00;
+        color: white;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+
+      .info-bar {
+        padding: 16px;
+        background-color: #1a1a1a;
+        color: white;
+        font-size: 14px;
+      }
+
+      .name {
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .handle {
+        font-size: 14px;
+        opacity: 0.9;
+        margin-top: 4px;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .icon {
+        font-size: 18px;
+      }
+
+      .edit-btn {
+        background-color: white;
+        color: #1a1a1a;
+        border: 1px solid #ccc;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .edit-btn:hover {
+        background-color: #f0f0f0;
+      }
+
+      .bio {
+        margin-top: 12px;
+        color: #444;
+        line-height: 1.5;
+        font-size: 14px;
+        padding: 16px;
+      }
+      
+      /* Crypto Donation Banner Styles */
+      .crypto-banner-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        margin: 40px auto;
+      }
+      
+      .crypto-banner-container:hover {
+        transform: scale(1.02);
+      }
+      
+      .crypto-banner {
+        background: linear-gradient(135deg, #25a56a 0%, #1d8a5a 100%);
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        border: 3px solid transparent;
+        border-radius: 15px;
+        animation: borderAnimation 5s infinite linear;
+      }
+      
+      @keyframes borderAnimation {
+        0% {
+          border-image: linear-gradient(45deg, #ff6b6b, #ffd166, #06d6a0, #118ab2) 1;
+        }
+        25% {
+          border-image: linear-gradient(45deg, #118ab2, #ff6b6b, #ffd166, #06d6a0) 1;
+        }
+        50% {
+          border-image: linear-gradient(45deg, #06d6a0, #118ab2, #ff6b6b, #ffd166) 1;
+        }
+        75% {
+          border-image: linear-gradient(45deg, #ffd166, #06d6a0, #118ab2, #ff6b6b) 1;
+        }
+        100% {
+          border-image: linear-gradient(45deg, #ff6b6b, #ffd166, #06d6a0, #118ab2) 1;
+        }
+      }
+      
+      .crypto-icons {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+      
+      .crypto-icon {
+        position: absolute;
+        font-size: 24px;
+        color: rgba(255, 255, 255, 0.7);
+        animation: float 15s infinite linear;
+      }
+      
+      @keyframes float {
+        0% {
+          transform: translateY(0) translateX(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-20px) translateX(20px) rotate(10deg);
+        }
+        50% {
+          transform: translateY(0) translateX(40px) rotate(0deg);
+        }
+        75% {
+          transform: translateY(20px) translateX(20px) rotate(-10deg);
+        }
+        100% {
+          transform: translateY(0) translateX(0) rotate(0deg);
+        }
+      }
+      
+      .crypto-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+      }
+      
+      .crypto-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      
+      .crypto-content p {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .cta-button {
+        background: linear-gradient(135deg, #ffd166 0%, #ffb74d 100%);
+        color: #1a2a32;
+        border: none;
+        padding: 15px 40px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, #ffb74d 0%, #ffa726 100%);
+      }
+      
+      .progress-container {
+        background: rgba(0, 0, 0, 0.2);
+        height: 20px;
+        border-radius: 10px;
+        margin: 20px auto;
+        max-width: 500px;
+        overflow: hidden;
+      }
+      
+      .progress-bar {
+        background: linear-gradient(90deg, #ffd166 0%, #06d6a0 100%);
+        height: 100%;
+        width: 2%;
+        border-radius: 10px;
+        animation: progressAnimation 2s ease-in-out infinite alternate;
+      }
+      
+      @keyframes progressAnimation {
+        0% {
+          width: 2%;
+        }
+        100% {
+          width: 5%;
+        }
+      }
+      
+      .goal-text {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      
+      .crypto-logos {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 25px;
+      }
+      
+      .crypto-logo {
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        transition: all 0.3s ease;
+      }
+      
+      .crypto-logo:hover {
+        transform: scale(1.2) rotate(15deg);
+        background: rgba(255, 255, 255, 0.2);
+      }
+      
+      @media (max-width: 768px) {
+        .crypto-content h2 {
+          font-size: 2rem;
+        }
+        
+        .crypto-content p {
+          font-size: 1rem;
+        }
+        
+        .crypto-banner {
+          padding: 20px;
+        }
+      }
+    </style>
 </head>
 
 <body>
@@ -37,7 +325,6 @@
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
     <!-- Spinner End -->
-
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
@@ -73,7 +360,6 @@
     </nav>
     <!-- Navbar End -->
 
-
     <!-- Header Start -->
     <div class="container-fluid hero-header bg-light py-5 mb-5">
         <div class="container py-5">
@@ -96,14 +382,35 @@
     </div>
     <!-- Header End -->
 
-
     <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5 align-items-center">
+                <!-- Profile Card -->
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <img class="img-fluid" src="img/about.png" alt="">
+                    <div class="profile-card">
+                        <div class="image-container">
+                            <img id="profile-img" src="img/kane-021802.jpg" alt="Dkane" class="profile-image" />
+                            <button class="share-btn" onclick="document.getElementById('upload-input').click()">📤 Share</button>
+                        </div>
+                        <div class="info-bar">
+                            <div>
+                                <div class="name">Dkane</div>
+                                <div class="handle">@Duacrypto</div>
+                            </div>
+                            <div class="actions">
+                                <span class="icon">⚡</span>
+                                <span class="icon">𝕏</span>
+                                <button class="edit-btn">Edit profile</button>
+                            </div>
+                        </div>
+                        <div class="bio">
+                            BUILDing Crypto (NFA) | Web3 Advisor for Albania | Albania's Web3 Community | Crypto OG | DeFi Security Consultant | Trading Crypto AGI | Tirana, Albania AML Chainalysis On-Chain Analysis
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Original About Text -->
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
                         <h1 class="display-6">About Us</h1>
@@ -126,11 +433,50 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Crypto Donation Banner -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="crypto-banner-container" onclick="redirectToDonation()">
+                        <div class="crypto-banner">
+                            <div class="crypto-icons" id="crypto-icons"></div>
+                            
+                            <div class="crypto-content">
+                                <h2>Support Crypto Education</h2>
+                                <p>Your donation helps empower mothers with cryptocurrency knowledge and creates opportunities for financial independence</p>
+                                
+                                <div class="progress-container">
+                                    <div class="progress-bar"></div>
+                                </div>
+                                
+                                <p class="goal-text">Goal: $30,000 (2% Raised)</p>
+                                
+                                <button class="cta-button">Donate Crypto Now</button>
+                                
+                                <div class="crypto-logos">
+                                    <div class="crypto-logo">
+                                        <i class="fab fa-bitcoin"></i>
+                                    </div>
+                                    <div class="crypto-logo">
+                                        <i class="fab fa-ethereum"></i>
+                                    </div>
+                                    <div class="crypto-logo">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="crypto-logo">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- About End -->
 
-
+    
     <!-- Footer Start -->
     <div class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
@@ -185,7 +531,6 @@
                         &copy; <a href="#">Your Site Name</a>, All Right Reserved.
                     </div>
                     <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                         Designed By <a href="https://htmlcodex.com">HTML Codex</a>
                     </div>
                 </div>
@@ -194,10 +539,11 @@
     </div>
     <!-- Footer End -->
 
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <!-- Hidden File Input -->
+    <input type="file" id="upload-input" accept="image/*" style="display:none;">
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -210,6 +556,69 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
 
+    <!-- Custom Scripts -->
+    <script>
+      // Profile image upload
+      document.getElementById('upload-input').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(event) {
+            document.getElementById('profile-img').src = event.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+      
+      // Function to redirect to donation page
+      function redirectToDonation() {
+        window.location.href = 'donation.html';
+      }
+      
+      // Create floating crypto icons
+      document.addEventListener('DOMContentLoaded', function() {
+        const cryptoIconsContainer = document.getElementById('crypto-icons');
+        const icons = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-coins', 'fas fa-dollar-sign', 
+                      'fas fa-chart-line', 'fas fa-wallet', 'fas fa-gem'];
+        
+        for (let i = 0; i < 20; i++) {
+          const icon = document.createElement('i');
+          icon.className = icons[Math.floor(Math.random() * icons.length)] + ' crypto-icon';
+          
+          // Random position
+          const left = Math.random() * 100;
+          const top = Math.random() * 100;
+          
+          icon.style.left = `${left}%`;
+          icon.style.top = `${top}%`;
+          
+          // Random animation delay
+          icon.style.animationDelay = `${Math.random() * 5}s`;
+          icon.style.animationDuration = `${15 + Math.random() * 10}s`;
+          
+          cryptoIconsContainer.appendChild(icon);
+        }
+        
+        // Add interactive effects on hover
+        const banner = document.querySelector('.crypto-banner');
+        if (banner) {
+          banner.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            // Move icons based on mouse position
+            const icons = document.querySelectorAll('.crypto-icon');
+            icons.forEach(icon => {
+              const speed = 10;
+              const xOffset = (x - 0.5) * speed;
+              const yOffset = (y - 0.5) * speed;
+              
+              icon.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+          });
+        }
+      });
+    </script>
+</body>
 </html>

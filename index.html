@@ -52,8 +52,9 @@
                 <a href="index.html" class="nav-item nav-link active">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="service.html" class="nav-item nav-link">Service</a>
-                <a href="roadmap.html" class="nav-item nav-link">Roadmap</a>
-                <div class="nav-item dropdown">
+            <a href="roadmap.html" class="nav-item nav-link">Roadmap</a>
+            <a href="events.html" class="nav-item nav-link">Events</a>
+            <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu shadow-sm m-0">
                         <a href="feature.html" class="dropdown-item">Feature</a>
@@ -79,8 +80,10 @@
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="display-4 mb-3 animated slideInDown">Made in Albania</h1>
-                    <h2 class="animated slideInDown">We are Web3.</h2>
+                    <div class="d-flex flex-column align-items-start mb-3 wow slideInDown">
+                        <h1 class="display-4 mb-1">Made in Albania</h1>
+                        <span class="fs-3">We are Web3.</span>
+                    </div>
                     <p class="animated slideInDown">DuaCrypto brings people together to explore, learn, and build the future of crypto.</p>
                     <p class="animated slideInDown">No borders. No banks. Just freedom.</p>
                     <a href="https://duacrypto.org/" target="_blank" class="btn btn-primary py-3 px-4 Button wave-animation" title="Get your free guide in crypto" aria-label="Get your free guide in crypto">Free guide in crypto</a>
@@ -96,44 +99,179 @@
     <!-- Header End -->
 
 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuaCrypto - About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .container-xxl {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            margin: 30px auto;
+            padding: 2rem !important;
+        }
+        
+        /* Fixed checkmark circles */
+        .check-container {
+            display: flex;
+            align-items: flex-start;
+            padding: 8px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .check-container:hover {
+            background-color: rgba(13, 110, 253, 0.05);
+        }
+        
+        .check-circle {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+            color: #0d6efd;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .check-container:hover .check-circle {
+            background-color: #0d6efd;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .check-content {
+            flex: 1;
+        }
+        
+        /* Line animation on hover */
+        .line-animation {
+            position: relative;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        
+        .line-animation::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #0d6efd;
+            transition: width 0.3s ease;
+        }
+        
+        .line-animation:hover::after {
+            width: 100%;
+        }
+        
+        /* Image hover effect */
+        .img-hover-zoom {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .img-hover-zoom img {
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+        
+        .img-hover-zoom:hover img {
+            transform: scale(1.03);
+        }
+        
+        /* Button hover effect */
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(13, 110, 253, 0.3);
+        }
+        
+        /* Link styling */
+        .content-link {
+            color: #0d6efd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .content-link:hover {
+            color: #0a58ca;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
     <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <img class="img-fluid" src="img/Understanding-bitcoin-1.png" alt="Understanding Bitcoin">
+                <div class="col-lg-6">
+                    <div class="img-hover-zoom">
+                        <img class="img-fluid" src="img/2029.webp" alt="Understanding Bitcoin">
+                    </div>
                 </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-lg-6">
                     <div class="h-100">
-                        <h1 class="display-6">About Us</h1>
+                        <h1 class="display-6 mb-4">About Us</h1>
                         <p class="text-primary fs-5 mb-4">The Most Trusted Crypto & AI Community</p>
-                        <p>We're on a journey to become the leading crypto community not just in Albania, but across the Balkans.</p>
-                        <p class="mb-4">Whether you're a developer, a student eager to learn about blockchain, or someone in traditional finance looking to explore Bitcoin and Web3, DuaCrypto is here for you.</p>
-                        <div class="row mb-2">
-                            <div class="col-auto">
-                                <i class="fa fa-check bg-light text-primary btn-sm-square rounded-circle fw-bold"></i>
+                        
+                        <p class="line-animation">We're on a journey to become the leading crypto community not just in Albania, but across the Balkans.</p>
+                        <p class="mb-4 line-animation">Whether you're a developer, a student eager to learn about blockchain, or someone in traditional finance looking to explore Bitcoin and Web3, DuaCrypto is here for you.</p>
+                        
+                        <div class="check-container">
+                            <div class="check-circle">
+                                <i class="fas fa-check"></i>
                             </div>
-                            <div class="col">
-                                👉 <strong><a href="https://duacrypto.org" target="_blank" rel="noopener noreferrer">DuaCrypto.org</a></strong> — Free guides and investment insights.
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-auto">
-                                <i class="fa fa-check bg-light text-primary btn-sm-square rounded-circle fw-bold"></i>
-                            </div>
-                            <div class="col">
-                                👉 <strong><a href="https://duabtc.com" target="_blank" rel="noopener noreferrer">DuaBTC.com</a></strong> — Our store for crypto tools and AI products.
+                            <div class="check-content">
+                                👉 <strong><a href="https://duacrypto.org" target="_blank" rel="noopener noreferrer" class="content-link">DuaCrypto.org</a></strong> — Free guides and investment insights.
                             </div>
                         </div>
-                        <div class="row mb-4">
-                            <div class="col-auto">
-                                <i class="fa fa-check bg-light text-primary btn-sm-square rounded-circle fw-bold"></i>
+                        
+                        <div class="check-container">
+                            <div class="check-circle">
+                                <i class="fas fa-check"></i>
                             </div>
-                            <div class="col">
-                                👉 <strong><a href="https://bitcoinzat.com" target="_blank" rel="noopener noreferrer">BitcoinZat.com</a></strong> — Explore the story of Bitcoin and its history.
+                            <div class="check-content">
+                                👉 <strong><a href="https://duabtc.com" target="_blank" rel="noopener noreferrer" class="content-link">DuaBTC.com</a></strong> — Our store for crypto tools and AI products.
                             </div>
                         </div>
-                        <a class="btn btn-primary py-3 px-4" href="about.html">Read More</a>
+                        
+                        <div class="check-container">
+                            <div class="check-circle">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="check-content">
+                                👉 <strong><a href="https://bitcoinzat.com" target="_blank" rel="noopener noreferrer" class="content-link">BitcoinZat.com</a></strong> — Explore the story of Bitcoin and its history.
+                            </div>
+                        </div>
+                        
+                        <a class="btn btn-primary py-3 px-4 mt-3 btn-hover" href="about.html">Read More</a>
                     </div>
                 </div>
             </div>
@@ -141,43 +279,138 @@
     </div>
     <!-- About End -->
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
 
    <!-- Facts Start -->
 <div class="container-xxl bg-light py-5 my-5">
     <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.1s">
-                                        <img class="img-fluid mb-4" src="img/icon-9.png" alt="Bitcoin investment icon">
-                <h1 class="display-4">
-                    <span class="dollar-sign">$</span>
-                    <span data-toggle="counter-up">159,204</span>
+        <div class="row g-5 text-center">
+
+            <!-- Students Trained -->
+            <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                <img class="img-fluid mb-4" src="img/icon-9.png" alt="Students trained icon">
+                <h1 class="display-4 text-dark">
+                    <span class="icon-student"><i class="fas fa-user-graduate"></i></span>
+                    <span class="counter-number" data-target="1248">0</span>
                 </h1>
-                <p class="fs-5 text-primary mb-0">Earn From Trading </p>
+                <p class="fs-5 text-primary mb-0">Students Trained</p>
             </div>
-            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.3s">
-                                        <img class="img-fluid mb-4" src="img/icon-10.png" alt="Community members icon">
-                <h1 class="display-4">
-                    <span class="head-icon"><i class="fas fa-user"></i></span>
-                    <span data-toggle="counter-up">10,045</span>
-                </h1>
-                <p class="fs-5 text-primary mb-0">
-                    <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer">
-                        Members Join <i class="fab fa-telegram"></i>
-                    </a>
-                </p>
+
+            <!-- Telegram Members -->
+            <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                    <img class="img-fluid mb-4" src="img/icon-10.png" alt="Telegram community icon">
+                    <h1 class="display-4 text-dark">
+                        <span class="icon-telegram"><i class="fab fa-telegram-plane"></i></span>
+                        <span class="counter-number" data-target="10045">0</span>
+                    </h1>
+                    <p class="fs-5 text-primary mb-0">Follow Members</p>
+                </a>
             </div>
-            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.5s">
-                                        <img class="img-fluid mb-4" src="img/icon-2.png" alt="Airdrop hunting icon">
-                <h1 class="display-4">
+
+            <!-- Earned via Copy Trading -->
+            <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.5s">
+                <img class="img-fluid mb-4" src="img/icon-2.png" alt="Copy trading earnings icon">
+                <h1 class="display-4 text-dark">
                     <span class="dollar-sign">$</span>
-                    <span data-toggle="counter-up">530,252</span>
+                    <span class="counter-number" data-target="530252">0</span>
                 </h1>
                 <p class="fs-5 text-primary mb-0">Earned via Copy Trading</p>
             </div>
+
         </div>
     </div>
 </div>
 <!-- Facts End -->
+
+<!-- CSS për stilin e numrave dhe ikonave -->
+<style>
+    .display-4 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .icon-student, .icon-telegram, .dollar-sign {
+        display: inline-flex;
+        width: 50px;
+        height: 50px;
+        background-color: #0d6efd;
+        color: white;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icon-telegram {
+        background-color: #0088cc;
+    }
+
+    .dollar-sign {
+        background-color: #28a745;
+        font-size: 1.5rem;
+        width: 55px;
+        height: 55px;
+    }
+
+    .counter-number {
+        font-weight: 600;
+        color: #333;
+    }
+
+    /* Hover efekt */
+    .col-md-6 a:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+</style>
+
+<!-- Font Awesome për ikonat -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Wow.js për animacionin e hyrjes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/animate.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+<!-- Scripti që "lëviz" numrat -->
+<script>
+    // Inicializon Wow.js për animacionet
+    new WOW().init();
+
+    // Funksioni që lëviz numrat
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll('.counter-number');
+        
+        counters.forEach(counter => {
+            const updateCounter = () => {
+                const target = +counter.getAttribute('data-target');
+                const speed = 2000; // Koha gjithsej në ms
+                const increment = target / speed * 10;
+                let count = 0;
+
+                const timer = setInterval(() => {
+                    count += increment;
+                    if (count >= target) {
+                        counter.innerText = target.toLocaleString();
+                        clearInterval(timer);
+                    } else {
+                        counter.innerText = Math.floor(count).toLocaleString();
+                    }
+                }, 10);
+            };
+
+            // Starto numërimin kur elementi duket në ekran (opsionale: mund të shtohet Intersection Observer)
+            updateCounter();
+        });
+    });
+</script>
 
 
 
@@ -273,8 +506,6 @@
         <i class="fa fa-angle-double-up"></i>
     </a>
 
-
-
     <!-- Service Start -->
     <div class="container-xxl bg-light py-5 my-5">
         <div class="container py-5">
@@ -336,6 +567,25 @@
     </div>
     <!-- Service End -->
 
+    <style>
+    .service-item {
+        transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+        border-radius: 18px;
+    }
+    .service-item:hover {
+        background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.13);
+        transform: translateY(-8px) scale(1.03);
+        animation: pulseHighlight 0.4s;
+    }
+    @keyframes pulseHighlight {
+        0% { box-shadow: 0 0 0 0 rgba(13,110,253,0.15); }
+        70% { box-shadow: 0 0 0 12px rgba(13,110,253,0.08); }
+        100% { box-shadow: 0 12px 32px rgba(0,0,0,0.13); }
+    }
+    </style>
+
 
 <!-- Image Slideshow Start -->
 <div class="container-xxl py-5">
@@ -344,29 +594,39 @@
             <h1 class="display-6">Affiliate Products We Use</h1>
             <p class="text-primary fs-5 mb-5">Contact us to have your logo here</p>
         </div>
-        
+
         <!-- Slideshow Container -->
         <div class="wow fadeInUp" data-wow-delay="0.3s">
+            <style>
+            @keyframes slideFadeIn {
+                0% { opacity: 0; transform: scale(0.98) translateY(20px); }
+                100% { opacity: 1; transform: scale(1) translateY(0); }
+            }
+            .carousel-item img {
+                animation: slideFadeIn 1s cubic-bezier(0.4, 0.2, 0.2, 1) both;
+            }
+            </style>
             <div id="securitySlideshow" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+
                 <div class="carousel-inner">
                     <!-- Slide 1 -->
                     <div class="carousel-item active">
-                        <a href="https://unit.link/duacrypto" target="_blank">
+                        <a href="https://tangem.com/invite/BITCOINZAT" target="_blank" rel="noopener noreferrer">
                             <img src="img/Iphone_cards.png" class="d-block w-100 img-fluid" alt="Unit Cards - Crypto Payment Solution">
                         </a>
                     </div>
 
                     <!-- Slide 2 -->
                     <div class="carousel-item">
-                        <a href="https://unit.link/duacrypto" target="_blank">
-                            <img src="img/LEDGER_240515_EJEANNE_020_FLEX_STAX_LNX_LNSP_085.jpg" class="d-block w-100 img-fluid" alt="Ledger Hardware Wallet - Secure Crypto Storage">
+                        <a href="https://shop.ledger.com/?r=2deb3872c973" target="_blank" rel="noopener noreferrer">
+                            <img src="img/ledger-.jpg" class="d-block w-100 img-fluid" alt="Ledger Hardware Wallet - Secure Crypto Storage">
                         </a>
                     </div>
 
                     <!-- Slide 3 -->
                     <div class="carousel-item">
-                        <a href="https://unit.link/duacrypto" target="_blank">
-                            <img src="img/60ca667ddb707_.png" class="d-block w-100 img-fluid" alt="Crypto Mining Hardware - Professional Equipment">
+                        <a href="https://shop.deeper.network?sca_ref=2063681.3aWn8PiBjI" target="_blank" rel="noopener noreferrer">
+                            <img src="img/decentralized-VPN-router.jpg" class="d-block w-100 img-fluid" alt="Tangem Wallet - Secure Hardware Wallet" loading="eager">
                         </a>
                     </div>
                 </div>
@@ -388,21 +648,21 @@
 
 
 
- <!-- Affiliate Links Start -->
+<!-- Affiliate Links Start -->
 <div class="container-xxl bg-light py-5 my-5">
     <div class="container py-5">
-        <div class="text-center mx-auto wow fadeInUp section-header" data-wow-delay="0.1s">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
             <h1 class="display-6">Join Our Partners</h1>
             <p class="text-primary fs-5 mb-5">Click to access exclusive offers</p>
         </div>
         <div class="row g-4 justify-content-center">
             <!-- Tangem Card -->
             <div class="col-12 col-md-4 wow fadeIn" data-wow-delay="0.1s">
-                <a href="https://tangem.com/pricing/?promocode=TVYVKB" target="_blank" class="text-decoration-none">
-                    <div class="bg-white text-center p-4 h-100 rounded-3 shadow-hover">
+                <a href="https://tangem.com/invite/BITCOINZAT" target="_blank" class="text-decoration-none">
+                    <div class="brand-card text-center p-4 h-100 rounded-3 shadow-hover" data-brand="Tangem">
                         <h3 class="mb-3">Tangem Wallet</h3>
-                        <p class="text-muted">Secure Hardware Wallet</p>
-                        <span class="text-primary">Get Discount →</span>
+                        <p>Secure Hardware Wallet</p>
+                        <span class="brand-accent">Get Discount →</span>
                     </div>
                 </a>
             </div>
@@ -410,10 +670,10 @@
             <!-- Bitget Card -->
             <div class="col-12 col-md-4 wow fadeIn" data-wow-delay="0.3s">
                 <a href="https://www.bitget.com/referral/register?clacCode=GK802F53" target="_blank" class="text-decoration-none">
-                    <div class="bg-white text-center p-4 h-100 rounded-3 shadow-hover">
+                    <div class="brand-card text-center p-4 h-100 rounded-3 shadow-hover" data-brand="Bitget">
                         <h3 class="mb-3">Bitget Exchange</h3>
-                        <p class="text-muted">Copy Trading Platform</p>
-                        <span class="text-primary">Sign Up Bonus →</span>
+                        <p>Copy Trading Platform</p>
+                        <span class="brand-accent">Sign Up Bonus →</span>
                     </div>
                 </a>
             </div>
@@ -421,10 +681,10 @@
             <!-- Binance Card -->
             <div class="col-12 col-md-4 wow fadeIn" data-wow-delay="0.5s">
                 <a href="https://accounts.binance.com/register?ref=QH7UTFK8" target="_blank" class="text-decoration-none">
-                    <div class="bg-white text-center p-4 h-100 rounded-3 shadow-hover">
+                    <div class="brand-card text-center p-4 h-100 rounded-3 shadow-hover" data-brand="Binance">
                         <h3 class="mb-3">Binance</h3>
-                        <p class="text-muted">World's Largest Exchange</p>
-                        <span class="text-primary">Get Started →</span>
+                        <p>World's Largest Exchange</p>
+                        <span class="brand-accent">Get Started →</span>
                     </div>
                 </a>
             </div>
@@ -433,7 +693,144 @@
 </div>
 <!-- Affiliate Links End -->
 
+<style>
+.brand-card {
+    transition: all 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    font-weight: 500;
+    text-align: center;
+}
+.brand-card h3 {
+    margin-bottom: 15px;
+}
+.brand-card p {
+    margin-bottom: 20px;
+}
+.brand-card .brand-accent {
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.brand-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    filter: brightness(1.1); /* Efekt më i ndritshëm kur hover */
+}
+</style>
 
+<script>
+const brandColors = {
+    Tangem: { background: 'linear-gradient(135deg, #1293E6, #1F8FE0)', text: '#F0F0F0', accent: '#1F1F1F' },
+    Bitget: { background: 'linear-gradient(135deg, #00F0FF, #00CFFF)', text: '#0c0e12', accent: '#0c0e12' },
+    Binance: { background: 'linear-gradient(135deg, #f0b90b, #e0a600)', text: '#0c0e12', accent: '#0c0e12' }
+};
+
+document.querySelectorAll('.brand-card').forEach(card => {
+    const brand = card.getAttribute('data-brand');
+    if (brandColors[brand]) {
+        const colors = brandColors[brand];
+        card.style.background = colors.background;
+        card.style.color = colors.text; // Ngjyra e tekstit
+        const accent = card.querySelector('.brand-accent');
+        if (accent) accent.style.color = colors.accent; // Ngjyra e linkut/accent
+    }
+});
+</script>
+<!-- NewsLetters Start -->
+<div class="container-xxl py-5">
+    <div class="container text-center">
+        <!-- Section Header -->
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="display-6">Paid NewsLetters</h1>
+            <p class="text-muted">Unlock premium crypto insights, meme coin signals, and airdrop alerts from DuaCrypto.</p>
+        </div>
+
+        <!-- Product Showcase Frame -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-8 col-md-10">
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden wow fadeIn" data-wow-delay="0.3s">
+                    <!-- Product Image -->
+                    <div class="position-relative">
+                        <img src="https://public-files.gumroad.com/sn6ytm4khe3ql86ko2vmfozyqgh2" 
+                             class="card-img-top" 
+                             alt="DuaCrypto Newsletter & Airdrop Alerts" 
+                             style="height: 300px; object-fit: cover;">
+                        <div class="position-absolute top-0 start-0 bg-danger text-white px-3 py-2 m-3 rounded-3 fs-6">
+                            <i class="fas fa-bolt"></i> $10/month
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-3">Crypto Meme Coin Newsletter & Airdrop Alerts</h3>
+                        <p class="text-muted">
+                            Get early access to <strong>100x potential meme coins</strong>, Murad wallet strategies, and real-time airdrop alerts.
+                        </p>
+
+                        <!-- Key Features -->
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Early-Stage Meme Coin Alerts</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Murad Wallet & Privacy Tactics</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Proven Exit Signals Before Dumps</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Exclusive Telegram Group Access</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Weekly 100x Project Reports</li>
+                        </ul>
+
+                        <!-- Call to Action -->
+                        <div class="d-grid gap-2">
+                            <a href="https://duacrypto.gumroad.com/l/newsleter" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="btn btn-primary btn-lg rounded-5 py-3 fs-5"
+                               onclick="trackBuyClick()">
+                                <i class="fas fa-shopping-cart me-2"></i> Buy Now – Only $5/month
+                            </a>
+                            <small class="text-muted">Secure checkout via Gumroad • Cancel anytime</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Join Our Partners End -->
+
+<!-- CSS Styling -->
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .btn-primary {
+        background-color: #7928CA;
+        border: none;
+        font-weight: 600;
+    }
+    .btn-primary:hover {
+        background-color: #6200B3;
+    }
+</style>
+
+<!-- JavaScript for Tracking (Optional) -->
+<script>
+    function trackBuyClick() {
+        console.log("User clicked 'Buy Now' for DuaCrypto Newsletter");
+        // Optional: Integrate with Google Analytics, Meta Pixel, or Gumroad JS API
+        // Gumroad embed script (uncomment to enable embedded lightbox checkout)
+        /*
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "https://gumroad.com/js/gumroad.js";
+        document.head.appendChild(script);
+        */
+    }
+
+    // Optional: Auto-init Gumroad (for embedded modal checkout instead of redirect)
+    // Learn more: https://gumroad.com/help/embeddable-buttons
+</script>
 
 
     <!-- FAQs Start -->
@@ -689,6 +1086,7 @@
                     <a class="btn btn-link" href="contact.html">Contact Us</a>
                     <a class="btn btn-link" href="service.html">Our Services</a>
                     <a class="btn btn-link" href="#">Terms & Condition</a>
+            
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="mb-4">Follow Us</h5>
