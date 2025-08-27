@@ -9,7 +9,8 @@
     <meta content="DuaCrypto - Albania's first and most trusted crypto community. Learn Bitcoin, Web3, and blockchain technology with expert guidance from local mentors. Join 10,000+ members in the Balkans." name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+<link rel="icon" type="image/png" href="https://cryptologos.cc/logos/bitcoin-btc-logo.png">
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -736,63 +737,73 @@ document.querySelectorAll('.brand-card').forEach(card => {
     }
 });
 </script>
-<!-- NewsLetters Start -->
-<div class="container-xxl py-5">
-    <div class="container text-center">
-        <!-- Section Header -->
-        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="display-6">Paid NewsLetters</h1>
-            <p class="text-muted">Unlock premium crypto insights, meme coin signals, and airdrop alerts from DuaCrypto.</p>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuaCrypto Newsletter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom mobile-first styles */
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        /* Responsive font sizes */
+        .mobile-heading {
+            font-size: calc(1.5rem + 1vw);
+        }
+        
+        .mobile-subheading {
+            font-size: calc(0.9rem + 0.3vw);
+        }
+        
+        /* Adjust padding for mobile */
+        @media (max-width: 768px) {
+            .container-xxl.py-5 {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+            
+            .card-body {
+                padding: 1.5rem !important;
+            }
+            
+            .btn-lg {
+                padding: 0.75rem 1rem;
+                font-size: 1rem;
+            }
+            
+            /* Stack features in a more compact way */
+            .list-unstyled li {
+                margin-bottom: 0.5rem !important;
+            }
+        }
+        
+        /* Very small devices */
+        @media (max-width: 576px) {
+            .card-img-top {
+                height: 175px;
+            }
+            
+            .position-absolute.fs-6 {
+                font-size: 0.8rem !important;
+                padding: 0.4rem 0.8rem !important;
+            }
+        }
+        
+        /* Touch-friendly button */
+        .btn {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 
-        <!-- Product Showcase Frame -->
-        <div class="row justify-content-center mt-5">
-            <div class="col-lg-8 col-md-10">
-                <div class="card border-0 shadow-lg rounded-4 overflow-hidden wow fadeIn" data-wow-delay="0.3s">
-                    <!-- Product Image -->
-                    <div class="position-relative">
-                        <img src="https://public-files.gumroad.com/sn6ytm4khe3ql86ko2vmfozyqgh2" 
-                             class="card-img-top" 
-                             alt="DuaCrypto Newsletter & Airdrop Alerts" 
-                             style="height: 300px; object-fit: cover;">
-                        <div class="position-absolute top-0 start-0 bg-danger text-white px-3 py-2 m-3 rounded-3 fs-6">
-                            <i class="fas fa-bolt"></i> $10/month
-                        </div>
-                    </div>
-
-                    <!-- Card Body -->
-                    <div class="card-body p-4">
-                        <h3 class="card-title mb-3">Crypto Meme Coin Newsletter & Airdrop Alerts</h3>
-                        <p class="text-muted">
-                            Get early access to <strong>100x potential meme coins</strong>, Murad wallet strategies, and real-time airdrop alerts.
-                        </p>
-
-                        <!-- Key Features -->
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Early-Stage Meme Coin Alerts</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Murad Wallet & Privacy Tactics</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Proven Exit Signals Before Dumps</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Exclusive Telegram Group Access</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Weekly 100x Project Reports</li>
-                        </ul>
-
-                        <!-- Call to Action -->
-                        <div class="d-grid gap-2">
-                            <a href="https://duacrypto.gumroad.com/l/newsleter" 
-                               target="_blank" 
-                               rel="noopener noreferrer" 
-                               class="btn btn-primary btn-lg rounded-5 py-3 fs-5"
-                               onclick="trackBuyClick()">
-                                <i class="fas fa-shopping-cart me-2"></i> Buy Now – Only $5/month
-                            </a>
-                            <small class="text-muted">Secure checkout via Gumroad • Cancel anytime</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Join Our Partners End -->
 
 <!-- CSS Styling -->

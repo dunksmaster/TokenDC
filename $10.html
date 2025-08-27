@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuaCrypto - Premium Crypto Newsletter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #25a56a;
+            --light-green: #e8f5ef;
+            --dark-green: #1d8a5a;
+            --accent-yellow: #ffd700;
+            --gradient: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fdfb;
+            color: #333;
+        }
+        
+        /* Header Styles */
+        .donation-header {
+            background: var(--gradient);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .donation-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,138.7C672,149,768,139,864,128C960,117,1056,107,1152,112C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Newsletter Styles */
+        .newsletter-container {
+            padding: 3rem 0;
+        }
+        
+        .newsletter-card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .newsletter-card:hover {
+            transform: translateY(-5px);
+        }
+        
+      .newsletter-img-container {
+  width: 100%;
+  max-width: 400px; /* adjust depending on design */
+  margin: 0 auto;
+  position: relative;
+}
+
+.newsletter-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px; /* optional for style */
+}
+
+.price-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #ffcc00;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+        
+        .newsletter-content {
+            padding: 2rem;
+        }
+        
+        .newsletter-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .newsletter-description {
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .feature-list {
+            margin-bottom: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            color: #34495e;
+        }
+        
+        .feature-icon {
+            color: var(--primary-green);
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 165, 106, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 165, 106, 0.4);
+            background: linear-gradient(135deg, var(--dark-green) 0%, #166c46 100%);
+        }
+        
+        .secure-note {
+            font-size: 0.85rem;
+            color: #95a5a6;
+            margin-top: 10px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light-green);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-green);
+        }
+        
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-answer {
+            color: #7f8c8d;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .newsletter-img-container {
+                height: 200px;
+            }
+            
+            .newsletter-content {
+                padding: 1.5rem;
+            }
+            
+            .newsletter-title {
+                font-size: 1.5rem;
+            }
+            
+            .donation-header {
+                padding: 3rem 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .newsletter-img-container {
+                height: 180px;
+            }
+            
+            .price-badge {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="donation-header">
+        <div class="container position-relative">
+            <h1 class="display-4 fw-bold mb-3">DuaCrypto Premium Newsletter</h1>
+            <p class="lead">Get expert crypto insights, meme coin signals, and airdrop alerts</p>
+        </div>
+    </header>
+
+    <!-- Newsletter Content -->
+    <section class="newsletter-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center mb-5">
+                        <h2 class="display-5 fw-bold mb-3">Paid Newsletters</h2>
+                        <p class="lead text-muted">Unlock premium crypto insights, meme coin signals, and airdrop alerts from DuaCrypto.</p>
+                    </div>
+                    
+                    <div class="newsletter-card">
+                        <!-- Product Image -->
+                        <div class="newsletter-img-container">
+                            <img src="https://public-files.gumroad.com/sn6ytm4khe3ql86ko2vmfozyqgh2" class="newsletter-img" alt="DuaCrypto Newsletter & Airdrop Alerts">
+                            <div class="price-badge">
+                                <i class="fas fa-bolt me-1"></i> $10/month
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="newsletter-content">
+                            <h3 class="newsletter-title">Crypto Meme Coin Newsletter & Airdrop Alerts</h3>
+                            <p class="newsletter-description">
+                                Get early access to <strong>100x potential meme coins</strong>, Murad wallet strategies, and real-time airdrop alerts.
+                            </p>
+
+                            <!-- Key Features -->
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <i class="fas fa-check feature-icon"></i>
+                                    <span>Early-Stage Meme Coin Alerts</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check feature-icon"></i>
+                                    <span>Murad Wallet & Privacy Tactics</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check feature-icon"></i>
+                                    <span>Proven Exit Signals Before Dumps</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check feature-icon"></i>
+                                    <span>Exclusive Telegram Group Access</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check feature-icon"></i>
+                                    <span>Weekly 100x Project Reports</span>
+                                </div>
+                            </div>
+
+                            <!-- Call to Action -->
+                            <div class="text-center">
+                                <a href="https://duacrypto.gumroad.com/l/newsleter?wanted=true" target="_blank" rel="noopener noreferrer" class="btn cta-button">
+                                    <i class="fas fa-shopping-cart me-2"></i> Subscribe Now - $10/month
+                                </a>
+                                <p class="secure-note">Secure checkout via Gumroad • Cancel anytime</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Subscribers Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The meme coin alerts have been spot on. I've 5x my investment in just 2 months following DuaCrypto's signals."</p>
+                        <p class="testimonial-author">- Alex K.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The airdrop alerts alone are worth the subscription. I've claimed over $2,000 in airdrops thanks to this newsletter."</p>
+                        <p class="testimonial-author">- Sarah M.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The Murad wallet strategies have completely changed how I manage my crypto privacy and security."</p>
+                        <p class="testimonial-author">- James T.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-item">
+                        <h4 class="faq-question">How often will I receive alerts?</h4>
+                        <p class="faq-answer">You'll receive regular alerts throughout the week, typically 3-5 high-quality signals weekly, plus immediate airdrop notifications as they become available.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">Can I cancel anytime?</h4>
+                        <p class="faq-answer">Yes, you can cancel your subscription at any time through your Gumroad account. There are no long-term commitments.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">What payment methods do you accept?</h4>
+                        <p class="faq-answer">Gumroad accepts all major credit cards, PayPal, and various cryptocurrency options for payment.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">How do I access the Telegram group?</h4>
+                        <p class="faq-answer">After purchasing, you'll receive an invitation link to join our exclusive Telegram group where all signals and discussions happen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Ready to Transform Your Crypto Journey?</h2>
+                    <p class="lead mb-4">Join hundreds of successful subscribers who are already profiting from our expert insights</p>
+                    <a href="https://duacrypto.gumroad.com/l/newsleter?wanted=true" target="_blank" rel="noopener noreferrer" class="btn cta-button">
+                        <i class="fas fa-rocket me-2"></i> Get Instant Access Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>Thank you for supporting our crypto education initiatives</p>
+            <p>© 2023 DuaCrypto. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
