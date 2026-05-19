@@ -1,0 +1,7 @@
+{
+  "resource": "https://duacrypto.com/api/v1/site",
+  "authorization_servers": ["https://duacrypto.com"],
+  "scopes_supported": ["site.read"],
+  "bearer_methods_supported": ["header"],
+  "resource_documentation": "https://duacrypto.com/docs/api"
+}

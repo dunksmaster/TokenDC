@@ -1,0 +1,271 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #16d5ff;
+  --color-primary-dark: #00b8e0;
+  --color-secondary: #999999;
+  --color-light: #f2f8fe;
+  --color-dark: #111111;
+  --color-page: #ffffff;
+  --color-surface: #f2f8fe;
+  --color-card: #ffffff;
+  --color-border: #e5e7eb;
+
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Roboto", ui-sans-serif, system-ui, sans-serif;
+}
+
+html.dark {
+  --color-light: #21262d;
+  --color-dark: #e6edf3;
+  --color-secondary: #8b949e;
+  --color-page: #0d1117;
+  --color-surface: #161b22;
+  --color-card: #1c2128;
+  --color-border: #30363d;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-page font-sans text-dark antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-medium;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply mx-auto max-w-lg text-center;
+  }
+
+  .section-title-wide {
+    @apply mx-auto max-w-3xl text-center;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 font-medium text-white transition hover:bg-primary-dark;
+  }
+
+  .nav-link {
+    @apply block px-0 py-2 font-medium text-dark transition hover:text-primary lg:px-0 lg:py-6;
+  }
+
+  .nav-link-active {
+    @apply text-primary;
+  }
+
+  .social-btn {
+    @apply flex h-10 w-10 items-center justify-center rounded-full bg-light text-primary transition hover:bg-primary hover:text-white;
+  }
+
+  .check-row {
+    @apply flex items-start gap-4 rounded-lg p-2 transition hover:bg-primary/5;
+  }
+
+  .check-icon {
+    @apply flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-light text-xs text-primary transition group-hover/check:bg-primary group-hover/check:text-white;
+  }
+
+  .line-hover {
+    @apply relative py-2 transition after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full;
+  }
+
+  .service-card {
+    @apply rounded-2xl bg-card p-8 text-dark shadow-md transition hover:-translate-y-2 hover:scale-[1.02] hover:shadow-xl;
+  }
+
+  html.dark .service-card {
+    @apply hover:bg-[#21262d];
+  }
+
+  .brand-card {
+    @apply h-full cursor-pointer rounded-xl p-6 text-center font-medium shadow-lg transition hover:-translate-y-1.5 hover:brightness-110 hover:shadow-2xl;
+  }
+
+  .stat-card {
+    @apply rounded-2xl bg-card p-8 shadow-md transition hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  html.dark .stat-card {
+    @apply shadow-lg shadow-black/30;
+  }
+
+  .stat-icon {
+    @apply inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg text-white shadow-sm;
+  }
+
+  .stat-icon-student {
+    @apply bg-primary;
+  }
+
+  .stat-icon-telegram {
+    @apply bg-primary-dark;
+  }
+
+  .stat-icon-dollar {
+    @apply bg-primary text-xl;
+  }
+
+  .stat-value {
+    @apply text-4xl font-bold text-dark;
+  }
+
+  .stat-label {
+    @apply text-lg font-medium text-primary;
+  }
+
+  .accordion-item {
+    @apply mb-4 overflow-hidden rounded-md;
+  }
+
+  .accordion-btn {
+    @apply flex w-full items-center justify-between bg-surface px-5 py-4 text-left font-medium text-dark transition hover:bg-primary/10;
+  }
+
+  html.dark .accordion-btn {
+    @apply hover:bg-primary/20;
+  }
+
+  html.dark .accordion-panel {
+    @apply bg-page text-[#c9d1d9];
+  }
+
+  .accordion-btn-open {
+    @apply bg-primary text-white;
+  }
+
+  .accordion-panel {
+    @apply px-5 pb-4 pt-3;
+  }
+
+  .footer-link {
+    @apply mb-1 block text-secondary transition hover:pl-1 hover:text-primary;
+  }
+
+  .back-to-top {
+    @apply fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl text-white opacity-0 invisible transition hover:-translate-y-1 hover:bg-primary-dark hover:shadow-lg;
+  }
+
+  .back-to-top.show {
+    @apply visible opacity-100;
+  }
+
+  .wave-animation {
+    animation: wave 2s infinite;
+  }
+
+  .wave-animation:hover {
+    animation-play-state: paused;
+  }
+
+  .logo-img {
+    @apply w-11;
+  }
+
+  .theme-toggle {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-primary transition hover:border-primary hover:bg-primary hover:text-white;
+  }
+
+  html.dark #nav-menu {
+    @apply border-border bg-surface;
+  }
+
+  html.dark #nav-dropdown-menu {
+    @apply bg-card shadow-xl shadow-black/30;
+  }
+
+  html.dark #nav-dropdown-menu a {
+    @apply text-dark hover:bg-light hover:text-primary;
+  }
+
+  html.dark .site-input {
+    @apply border-border bg-page text-dark placeholder:text-secondary;
+  }
+
+  html.dark .site-panel {
+    @apply border-border bg-card;
+  }
+
+  html.dark h1,
+  html.dark h2,
+  html.dark h3,
+  html.dark .font-semibold {
+    @apply text-dark;
+  }
+
+  html.dark .line-hover {
+    @apply text-secondary;
+  }
+}
+
+/* Beat leftover utility classes from older markup */
+html.dark .bg-white {
+  background-color: var(--color-page) !important;
+}
+
+html.dark .bg-light {
+  background-color: var(--color-surface) !important;
+}
+
+html.dark #navbar.bg-white,
+html.dark #navbar {
+  background-color: var(--color-surface) !important;
+}
+
+html.dark #nav-menu.bg-white {
+  background-color: var(--color-surface) !important;
+}
+
+@media (min-width: 1024px) {
+  html.dark #nav-menu.lg\:bg-transparent {
+    background-color: transparent !important;
+  }
+}
+
+html.dark #spinner.bg-white,
+html.dark #spinner {
+  background-color: var(--color-page) !important;
+}
+
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-gray-300 {
+  border-color: var(--color-border) !important;
+}
+
+@media (max-width: 1023px) {
+  #nav-dropdown-menu.is-open {
+    display: block;
+  }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

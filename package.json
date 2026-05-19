@@ -1,0 +1,16 @@
+{
+  "name": "tokendc",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/generate-agent-assets.mjs && vite",
+    "build": "node scripts/generate-agent-assets.mjs && vite build",
+    "preview": "vite preview",
+    "agent:generate": "node scripts/generate-agent-assets.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.8",
+    "tailwindcss": "^4.1.8",
+    "vite": "^6.3.5"
+  }
+}

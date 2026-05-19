@@ -1,0 +1,97 @@
+# robots.txt for https://duacrypto.com/
+# https://www.rfc-editor.org/rfc/rfc9309
+
+# Default crawlers
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /about.html
+Allow: /service.html
+Allow: /roadmap.html
+Allow: /events.html
+Allow: /feature.html
+Allow: /token.html
+Allow: /faq.html
+Allow: /contact.html
+Allow: /donation.html
+Disallow: /404.html
+Disallow: /$10.html
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scss/
+Disallow: /dist/
+Disallow: /lib/
+Disallow: /js/
+Disallow: /.github/
+Disallow: /.vscode/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Bingbot
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+# AI crawlers
+User-agent: GPTBot
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Bytespider
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+User-agent: CCBot
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+Sitemap: https://duacrypto.com/sitemap.xml

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "site-navigation",
+      "type": "skill-md",
+      "description": "Navigate the DuaCrypto public website and list canonical page URLs.",
+      "url": "https://duacrypto.com/.well-known/agent-skills/site-navigation/SKILL.md",
+      "digest": "sha256:0d5a959901b86531ca68dbe5479f04eb90f52b887f9b445bd7a25aa1699a0ab6"
+    }
+  ]
+}
