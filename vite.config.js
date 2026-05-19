@@ -55,6 +55,8 @@ export default defineConfig({
         faq: "faq.html",
         contact: "contact.html",
         donation: "donation.html",
+        "$10": "$10.html",
+        "404": "404.html",
       },
     },
   },

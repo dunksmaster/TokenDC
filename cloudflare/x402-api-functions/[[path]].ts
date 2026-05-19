@@ -1,6 +1,11 @@
 import { handle } from "hono/cloudflare-pages";
 import { createSiteApiApp } from "../../lib/x402-site-api.mjs";
 
+/** x402 / hono use Node built-ins (e.g. `url`); required for Pages Functions bundling. */
+export const config = {
+  compatibility_flags: ["nodejs_compat"],
+};
+
 interface Env {
   ASSETS: Fetcher;
   X402_PAY_TO?: string;

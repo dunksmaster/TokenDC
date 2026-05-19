@@ -1,10 +1,12 @@
 /
   Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="describedby", </openapi/site-api.yaml>; rel="service-desc"; type="application/yaml", </docs/api>; rel="service-doc"; type="text/html", </.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"
   Content-Signal: ai-train=no, search=yes, ai-input=yes
+  Vary: Accept
 
 /index.html
   Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="describedby", </openapi/site-api.yaml>; rel="service-desc"; type="application/yaml", </docs/api>; rel="service-doc"; type="text/html", </.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"
   Content-Signal: ai-train=no, search=yes, ai-input=yes
+  Vary: Accept
 
 /.well-known/api-catalog
   Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
