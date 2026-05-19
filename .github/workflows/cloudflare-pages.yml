@@ -35,4 +35,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: npm run deploy
+          # Pages deploy (not `wrangler versions upload`). Requires CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID secrets.
+          command: npm run deploy:production

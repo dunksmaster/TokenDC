@@ -1,6 +1,8 @@
-# Cloudflare Pages (not a Worker). Do NOT run `wrangler deploy`.
-# Build: npm run build  |  Output: dist  |  Deploy command (if any): npm run deploy
-# Or leave Deploy command blank in Pages settings — CF uploads dist/ + functions/ automatically.
+# Cloudflare Pages (not a Worker). Do NOT run `wrangler deploy` or `wrangler versions upload`.
+# Build: npm run build  |  Output: dist
+# Git "Deploy command" in the dashboard MUST be empty, or: npm run deploy
+# Wrong (breaks builds): npx wrangler versions upload
+# See docs/CLOUDFLARE-DEPLOY.md
 name = "dc-site"
 compatibility_date = "2024-09-01"
 pages_build_output_dir = "dist"
