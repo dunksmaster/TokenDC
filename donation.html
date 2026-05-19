@@ -29,6 +29,90 @@
             background-color: #f9fdfb;
             color: #333;
         }
+
+        .donation-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            background: #fff;
+            border-bottom: 1px solid rgba(37, 165, 106, 0.2);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .donation-nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            min-height: 56px;
+            padding-block: 0.5rem;
+        }
+
+        .donation-nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-size: 1rem;
+            min-width: 0;
+        }
+
+        .donation-nav-brand img {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+        }
+
+        .donation-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem 0.75rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .donation-nav-links a {
+            color: #444;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.35rem 0.5rem;
+            border-radius: 6px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .donation-nav-links a:hover {
+            color: var(--primary-green);
+            background: var(--light-green);
+        }
+
+        .donation-nav-links a.active {
+            color: var(--dark-green);
+            background: var(--light-green);
+        }
+
+        html.dark .donation-nav {
+            background: #161b22;
+            border-bottom-color: #30363d;
+        }
+
+        html.dark .donation-nav-brand {
+            color: #7ee787;
+        }
+
+        html.dark .donation-nav-links a {
+            color: #c9d1d9;
+        }
+
+        html.dark .donation-nav-links a:hover,
+        html.dark .donation-nav-links a.active {
+            color: #7ee787;
+            background: #21262d;
+        }
         
         .donation-header {
             background: var(--gradient);
@@ -223,8 +307,16 @@
             border: none;
             border-radius: 5px;
             padding: 0.5rem 1rem;
+            min-height: 44px;
             cursor: pointer;
             transition: all 0.3s ease;
+        }
+
+        @media (max-width: 576px) {
+            .wallet-address .copy-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
         
         .copy-btn:hover {
@@ -451,7 +543,20 @@
 
         @media (max-width: 768px) {
             .donation-header {
-                padding: 3rem 0;
+                padding: 2.5rem 0;
+            }
+
+            .donation-header h1 {
+                font-size: clamp(1.35rem, 5vw, 2rem);
+            }
+
+            .donation-header .lead {
+                font-size: 1rem;
+            }
+
+            body > .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
             
             .mission-section {
@@ -472,11 +577,32 @@
             .donation-impact {
                 grid-template-columns: 1fr;
             }
+
+            .donation-nav-brand span {
+                font-size: 0.9rem;
+            }
         }
     </style>
     <link href="/css/dark-mode.css" rel="stylesheet">
 </head>
 <body>
+    <nav class="donation-nav" aria-label="Site">
+        <div class="container donation-nav-inner">
+            <a href="index.html" class="donation-nav-brand">
+                <img src="/img/icon-1.png" alt="">
+                <span>DuaCrypto</span>
+            </a>
+            <div class="donation-nav-links">
+                <a href="index.html">Home</a>
+                <a href="donation.html" class="active" aria-current="page">Donate</a>
+                <a href="events.html">Events</a>
+                <button type="button" data-theme-toggle class="theme-toggle ms-1" aria-pressed="false" aria-label="Switch color theme">
+                    <i data-theme-icon class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <!-- Header Section -->
     <header class="donation-header">
         <div class="container position-relative">
@@ -561,7 +687,7 @@
         </div>
         <div class="wallet-address">
           <span id="bsc-address">0x26507ccEEaB8C073620205Bf4aE1cd50E9f612af</span>
-          <button type="button" class="copy-btn" onclick="copyToClipboard('bsc-address', event)">Copy</button>
+          <button type="button" class="copy-btn" onclick="copyToClipboard('bsc-address', this)">Copy</button>
         </div>
         <p class="text-muted mt-2"><small>Only USDT on BSC (and whatever meme dust you want to dump).
 Every drop helps save a student from drowning in ramen noodles 🍜📚
@@ -578,7 +704,7 @@ Every drop helps save a student from drowning in ramen noodles 🍜📚
         </div>
         <div class="wallet-address">
           <span id="solana-address">GEKpQGYxEFeCDU6mGSNwF6LWi8czx7Bug3ToQWyma7Tq</span>
-          <button type="button" class="copy-btn" onclick="copyToClipboard('solana-address', event)">Copy</button>
+          <button type="button" class="copy-btn" onclick="copyToClipboard('solana-address', this)">Copy</button>
         </div>
         <p class="text-muted mt-2"><small>Only USDT on Solana (and whatever meme dust you want to dump).
 Every drop helps save a student from drowning in ramen noodles 🍜📚
@@ -608,12 +734,17 @@ Every drop helps save a student from drowning in ramen noodles 🍜📚
     </footer>
 
     <script>
-        function copyToClipboard(elementId, ev) {
+        function copyToClipboard(elementId, trigger) {
             const el = document.getElementById(elementId);
             const text = el ? el.textContent.trim() : '';
             if (!text) return;
 
-            const btn = ev && ev.currentTarget;
+            const btn =
+                trigger instanceof Element
+                    ? trigger.closest('.copy-btn')
+                    : trigger && trigger.target instanceof Element
+                      ? trigger.target.closest('.copy-btn')
+                      : null;
             const done = function () {
                 if (!btn) return;
                 const prev = btn.textContent;

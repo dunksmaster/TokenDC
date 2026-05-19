@@ -42,8 +42,20 @@
     <!-- Custom Styles -->
     <style>
       /* Profile Card Styles */
+      .profile-card-col {
+        display: flex;
+        justify-content: center;
+      }
+
+      @media (min-width: 992px) {
+        .profile-card-col {
+          justify-content: flex-start;
+        }
+      }
+
       .profile-card {
-        width: 360px;
+        width: 100%;
+        max-width: 360px;
         border-radius: 16px;
         overflow: hidden;
         border: 1px solid #ddd;
@@ -53,17 +65,27 @@
         margin: 0 auto;
       }
 
+      @media (min-width: 992px) {
+        .profile-card {
+          max-width: 420px;
+          margin: 0;
+        }
+      }
+
       .image-container {
         width: 100%;
-        height: 400px;
+        aspect-ratio: 4 / 5;
+        max-height: 320px;
         position: relative;
         overflow: hidden;
+        background: #0d1117;
       }
 
       .profile-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center 12%;
         display: block;
       }
 
@@ -87,10 +109,19 @@
       }
 
       .info-bar {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
         padding: 16px;
         background-color: #1a1a1a;
         color: white;
         font-size: 14px;
+      }
+
+      .info-bar-main {
+        flex: 1;
+        min-width: 0;
       }
 
       .name {
@@ -106,9 +137,12 @@
 
       .actions {
         display: flex;
+        flex-shrink: 0;
         align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
         gap: 8px;
-        margin-top: 8px;
+        margin-top: 0;
       }
 
       .icon {
@@ -116,77 +150,156 @@
       }
 
       .edit-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         background-color: white;
         color: #1a1a1a;
         border: 1px solid #ccc;
         padding: 6px 12px;
+        min-height: 36px;
         border-radius: 20px;
         font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
         cursor: pointer;
         transition: all 0.3s ease;
       }
 
       .edit-btn:hover {
         background-color: #f0f0f0;
+        color: #1a1a1a;
       }
 
       .bio {
-        margin-top: 12px;
+        margin-top: 0;
         color: #444;
-        line-height: 1.5;
+        line-height: 1.55;
         font-size: 14px;
         padding: 16px;
+        border-top: 1px solid #eee;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+      }
+
+      .bio-lead {
+        margin: 0 0 0.75rem;
+      }
+
+      .bio-tags {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 0.5rem;
+      }
+
+      .bio-tags li {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        background: #f2f8fe;
+        color: #333;
+      }
+
+      html.dark .bio {
+        color: #c9d1d9;
+        border-top-color: #30363d;
+      }
+
+      html.dark .bio-tags li {
+        background: #21262d;
+        color: #c9d1d9;
+      }
+
+      html.dark .edit-btn {
+        background-color: #21262d;
+        color: #e6edf3;
+        border-color: #30363d;
+      }
+
+      html.dark .edit-btn:hover {
+        background-color: #30363d;
+      }
+
+      .profile-join {
+        padding: 0 16px 16px;
+        border-top: 1px solid #eee;
+      }
+
+      .profile-join-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 44px;
+        padding: 0.65rem 1rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #16d5ff 0%, #00b8e0 100%);
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 14px rgba(22, 213, 255, 0.35);
+      }
+
+      .profile-join-btn:hover {
+        color: #fff;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(22, 213, 255, 0.45);
+      }
+
+      html.dark .profile-join {
+        border-top-color: #30363d;
+      }
+
+      html.dark .profile-join-btn {
+        background: linear-gradient(135deg, #16d5ff 0%, #0891b2 100%);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
       }
       
-      /* Crypto Donation Banner Styles */
+      /* Crypto Donation Banner */
+      .donation-banner-row {
+        margin-top: 0.5rem;
+      }
+
       .crypto-banner-container {
+        display: block;
         position: relative;
         width: 100%;
-        max-width: 800px;
+        max-width: 720px;
+        margin: 0 auto;
         overflow: hidden;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        margin: 40px auto;
+        border-radius: 16px;
+        box-shadow: 0 12px 32px rgba(29, 138, 90, 0.25);
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
-      
-      .crypto-banner-container:hover {
-        transform: scale(1.02);
+
+      @media (hover: hover) {
+        .crypto-banner-container:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 16px 40px rgba(29, 138, 90, 0.35);
+        }
       }
       
       .crypto-banner {
         background: linear-gradient(135deg, #25a56a 0%, #1d8a5a 100%);
-        padding: 30px;
+        padding: clamp(1.25rem, 4vw, 2rem);
         position: relative;
         overflow: hidden;
-        border: 3px solid transparent;
-        border-radius: 15px;
-        animation: borderAnimation 5s infinite linear;
-      }
-      
-      @keyframes borderAnimation {
-        0% {
-          border-image: linear-gradient(45deg, #ff6b6b, #ffd166, #06d6a0, #118ab2) 1;
-        }
-        25% {
-          border-image: linear-gradient(45deg, #118ab2, #ff6b6b, #ffd166, #06d6a0) 1;
-        }
-        50% {
-          border-image: linear-gradient(45deg, #06d6a0, #118ab2, #ff6b6b, #ffd166) 1;
-        }
-        75% {
-          border-image: linear-gradient(45deg, #ffd166, #06d6a0, #118ab2, #ff6b6b) 1;
-        }
-        100% {
-          border-image: linear-gradient(45deg, #ff6b6b, #ffd166, #06d6a0, #118ab2) 1;
-        }
+        border-radius: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
       }
       
       .crypto-icons {
         position: absolute;
         width: 100%;
         height: 100%;
+        pointer-events: none;
         top: 0;
         left: 0;
         pointer-events: none;
@@ -224,45 +337,67 @@
         color: white;
       }
       
+      .crypto-eyebrow {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.2);
+        margin-bottom: 0.75rem;
+      }
+
       .crypto-content h2 {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        font-size: clamp(1.35rem, 4vw, 2rem);
+        margin-bottom: 0.75rem;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        line-height: 1.2;
       }
       
       .crypto-content p {
-        font-size: 1.2rem;
-        margin-bottom: 25px;
-        max-width: 600px;
+        font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+        margin-bottom: 1.25rem;
+        max-width: 36rem;
         margin-left: auto;
         margin-right: auto;
+        line-height: 1.55;
+        opacity: 0.95;
       }
       
       .cta-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
         background: linear-gradient(135deg, #ffd166 0%, #ffb74d 100%);
         color: #1a2a32;
         border: none;
-        padding: 15px 40px;
-        font-size: 1.2rem;
-        font-weight: bold;
-        border-radius: 50px;
+        padding: 0.75rem 1.75rem;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 999px;
         cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
       }
       
-      .cta-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        background: linear-gradient(135deg, #ffb74d 0%, #ffa726 100%);
+      @media (hover: hover) {
+        .cta-button:hover {
+          color: #1a2a32;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
       }
       
       .progress-container {
-        background: rgba(0, 0, 0, 0.2);
-        height: 20px;
-        border-radius: 10px;
-        margin: 20px auto;
-        max-width: 500px;
+        background: rgba(0, 0, 0, 0.22);
+        height: 0.75rem;
+        border-radius: 999px;
+        margin: 0 auto 0.5rem;
+        max-width: 28rem;
         overflow: hidden;
       }
       
@@ -270,29 +405,33 @@
         background: linear-gradient(90deg, #ffd166 0%, #06d6a0 100%);
         height: 100%;
         width: 2%;
-        border-radius: 10px;
-        animation: progressAnimation 2s ease-in-out infinite alternate;
-      }
-      
-      @keyframes progressAnimation {
-        0% {
-          width: 2%;
-        }
-        100% {
-          width: 5%;
-        }
+        border-radius: 999px;
+        transition: width 0.4s ease;
       }
       
       .goal-text {
-        margin-top: 10px;
-        font-weight: bold;
+        margin: 0 0 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        opacity: 0.95;
+      }
+
+      .goal-stats-inline {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
+        margin-bottom: 1.25rem;
+        font-size: 0.85rem;
+        opacity: 0.9;
       }
       
       .crypto-logos {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
-        margin-top: 25px;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
       }
       
       .crypto-logo {
@@ -312,17 +451,28 @@
         background: rgba(255, 255, 255, 0.2);
       }
       
-      @media (max-width: 768px) {
-        .crypto-content h2 {
-          font-size: 2rem;
+      html.dark .crypto-banner {
+        border-color: rgba(48, 54, 61, 0.8);
+      }
+
+      html.dark .crypto-banner-container {
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      }
+
+      @media (max-width: 575.98px) {
+        .crypto-logos {
+          gap: 0.5rem;
         }
-        
-        .crypto-content p {
-          font-size: 1rem;
+
+        .crypto-logo {
+          width: 44px;
+          height: 44px;
+          font-size: 1.1rem;
         }
-        
-        .crypto-banner {
-          padding: 20px;
+
+        .cta-button {
+          width: 100%;
+          max-width: 20rem;
         }
       }
     </style>
@@ -339,7 +489,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
         <a href="index.html" class="navbar-brand d-flex align-items-center">
-            <h2 class="m-0 text-primary"><img class="img-fluid me-2" src="img/icon-1.png" alt="" style="width: 45px;">CryptoCoin</h2>
+            <h2 class="m-0 text-primary"><img class="img-fluid me-2" src="/img/icon-1.png" alt="" style="width: 45px;">CryptoCoin</h2>
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -361,10 +511,15 @@
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
-            <div class="h-100 d-lg-inline-flex align-items-center d-none">
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+            <div class="d-flex d-lg-none align-items-center gap-2 py-3 mt-2 border-top">
+                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://facebook.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://twitter.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://linkedin.com/company/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="h-100 d-none d-lg-inline-flex align-items-center">
+                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://facebook.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://twitter.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-square rounded-circle bg-light text-primary me-0" href="https://linkedin.com/company/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </nav>
@@ -385,7 +540,7 @@
                     </nav>
                 </div>
                 <div class="col-lg-6 animated fadeIn">
-                    <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="img/hero-2.png" alt="">
+                    <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="/img/hero-2.png" alt="">
                 </div>
             </div>
         </div>
@@ -397,25 +552,34 @@
         <div class="container">
             <div class="row g-5 align-items-center">
                 <!-- Profile Card -->
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6 mb-4 mb-lg-0 wow fadeInUp profile-card-col" data-wow-delay="0.1s">
                     <div class="profile-card">
                         <div class="image-container">
-                            <img id="profile-img" src="img/kane-021802.jpg" alt="Dkane" class="profile-image" />
-                            <button class="share-btn" onclick="document.getElementById('upload-input').click()">📤 Share</button>
+                            <img id="profile-img" src="/img/kane-profile.png" alt="Dkane — DuaCrypto" class="profile-image" width="420" height="525" />
+                            <button type="button" class="share-btn" onclick="document.getElementById('upload-input').click()">📤 Share</button>
                         </div>
                         <div class="info-bar">
-                            <div>
+                            <div class="info-bar-main">
                                 <div class="name">Dkane</div>
                                 <div class="handle">@Duacrypto</div>
                             </div>
                             <div class="actions">
-                                <span class="icon">⚡</span>
-                                <span class="icon">𝕏</span>
-                                <button class="edit-btn">Edit profile</button>
+                                <span class="icon" aria-hidden="true">⚡</span>
+                                <span class="icon" aria-hidden="true">𝕏</span>
+                                <a class="edit-btn" href="https://signup.cluborange.org/co/duacryptofile_copy" target="_blank" rel="noopener noreferrer">Join</a>
                             </div>
                         </div>
                         <div class="bio">
-                            BUILDing Crypto (NFA) | Web3 Advisor for Albania | Albania's Web3 Community | Crypto OG | DeFi Security Consultant | Trading Crypto AGI | Tirana, Albania AML Chainalysis On-Chain Analysis
+                            <p class="bio-lead">Building crypto in public (NFA). Web3 advisor and community lead for Albania and the Balkans.</p>
+                            <ul class="bio-tags">
+                                <li>Web3 community</li>
+                                <li>DeFi security</li>
+                                <li>On-chain analysis</li>
+                                <li>Tirana, Albania</li>
+                            </ul>
+                        </div>
+                        <div class="profile-join">
+                            <a class="profile-join-btn" href="https://signup.cluborange.org/co/duacryptofile_copy" target="_blank" rel="noopener noreferrer">Join Club Orange</a>
                         </div>
                     </div>
                 </div>
@@ -456,27 +620,32 @@
     </div>
 </div>
 
-            
-            <!-- Crypto Donation Banner -->
-            <div class="row mt-5">
+            </div>
+
+            <!-- Donation banner (full width, own row) -->
+            <div class="row donation-banner-row mt-4 mt-lg-5">
                 <div class="col-12">
-                    <div class="crypto-banner-container" onclick="redirectToDonation()">
+                    <a class="crypto-banner-container" href="donation.html" aria-labelledby="about-donation-heading">
                         <div class="crypto-banner">
-                            <div class="crypto-icons" id="crypto-icons"></div>
+                            <div class="crypto-icons" id="crypto-icons" aria-hidden="true"></div>
                             
                             <div class="crypto-content">
-                                <h2>Support Crypto Education</h2>
-                                <p>Your donation helps empower mothers with cryptocurrency knowledge and creates opportunities for financial independence</p>
+                                <span class="crypto-eyebrow">#SaveAStudent</span>
+                                <h2 id="about-donation-heading">Support crypto education</h2>
+                                <p>Help fund workshops, study materials, and wallet skills for students across the Balkans. Every gift counts.</p>
                                 
-                                <div class="progress-container">
+                                <div class="progress-container" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" aria-label="Fundraising progress: 2 percent">
                                     <div class="progress-bar"></div>
                                 </div>
                                 
-                                <p class="goal-text">Goal: $30,000 (2% Raised)</p>
+                                <p class="goal-text">$600 raised of $30,000 goal (2%)</p>
+                                <p class="goal-stats-inline">
+                                    <span>127 students supported</span>
+                                    <span>USDT on BSC or Solana</span>
+                                </p>
+                                <span class="cta-button">Donate with crypto</span>
                                 
-                                <button class="cta-button">Donate Crypto Now</button>
-                                
-                                <div class="crypto-logos">
+                                <div class="crypto-logos" aria-hidden="true">
                                     <div class="crypto-logo">
                                         <i class="fab fa-bitcoin"></i>
                                     </div>
@@ -492,7 +661,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -505,7 +674,7 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-md-6">
-                    <h1 class="text-primary mb-4"><img class="img-fluid me-2" src="img/icon-1.png" alt="" style="width: 45px;">CryptoCoin</h1>
+                    <h1 class="text-primary mb-4"><img class="img-fluid me-2" src="/img/icon-1.png" alt="" style="width: 45px;">CryptoCoin</h1>
                    <div class="footer-content text-center text-md-start">
     <p class="mb-3">
         <strong>DuaCrypto</strong>, founded in 2020, is proud to be the first crypto community in Albania.
@@ -613,11 +782,6 @@
           reader.readAsDataURL(file);
         }
       });
-      
-      // Function to redirect to donation page
-      function redirectToDonation() {
-        window.location.href = 'donation.html';
-      }
       
       // Create floating crypto icons
       document.addEventListener('DOMContentLoaded', function() {

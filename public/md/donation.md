@@ -1,9 +1,9 @@
 ---
-title: "Crypto Education Initiative - Donate"
+title: "Save a Student — Donate | DuaCrypto"
 source: "donation.html"
 ---
 
-Crypto Education Initiative - Donate
+Save a Student — Donate | DuaCrypto
     
     
     
@@ -12,6 +12,8 @@ Crypto Education Initiative - Donate
     
     
 
+
+    
 
     
     
@@ -21,15 +23,49 @@ Crypto Education Initiative - Donate
         
             
                 
+                    Why we&apos;re here
                     
-## Our Mission
+## Crypto education that actually sticks
 
                     
-For every dollar donated, we're helping mothers learn about cryptocurrency and blockchain technology, empowering them to create better futures for their families and communities.
+We teach students how wallets, stablecoins, and safety basics work — in plain language, at meetups and in the classroom — so they can participate in the economy without getting rekt.
 
                     
-We believe that financial education is the key to economic independence, and cryptocurrency represents the future of finance.
+Every gift, from a full USDT transfer to meme-coin dust, goes toward seats, snacks, and study kits. #SaveAStudent isn&apos;t a slogan; it&apos;s the point.
 
+                
+            
+        
+
+        
+        
+            Community goal
+            
+### We&apos;re building toward $30,000
+
+            
+That funds 500+ student seats in workshops, materials, and community events. You&apos;re already helping — let&apos;s keep the momentum.
+
+
+            
+                Progress
+                2%
+            
+            
+                
+            
+            
+                
+                    $600
+                    Raised so far
+                
+                
+                    $30,000
+                    Our target
+                
+                
+                    127
+                    Students supported
                 
             
         
@@ -38,30 +74,28 @@ We believe that financial education is the key to economic independence, and cry
         
             
                 
-### Our Fundraising Goal: $30,000
-
+                127
+                Students reached
+            
+            
                 
-This will allow us to educate 500+ mothers about cryptocurrency
-
+                48
+                Workshops held
+            
+            
                 
-                
-                    2%
-                
-                
-                
-                    Raised: $600
-                    Goal: $30,000
-                
+                18
+                Countries & communities
             
         
 
         
 
   
-## Donate USDT
+## Send USDT in two taps
 
   
-Send USDT to one of our wallet addresses below
+Pick a network, copy the address, and send from your wallet app. Every bit counts — even meme dust.
 
 
   
@@ -112,26 +146,10 @@ Every drop helps save a student from drowning in ramen noodles 🍜📚
         
         
             
-                127
-                Mothers Educated
-            
-            
-                18
-                Countries Reached
-            
-            
-                94%
-                Success Rate
-            
-        
-
-        
-        
-            
-## Make a Difference Today
+## Ready to save a student?
 
             
-Your donation helps empower mothers with crypto knowledge
+Chip in via USDT above, or use card checkout — either way, you&apos;re funding real seats in the classroom.
 
             
     Donate Now

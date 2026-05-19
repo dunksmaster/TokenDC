@@ -74,8 +74,18 @@
             color: inherit;
         }
 
-        .insta-item:hover {
-            transform: scale(1.03);
+        @media (hover: hover) {
+            .insta-item:hover {
+                transform: scale(1.03);
+            }
+
+            .insta-item:hover img {
+                transform: scale(1.1);
+            }
+
+            .insta-grid--media .insta-item:hover img {
+                transform: scale(1.02);
+            }
         }
 
         .insta-item img {
@@ -83,10 +93,6 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
-        }
-
-        .insta-item:hover img {
-            transform: scale(1.1);
         }
 
         /* TV / media screenshots — show full frame without cropping */
@@ -100,18 +106,31 @@
             object-position: center;
         }
 
-        .insta-grid--media .insta-item:hover img {
-            transform: scale(1.02);
-        }
-
         @media (max-width: 768px) {
+            .insta-grid:not(.insta-grid--media) {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding-inline: 1rem;
+            }
+
             .insta-grid--media {
                 grid-template-columns: 1fr;
+                padding-inline: 1rem;
             }
 
             .insta-grid--media .insta-item {
                 aspect-ratio: 16 / 10;
                 max-height: 220px;
+            }
+
+            .event-card .insta-grid {
+                padding-inline: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .insta-grid:not(.insta-grid--media) {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -123,6 +142,7 @@
             margin: 24px auto;
             max-width: 1200px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding-inline: 0.5rem;
         }
 
         .event-card:last-of-type {
@@ -368,7 +388,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
         <a href="index.html" class="navbar-brand navbar-brand-lockup d-flex align-items-center" aria-label="Dua Crypto home">
-            <img src="img/duacrypto-mark.svg" alt="" class="navbar-brand-mark" width="42" height="42" onerror="this.closest('.navbar-brand-lockup').classList.add('is-fallback');">
+            <img src="/img/duacrypto-mark.svg" alt="" class="navbar-brand-mark" width="42" height="42" onerror="this.closest('.navbar-brand-lockup').classList.add('is-fallback');">
             <span class="navbar-brand-text">
                 <span>DUA</span>
                 <span>CRYPTO</span>
@@ -386,10 +406,15 @@
                 <a href="events.html" class="nav-item nav-link active">Events</a>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
-            <div class="h-100 d-lg-inline-flex align-items-center d-none">
-                <a class="btn btn-square rounded-circle bg-primary text-white me-2" href="https://t.me/dua_crypto" target="_blank"><i class="fab fa-telegram"></i></a>
-                <a class="btn btn-square rounded-circle bg-dark text-white me-2" href="https://x.com/duacrypto" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-danger text-white" href="https://youtube.com/@duacrypto" target="_blank"><i class="fab fa-youtube"></i></a>
+            <div class="d-flex d-lg-none align-items-center gap-2 py-3 mt-2 border-top">
+                <a class="btn btn-square rounded-circle bg-primary text-white" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                <a class="btn btn-square rounded-circle bg-dark text-white" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-square rounded-circle bg-danger text-white" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="h-100 d-none d-lg-inline-flex align-items-center">
+                <a class="btn btn-square rounded-circle bg-primary text-white me-2" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                <a class="btn btn-square rounded-circle bg-dark text-white me-2" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-square rounded-circle bg-danger text-white" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </nav>
@@ -405,7 +430,7 @@
             <p class="page-hero-tags">
                 <span>Tirana</span> &bull; Crypto &bull; Balkans Crypto 2025 &bull; Community
             </p>
-            <img src="img/bitcoin-pizza-day-3.png" alt="Dua Crypto community celebrating Bitcoin Pizza Day at The Taproom" class="img-fluid hero-img mt-4" onerror="if(!this.dataset.fallback){this.dataset.fallback='local';this.src='img/bitcoin-pizza-day-1.png';}else if(this.dataset.fallback==='local'){this.dataset.fallback='remote';this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';}else{this.onerror=null;}">
+            <img src="/img/bitcoin-pizza-day-3.png" alt="Dua Crypto community celebrating Bitcoin Pizza Day at The Taproom" class="img-fluid hero-img mt-4" onerror="if(!this.dataset.fallback){this.dataset.fallback='local';this.src='/img/bitcoin-pizza-day-1.png';}else if(this.dataset.fallback==='local'){this.dataset.fallback='remote';this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';}else{this.onerror=null;}">
         </div>
     </header>
 
@@ -416,13 +441,13 @@
         </div>
         <div class="insta-grid">
             <a href="https://m.alltuu.com/album/2426655506/3122420006?menu=live" target="_blank" rel="noopener noreferrer" class="insta-item tirana-wave">
-                <img src="img/bitcoin-pizza-day-1.png" alt="Community members at Bitcoin Pizza Day meetup" onerror="this.onerror=null;this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';">
+                <img src="/img/bitcoin-pizza-day-1.png" alt="Community members at Bitcoin Pizza Day meetup" onerror="this.onerror=null;this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';">
             </a>
             <a href="https://m.alltuu.com/album/2426655506/3122420006?menu=live" target="_blank" rel="noopener noreferrer" class="insta-item">
-                <img src="img/bitcoin-pizza-day-2.png" alt="Global Pizza Party 2025 display at The Taproom" onerror="this.onerror=null;this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';">
+                <img src="/img/bitcoin-pizza-day-2.png" alt="Global Pizza Party 2025 display at The Taproom" onerror="this.onerror=null;this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';">
             </a>
             <a href="https://m.alltuu.com/album/2426655506/3122420006?menu=live" target="_blank" rel="noopener noreferrer" class="insta-item">
-                <img src="img/bitcoin-pizza-day-3.png" alt="DuaCrypto group photo at Bitcoin Pizza Day celebration" onerror="this.onerror=null;this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';">
+                <img src="/img/bitcoin-pizza-day-3.png" alt="DuaCrypto group photo at Bitcoin Pizza Day celebration" onerror="this.onerror=null;this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';">
             </a>
         </div>
         <div class="event-content">
@@ -445,13 +470,13 @@
         </div>
         <div class="insta-grid">
             <div class="insta-item">
-                <img src="img/balkans-crypto-2025-1.png" alt="DeFi networking at Balkans Crypto 2025" onerror="this.onerror=null;this.src='img/balkans-crypto-2025-3.png';">
+                <img src="/img/balkans-crypto-2025-1.png" alt="DeFi networking at Balkans Crypto 2025" onerror="this.onerror=null;this.src='/img/balkans-crypto-2025-3.png';">
             </div>
             <div class="insta-item tirana-wave">
-                <img src="img/balkans-crypto-2025-2.png" alt="Conference expo floor with Binance and Bitget booths" onerror="this.onerror=null;this.src='img/balkans-crypto-2025-3.png';">
+                <img src="/img/balkans-crypto-2025-2.png" alt="Conference expo floor with Binance and Bitget booths" onerror="this.onerror=null;this.src='/img/balkans-crypto-2025-3.png';">
             </div>
             <div class="insta-item">
-                <img src="img/balkans-crypto-2025-3.png" alt="DuaCrypto team on stage at Balkans Crypto 2025 Tech Conference" onerror="this.onerror=null;this.src='img/balkans-crypto-2025-1.png';">
+                <img src="/img/balkans-crypto-2025-3.png" alt="DuaCrypto team on stage at Balkans Crypto 2025 Tech Conference" onerror="this.onerror=null;this.src='/img/balkans-crypto-2025-1.png';">
             </div>
         </div>
         <div class="event-content">
@@ -474,13 +499,13 @@
         </div>
         <div class="insta-grid insta-grid--media">
             <div class="insta-item">
-                <img src="img/as-seen-on-abc-news.png" alt="Dorian Kane on ABC News Albania discussing cryptocurrency" onerror="this.onerror=null;this.src='img/as-seen-on-top-channel.png';">
+                <img src="/img/as-seen-on-abc-news.png" alt="Dorian Kane on ABC News Albania discussing cryptocurrency" onerror="this.onerror=null;this.src='/img/as-seen-on-top-channel.png';">
             </div>
             <div class="insta-item">
-                <img src="img/as-seen-on-eko.png" alt="EKO TV panel on cybersecurity and economic sovereignty" onerror="this.onerror=null;this.src='img/as-seen-on-abc-news.png';">
+                <img src="/img/as-seen-on-eko.png" alt="EKO TV panel on cybersecurity and economic sovereignty" onerror="this.onerror=null;this.src='/img/as-seen-on-abc-news.png';">
             </div>
             <div class="insta-item">
-                <img src="img/as-seen-on-top-channel.png" alt="Top Channel Shqipëria Live — Bitcoin and crypto coverage" onerror="this.onerror=null;this.src='img/as-seen-on-abc-news.png';">
+                <img src="/img/as-seen-on-top-channel.png" alt="Top Channel Shqipëria Live — Bitcoin and crypto coverage" onerror="this.onerror=null;this.src='/img/as-seen-on-abc-news.png';">
             </div>
         </div>
         <div class="event-content">
