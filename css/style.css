@@ -1,3 +1,7 @@
+@import "./bootstrap.min.css";
+@import "../lib/animate/animate.min.css";
+@import "../lib/owlcarousel/assets/owl.carousel.min.css";
+
 /********** Template CSS **********/
 :root {
     --primary: #16D5FF;

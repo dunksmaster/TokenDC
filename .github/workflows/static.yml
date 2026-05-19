@@ -1,5 +1,4 @@
-# Build with Vite and deploy to GitHub Pages (no custom Link response headers).
-# For RFC 8288 Link headers on GET /, deploy via cloudflare-pages.yml and use Cloudflare Pages for the custom domain.
+# Production deploy: Vite build → dist/ → GitHub Pages (duacrypto.com custom domain).
 name: Deploy static content to Pages
 
 on:

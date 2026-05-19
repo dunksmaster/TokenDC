@@ -1,10 +1,7 @@
-# Deploy dist/ to Cloudflare Pages (applies public/_headers Link headers + functions middleware).
-# GitHub Pages cannot set custom response headers; point duacrypto.com to this Pages project to pass agent discovery scans.
+# Optional Cloudflare Pages deploy (disabled on push — production uses GitHub Pages via static.yml).
 name: Deploy to Cloudflare Pages
 
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 
 concurrency:

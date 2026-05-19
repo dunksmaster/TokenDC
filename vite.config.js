@@ -6,6 +6,7 @@ import {
   agentDiscoveryPlugin,
   copyMarkdownToDistPlugin,
 } from "./vite-plugins/agent-discovery.js";
+import { copyLegacyStaticPlugin } from "./vite-plugins/copy-legacy-static.js";
 import { x402ApiPlugin } from "./vite-plugins/x402-api.js";
 
 /** Ensure robots.txt and sitemap.xml land in dist/ after every build. */
@@ -35,6 +36,7 @@ export default defineConfig({
     x402ApiPlugin(),
     agentDiscoveryPlugin(),
     copyMarkdownToDistPlugin(),
+    copyLegacyStaticPlugin(),
     ensureDiscoveryFilesPlugin(),
   ],
   server: {
