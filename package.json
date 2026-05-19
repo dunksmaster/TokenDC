@@ -9,7 +9,8 @@
     "deploy": "wrangler pages deploy dist --project-name=dc-site",
     "preview": "vite preview",
     "agent:generate": "node scripts/generate-agent-assets.mjs",
-    "test:markdown": "node scripts/test-markdown-negotiation.mjs"
+    "test:markdown": "node scripts/test-markdown-negotiation.mjs",
+    "postinstall": "node scripts/patch-wrangler-templates.mjs"
   },
   "dependencies": {
     "@x402/core": "^2.12.0",
