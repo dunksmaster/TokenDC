@@ -1,4 +1,5 @@
-# Build with Vite and deploy static output (includes /robots.txt, /sitemap.xml, /.well-known/*)
+# Build with Vite and deploy to GitHub Pages (no custom Link response headers).
+# For RFC 8288 Link headers on GET /, deploy via cloudflare-pages.yml and use Cloudflare Pages for the custom domain.
 name: Deploy static content to Pages
 
 on:

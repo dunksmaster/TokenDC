@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "resources": [
+    "https://duacrypto.com/api/v1/site/pages"
+  ],
+  "ownershipProofs": [
+    "0x26507ccEEaB8C073620205Bf4aE1cd50E9f612af"
+  ],
+  "instructions": "Pay via x402 on GET /api/v1/site/pages. Health check at /api/v1/site/health is free. Facilitator: https://x402.org/facilitator"
+}

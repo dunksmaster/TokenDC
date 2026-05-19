@@ -14,6 +14,12 @@
           "type": "text/html"
         }
       ],
+      "payment": [
+        {
+          "href": "https://duacrypto.com/.well-known/x402",
+          "type": "application/json"
+        }
+      ],
       "status": [
         {
           "href": "https://duacrypto.com/api/v1/site/health",

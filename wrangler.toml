@@ -1,6 +1,16 @@
-name = "duacrypto-site"
+# Cloudflare Pages (not a Worker). Do NOT run `wrangler deploy`.
+# Build: npm run build  |  Output: dist  |  Deploy command (if any): npm run deploy
+# Or leave Deploy command blank in Pages settings — CF uploads dist/ + functions/ automatically.
+name = "dc-site"
 compatibility_date = "2024-09-01"
 pages_build_output_dir = "dist"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+X402_FACILITATOR_URL = "https://x402.org/facilitator"
+X402_PAY_TO = "0x26507ccEEaB8C073620205Bf4aE1cd50E9f612af"
+X402_NETWORK = "eip155:84532"
+X402_PRICE = "$0.001"
 
 [observability]
 enabled = true

@@ -13,7 +13,7 @@
       "type": "skill-md",
       "description": "Navigate the DuaCrypto public website and list canonical page URLs.",
       "url": "https://duacrypto.com/.well-known/agent-skills/site-navigation/SKILL.md",
-      "digest": "sha256:0d5a959901b86531ca68dbe5479f04eb90f52b887f9b445bd7a25aa1699a0ab6"
+      "digest": "sha256:e3914b49257a14aa935a35dec071daf6b3ac45ea645a470d018f7d59a784280b"
     },
     {
       "name": "web-bot-auth",
@@ -21,6 +21,13 @@
       "description": "Publish and use Web Bot Auth HTTP message signatures for DuaCrypto agents.",
       "url": "https://duacrypto.com/.well-known/agent-skills/web-bot-auth/SKILL.md",
       "digest": "sha256:68a718fa9692ef0842ca549dc1097325b2f16804f7b6e3d2d9bfb0897d8c0791"
+    },
+    {
+      "name": "x402",
+      "type": "skill-md",
+      "description": "Pay for DuaCrypto Site API access using the x402 HTTP payment protocol.",
+      "url": "https://duacrypto.com/.well-known/agent-skills/x402/SKILL.md",
+      "digest": "sha256:0ee7d98a51b974841ea051f0317f3ded64d98b2d66107bf9543055a775a0971f"
     }
   ]
 }

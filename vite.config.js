@@ -2,12 +2,17 @@ import { copyFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
-import { agentDiscoveryPlugin } from "./vite-plugins/agent-discovery.js";
+import {
+  agentDiscoveryPlugin,
+  copyMarkdownToDistPlugin,
+} from "./vite-plugins/agent-discovery.js";
+import { x402ApiPlugin } from "./vite-plugins/x402-api.js";
 
 /** Ensure robots.txt and sitemap.xml land in dist/ after every build. */
 function ensureDiscoveryFilesPlugin() {
   const root = import.meta.dirname;
   const copies = [
+    ["public/_headers", "dist/_headers"],
     ["public/robots.txt", "dist/robots.txt"],
     ["public/sitemap.xml", "dist/sitemap.xml"],
     ["public/css/dark-mode.css", "dist/css/dark-mode.css"],
@@ -25,7 +30,13 @@ function ensureDiscoveryFilesPlugin() {
 }
 
 export default defineConfig({
-  plugins: [tailwindcss(), agentDiscoveryPlugin(), ensureDiscoveryFilesPlugin()],
+  plugins: [
+    tailwindcss(),
+    x402ApiPlugin(),
+    agentDiscoveryPlugin(),
+    copyMarkdownToDistPlugin(),
+    ensureDiscoveryFilesPlugin(),
+  ],
   server: {
     port: 5173,
     strictPort: true,

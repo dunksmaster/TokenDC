@@ -1,4 +1,9 @@
-const HOMEPAGE_PATHS = new Set(["/", "/index.html"]);
+import {
+  wantsMarkdown,
+  resolveMarkdownAssetPath,
+  estimateMarkdownTokens,
+  isHomepagePath,
+} from "../lib/markdown-negotiation.mjs";
 
 const LINK_HEADER =
   '</.well-known/api-catalog>; rel="api-catalog", ' +
@@ -12,41 +17,68 @@ const CONTENT_SIGNAL = "ai-train=no, search=yes, ai-input=yes";
 const WEB_BOT_AUTH_DIRECTORY =
   "/.well-known/http-message-signatures-directory";
 
-function wantsMarkdown(request: Request): boolean {
-  const accept = request.headers.get("Accept") ?? "";
-  return accept.includes("text/markdown");
-}
-
-function markdownPath(pathname: string): string | null {
-  if (pathname === "/" || pathname === "") return "/md/index.md";
-  if (pathname.endsWith(".html")) return `/md/${pathname.replace(/\.html$/, ".md")}`;
-  return null;
-}
-
-function estimateTokens(text: string): string {
-  return String(Math.ceil(text.length / 4));
-}
-
 function markdownHeaders(pathname: string): Headers {
   const headers = new Headers();
   headers.set("Content-Type", "text/markdown; charset=utf-8");
   headers.set("Vary", "Accept");
-  if (HOMEPAGE_PATHS.has(pathname)) {
+  if (isHomepagePath(pathname)) {
     headers.set("Link", LINK_HEADER);
   }
   headers.set("Content-Signal", CONTENT_SIGNAL);
   return headers;
 }
 
+async function serveMarkdown(
+  request: Request,
+  env: Env,
+  url: URL,
+  pathname: string
+): Promise<Response | null> {
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return null;
+  }
+
+  if (!wantsMarkdown(request.headers.get("Accept"))) {
+    return null;
+  }
+
+  const mdPath = resolveMarkdownAssetPath(pathname);
+  if (!mdPath) return null;
+
+  const mdResponse = await env.ASSETS.fetch(
+    new Request(new URL(mdPath, url.origin), request)
+  );
+  if (!mdResponse.ok) return null;
+
+  const body = await mdResponse.text();
+  const headers = markdownHeaders(pathname);
+  headers.set("x-markdown-tokens", estimateMarkdownTokens(body));
+
+  if (request.method === "HEAD") {
+    return new Response(null, { status: 200, headers });
+  }
+
+  return new Response(body, { status: 200, headers });
+}
+
 async function withDiscoveryHeaders(
   response: Response,
   pathname: string
 ): Promise<Response> {
-  if (!HOMEPAGE_PATHS.has(pathname)) {
-    return response;
+  const headers = new Headers(response.headers);
+
+  if (resolveMarkdownAssetPath(pathname)) {
+    headers.set("Vary", "Accept");
   }
 
-  const headers = new Headers(response.headers);
+  if (!isHomepagePath(pathname)) {
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  }
+
   headers.set("Link", LINK_HEADER);
   headers.set("Content-Signal", CONTENT_SIGNAL);
 
@@ -87,20 +119,8 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     }
   }
 
-  if (wantsMarkdown(request)) {
-    const mdPath = markdownPath(url.pathname);
-    if (mdPath) {
-      const mdResponse = await env.ASSETS.fetch(
-        new Request(new URL(mdPath, url.origin), request)
-      );
-      if (mdResponse.ok) {
-        const body = await mdResponse.text();
-        const headers = markdownHeaders(url.pathname);
-        headers.set("x-markdown-tokens", estimateTokens(body));
-        return new Response(body, { status: 200, headers });
-      }
-    }
-  }
+  const markdownResponse = await serveMarkdown(request, env, url, url.pathname);
+  if (markdownResponse) return markdownResponse;
 
   const response = await next();
   return withDiscoveryHeaders(response, url.pathname);

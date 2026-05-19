@@ -17,12 +17,14 @@
 <body>
   <main>
     <h1>DuaCrypto Site API</h1>
-    <p>Public read-only endpoints for agents and integrations.</p>
+    <p>Discovery endpoints for agents and integrations. The page index uses <a href="https://x402.org/">x402</a> HTTP payments.</p>
     <ul>
       <li><a href="/openapi/site-api.yaml">OpenAPI specification</a></li>
       <li><a href="/.well-known/api-catalog">API catalog (RFC 9727)</a></li>
-      <li><a href="/api/v1/site/health">Health</a></li>
-      <li><a href="/api/v1/site/pages">Pages index</a></li>
+      <li><a href="/.well-known/x402">x402 discovery</a></li>
+      <li><a href="/.well-known/agent-skills/x402/SKILL.md">x402 agent skill</a></li>
+      <li><a href="/api/v1/site/health">Health (free)</a></li>
+      <li><a href="/api/v1/site/pages">Pages index (x402 protected)</a></li>
     </ul>
     <p>OAuth discovery: <a href="/.well-known/oauth-authorization-server">authorization server</a>, <a href="/.well-known/oauth-protected-resource">protected resource metadata</a>.</p>
   </main>
