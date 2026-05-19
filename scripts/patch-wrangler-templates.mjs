@@ -7,6 +7,8 @@ const wranglerRoot = join(root, "node_modules", "wrangler", "templates");
 
 const CHECKED_FETCH = join(wranglerRoot, "checked-fetch.js");
 const LOADER_MODULES = join(wranglerRoot, "middleware", "loader-modules.ts");
+const PAGES_TEMPLATE = join(wranglerRoot, "pages-template-worker.ts");
+const WRANGLER_CLI = join(root, "node_modules", "wrangler", "wrangler-dist", "cli.js");
 
 const CHECKED_FETCH_PATCHED = `const state = globalThis.__WRANGLER_CHECKED_FETCH__ ?? {
 \turls: new Set(),
@@ -66,14 +68,72 @@ if (typeof ENTRY === "object" && ENTRY !== null) {
 }
 export default WRAPPED_ENTRY;`;
 
-function patchFile(path, { marker, content, replace }) {
+const PAGES_TEMPLATE_OLD = `\t\t\t} else if (__FALLBACK_SERVICE__) {
+\t\t\t\t// There are no more handlers so finish with the fallback service (\`env.ASSETS.fetch\` in Pages' case)
+\t\t\t\tconst response = await env[__FALLBACK_SERVICE__].fetch(request);
+\t\t\t\treturn cloneResponse(response);
+\t\t\t} else {
+\t\t\t\t// There was not fallback service so actually make the request to the origin.
+\t\t\t\tconst response = await fetch(request);
+\t\t\t\treturn cloneResponse(response);
+\t\t\t}
+\t\t};
+
+\t\ttry {
+\t\t\treturn await next();
+\t\t} catch (error) {
+\t\t\tif (isFailOpen) {
+\t\t\t\tconst response = await env[__FALLBACK_SERVICE__].fetch(request);`;
+
+const PAGES_TEMPLATE_NEW = `\t\t\t} else if (env[__FALLBACK_SERVICE__]) {
+\t\t\t\t// There are no more handlers so finish with the fallback service (\`env.ASSETS.fetch\` in Pages' case)
+\t\t\t\tconst response = await env[__FALLBACK_SERVICE__].fetch(request);
+\t\t\t\treturn cloneResponse(response);
+\t\t\t} else {
+\t\t\t\t// There was not fallback service so actually make the request to the origin.
+\t\t\t\tconst response = await fetch(request);
+\t\t\t\treturn cloneResponse(response);
+\t\t\t}
+\t\t};
+
+\t\ttry {
+\t\t\treturn await next();
+\t\t} catch (error) {
+\t\t\tif (isFailOpen && env[__FALLBACK_SERVICE__]) {
+\t\t\t\tconst response = await env[__FALLBACK_SERVICE__].fetch(request);`;
+
+/** After esbuild, __FALLBACK_SERVICE__ becomes "ASSETS"; drop redundant string guard. */
+const PAGES_TEMPLATE_REDUNDANT_GUARD = `\t\t\t} else if (__FALLBACK_SERVICE__ && env[__FALLBACK_SERVICE__]) {
+\t\t\t\t// There are no more handlers so finish with the fallback service (\`env.ASSETS.fetch\` in Pages' case)
+\t\t\t\tconst response = await env[__FALLBACK_SERVICE__].fetch(request);
+\t\t\t\treturn cloneResponse(response);
+\t\t\t} else {
+\t\t\t\t// There was not fallback service so actually make the request to the origin.
+\t\t\t\tconst response = await fetch(request);
+\t\t\t\treturn cloneResponse(response);
+\t\t\t}
+\t\t};
+
+\t\ttry {
+\t\t\treturn await next();
+\t\t} catch (error) {
+\t\t\tif (isFailOpen && __FALLBACK_SERVICE__ && env[__FALLBACK_SERVICE__]) {
+\t\t\t\tconst response = await env[__FALLBACK_SERVICE__].fetch(request);`;
+
+const CLI_MIDDLEWARE_INJECT =
+  '\t\t\t\tconst MIDDLEWARE_TEST_INJECT = "__INJECT_FOR_TESTING_WRANGLER_MIDDLEWARE__";\n';
+
+function patchFile(path, { marker, content, replace, skipIfMissing }) {
   if (!existsSync(path)) {
     console.warn(`patch-wrangler-templates: skip missing ${path}`);
     return false;
   }
 
   const current = readFileSync(path, "utf8");
-  if (current.includes(marker)) {
+  if (skipIfMissing && !current.includes(skipIfMissing)) {
+    return false;
+  }
+  if (marker && current.includes(marker)) {
     return false;
   }
 
@@ -110,6 +170,34 @@ if (
 ) {
   patched += 1;
   console.log("patch-wrangler-templates: patched middleware/loader-modules.ts");
+}
+
+if (
+  patchFile(PAGES_TEMPLATE, {
+    marker: "} else if (env[__FALLBACK_SERVICE__]) {",
+    replace: (source) => {
+      if (source.includes(PAGES_TEMPLATE_OLD)) {
+        return source.replace(PAGES_TEMPLATE_OLD, PAGES_TEMPLATE_NEW);
+      }
+      if (source.includes(PAGES_TEMPLATE_REDUNDANT_GUARD)) {
+        return source.replace(PAGES_TEMPLATE_REDUNDANT_GUARD, PAGES_TEMPLATE_NEW);
+      }
+      return source;
+    },
+  })
+) {
+  patched += 1;
+  console.log("patch-wrangler-templates: patched pages-template-worker.ts");
+}
+
+if (
+  patchFile(WRANGLER_CLI, {
+    skipIfMissing: CLI_MIDDLEWARE_INJECT.trim(),
+    replace: (source) => source.replace(CLI_MIDDLEWARE_INJECT, ""),
+  })
+) {
+  patched += 1;
+  console.log("patch-wrangler-templates: removed MIDDLEWARE_TEST_INJECT from cli.js");
 }
 
 if (patched === 0) {
