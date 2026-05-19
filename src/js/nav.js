@@ -48,13 +48,7 @@ export function initNav() {
 
   if (navbar) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        navbar.classList.add("shadow-md", "top-0");
-        navbar.classList.remove("-top-24");
-      } else {
-        navbar.classList.remove("shadow-md", "top-0");
-        navbar.classList.add("-top-24");
-      }
+      navbar.classList.toggle("shadow-md", window.scrollY > 8);
     });
   }
 }

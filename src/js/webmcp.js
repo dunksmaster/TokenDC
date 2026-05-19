@@ -4,22 +4,20 @@ const PAGES = [
   { name: "service", path: "/service.html", title: "Service" },
   { name: "roadmap", path: "/roadmap.html", title: "Roadmap" },
   { name: "events", path: "/events.html", title: "Events" },
+  { name: "feature", path: "/feature.html", title: "Feature" },
+  { name: "token", path: "/token.html", title: "Token Sale" },
   { name: "faq", path: "/faq.html", title: "FAQs" },
   { name: "contact", path: "/contact.html", title: "Contact" },
+  { name: "donation", path: "/donation.html", title: "Donation" },
 ];
 
 function getModelContext() {
   return navigator.modelContext ?? navigator.modelContextExperimental;
 }
 
-export function initWebMcp() {
-  const modelContext = getModelContext();
-  if (!modelContext?.registerTool) return;
-
-  const controllers = [];
-
-  controllers.push(
-    modelContext.registerTool({
+function buildTools() {
+  return [
+    {
       name: "list_site_pages",
       description: "List public DuaCrypto site pages with titles and paths.",
       inputSchema: {
@@ -30,11 +28,8 @@ export function initWebMcp() {
       async execute() {
         return { pages: PAGES };
       },
-    })
-  );
-
-  controllers.push(
-    modelContext.registerTool({
+    },
+    {
       name: "navigate_to_page",
       description: "Open a DuaCrypto site page in the browser.",
       inputSchema: {
@@ -55,11 +50,8 @@ export function initWebMcp() {
         window.location.assign(target.path);
         return { navigatedTo: target.path, title: target.title };
       },
-    })
-  );
-
-  controllers.push(
-    modelContext.registerTool({
+    },
+    {
       name: "get_telegram_community",
       description: "Return the DuaCrypto Telegram community URL.",
       inputSchema: {
@@ -70,11 +62,8 @@ export function initWebMcp() {
       async execute() {
         return { url: "https://t.me/dua_crypto", label: "DuaCrypto Telegram" };
       },
-    })
-  );
-
-  controllers.push(
-    modelContext.registerTool({
+    },
+    {
       name: "get_bitcoin_event_photos",
       description: "Return the Alltuu album URL for Bitcoin event photos.",
       inputSchema: {
@@ -88,8 +77,44 @@ export function initWebMcp() {
           label: "Bitcoin event photos",
         };
       },
-    })
-  );
+    },
+    {
+      name: "get_api_catalog",
+      description: "Return URLs for the DuaCrypto API catalog, OpenAPI spec, and health endpoint.",
+      inputSchema: {
+        type: "object",
+        properties: {},
+        additionalProperties: false,
+      },
+      async execute() {
+        return {
+          apiCatalog: "/.well-known/api-catalog",
+          openapi: "/openapi/site-api.yaml",
+          docs: "/docs/api",
+          health: "/api/v1/site/health",
+        };
+      },
+    },
+  ];
+}
+
+export function initWebMcp() {
+  const modelContext = getModelContext();
+  if (!modelContext) return;
+
+  const tools = buildTools();
+  const controllers = [];
+
+  if (typeof modelContext.provideContext === "function") {
+    const controller = modelContext.provideContext({ tools });
+    if (controller) controllers.push(controller);
+  } else if (typeof modelContext.registerTool === "function") {
+    for (const tool of tools) {
+      controllers.push(modelContext.registerTool(tool));
+    }
+  } else {
+    return;
+  }
 
   window.addEventListener(
     "pagehide",
@@ -100,4 +125,10 @@ export function initWebMcp() {
     },
     { once: true }
   );
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initWebMcp);
+} else {
+  initWebMcp();
 }

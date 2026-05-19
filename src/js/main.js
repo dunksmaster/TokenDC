@@ -5,7 +5,7 @@ import { initCounters } from "./counter.js";
 import { initCarousel } from "./carousel.js";
 import { initAccordion } from "./accordion.js";
 import { initBrandCards } from "./brand-cards.js";
-import { initWebMcp } from "./webmcp.js";
+import "./webmcp.js";
 
 function initSpinner() {
   const spinner = document.getElementById("spinner");
@@ -39,5 +39,4 @@ document.addEventListener("DOMContentLoaded", () => {
   initAccordion("faq-accordion");
   initBrandCards();
   initBackToTop();
-  initWebMcp();
 });

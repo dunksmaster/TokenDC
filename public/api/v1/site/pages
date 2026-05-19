@@ -1,14 +1,54 @@
 {
   "pages": [
-    { "path": "/", "title": "Made In Albania", "url": "https://duacrypto.com/" },
-    { "path": "/about.html", "title": "About", "url": "https://duacrypto.com/about.html" },
-    { "path": "/service.html", "title": "Service", "url": "https://duacrypto.com/service.html" },
-    { "path": "/roadmap.html", "title": "Roadmap", "url": "https://duacrypto.com/roadmap.html" },
-    { "path": "/events.html", "title": "Events", "url": "https://duacrypto.com/events.html" },
-    { "path": "/feature.html", "title": "Feature", "url": "https://duacrypto.com/feature.html" },
-    { "path": "/token.html", "title": "Token Sale", "url": "https://duacrypto.com/token.html" },
-    { "path": "/faq.html", "title": "FAQs", "url": "https://duacrypto.com/faq.html" },
-    { "path": "/contact.html", "title": "Contact", "url": "https://duacrypto.com/contact.html" },
-    { "path": "/donation.html", "title": "Donation", "url": "https://duacrypto.com/donation.html" }
+    {
+      "path": "/",
+      "title": "Made In Albania",
+      "url": "https://duacrypto.com/"
+    },
+    {
+      "path": "/about.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/about.html"
+    },
+    {
+      "path": "/service.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/service.html"
+    },
+    {
+      "path": "/roadmap.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/roadmap.html"
+    },
+    {
+      "path": "/events.html",
+      "title": "Dua Crypto Albania - Events",
+      "url": "https://duacrypto.com/events.html"
+    },
+    {
+      "path": "/feature.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/feature.html"
+    },
+    {
+      "path": "/token.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/token.html"
+    },
+    {
+      "path": "/faq.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/faq.html"
+    },
+    {
+      "path": "/contact.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/contact.html"
+    },
+    {
+      "path": "/donation.html",
+      "title": "Crypto Education Initiative - Donate",
+      "url": "https://duacrypto.com/donation.html"
+    }
   ]
 }

@@ -1,7 +1,23 @@
 const STORAGE_KEY = "duacrypto-theme";
 
+function safeGetItem(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function safeSetItem(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    /* ignore — private mode, disabled storage, etc. */
+  }
+}
+
 export function getStoredTheme() {
-  const stored = localStorage.getItem(STORAGE_KEY);
+  const stored = safeGetItem(STORAGE_KEY);
   return stored === "light" || stored === "dark" ? stored : null;
 }
 
@@ -13,13 +29,8 @@ export function getPreferredTheme() {
     : "light";
 }
 
-export function applyTheme(theme) {
-  const root = document.documentElement;
+export function syncThemeToggleUi(theme) {
   const isDark = theme === "dark";
-
-  root.classList.toggle("dark", isDark);
-  root.setAttribute("data-bs-theme", isDark ? "dark" : "light");
-  root.style.colorScheme = isDark ? "dark" : "light";
 
   document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
     button.setAttribute("aria-pressed", String(isDark));
@@ -35,8 +46,22 @@ export function applyTheme(theme) {
   });
 }
 
+export function applyTheme(theme) {
+  const root = document.documentElement;
+  const isDark = theme === "dark";
+
+  root.classList.toggle("dark", isDark);
+  root.setAttribute("data-bs-theme", isDark ? "dark" : "light");
+  root.style.colorScheme = isDark ? "dark" : "light";
+  syncThemeToggleUi(theme);
+
+  if (typeof window !== "undefined") {
+    window.__DUACRYPTO_THEME__ = { early: false, theme };
+  }
+}
+
 export function setTheme(theme) {
-  localStorage.setItem(STORAGE_KEY, theme);
+  safeSetItem(STORAGE_KEY, theme);
   applyTheme(theme);
 }
 
@@ -80,7 +105,14 @@ export function injectThemeToggle() {
 }
 
 export function initTheme() {
-  applyTheme(getPreferredTheme());
+  const early = window.__DUACRYPTO_THEME__?.early;
+  const theme = window.__DUACRYPTO_THEME__?.theme ?? getPreferredTheme();
+
+  if (early) {
+    syncThemeToggleUi(theme);
+  } else {
+    applyTheme(theme);
+  }
 
   document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
     button.addEventListener("click", toggleTheme);

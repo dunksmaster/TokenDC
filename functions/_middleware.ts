@@ -9,6 +9,9 @@ const LINK_HEADER =
 
 const CONTENT_SIGNAL = "ai-train=no, search=yes, ai-input=yes";
 
+const WEB_BOT_AUTH_DIRECTORY =
+  "/.well-known/http-message-signatures-directory";
+
 function wantsMarkdown(request: Request): boolean {
   const accept = request.headers.get("Accept") ?? "";
   return accept.includes("text/markdown");
@@ -57,11 +60,32 @@ async function withDiscoveryHeaders(
 
 interface Env {
   ASSETS: Fetcher;
+  /** JSON Web Key (Ed25519 private). Enables signed directory responses on Cloudflare. */
+  WEB_BOT_AUTH_PRIVATE_JWK?: string;
 }
 
 export const onRequest: PagesFunction<Env> = async (context) => {
   const { request, next, env } = context;
   const url = new URL(request.url);
+
+  if (
+    request.method === "GET" &&
+    url.pathname === WEB_BOT_AUTH_DIRECTORY &&
+    env.WEB_BOT_AUTH_PRIVATE_JWK
+  ) {
+    const { signedDirectoryResponse } = await import("./web-bot-auth-directory");
+    const asset = await env.ASSETS.fetch(
+      new Request(new URL(WEB_BOT_AUTH_DIRECTORY, url.origin), request)
+    );
+    if (asset.ok) {
+      const body = await asset.text();
+      return signedDirectoryResponse(
+        request,
+        body,
+        env.WEB_BOT_AUTH_PRIVATE_JWK
+      );
+    }
+  }
 
   if (wantsMarkdown(request)) {
     const mdPath = markdownPath(url.pathname);

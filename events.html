@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <script src="/theme-init.js"></script>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/theme-init.js"></script>
     <title>Dua Crypto Albania - Events</title>
     <meta name="description" content="Join DuaCrypto events in Tirana — Bitcoin Pizza Day, Balkans Crypto 2025, and community meetups across the Balkans.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH7BJVBLP2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BH7BJVBLP2');
+    </script>
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon" onerror="this.onerror=null;this.src='https://via.placeholder.com/32';">
@@ -360,7 +368,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
         <a href="index.html" class="navbar-brand navbar-brand-lockup d-flex align-items-center" aria-label="Dua Crypto home">
-            <img src="/img/duacrypto-mark.svg" alt="" class="navbar-brand-mark" width="42" height="42" onerror="this.closest('.navbar-brand-lockup').classList.add('is-fallback');">
+            <img src="img/duacrypto-mark.svg" alt="" class="navbar-brand-mark" width="42" height="42" onerror="this.closest('.navbar-brand-lockup').classList.add('is-fallback');">
             <span class="navbar-brand-text">
                 <span>DUA</span>
                 <span>CRYPTO</span>
@@ -397,7 +405,7 @@
             <p class="page-hero-tags">
                 <span>Tirana</span> &bull; Crypto &bull; Balkans Crypto 2025 &bull; Community
             </p>
-            <img src="img/bitcoin-pizza-day-3.png" alt="Dua Crypto community celebrating Bitcoin Pizza Day at The Taproom" class="img-fluid hero-img mt-4" onerror="this.onerror=null;this.src='img/bitcoin-pizza-day-1.png';">
+            <img src="img/bitcoin-pizza-day-3.png" alt="Dua Crypto community celebrating Bitcoin Pizza Day at The Taproom" class="img-fluid hero-img mt-4" onerror="this.onerror=null;this.src='img/bitcoin-pizza-day-1.png';this.onerror=function(){this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';};">
         </div>
     </header>
 
@@ -527,6 +535,6 @@
         });
     </script>
 
-    <script type="module" src="/src/js/theme-bootstrap.js"></script>
+    <script src="/js/theme-bootstrap.js" defer></script>
 </body>
 </html>

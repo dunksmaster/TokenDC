@@ -1,18 +1,143 @@
 # robots.txt for https://duacrypto.com/
 # https://www.rfc-editor.org/rfc/rfc9309
+# Policy: ai-train=no, search=yes, ai-input=yes
+
+# --- AI crawlers (explicit User-agent rules; wildcard alone is not sufficient) ---
+
+User-agent: GPTBot
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scss/
+Disallow: /dist/
+Disallow: /lib/
+Disallow: /js/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /.cursor/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scss/
+Disallow: /dist/
+Disallow: /lib/
+Disallow: /js/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /.cursor/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scss/
+Disallow: /dist/
+Disallow: /lib/
+Disallow: /js/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /.cursor/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scss/
+Disallow: /dist/
+Disallow: /lib/
+Disallow: /js/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /.cursor/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scss/
+Disallow: /dist/
+Disallow: /lib/
+Disallow: /js/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /.cursor/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scss/
+Disallow: /dist/
+Disallow: /lib/
+Disallow: /js/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /.cursor/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Bytespider
+Disallow: /
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+User-agent: CCBot
+Disallow: /
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scss/
+Disallow: /dist/
+Disallow: /lib/
+Disallow: /js/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /.cursor/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /404.html
+Disallow: /$10.html
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scss/
+Disallow: /dist/
+Disallow: /lib/
+Disallow: /js/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /.cursor/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+# --- Standard crawlers ---
 
 User-agent: *
 Allow: /
-Allow: /about.html
-Allow: /service.html
-Allow: /roadmap.html
-Allow: /events.html
-Allow: /feature.html
-Allow: /token.html
-Allow: /faq.html
-Allow: /contact.html
-Allow: /donation.html
 Disallow: /404.html
+Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
 Disallow: /scss/
@@ -21,19 +146,13 @@ Disallow: /lib/
 Disallow: /js/
 Disallow: /.github/
 Disallow: /.vscode/
+Disallow: /.cursor/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 User-agent: Googlebot
 Allow: /
-Allow: /about.html
-Allow: /service.html
-Allow: /roadmap.html
-Allow: /events.html
-Allow: /feature.html
-Allow: /token.html
-Allow: /faq.html
-Allow: /contact.html
-Allow: /donation.html
 Disallow: /404.html
+Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
 Disallow: /scss/
@@ -42,19 +161,13 @@ Disallow: /lib/
 Disallow: /js/
 Disallow: /.github/
 Disallow: /.vscode/
+Disallow: /.cursor/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 User-agent: Bingbot
 Allow: /
-Allow: /about.html
-Allow: /service.html
-Allow: /roadmap.html
-Allow: /events.html
-Allow: /feature.html
-Allow: /token.html
-Allow: /faq.html
-Allow: /contact.html
-Allow: /donation.html
 Disallow: /404.html
+Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
 Disallow: /scss/
@@ -63,3 +176,7 @@ Disallow: /lib/
 Disallow: /js/
 Disallow: /.github/
 Disallow: /.vscode/
+Disallow: /.cursor/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+Sitemap: https://duacrypto.com/sitemap.xml

@@ -1,3 +1,9 @@
+import { readFileSync, existsSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+
 const LINK_HEADER =
   '</.well-known/api-catalog>; rel="api-catalog", ' +
   '</.well-known/agent-skills/index.json>; rel="describedby", ' +
@@ -13,8 +19,10 @@ function wantsMarkdown(req) {
 }
 
 function markdownPath(pathname) {
-  if (pathname === "/" || pathname === "") return "/md/index.md";
-  if (pathname.endsWith(".html")) return `/md/${pathname.replace(/\.html$/, ".md")}`;
+  if (pathname === "/" || pathname === "") return "public/md/index.md";
+  if (pathname.endsWith(".html")) {
+    return `public/md/${pathname.replace(/^\//, "").replace(/\.html$/, ".md")}`;
+  }
   return null;
 }
 
@@ -22,49 +30,46 @@ function estimateTokens(text) {
   return String(Math.ceil(text.length / 4));
 }
 
+function attachDiscoveryHeaders(res, isHome) {
+  if (!isHome) return;
+  const originalWriteHead = res.writeHead.bind(res);
+  res.writeHead = (statusCode, ...args) => {
+    res.setHeader("Link", LINK_HEADER);
+    res.setHeader("Content-Signal", CONTENT_SIGNAL);
+    if (typeof statusCode === "number") {
+      return originalWriteHead(statusCode, ...args);
+    }
+    return originalWriteHead(200, statusCode, ...args);
+  };
+}
+
 export function agentDiscoveryPlugin() {
   return {
     name: "agent-discovery",
     configureServer(server) {
-      server.middlewares.use(async (req, res, next) => {
+      server.middlewares.use((req, res, next) => {
         const pathname = req.url?.split("?")[0] ?? "/";
         const isHome = pathname === "/" || pathname === "/index.html";
 
         if (wantsMarkdown(req)) {
-          const mdPath = markdownPath(pathname);
-          if (mdPath) {
-            try {
-              const mdUrl = `${req.headers["x-forwarded-proto"] ?? "http"}://${req.headers.host}${mdPath}`;
-              const response = await fetch(mdUrl);
-              if (response.ok) {
-                const body = await response.text();
-                res.statusCode = 200;
-                res.setHeader("Content-Type", "text/markdown; charset=utf-8");
-                res.setHeader("Vary", "Accept");
-                res.setHeader("x-markdown-tokens", estimateTokens(body));
-                res.setHeader("Content-Signal", CONTENT_SIGNAL);
-                if (isHome) res.setHeader("Link", LINK_HEADER);
-                res.end(body);
-                return;
-              }
-            } catch {
-              // fall through to default handling
+          const relMd = markdownPath(pathname);
+          if (relMd) {
+            const filePath = join(root, relMd);
+            if (existsSync(filePath)) {
+              const body = readFileSync(filePath, "utf8");
+              res.statusCode = 200;
+              res.setHeader("Content-Type", "text/markdown; charset=utf-8");
+              res.setHeader("Vary", "Accept");
+              res.setHeader("x-markdown-tokens", estimateTokens(body));
+              res.setHeader("Content-Signal", CONTENT_SIGNAL);
+              if (isHome) res.setHeader("Link", LINK_HEADER);
+              res.end(body);
+              return;
             }
           }
         }
 
-        if (isHome) {
-          const originalWriteHead = res.writeHead.bind(res);
-          res.writeHead = (statusCode, ...args) => {
-            res.setHeader("Link", LINK_HEADER);
-            res.setHeader("Content-Signal", CONTENT_SIGNAL);
-            if (typeof statusCode === "number") {
-              return originalWriteHead(statusCode, ...args);
-            }
-            return originalWriteHead(200, statusCode, ...args);
-          };
-        }
-
+        attachDiscoveryHeaders(res, isHome);
         next();
       });
     },

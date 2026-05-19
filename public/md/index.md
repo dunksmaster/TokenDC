@@ -8,15 +8,16 @@ Made In Albania
     
     
     
-
     
     
 
     
     
-    
-    
 
+    
+    
+    
+    
     
 
 
@@ -232,15 +233,21 @@ Contact us to have your logo here
                 
                     [
                         
+                            
+                        
                     ](https://tangem.com/invite/BITCOINZAT)
                 
                 
                     [
                         
+                            
+                        
                     ](https://shop.ledger.com/?r=2deb3872c973)
                 
                 
                     [
+                        
+                            
                         
                     ](https://shop.deeper.network?sca_ref=2063681.3aWn8PiBjI)
                 

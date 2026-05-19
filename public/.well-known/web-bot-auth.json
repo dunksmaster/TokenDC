@@ -1,0 +1,6 @@
+{
+  "signature_agent": "https://duacrypto.com/.well-known/http-message-signatures-directory",
+  "keyid": "xb-JqgZq3A1M09VAh3WbwsccJ8HuAObTlwolNhY983o",
+  "algorithm": "ed25519",
+  "directory_content_type": "application/http-message-signatures-directory+json"
+}

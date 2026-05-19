@@ -1,15 +1,26 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Tailwind Preview",
-            "url": "http://localhost:5173",
-            "webRoot": "${workspaceFolder}"
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Tailwind Preview",
+      "preLaunchTask": "vite: dev",
+      "url": "http://localhost:5173/index.html",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "pathMapping": {
+        "/": "${workspaceFolder}",
+        "/src": "${workspaceFolder}/src"
+      }
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Vite preview (production build)",
+      "url": "http://localhost:4173/index.html",
+      "webRoot": "${workspaceFolder}/dist",
+      "sourceMaps": true
+    }
+  ]
 }
