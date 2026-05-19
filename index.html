@@ -1,1150 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
     <title>Made In Albania</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="cryptocurrency, bitcoin, Albania, crypto trading, blockchain, Web3, DuaCrypto, crypto education, Balkans" name="keywords">
-    <meta content="DuaCrypto - Albania's first and most trusted crypto community. Learn Bitcoin, Web3, and blockchain technology with expert guidance from local mentors. Join 10,000+ members in the Balkans." name="description">
+    <meta name="keywords" content="cryptocurrency, bitcoin, Albania, crypto trading, blockchain, Web3, DuaCrypto, crypto education, Balkans">
+    <meta name="description" content="DuaCrypto - Albania's first and most trusted crypto community. Learn Bitcoin, Web3, and blockchain technology with expert guidance from local mentors. Join 10,000+ members in the Balkans.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH7BJVBLP2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BH7BJVBLP2');
+    </script>
 
-    <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" 
-      href="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg">
-<link rel="icon" type="image/png" 
-      href="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/32/Bitcoin-BTC-icon.png">
+    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg">
+    <link rel="icon" type="image/png" href="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/32/Bitcoin-BTC-icon.png">
 
-
-
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap" rel="stylesheet">  
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/input.css">
 </head>
+<body class="bg-page">
 
-<body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
+    <!-- Spinner -->
+    <div id="spinner" class="fixed inset-0 z-[99999] flex items-center justify-center bg-page transition-opacity duration-500">
+        <div class="h-12 w-12 animate-pulse rounded-full bg-primary"></div>
     </div>
-    <!-- Spinner End -->
 
+    <!-- Navbar -->
+    <nav id="navbar" class="sticky top-0 z-50 border-b border-border bg-surface shadow-sm transition-shadow duration-300 dark:border-border">
+        <div class="section-shell">
+            <div class="relative flex h-[75px] items-center justify-between gap-4">
+                <a href="index.html" class="flex shrink-0 items-center gap-2">
+                    <h2 class="m-0 flex items-center text-2xl font-bold text-primary">
+                        <img class="logo-img mr-2" src="/img/icon-1.png" alt="DuaCrypto Logo">
+                        Dua Crypto
+                    </h2>
+                </a>
 
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
-        <a href="index.html" class="navbar-brand d-flex align-items-center">
-            <h2 class="m-0 text-primary"><img class="img-fluid me-2 logo-img" src="img/icon-1.png" alt="DuaCrypto Logo">Dua Crypto</h2>
-        </a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" title="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-4 py-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link">Service</a>
-            <a href="roadmap.html" class="nav-item nav-link">Roadmap</a>
-            <a href="events.html" class="nav-item nav-link">Events</a>
-            <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Other</a>
-                    <div class="dropdown-menu shadow-sm m-0">
-                        <a href="feature.html" class="dropdown-item">Feature</a>
-                        <a href="token.html" class="dropdown-item">Token Sale</a>
-                        <a href="faq.html" class="dropdown-item">FAQs</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
+                <button id="nav-toggle" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-dark lg:hidden" aria-expanded="false" aria-controls="nav-menu" title="Toggle navigation">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+
+                <div id="nav-menu" class="absolute left-0 right-0 top-full z-50 hidden flex-col border-t border-border bg-surface px-4 pb-4 lg:static lg:z-auto lg:flex lg:flex-1 lg:flex-row lg:items-center lg:justify-end lg:border-0 lg:bg-transparent lg:px-0 lg:pb-0">
+                    <div class="flex flex-col lg:ml-auto lg:flex-row lg:items-center lg:gap-8">
+                        <a href="index.html" class="nav-link nav-link-active">Home</a>
+                        <a href="about.html" class="nav-link">About</a>
+                        <a href="service.html" class="nav-link">Service</a>
+                        <a href="roadmap.html" class="nav-link">Roadmap</a>
+                        <a href="events.html" class="nav-link">Events</a>
+
+                        <div class="group relative py-2 lg:py-6">
+                            <button id="nav-dropdown-btn" type="button" class="nav-link flex items-center gap-2">
+                                Other
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div id="nav-dropdown-menu" class="mt-2 hidden rounded-md bg-card py-2 shadow-lg lg:absolute lg:left-0 lg:top-full lg:mt-0 lg:min-w-[180px] lg:group-hover:block">
+                                <a href="feature.html" class="block px-4 py-2 text-dark hover:bg-surface hover:text-primary">Feature</a>
+                                <a href="token.html" class="block px-4 py-2 text-dark hover:bg-surface hover:text-primary">Token Sale</a>
+                                <a href="faq.html" class="block px-4 py-2 text-dark hover:bg-surface hover:text-primary">FAQs</a>
+                                <a href="404.html" class="block px-4 py-2 text-dark hover:bg-surface hover:text-primary">404 Other</a>
+                            </div>
+                        </div>
+
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </div>
+
+                    <div class="mt-4 flex items-center gap-2 lg:ml-6 lg:mt-0">
+                        <button type="button" data-theme-toggle class="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode">
+                            <i data-theme-icon class="fas fa-moon" aria-hidden="true"></i>
+                        </button>
+                        <a class="social-btn" href="https://facebook.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="Follow DuaCrypto on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="social-btn" href="https://twitter.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="Follow DuaCrypto on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="social-btn" href="https://linkedin.com/company/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="Connect with DuaCrypto on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
-            </div>
-            <div class="h-100 d-lg-inline-flex align-items-center d-none">
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://facebook.com/duacrypto" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook" aria-label="Follow DuaCrypto on Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://twitter.com/duacrypto" target="_blank" rel="noopener noreferrer" title="Follow us on Twitter" aria-label="Follow DuaCrypto on Twitter"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-0" href="https://linkedin.com/company/duacrypto" target="_blank" rel="noopener noreferrer" title="Connect on LinkedIn" aria-label="Connect with DuaCrypto on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </nav>
-    <!-- Navbar End -->
 
-
-    <!-- Header Start -->
-    <div class="container-fluid hero-header bg-light py-5 mb-5">
-        <div class="container py-5">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="d-flex flex-column align-items-start mb-3 wow slideInDown">
-                        <h1 class="display-4 mb-1">Made in Albania</h1>
-                        <span class="fs-3">We are Web3.</span>
-                    </div>
-                    <p class="animated slideInDown">DuaCrypto brings people together to explore, learn, and build the future of crypto.</p>
-                    <p class="animated slideInDown">No borders. No banks. Just freedom.</p>
-                    <a href="https://duacrypto.org/" target="_blank" class="btn btn-primary py-3 px-4 Button wave-animation" title="Get your free guide in crypto" aria-label="Get your free guide in crypto">Free guide in crypto</a>
+    <!-- Hero -->
+    <header class="bg-surface py-12 lg:py-20">
+        <div class="section-shell">
+            <div class="grid items-center gap-10 lg:grid-cols-2">
+                <div>
+                    <h1 class="mb-2 text-4xl font-bold md:text-5xl">Made in Albania</h1>
+                    <p class="mb-4 text-2xl text-dark">We are Web3.</p>
+                    <p class="mb-2 text-secondary">DuaCrypto brings people together to explore, learn, and build the future of crypto.</p>
+                    <p class="mb-6 text-secondary">No borders. No banks. Just freedom.</p>
+                    <a href="https://duacrypto.org/" target="_blank" rel="noopener noreferrer" class="btn-primary wave-animation">Free guide in crypto</a>
                 </div>
-                <div class="col-lg-6">
-                    <img class="img-fluid wave-animation" src="img/hero-1.png" alt="Hero Image">
+                <div>
+                    <img class="mx-auto w-full max-w-lg wave-animation" src="/img/hero-1.png" alt="Hero Image">
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 
-
-    <!-- Header End -->
-
-
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DuaCrypto - About Us</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f8f9fa;
-            padding: 20px;
-        }
-        
-        .container-xxl {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            overflow: hidden;
-            margin: 30px auto;
-            padding: 2rem !important;
-        }
-        
-        /* Fixed checkmark circles */
-        .check-container {
-            display: flex;
-            align-items: flex-start;
-            padding: 8px 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .check-container:hover {
-            background-color: rgba(13, 110, 253, 0.05);
-        }
-        
-        .check-circle {
-            width: 24px;
-            height: 24px;
-            min-width: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f8f9fa;
-            color: #0d6efd;
-            border-radius: 50%;
-            margin-right: 15px;
-            font-size: 12px;
-            transition: all 0.3s ease;
-        }
-        
-        .check-container:hover .check-circle {
-            background-color: #0d6efd;
-            color: white;
-            transform: scale(1.1);
-        }
-        
-        .check-content {
-            flex: 1;
-        }
-        
-        /* Line animation on hover */
-        .line-animation {
-            position: relative;
-            padding: 8px 0;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-        
-        .line-animation::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #0d6efd;
-            transition: width 0.3s ease;
-        }
-        
-        .line-animation:hover::after {
-            width: 100%;
-        }
-        
-        /* Image hover effect */
-        .img-hover-zoom {
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .img-hover-zoom img {
-            transition: transform 0.5s ease;
-            width: 100%;
-        }
-        
-        .img-hover-zoom:hover img {
-            transform: scale(1.03);
-        }
-        
-        /* Button hover effect */
-        .btn-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .btn-hover:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(13, 110, 253, 0.3);
-        }
-        
-        /* Link styling */
-        .content-link {
-            color: #0d6efd;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-        
-        .content-link:hover {
-            color: #0a58ca;
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="img-hover-zoom">
-                        <img class="img-fluid" src="img/2029.webp" alt="Understanding Bitcoin">
-                    </div>
+    <!-- About -->
+    <section class="py-16">
+        <div class="section-shell">
+            <div class="grid items-center gap-10 lg:grid-cols-2">
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img class="w-full transition duration-500 hover:scale-105" src="/img/2029.webp" alt="Understanding Bitcoin">
                 </div>
-                <div class="col-lg-6">
-                    <div class="h-100">
-                        <h1 class="display-6 mb-4">About Us</h1>
-                        <p class="text-primary fs-5 mb-4">The Most Trusted Crypto & AI Community</p>
-                        
-                        <p class="line-animation">We're on a journey to become the leading crypto community not just in Albania, but across the Balkans.</p>
-                        <p class="mb-4 line-animation">Whether you're a developer, a student eager to learn about blockchain, or someone in traditional finance looking to explore Bitcoin and Web3, DuaCrypto is here for you.</p>
-                        
-                        <div class="check-container">
-                            <div class="check-circle">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="check-content">
-                                👉 <strong><a href="https://duacrypto.org" target="_blank" rel="noopener noreferrer" class="content-link">DuaCrypto.org</a></strong> — Free guides and investment insights.
-                            </div>
-                        </div>
-                        
-                        <div class="check-container">
-                            <div class="check-circle">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="check-content">
-                                👉 <strong><a href="https://duabtc.com" target="_blank" rel="noopener noreferrer" class="content-link">DuaBTC.com</a></strong> — Our store for crypto tools and AI products.
-                            </div>
-                        </div>
-                        
-                        <div class="check-container">
-                            <div class="check-circle">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="check-content">
-                                👉 <strong><a href="https://bitcoinzat.com" target="_blank" rel="noopener noreferrer" class="content-link">BitcoinZat.com</a></strong> — Explore the story of Bitcoin and its history.
-                            </div>
-                        </div>
-                        
-                        <a class="btn btn-primary py-3 px-4 mt-3 btn-hover" href="about.html">Read More</a>
+                <div>
+                    <h2 class="mb-4 text-3xl font-bold">About Us</h2>
+                    <p class="mb-4 text-xl text-primary">The Most Trusted Crypto &amp; AI Community</p>
+                    <p class="line-hover mb-3">We're on a journey to become the leading crypto community not just in Albania, but across the Balkans.</p>
+                    <p class="line-hover mb-6">Whether you're a developer, a student eager to learn about blockchain, or someone in traditional finance looking to explore Bitcoin and Web3, DuaCrypto is here for you.</p>
+
+                    <div class="group/check check-row">
+                        <div class="check-icon"><i class="fas fa-check"></i></div>
+                        <p>👉 <strong><a href="https://duacrypto.org" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary hover:underline">DuaCrypto.org</a></strong> — Free guides and investment insights.</p>
                     </div>
+                    <div class="group/check check-row">
+                        <div class="check-icon"><i class="fas fa-check"></i></div>
+                        <p>👉 <strong><a href="https://duabtc.com" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary hover:underline">DuaBTC.com</a></strong> — Our store for crypto tools and AI products.</p>
+                    </div>
+                    <div class="group/check check-row mb-6">
+                        <div class="check-icon"><i class="fas fa-check"></i></div>
+                        <p>👉 <strong><a href="https://bitcoinzat.com" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary hover:underline">BitcoinZat.com</a></strong> — Explore the story of Bitcoin and its history.</p>
+                    </div>
+
+                    <a class="btn-primary" href="about.html">Read More</a>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- About End -->
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <!-- Stats -->
+    <section class="bg-surface py-16">
+        <div class="section-shell">
+            <div class="grid gap-8 text-center md:grid-cols-3">
+                <div class="stat-card">
+                    <img class="mx-auto mb-4 h-16 w-auto opacity-90" src="/img/icon-9.png" alt="Students trained icon">
+                    <h3 class="stat-value mb-2 flex items-center justify-center gap-3">
+                        <span class="stat-icon stat-icon-student"><i class="fas fa-user-graduate"></i></span>
+                        <span data-counter="1248">0</span>
+                    </h3>
+                    <p class="stat-label">Students Trained</p>
+                </div>
+                <div class="stat-card">
+                    <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="block text-inherit no-underline">
+                        <img class="mx-auto mb-4 h-16 w-auto opacity-90" src="/img/icon-10.png" alt="Telegram community icon">
+                        <h3 class="stat-value mb-2 flex items-center justify-center gap-3">
+                            <span class="stat-icon stat-icon-telegram"><i class="fab fa-telegram-plane"></i></span>
+                            <span data-counter="10045">0</span>
+                        </h3>
+                        <p class="stat-label">Follow Members</p>
+                    </a>
+                </div>
+                <div class="stat-card">
+                    <img class="mx-auto mb-4 h-16 w-auto opacity-90" src="/img/icon-2.png" alt="Copy trading earnings icon">
+                    <h3 class="stat-value mb-2 flex items-center justify-center gap-3">
+                        <span class="stat-icon stat-icon-dollar">$</span>
+                        <span data-counter="530252">0</span>
+                    </h3>
+                    <p class="stat-label">Earned via Copy Trading</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Features -->
+    <section class="py-16">
+        <div class="section-shell">
+            <div class="section-title mb-12">
+                <h2 class="mb-3 text-3xl font-bold">Why DuaCrypto Stands Out</h2>
+                <p class="text-lg text-primary">Albania's First &amp; Most Established Crypto Community</p>
+            </div>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <article class="flex gap-4"><img class="h-16 w-16 shrink-0" src="/img/icon-7.png" alt=""><div><h3 class="mb-2 font-semibold">Local Roots, Global Vision</h3><p class="text-secondary">Founded in Tirana (2020), we understand Balkan crypto needs better than international platforms.</p></div></article>
+                <article class="flex gap-4"><img class="h-16 w-16 shrink-0" src="/img/icon-6.png" alt=""><div><h3 class="mb-2 font-semibold">9,600+ Verified Members</h3><p class="text-secondary">Developers, traders, and beginners mastering blockchain basics together.</p></div></article>
+                <article class="flex gap-4"><img class="h-16 w-16 shrink-0" src="/img/icon-5.png" alt=""><div><h3 class="mb-2 font-semibold">Real Results</h3><p class="text-secondary">$500,000+ earned through copy trading. 150,000+ free resources accessed.</p></div></article>
+                <article class="flex gap-4"><img class="h-16 w-16 shrink-0" src="/img/icon-4.png" alt=""><div><h3 class="mb-2 font-semibold">Step-by-Step Learning Path</h3><p class="text-secondary">Free guides, AI-powered tools, and mentor-led market simulations.</p></div></article>
+                <article class="flex gap-4"><img class="h-16 w-16 shrink-0" src="/img/icon-3.png" alt=""><div><h3 class="mb-2 font-semibold">Balkan-First Security</h3><p class="text-secondary">Cold storage, insured transactions, and Albanian-language support 24/7.</p></div></article>
+                <article class="flex gap-4"><img class="h-16 w-16 shrink-0" src="/img/icon-8.png" alt=""><div><h3 class="mb-2 font-semibold">Your Gateway to</h3><p class="text-secondary">Regional P2P exchanges, tax-compliant trading, and local meetups.</p></div></article>
+            </div>
+        </div>
+    </section>
 
-   <!-- Facts Start -->
-<div class="container-xxl bg-light py-5 my-5">
-    <div class="container py-5">
-        <div class="row g-5 text-center">
+    <!-- Services -->
+    <section class="bg-surface py-16">
+        <div class="section-shell">
+            <div class="section-title mb-12">
+                <h2 class="mb-3 text-3xl font-bold">Community</h2>
+                <p class="text-lg text-primary">Powered Crypto Services</p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-7.png" alt=""><h3 class="mb-3 font-semibold">Crypto Meetup Events</h3><p class="mb-4 text-secondary">We organize events that bring crypto enthusiasts together to learn and share.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-3.png" alt=""><h3 class="mb-3 font-semibold">On-Chain Transactions</h3><p class="mb-4 text-secondary">Deep on-chain analysis to identify scams and explore smart opportunities.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-9.png" alt=""><h3 class="mb-3 font-semibold">Bitcoin Investment</h3><p class="mb-4 text-secondary">Learn smart DCA strategies and how to buy low and sell at highs.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-5.png" alt=""><h3 class="mb-3 font-semibold">Currency Exchange</h3><p class="mb-4 text-secondary">Trusted P2P exchange system with real liquidity and secure transactions.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-2.png" alt=""><h3 class="mb-3 font-semibold">Airdrop Hunting</h3><p class="mb-4 text-secondary">Legit airdrops with high value so the community can earn free crypto.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-8.png" alt=""><h3 class="mb-3 font-semibold">Education</h3><p class="mb-4 text-secondary">Expert mentors help you build a trader's mindset from scratch.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+            </div>
+        </div>
+    </section>
 
-            <!-- Students Trained -->
-            <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                <img class="img-fluid mb-4" src="img/icon-9.png" alt="Students trained icon">
-                <h1 class="display-4 text-dark">
-                    <span class="icon-student"><i class="fas fa-user-graduate"></i></span>
-                    <span class="counter-number" data-target="1248">0</span>
-                </h1>
-                <p class="fs-5 text-primary mb-0">Students Trained</p>
+    <!-- Slideshow -->
+    <section class="py-16">
+        <div class="section-shell">
+            <div class="section-title-wide mb-10">
+                <h2 class="mb-3 text-3xl font-bold">Affiliate Products We Use</h2>
+                <p class="text-lg text-primary">Contact us to have your logo here</p>
             </div>
 
-            <!-- Telegram Members -->
-            <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.3s">
-                <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
-                    <img class="img-fluid mb-4" src="img/icon-10.png" alt="Telegram community icon">
-                    <h1 class="display-4 text-dark">
-                        <span class="icon-telegram"><i class="fab fa-telegram-plane"></i></span>
-                        <span class="counter-number" data-target="10045">0</span>
-                    </h1>
-                    <p class="fs-5 text-primary mb-0">Follow Members</p>
+            <div id="securitySlideshow" class="affiliate-slideshow relative mx-auto max-w-4xl">
+                <div data-slide class="active">
+                    <a href="https://tangem.com/invite/BITCOINZAT" target="_blank" rel="noopener noreferrer" class="affiliate-slide-card">
+                        <div class="affiliate-slide-stage">
+                            <img src="/img/Iphone_cards.png" class="affiliate-slide-img" alt="Unit Cards">
+                        </div>
+                    </a>
+                </div>
+                <div data-slide class="hidden">
+                    <a href="https://shop.ledger.com/?r=2deb3872c973" target="_blank" rel="noopener noreferrer" class="affiliate-slide-card">
+                        <div class="affiliate-slide-stage">
+                            <img src="/img/ledger-.jpg" class="affiliate-slide-img" alt="Ledger Hardware Wallet">
+                        </div>
+                    </a>
+                </div>
+                <div data-slide class="hidden">
+                    <a href="https://shop.deeper.network?sca_ref=2063681.3aWn8PiBjI" target="_blank" rel="noopener noreferrer" class="affiliate-slide-card">
+                        <div class="affiliate-slide-stage">
+                            <img src="/img/decentralized-VPN-router.jpg" class="affiliate-slide-img" alt="Decentralized VPN Router">
+                        </div>
+                    </a>
+                </div>
+
+                <button data-carousel-prev type="button" class="absolute left-0 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-primary text-white" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button data-carousel-next type="button" class="absolute right-0 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-primary text-white" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="bg-surface py-16">
+        <div class="section-shell">
+            <div class="section-title mb-12">
+                <h2 class="mb-3 text-3xl font-bold">Join Our Partners</h2>
+                <p class="text-lg text-primary">Click to access exclusive offers</p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-3">
+                <a href="https://tangem.com/invite/BITCOINZAT" target="_blank" rel="noopener noreferrer">
+                    <div class="brand-card" data-brand="Tangem">
+                        <h3 class="mb-3 text-xl font-bold">Tangem Wallet</h3>
+                        <p class="mb-5">Secure Hardware Wallet</p>
+                        <span data-brand-accent class="font-bold">Get Discount →</span>
+                    </div>
+                </a>
+                <a href="https://www.bitget.com/referral/register?clacCode=GK802F53" target="_blank" rel="noopener noreferrer">
+                    <div class="brand-card" data-brand="Bitget">
+                        <h3 class="mb-3 text-xl font-bold">Bitget Exchange</h3>
+                        <p class="mb-5">Copy Trading Platform</p>
+                        <span data-brand-accent class="font-bold">Sign Up Bonus →</span>
+                    </div>
+                </a>
+                <a href="https://accounts.binance.com/register?ref=QH7UTFK8" target="_blank" rel="noopener noreferrer">
+                    <div class="brand-card" data-brand="Binance">
+                        <h3 class="mb-3 text-xl font-bold">Binance</h3>
+                        <p class="mb-5">World's Largest Exchange</p>
+                        <span data-brand-accent class="font-bold">Get Started →</span>
+                    </div>
                 </a>
             </div>
-
-            <!-- Earned via Copy Trading -->
-            <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.5s">
-                <img class="img-fluid mb-4" src="img/icon-2.png" alt="Copy trading earnings icon">
-                <h1 class="display-4 text-dark">
-                    <span class="dollar-sign">$</span>
-                    <span class="counter-number" data-target="530252">0</span>
-                </h1>
-                <p class="fs-5 text-primary mb-0">Earned via Copy Trading</p>
-            </div>
-
         </div>
-    </div>
-</div>
-<!-- Facts End -->
+    </section>
 
-<!-- CSS për stilin e numrave dhe ikonave -->
-<style>
-    .display-4 {
-        font-size: 3.5rem;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .icon-student, .icon-telegram, .dollar-sign {
-        display: inline-flex;
-        width: 50px;
-        height: 50px;
-        background-color: #0d6efd;
-        color: white;
-        border-radius: 50%;
-        font-size: 1.2rem;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .icon-telegram {
-        background-color: #0088cc;
-    }
-
-    .dollar-sign {
-        background-color: #28a745;
-        font-size: 1.5rem;
-        width: 55px;
-        height: 55px;
-    }
-
-    .counter-number {
-        font-weight: 600;
-        color: #333;
-    }
-
-    /* Hover efekt */
-    .col-md-6 a:hover {
-        transform: translateY(-5px);
-        transition: transform 0.3s ease;
-    }
-</style>
-
-<!-- Font Awesome për ikonat -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- Wow.js për animacionin e hyrjes -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/animate.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-
-<!-- Scripti që "lëviz" numrat -->
-<script>
-    // Inicializon Wow.js për animacionet
-    new WOW().init();
-
-    // Funksioni që lëviz numrat
-    document.addEventListener("DOMContentLoaded", () => {
-        const counters = document.querySelectorAll('.counter-number');
-        
-        counters.forEach(counter => {
-            const updateCounter = () => {
-                const target = +counter.getAttribute('data-target');
-                const speed = 2000; // Koha gjithsej në ms
-                const increment = target / speed * 10;
-                let count = 0;
-
-                const timer = setInterval(() => {
-                    count += increment;
-                    if (count >= target) {
-                        counter.innerText = target.toLocaleString();
-                        clearInterval(timer);
-                    } else {
-                        counter.innerText = Math.floor(count).toLocaleString();
-                    }
-                }, 10);
-            };
-
-            // Starto numërimin kur elementi duket në ekran (opsionale: mund të shtohet Intersection Observer)
-            updateCounter();
-        });
-    });
-</script>
-
-
-
-
-
-
-    <!-- Features Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp section-header" data-wow-delay="0.1s">
-                <h1 class="display-6">Why DuaCrypto Stands Out</h1>
-                <p class="text-primary fs-5 mb-5">Albania’s First & Most Established Crypto Community</p>
+    <!-- FAQs -->
+    <section class="py-16">
+        <div class="section-shell">
+            <div class="section-title mb-12">
+                <h2 class="mb-3 text-3xl font-bold">FAQs</h2>
+                <p class="text-lg text-primary">Frequently Asked Questions</p>
             </div>
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="d-flex align-items-start">
-                        <img class="img-fluid flex-shrink-0" src="img/icon-7.png" alt="Local community icon">
-                        <div class="ps-4">
-                            <h5 class="mb-3">Local Roots, Global Vision</h5>
-                            <span>Founded in Tirana (2020), we understand Balkan crypto needs better than international platforms. Our tools and education programs are specifically designed for regional markets and regulations.</span>
-                        </div>
-                    </div>
+
+            <div id="faq-accordion" class="mx-auto max-w-4xl">
+                <div class="accordion-item">
+                    <button data-accordion-btn type="button" class="accordion-btn accordion-btn-open" aria-expanded="true">How does Dua Crypto assist international businesses navigating crypto and Bitcoin regulations in Albania?</button>
+                    <div class="accordion-panel">We provide specialized corporate consulting on Albania's Law No. 66/2020 "On Financial Markets Based on Distributed Ledger Technology." We guide enterprise clients through Financial Supervisory Authority (AMF) compliance, National Agency for Information Society (AKSHI) provisions, anti-money laundering (AML/KYC) obligations, and corporate tax structuring for crypto operations within the jurisdiction.</div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="d-flex align-items-start">
-                        <img class="img-fluid flex-shrink-0" src="img/icon-6.png" alt="Verified members icon">
-                        <div class="ps-4">
-                            <h5 class="mb-3">9,600+ Verified Members</h5>
-                            <span>Join Albania’s largest network of:<br><br>
-                                Developers building Web3 solutions<br>
-                                Traders sharing proven strategies<br>
-                                Beginners mastering blockchain basics
-                            </span>
-                        </div>
-                    </div>
+                <div class="accordion-item">
+                    <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">What are the legal requirements for establishing a cryptocurrency or Bitcoin mining operation in Albania?</button>
+                    <div class="accordion-panel hidden">Crypto mining businesses must comply with local commercial licensing, environmental regulations, and specific energy sector frameworks governed by the Energy Regulatory Authority (ERE). Our consulting services assist corporate entities in analyzing grid capacity, securing legal power supply agreements, and establishing compliant infrastructure footprints.</div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="d-flex align-items-start">
-                        <img class="img-fluid flex-shrink-0" src="img/icon-5.png" alt="Real results icon">
-                        <div class="ps-4">
-                            <h5 class="mb-3">Real Results</h5>
-                            <span>$500,000+ earned through our copy trading system<br>
-                                150,000+ free educational resources accessed<br>
-                                Zero scams reported since 2020
-                            </span>
-                        </div>
-                    </div>
+                <div class="accordion-item">
+                    <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">How do Peer-to-Peer (P2P) exchanges operate under current Albanian financial regulations?</button>
+                    <div class="accordion-panel hidden">Entities facilitating digital asset exchange or P2P matching platforms must align with local Virtual Asset Service Provider (VASP) regulations. We consult businesses on implementing required transaction monitoring, fiat-to-crypto escrow frameworks, and compliance reporting required by Albanian financial intelligence units to mitigate fraud and regulatory risk.</div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="d-flex align-items-start">
-                        <img class="img-fluid flex-shrink-0" src="img/icon-4.png" alt="Learning path icon">
-                        <div class="ps-4">
-                            <h5 class="mb-3">Step-by-Step Learning Path</h5>
-                            <span>
-                                → Free guides at DuaCrypto.org<br>
-                                → AI-powered tools at DuaBTC.com<br>
-                                → Mentor-led market simulations
-                            </span>
-                        </div>
-                    </div>
+                <div class="accordion-item">
+                    <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">I am an absolute beginner with zero technical skills. Can I learn about Bitcoin, P2P, and mining safely here?</button>
+                    <div class="accordion-panel hidden">Yes. Dua Crypto serves as an educational hub designed for non-technical individuals. We break down how Bitcoin works, how to safely navigate P2P transactions without falling victim to scams, and the basic concepts of mining using clear, plain language in both Albanian and English without technical jargon.</div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="d-flex align-items-start">
-                        <img class="img-fluid flex-shrink-0" src="img/icon-3.png" alt="Security features icon">
-                        <div class="ps-4">
-                            <h5 class="mb-3">Balkan-First Security</h5>
-                            <span>Cold storage for 95% of assets<br>
-                                Insured EUR & ALL transactions<br>
-                                Albanian-language support 24/7
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="d-flex align-items-start">
-                        <img class="img-fluid flex-shrink-0" src="img/icon-8.png" alt="Gateway services icon">
-                        <div class="ps-4">
-                            <h5 class="mb-3">Your Gateway to:</h5>
-                            <span>Regional P2P exchanges<br>
-                                Tax-compliant trading<br>
-                                Local meetups & hackathons
-                            </span>
-                        </div>
-                    </div>
+                <div class="accordion-item">
+                    <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">Does Dua Crypto provide corporate advisory for institutional liquidity and OTC setups in Albania?</button>
+                    <div class="accordion-panel hidden">Yes. We offer strategic B2B consulting for enterprises requiring large-scale Over-the-Counter (OTC) routing, corporate treasury allocation into Bitcoin, and institutional liquidity management. All advisory pathways are tailored to maintain strict alignment with local banking policies and regional compliance standards.</div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Features End -->
+    </section>
 
-    <!-- Back to Top Button -->
+    <!-- Footer -->
+    <footer class="bg-surface pt-12">
+        <div class="section-shell pb-10">
+            <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+                <div class="md:col-span-2">
+                    <h2 class="mb-4 flex items-center text-2xl font-bold text-primary">
+                        <img class="logo-img mr-2" src="/img/icon-1.png" alt="DuaCrypto Logo">
+                        DuaCrypto
+                    </h2>
+                    <p class="mb-3 text-secondary">DuaCrypto, founded in 2020, is proud to be the first crypto community in Albania.</p>
+                    <ul class="space-y-2 text-secondary">
+                        <li>We're open to collaborations, partnerships, and creative ideas.</li>
+                        <li><i class="fa fa-envelope mr-2"></i> Reach out via email or our <a href="https://blockscan.com/address/2ECp5NXzGzx4R49DDnQu2nbJiVPKMzKXRHVmHrxp4Exh" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">official wallet</a>.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="mb-4 font-semibold">Get In Touch</h3>
+                    <p class="mb-2 text-secondary"><i class="fa fa-map-marker-alt mr-2"></i>Tirana, Albania</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt mr-2"></i><a href="https://wa.me/15513502053" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">WhatsApp</a></p>
+                    <p class="mb-2"><i class="fa fa-envelope mr-2"></i><a href="mailto:usdc@duacrypto.com" class="text-primary hover:underline">usdc@duacrypto.com</a></p>
+                </div>
+
+                <div>
+                    <h3 class="mb-4 font-semibold">Quick Links</h3>
+                    <a class="footer-link" href="about.html">About Us</a>
+                    <a class="footer-link" href="contact.html">Contact Us</a>
+                    <a class="footer-link" href="service.html">Our Services</a>
+                    <a class="footer-link" href="token.html">Token Sale</a>
+                </div>
+            </div>
+
+            <div class="site-panel mt-10 rounded-lg border border-border bg-card p-6">
+                <h3 class="mb-2 font-semibold">Stay Ahead in the Crypto Game</h3>
+                <p class="mb-4 text-secondary">Join now! Don't get left behind in the crypto revolution!</p>
+                <form action="https://formspree.io/f/xnnpkkqo" method="POST" class="flex flex-col gap-3 sm:flex-row">
+                    <input class="site-input w-full rounded-md border border-border bg-page px-4 py-3 text-dark" type="email" name="email" placeholder="Your email" aria-label="Your email" required>
+                    <button type="submit" class="btn-primary shrink-0">Sign Up</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="border-t border-border py-6">
+            <div class="section-shell flex flex-col items-center justify-between gap-3 text-sm text-secondary md:flex-row">
+                <p>&copy; <a href="#" class="text-primary hover:underline">DuaCrypto 2025</a>, All Right Reserved.</p>
+                <p>Designed By <a href="https://htmlcodex.com" class="text-primary hover:underline">DC</a></p>
+            </div>
+        </div>
+    </footer>
+
     <a href="#" class="back-to-top" title="Back to Top" aria-label="Back to Top">
         <i class="fa fa-angle-double-up"></i>
     </a>
 
-    <!-- Service Start -->
-    <div class="container-xxl bg-light py-5 my-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto wow fadeInUp section-header" data-wow-delay="0.1s">
-                <h1 class="display-6">Community</h1>
-                <p class="text-primary fs-5 mb-5">Powered Crypto Services</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item bg-white p-5">
-                        <img class="img-fluid mb-4" src="img/icon-7.png" alt="Crypto meetup events icon">
-                        <h5 class="mb-3">🤝 Crypto Meetup Events</h5>
-                        <p>We organize and host events that bring crypto enthusiasts together to meet, learn, share experiences, and promote projects, products, and innovation.</p>
-                        <a href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item bg-white p-5">
-                        <img class="img-fluid mb-4" src="img/icon-3.png" alt="On-chain transactions icon">
-                        <h5 class="mb-3">🔗 On-Chain Transactions</h5>
-                        <p>We offer deep on-chain analysis of tokens—identify scams, monitor trends, and explore smart investment opportunities.</p>
-                        <a href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item bg-white p-5">
-                        <img class="img-fluid mb-4" src="img/icon-9.png" alt="Trading earnings icon">
-                        <h5 class="mb-3">📊 Bitcoin Investment</h5>
-                        <p>We teach smart DCA strategies. Learn how to buy when the market is low and sell when it hits all-time highs—like a pro.</p>
-                        <a href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item bg-white p-5">
-                        <img class="img-fluid mb-4" src="img/icon-5.png" alt="Currency exchange icon">
-                        <h5 class="mb-3">🔄 Currency Exchange</h5>
-                        <p>Our trusted P2P exchange system, powered by the community, provides real liquidity and secure transactions.</p>
-                        <a href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item bg-white p-5">
-                        <img class="img-fluid mb-4" src="img/icon-2.png" alt="Copy trading earnings icon">
-                        <h5 class="mb-3">🎁 Airdrop Hunting</h5>
-                        <p>We research and share legit airdrops with high value, helping our community earn free crypto without needing to invest.</p>
-                        <a href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item bg-white p-5">
-                        <img class="img-fluid mb-4" src="img/icon-8.png" alt="Education and mentorship icon">
-                        <h5 class="mb-3">🎓 Education</h5>
-                        <p>Our expert mentors help you build a trader's mindset from scratch. We don’t sell courses—we educate you to trade with confidence.</p>
-                        <a href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
-    <style>
-    .service-item {
-        transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-        border-radius: 18px;
-    }
-    .service-item:hover {
-        background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
-        box-shadow: 0 12px 32px rgba(0,0,0,0.13);
-        transform: translateY(-8px) scale(1.03);
-        animation: pulseHighlight 0.4s;
-    }
-    @keyframes pulseHighlight {
-        0% { box-shadow: 0 0 0 0 rgba(13,110,253,0.15); }
-        70% { box-shadow: 0 0 0 12px rgba(13,110,253,0.08); }
-        100% { box-shadow: 0 12px 32px rgba(0,0,0,0.13); }
-    }
-    </style>
-
-
-<!-- Image Slideshow Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center mx-auto wow fadeInUp section-header-wide" data-wow-delay="0.1s">
-            <h1 class="display-6">Affiliate Products We Use</h1>
-            <p class="text-primary fs-5 mb-5">Contact us to have your logo here</p>
-        </div>
-
-        <!-- Slideshow Container -->
-        <div class="wow fadeInUp" data-wow-delay="0.3s">
-            <style>
-            @keyframes slideFadeIn {
-                0% { opacity: 0; transform: scale(0.98) translateY(20px); }
-                100% { opacity: 1; transform: scale(1) translateY(0); }
-            }
-            .carousel-item img {
-                animation: slideFadeIn 1s cubic-bezier(0.4, 0.2, 0.2, 1) both;
-            }
-            </style>
-            <div id="securitySlideshow" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-
-                <div class="carousel-inner">
-                    <!-- Slide 1 -->
-                    <div class="carousel-item active">
-                        <a href="https://tangem.com/invite/BITCOINZAT" target="_blank" rel="noopener noreferrer">
-                            <img src="img/Iphone_cards.png" class="d-block w-100 img-fluid" alt="Unit Cards - Crypto Payment Solution">
-                        </a>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="carousel-item">
-                        <a href="https://shop.ledger.com/?r=2deb3872c973" target="_blank" rel="noopener noreferrer">
-                            <img src="img/ledger-.jpg" class="d-block w-100 img-fluid" alt="Ledger Hardware Wallet - Secure Crypto Storage">
-                        </a>
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="carousel-item">
-                        <a href="https://shop.deeper.network?sca_ref=2063681.3aWn8PiBjI" target="_blank" rel="noopener noreferrer">
-                            <img src="img/decentralized-VPN-router.jpg" class="d-block w-100 img-fluid" alt="Tangem Wallet - Secure Hardware Wallet" loading="eager">
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Navigation Arrows -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#securitySlideshow" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#securitySlideshow" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<!-- Affiliate Links Start -->
-<div class="container-xxl bg-light py-5 my-5">
-    <div class="container py-5">
-        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h1 class="display-6">Join Our Partners</h1>
-            <p class="text-primary fs-5 mb-5">Click to access exclusive offers</p>
-        </div>
-        <div class="row g-4 justify-content-center">
-            <!-- Tangem Card -->
-            <div class="col-12 col-md-4 wow fadeIn" data-wow-delay="0.1s">
-                <a href="https://tangem.com/invite/BITCOINZAT" target="_blank" class="text-decoration-none">
-                    <div class="brand-card text-center p-4 h-100 rounded-3 shadow-hover" data-brand="Tangem">
-                        <h3 class="mb-3">Tangem Wallet</h3>
-                        <p>Secure Hardware Wallet</p>
-                        <span class="brand-accent">Get Discount →</span>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Bitget Card -->
-            <div class="col-12 col-md-4 wow fadeIn" data-wow-delay="0.3s">
-                <a href="https://www.bitget.com/referral/register?clacCode=GK802F53" target="_blank" class="text-decoration-none">
-                    <div class="brand-card text-center p-4 h-100 rounded-3 shadow-hover" data-brand="Bitget">
-                        <h3 class="mb-3">Bitget Exchange</h3>
-                        <p>Copy Trading Platform</p>
-                        <span class="brand-accent">Sign Up Bonus →</span>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Binance Card -->
-            <div class="col-12 col-md-4 wow fadeIn" data-wow-delay="0.5s">
-                <a href="https://accounts.binance.com/register?ref=QH7UTFK8" target="_blank" class="text-decoration-none">
-                    <div class="brand-card text-center p-4 h-100 rounded-3 shadow-hover" data-brand="Binance">
-                        <h3 class="mb-3">Binance</h3>
-                        <p>World's Largest Exchange</p>
-                        <span class="brand-accent">Get Started →</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Affiliate Links End -->
-
-<style>
-.brand-card {
-    transition: all 0.4s ease;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    font-weight: 500;
-    text-align: center;
-}
-.brand-card h3 {
-    margin-bottom: 15px;
-}
-.brand-card p {
-    margin-bottom: 20px;
-}
-.brand-card .brand-accent {
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-.brand-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-    filter: brightness(1.1); /* Efekt më i ndritshëm kur hover */
-}
-</style>
-
-<script>
-const brandColors = {
-    Tangem: { background: 'linear-gradient(135deg, #1293E6, #1F8FE0)', text: '#F0F0F0', accent: '#1F1F1F' },
-    Bitget: { background: 'linear-gradient(135deg, #00F0FF, #00CFFF)', text: '#0c0e12', accent: '#0c0e12' },
-    Binance: { background: 'linear-gradient(135deg, #f0b90b, #e0a600)', text: '#0c0e12', accent: '#0c0e12' }
-};
-
-document.querySelectorAll('.brand-card').forEach(card => {
-    const brand = card.getAttribute('data-brand');
-    if (brandColors[brand]) {
-        const colors = brandColors[brand];
-        card.style.background = colors.background;
-        card.style.color = colors.text; // Ngjyra e tekstit
-        const accent = card.querySelector('.brand-accent');
-        if (accent) accent.style.color = colors.accent; // Ngjyra e linkut/accent
-    }
-});
-</script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DuaCrypto Newsletter</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Custom mobile-first styles */
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        /* Responsive font sizes */
-        .mobile-heading {
-            font-size: calc(1.5rem + 1vw);
-        }
-        
-        .mobile-subheading {
-            font-size: calc(0.9rem + 0.3vw);
-        }
-        
-        /* Adjust padding for mobile */
-        @media (max-width: 768px) {
-            .container-xxl.py-5 {
-                padding-top: 2rem !important;
-                padding-bottom: 2rem !important;
-            }
-            
-            .card-body {
-                padding: 1.5rem !important;
-            }
-            
-            .btn-lg {
-                padding: 0.75rem 1rem;
-                font-size: 1rem;
-            }
-            
-            /* Stack features in a more compact way */
-            .list-unstyled li {
-                margin-bottom: 0.5rem !important;
-            }
-        }
-        
-        /* Very small devices */
-        @media (max-width: 576px) {
-            .card-img-top {
-                height: 175px;
-            }
-            
-            .position-absolute.fs-6 {
-                font-size: 0.8rem !important;
-                padding: 0.4rem 0.8rem !important;
-            }
-        }
-        
-        /* Touch-friendly button */
-        .btn {
-            min-height: 44px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
-
-<!-- Join Our Partners End -->
-
-<!-- CSS Styling -->
-<style>
-    .card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
-    .btn-primary {
-        background-color: #7928CA;
-        border: none;
-        font-weight: 600;
-    }
-    .btn-primary:hover {
-        background-color: #6200B3;
-    }
-</style>
-
-<!-- JavaScript for Tracking (Optional) -->
-<script>
-    function trackBuyClick() {
-        console.log("User clicked 'Buy Now' for DuaCrypto Newsletter");
-        // Optional: Integrate with Google Analytics, Meta Pixel, or Gumroad JS API
-        // Gumroad embed script (uncomment to enable embedded lightbox checkout)
-        /*
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "https://gumroad.com/js/gumroad.js";
-        document.head.appendChild(script);
-        */
-    }
-
-    // Optional: Auto-init Gumroad (for embedded modal checkout instead of redirect)
-    // Learn more: https://gumroad.com/help/embeddable-buttons
-</script>
-
-
-    <!-- FAQs Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp section-header" data-wow-delay="0.1s">
-                <h1 class="display-6">FAQs</h1>
-                <p class="text-primary fs-5 mb-5">Frequently Asked Questions</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.1s">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    How do I join the DuaCrypto community?
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Simply visit DuaCrypto.org for free access to guides and event calendars. For trading tools and mentorship, register at DuaBTC.com. No upfront costs - start learning in 5 minutes.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Is my crypto safe with DuaCrypto?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    We use military-grade security:
-                                    <ul>
-                                        <li>95% of assets in cold storage</li>
-                                        <li>All transactions insured up to €100,000</li>
-                                        <li>Regular third-party audits (last completed June 2024)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.3s">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    What does it cost to participate?
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li>Community access: Free forever</li>
-                                        <li>Trading tools: 0.5% fee per successful trade</li>
-                                        <li>Premium mentorship: €49/month (includes AI market alerts)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
-                            <h2 class="accordion-header" id="headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                                    Can I access your educational resources in Albanian?
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Yes! All guides, meetups, and 24/7 support are available in:
-                                    <ul>
-                                        <li>✓ Albanian (primary)</li>
-                                        <li>✓ English</li>
-                                        <li>✓ Serbian</li>
-                                        <li>✓ Macedonian</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
-                            <h2 class="accordion-header" id="headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    Do I need technical skills to start?
-                                </button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Not at all. Our Zero to Crypto Hero program teaches everything from:
-                                    <ul>
-                                        <li>→ Setting up your first wallet</li>
-                                        <li>→ Reading market charts</li>
-                                        <li>→ Executing secure P2P trades</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
-                            <h2 class="accordion-header" id="headingSix">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    How do your P2P exchanges work?
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li>Post buy/sell offers in ALL, EUR, or crypto</li>
-                                        <li>We escrow all transactions</li>
-                                        <li>Funds released only when both parties confirm</li>
-                                    </ul>
-                                    Average completion time: 8 minutes
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.7s">
-                            <h2 class="accordion-header" id="headingSeven">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                    What makes you different from Binance/Bitget?
-                                </button>
-                            </h2>
-                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    We specialize in:
-                                    <ul>
-                                        <li>✓ Balkan market strategies</li>
-                                        <li>✓ ALL-to-crypto liquidity pools</li>
-                                        <li>✓ Local tax compliance tools</li>
-                                        <li>✓ In-person Tirana meetups</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
-                            <h2 class="accordion-header" id="headingEight">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                    Can I earn without investing money?
-                                </button>
-                            </h2>
-                            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Absolutely. Participate in:
-                                    <ul>
-                                        <li>Airdrop hunts (avg. €120/month value)</li>
-                                        <li>Community moderation (earn BTC)</li>
-                                        <li>Content translation projects</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.9s">
-                            <h2 class="accordion-header" id="headingNine">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                                    Are services available outside Albania?
-                                </button>
-                            </h2>
-                            <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Yes to all Balkan residents:
-                                    <ul>
-                                        <li>✓ Kosovo</li>
-                                        <li>✓ North Macedonia</li>
-                                        <li>✓ Montenegro</li>
-                                        <li>✓ Serbia</li>
-                                        <li>✓ Greece (Northern regions)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="1.0s">
-                            <h2 class="accordion-header" id="headingTen">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
-                                    How quickly can I get support?
-                                </button>
-                            </h2>
-                            <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <25 second response time via:
-                                    <ul>
-                                        <li>WhatsApp: +355 69 XXX XXXX</li>
-                                        <li>Blockscan Chat (24/7)</li>
-                                        <li>In-person at Rruga Abdyl Frashëri, Tirana</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- FAQs End -->
-
-
-    <div class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6">
-                    <div class="mb-4">
-                        <h1 class="text-primary mb-4">
-                            <img class="img-fluid me-2 logo-img" src="img/icon-1.png" alt="DuaCrypto Logo">
-                            DuaCrypto
-                        </h1>
-                        <div class="footer-content">
-                            <p>DuaCrypto, founded in 2020, is proud to be the first crypto community in Albania </p>
-                            <ul class="list-unstyled">
-                                <li>We're open to collaborations, partnerships, and creative ideas.</li>
-                                <li>If you would like to see your logo featured on our site, please send us an email with your request.</li>
-                                <li><i class="fa fa-envelope me-2"></i> For support, donations, or collaborations, feel free to reach out via email or contribute to our official crypto wallet at <a href="https://blockscan.com/address/2ECp5NXzGzx4R49DDnQu2nbJiVPKMzKXRHVmHrxp4Exh" target="_blank" rel="noopener noreferrer" title="Visit our official crypto wallet address on Blockscan">address</a>.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h5 class="mb-4">Stay Ahead in the Crypto Game</h5>
-<p>Join now! Don’t get left behind in the crypto revolution!</p>
-<form action="https://formspree.io/f/xnnpkkqo" method="POST" class="position-relative">
-    <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="email" name="email" placeholder="Your email" aria-label="Your email">
-    <button type="submit" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Sign Up</button>
-</form>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>Tirana, Albania</p>
-                    <p><i class="fa fa-phone-alt me-3"></i><a href="https://wa.me/15513502053" target="_blank" rel="noopener noreferrer" title="Start a chat with us on WhatsApp">Chat with us on WhatsApp</a></p>
-                    <p><i class="fa fa-envelope me-3"></i><a href="mailto:usdc@duacrypto.com">usdc@duacrypto.com</a></p>
-                    <p><i class="fa fa-link me-3"></i><a href="https://blockscan.com/address/2ECp5NXzGzx4R49DDnQu2nbJiVPKMzKXRHVmHrxp4Exh" target="_blank" rel="noopener noreferrer">Chat with us on Blockscan</a></p>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="service.html">Currency Wallet</a>
-                    <a class="btn btn-link" href="service.html">Currency Transaction</a>
-                    <a class="btn btn-link" href="service.html">Bitcoin Investment</a>
-                    <a class="btn btn-link" href="token.html">Token Sale</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="service.html">Our Services</a>
-                    <a class="btn btn-link" href="about.html">Terms & Condition</a>
-            
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Follow Us</h5>
-                    <div class="d-flex">
-                        <a class="btn btn-square rounded-circle me-1" href="https://twitter.com/duacrypto" target="_blank" rel="noopener noreferrer" title="Follow us on Twitter" aria-label="Follow DuaCrypto on Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://facebook.com/duacrypto" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook" aria-label="Follow DuaCrypto on Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" title="Subscribe to our YouTube channel" aria-label="Subscribe to DuaCrypto YouTube channel"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://linkedin.com/company/duacrypto" target="_blank" rel="noopener noreferrer" title="Connect on LinkedIn" aria-label="Connect with DuaCrypto on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a href="#">DuaCrypto 2025</a>, All Right Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a href="https://htmlcodex.com">DC</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-
-
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
 </body>
-
 </html>

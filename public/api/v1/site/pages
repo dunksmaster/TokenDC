@@ -1,0 +1,54 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "title": "Made In Albania",
+      "url": "https://duacrypto.com/"
+    },
+    {
+      "path": "/about.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/about.html"
+    },
+    {
+      "path": "/service.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/service.html"
+    },
+    {
+      "path": "/roadmap.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/roadmap.html"
+    },
+    {
+      "path": "/events.html",
+      "title": "Dua Crypto Albania - Events",
+      "url": "https://duacrypto.com/events.html"
+    },
+    {
+      "path": "/feature.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/feature.html"
+    },
+    {
+      "path": "/token.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/token.html"
+    },
+    {
+      "path": "/faq.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/faq.html"
+    },
+    {
+      "path": "/contact.html",
+      "title": "CryptoCoin - Free Cryptocurrency Website Template",
+      "url": "https://duacrypto.com/contact.html"
+    },
+    {
+      "path": "/donation.html",
+      "title": "Crypto Education Initiative - Donate",
+      "url": "https://duacrypto.com/donation.html"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  title: DuaCrypto Site API
+  version: 1.0.0
+  description: Public read-only discovery API for DuaCrypto static site pages and health.
+servers:
+  - url: https://duacrypto.com/api/v1/site
+paths:
+  /health:
+    get:
+      summary: Service health
+      operationId: getHealth
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  service:
+                    type: string
+                  version:
+                    type: string
+  /pages:
+    get:
+      summary: List public site pages
+      operationId: listPages
+      responses:
+        "200":
+          description: Page index
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pages:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        path:
+                          type: string
+                        title:
+                          type: string
+                        url:
+                          type: string
+                          format: uri

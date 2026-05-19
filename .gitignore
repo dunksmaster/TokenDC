@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.vite/
+secrets/
+.env
+.env.local
+
+# Editor / accidental exports
+.cursor/
+
+# Cursor drag-drop images with path-like names (break Windows git)
+**/c__Users*
+img/test-c__*
+
+# Mirrored from public/css/dark-mode.css by scripts/generate-agent-assets.mjs
+css/dark-mode.css

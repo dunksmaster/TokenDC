@@ -1,0 +1,25 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://duacrypto.com/api/v1/site",
+      "service-desc": [
+        {
+          "href": "https://duacrypto.com/openapi/site-api.yaml",
+          "type": "application/yaml"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://duacrypto.com/docs/api",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://duacrypto.com/api/v1/site/health",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+/api-catalog
+  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+
+/oauth-authorization-server
+  Content-Type: application/json; charset=utf-8
+
+/openid-configuration
+  Content-Type: application/json; charset=utf-8
+
+/oauth-protected-resource
+  Content-Type: application/json; charset=utf-8
+
+/mcp/server-card.json
+  Content-Type: application/json; charset=utf-8
+
+/agent-skills/index.json
+  Content-Type: application/json; charset=utf-8
+
+/http-message-signatures-directory
+  Content-Type: application/http-message-signatures-directory+json; charset=utf-8
+  Cache-Control: max-age=86400
+
+/jwks.json
+  Content-Type: application/json; charset=utf-8

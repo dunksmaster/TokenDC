@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DuaCrypto Site API</title>
+  <meta name="description" content="Machine-readable API documentation for the DuaCrypto public site discovery API.">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH7BJVBLP2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BH7BJVBLP2');
+  </script>
+</head>
+<body>
+  <main>
+    <h1>DuaCrypto Site API</h1>
+    <p>Public read-only endpoints for agents and integrations.</p>
+    <ul>
+      <li><a href="/openapi/site-api.yaml">OpenAPI specification</a></li>
+      <li><a href="/.well-known/api-catalog">API catalog (RFC 9727)</a></li>
+      <li><a href="/api/v1/site/health">Health</a></li>
+      <li><a href="/api/v1/site/pages">Pages index</a></li>
+    </ul>
+    <p>OAuth discovery: <a href="/.well-known/oauth-authorization-server">authorization server</a>, <a href="/.well-known/oauth-protected-resource">protected resource metadata</a>.</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "ai-rules",
+      "type": "skill-md",
+      "description": "AI crawler User-agent rules in robots.txt per RFC 9309 and Content-Signal policy.",
+      "url": "https://duacrypto.com/.well-known/agent-skills/ai-rules/SKILL.md",
+      "digest": "sha256:ceb548c6125fb9a639313e1762801f4e0e837fc70c028cbb5a38b9d586f2bafa"
+    },
+    {
+      "name": "site-navigation",
+      "type": "skill-md",
+      "description": "Navigate the DuaCrypto public website and list canonical page URLs.",
+      "url": "https://duacrypto.com/.well-known/agent-skills/site-navigation/SKILL.md",
+      "digest": "sha256:0d5a959901b86531ca68dbe5479f04eb90f52b887f9b445bd7a25aa1699a0ab6"
+    },
+    {
+      "name": "web-bot-auth",
+      "type": "skill-md",
+      "description": "Publish and use Web Bot Auth HTTP message signatures for DuaCrypto agents.",
+      "url": "https://duacrypto.com/.well-known/agent-skills/web-bot-auth/SKILL.md",
+      "digest": "sha256:68a718fa9692ef0842ca549dc1097325b2f16804f7b6e3d2d9bfb0897d8c0791"
+    }
+  ]
+}

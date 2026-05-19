@@ -1,0 +1,20 @@
+{
+  "serverInfo": {
+    "name": "duacrypto-site",
+    "version": "1.0.0",
+    "description": "DuaCrypto public site tools for navigation, events, and community links."
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://duacrypto.com/mcp"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false
+  },
+  "links": {
+    "documentation": "https://duacrypto.com/docs/api",
+    "webmcp": "https://duacrypto.com/"
+  }
+}

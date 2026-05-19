@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DuaCrypto Albania - Events</title>
-    <meta name="description" content="Join DuaCrypto's crypto events in Tirana, get meme coin signals, airdrop alerts, and learn Murad wallet strategies.">
+    <script src="/theme-init.js"></script>
+    <title>Dua Crypto Albania - Events</title>
+    <meta name="description" content="Join DuaCrypto events in Tirana — Bitcoin Pizza Day, Balkans Crypto 2025, and community meetups across the Balkans.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH7BJVBLP2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BH7BJVBLP2');
+    </script>
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon" onerror="this.onerror=null;this.src='https://via.placeholder.com/32';">
@@ -24,6 +33,8 @@
     <style>
         :root {
             --primary: #0d6efd;
+            --brand-green: #7ed321;
+            --brand-green-dark: #5cb018;
             --instagram: #e4405f;
             --tirana: #1a237e;
         }
@@ -32,6 +43,11 @@
             font-family: 'Open Sans', sans-serif;
             background-color: #fafafa;
             color: #333;
+        }
+
+        html.dark body {
+            background-color: #0d1117;
+            color: #e6edf3;
         }
 
         /* Instagram Grid */
@@ -52,6 +68,12 @@
             transition: transform 0.3s ease;
         }
 
+        a.insta-item {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
         .insta-item:hover {
             transform: scale(1.03);
         }
@@ -67,14 +89,44 @@
             transform: scale(1.1);
         }
 
+        /* TV / media screenshots — show full frame without cropping */
+        .insta-grid--media .insta-item {
+            aspect-ratio: 16 / 9;
+            background: #0d1117;
+        }
+
+        .insta-grid--media .insta-item img {
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .insta-grid--media .insta-item:hover img {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .insta-grid--media {
+                grid-template-columns: 1fr;
+            }
+
+            .insta-grid--media .insta-item {
+                aspect-ratio: 16 / 10;
+                max-height: 220px;
+            }
+        }
+
         /* Event Card */
         .event-card {
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            margin: 40px auto;
+            margin: 24px auto;
             max-width: 1200px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .event-card:last-of-type {
+            margin-bottom: 12px;
         }
 
         .event-header {
@@ -141,32 +193,193 @@
 
         /* Header Image */
         .hero-img {
-            max-height: 400px;
+            max-height: 320px;
             object-fit: cover;
             border-radius: 12px;
+        }
+
+        .page-hero {
+            padding: 2.75rem 1rem 2.25rem !important;
+        }
+
+        .page-hero-eyebrow {
+            margin: 0 0 0.5rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--brand-green-dark);
+        }
+
+        .page-hero-title {
+            margin: 0 0 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
+        }
+
+        .page-hero-brand {
+            display: block;
+            font-size: clamp(2.1rem, 5.5vw, 3rem);
+            color: var(--brand-green);
+        }
+
+        .page-hero-label {
+            display: block;
+            margin-top: 0.15rem;
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 500;
+            color: #2c2c2c;
+        }
+
+        .page-hero-tags {
+            margin: 0 auto;
+            max-width: 34rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #5c5c5c;
+        }
+
+        .page-hero-tags span {
+            color: var(--brand-green-dark);
+        }
+
+        .events-cta {
+            padding: 1.75rem 1rem 1rem;
+        }
+
+        .events-cta h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            min-height: 68px;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+
+        @media (min-width: 992px) {
+            .navbar .navbar-nav .nav-link {
+                padding-top: 1.35rem;
+                padding-bottom: 1.35rem;
+            }
+        }
+
+        .navbar-brand-lockup {
+            gap: 0.65rem;
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            text-decoration: none;
+        }
+
+        .navbar-brand-lockup:hover .navbar-brand-text {
+            color: var(--brand-green-dark);
+        }
+
+        .navbar-brand-mark {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .navbar-brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.05;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: var(--brand-green);
+            transition: color 0.2s ease;
+        }
+
+        .navbar-brand-text span:first-child {
+            font-size: 1.05rem;
+        }
+
+        .navbar-brand-text span:last-child {
+            font-size: 0.8rem;
+            opacity: 0.92;
+        }
+
+        .navbar-brand-fallback {
+            display: none;
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-green);
+            gap: 0.5rem;
+        }
+
+        .navbar-brand-lockup.is-fallback .navbar-brand-mark,
+        .navbar-brand-lockup.is-fallback .navbar-brand-text {
+            display: none;
+        }
+
+        .navbar-brand-lockup.is-fallback .navbar-brand-fallback {
+            display: inline-flex;
+            align-items: center;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 1.25rem 1rem;
             background: #f1f1f1;
-            margin-top: 60px;
+            margin-top: 0;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .footer-home-link:hover {
+            text-decoration: underline;
+            color: #0a58ca;
         }
     </style>
+    <link href="/css/dark-mode.css" rel="stylesheet">
 </head>
 <body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
-        <a href="index.html" class="navbar-brand d-flex align-items-center">
-            <h2 class="m-0 text-primary"><i class="fas fa-coins me-2"></i>DuaCrypto AL</h2>
+        <a href="index.html" class="navbar-brand navbar-brand-lockup d-flex align-items-center" aria-label="Dua Crypto home">
+            <img src="img/duacrypto-mark.svg" alt="" class="navbar-brand-mark" width="42" height="42" onerror="this.closest('.navbar-brand-lockup').classList.add('is-fallback');">
+            <span class="navbar-brand-text">
+                <span>DUA</span>
+                <span>CRYPTO</span>
+            </span>
+            <span class="navbar-brand-fallback"><i class="fas fa-coins"></i> Dua Crypto</span>
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-4 py-lg-0">
+            <div class="navbar-nav ms-auto py-2 py-lg-0">
                 <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="service.html" class="nav-item nav-link">Services</a>
@@ -182,113 +395,123 @@
     </nav>
 
     <!-- Header -->
-    <header class="bg-light py-5 text-center">
+    <header class="bg-light page-hero text-center">
         <div class="container">
-            <h1 class="display-5">DuaCrypto Events</h1>
-            <p class="lead text-primary">Tirana • Crypto • Airdrops • Meme Coins</p>
-            <img src="img/54568959275_c50b3efc4c_o.jpg" alt="DuaCrypto Albania Event" class="img-fluid hero-img mt-4" onerror="this.onerror=null;this.src='https://via.placeholder.com/1200x400?text=DuaCrypto+Event';">
+            <p class="page-hero-eyebrow">Albania&rsquo;s crypto community</p>
+            <h1 class="page-hero-title">
+                <span class="page-hero-brand">Dua Crypto</span>
+                <span class="page-hero-label">Events</span>
+            </h1>
+            <p class="page-hero-tags">
+                <span>Tirana</span> &bull; Crypto &bull; Balkans Crypto 2025 &bull; Community
+            </p>
+            <img src="img/bitcoin-pizza-day-3.png" alt="Dua Crypto community celebrating Bitcoin Pizza Day at The Taproom" class="img-fluid hero-img mt-4" onerror="this.onerror=null;this.src='img/bitcoin-pizza-day-1.png';this.onerror=function(){this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';};">
         </div>
     </header>
 
-    <!-- Event 1: Meme Coin Webinar -->
+    <!-- Event 1: Bitcoin Pizza Day -->
     <div class="event-card animate-in delay-1">
         <div class="event-header">
-            <i class="fas fa-chart-line me-2"></i> Meme Coin Webinar
+            <i class="fas fa-pizza-slice me-2"></i> Bitcoin Pizza Day
         </div>
         <div class="insta-grid">
-            <div class="insta-item tirana-wave">
-                <img src="img/54568959275_c50b3efc4c_o.jpg" alt="Meme Coin Strategy" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x400?text=Meme+Coin';">
-            </div>
-            <div class="insta-item">
-                <img src="img/54568959275_c50b3efc4c_o.jpg" alt="Live Crypto Session" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x400?text=Live+Stream';">
-            </div>
-            <div class="insta-item">
-                <img src="img/54568959275_c50b3efc4c_o.jpg" alt="Telegram Chat" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x400?text=Telegram';">
-            </div>
+            <a href="https://m.alltuu.com/album/2426655506/3122420006?menu=live" target="_blank" rel="noopener noreferrer" class="insta-item tirana-wave">
+                <img src="img/bitcoin-pizza-day-1.png" alt="Community members at Bitcoin Pizza Day meetup" onerror="this.onerror=null;this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';">
+            </a>
+            <a href="https://m.alltuu.com/album/2426655506/3122420006?menu=live" target="_blank" rel="noopener noreferrer" class="insta-item">
+                <img src="img/bitcoin-pizza-day-2.png" alt="Global Pizza Party 2025 display at The Taproom" onerror="this.onerror=null;this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';">
+            </a>
+            <a href="https://m.alltuu.com/album/2426655506/3122420006?menu=live" target="_blank" rel="noopener noreferrer" class="insta-item">
+                <img src="img/bitcoin-pizza-day-3.png" alt="DuaCrypto group photo at Bitcoin Pizza Day celebration" onerror="this.onerror=null;this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';">
+            </a>
         </div>
         <div class="event-content">
-            <p>Learn how to spot the next 100x meme coin before it trends. Live analysis, entry/exit signals, and Murad wallet strategies.</p>
+            <p>Celebrate Bitcoin Pizza Day with DuaCrypto — the story of the first real-world Bitcoin purchase, community meetups, and live photos from our event.</p>
             <div class="event-actions">
-                <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                <a href="https://m.alltuu.com/album/2426655506/3122420006?menu=live" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                    <i class="fas fa-images me-1"></i> View Event Photos
+                </a>
+                <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
                     <i class="fab fa-telegram me-1"></i> Join Telegram
                 </a>
-                <a href="https://duacrypto.gumroad.com/l/newsleter" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
-                    <i class="fas fa-book me-1"></i> Get Guide ($5/mo)
-                </a>
             </div>
         </div>
     </div>
 
-    <!-- Event 2: Airdrop Masterclass -->
+    <!-- Event 2: Balkans Crypto 2025 -->
     <div class="event-card animate-in delay-2">
         <div class="event-header">
-            <i class="fas fa-gift me-2"></i> Airdrop Masterclass
+            <i class="fas fa-globe-europe me-2"></i> Balkans Crypto 2025
         </div>
         <div class="insta-grid">
             <div class="insta-item">
-                <img src="img/54568959275_c50b3efc4c_o.jpg" alt="Airdrop List" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x400?text=Airdrop';">
+                <img src="img/balkans-crypto-2025-1.png" alt="DeFi networking at Balkans Crypto 2025" onerror="this.onerror=null;this.src='img/balkans-crypto-2025-3.png';">
             </div>
             <div class="insta-item tirana-wave">
-                <img src="img/54568959275_c50b3efc4c_o.jpg" alt="Milady Airdrop $14,411" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x400?text=14k+Airdrop';">
+                <img src="img/balkans-crypto-2025-2.png" alt="Conference expo floor with Binance and Bitget booths" onerror="this.onerror=null;this.src='img/balkans-crypto-2025-3.png';">
             </div>
             <div class="insta-item">
-                <img src="img/54568959275_c50b3efc4c_o.jpg" alt="Web3 Form" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x400?text=Form';">
+                <img src="img/balkans-crypto-2025-3.png" alt="DuaCrypto team on stage at Balkans Crypto 2025 Tech Conference" onerror="this.onerror=null;this.src='img/balkans-crypto-2025-1.png';">
             </div>
         </div>
         <div class="event-content">
-            <p>How we earned $14,411 from Milady and other airdrops. Step-by-step guide to finding, qualifying, and claiming free crypto.</p>
+            <p>Balkans Crypto 2025 Tech Conference — DeFi, Web3, and networking across the region. Meet builders, explore projects, and connect with the DuaCrypto community.</p>
             <div class="event-actions">
                 <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                    <i class="fab fa-telegram me-1"></i> Get Alerts
+                    <i class="fab fa-telegram me-1"></i> Join Community
                 </a>
-                <a href="https://duacrypto.gumroad.com/l/newsleter" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
-                    <i class="fas fa-crown me-1"></i> Premium Access
+                <a href="contact.html" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-envelope me-1"></i> Get in Touch
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Event 3: Tirana Meetup -->
+    <!-- Event 3: As Seen On -->
     <div class="event-card animate-in delay-3">
         <div class="event-header">
-            <i class="fas fa-users me-2"></i> Tirana Meetup
+            <i class="fas fa-tv me-2"></i> As Seen On
         </div>
-        <div class="insta-grid">
+        <div class="insta-grid insta-grid--media">
             <div class="insta-item">
-                <img src="img/54568959275_c50b3efc4c_o.jpg" alt="Skanderbeg Square" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x400?text=Tirana';">
+                <img src="img/as-seen-on-abc-news.png" alt="Dorian Kane on ABC News Albania discussing cryptocurrency" onerror="this.onerror=null;this.src='img/as-seen-on-top-channel.png';">
             </div>
             <div class="insta-item">
-                <img src="img/54568959275_c50b3efc4c_o.jpg" alt="Crypto Community" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x400?text=Community';">
+                <img src="img/as-seen-on-eko.png" alt="EKO TV panel on cybersecurity and economic sovereignty" onerror="this.onerror=null;this.src='img/as-seen-on-abc-news.png';">
             </div>
-            <div class="insta-item tirana-wave">
-                <img src="img/54568959275_c50b3efc4c_o.jpg" alt="Ledger Wallet" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x400?text=Ledger';">
+            <div class="insta-item">
+                <img src="img/as-seen-on-top-channel.png" alt="Top Channel Shqipëria Live — Bitcoin and crypto coverage" onerror="this.onerror=null;this.src='img/as-seen-on-abc-news.png';">
             </div>
         </div>
         <div class="event-content">
-            <p>Join us in Tirana for a live crypto meetup! Network with traders, learn about Ledger hardware wallets, and get exclusive signals.</p>
+            <p>DuaCrypto featured on leading Albanian media — ABC News, EKO, and Top Channel — covering Bitcoin, crypto education, and digital assets in the Balkans.</p>
             <div class="event-actions">
-                <a href="https://www.ledger.com/" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm">
-                    <i class="fas fa-lock me-1"></i> Secure Your Crypto
+                <a href="https://abcnews.al" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                    <i class="fas fa-external-link-alt me-1"></i> ABC News
                 </a>
-                <a href="contact.html" class="btn btn-outline-primary btn-sm">
-                    <i class="fas fa-envelope me-1"></i> RSVP Now
+                <a href="https://top-channel.tv" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-external-link-alt me-1"></i> Top Channel
                 </a>
             </div>
         </div>
     </div>
 
     <!-- CTA -->
-    <div class="text-center py-5">
+    <div class="events-cta text-center">
         <h3>Want more events like this?</h3>
-        <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-primary px-5 mt-3">
+        <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-primary px-4">
             <i class="fab fa-telegram me-2"></i> Follow on Telegram
         </a>
     </div>
 
     <!-- Footer -->
     <footer>
+        <p>
+            <a href="index.html" class="footer-home-link">
+                <i class="fas fa-home"></i> Back to Main Menu
+            </a>
+        </p>
         <p>&copy; 2025 DuaCrypto Albania. All Rights Reserved.</p>
-        <p>Affiliate links to Ledger, Gumroad, and Tangem used.</p>
     </footer>
 
     <!-- Bootstrap JS -->
@@ -312,5 +535,6 @@
         });
     </script>
 
+    <script src="/js/theme-bootstrap.js" defer></script>
 </body>
 </html>

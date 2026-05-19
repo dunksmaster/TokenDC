@@ -1,0 +1,10 @@
+{
+  "tailwindCSS.experimental.configFile": "src/css/input.css",
+  "tailwindCSS.includeLanguages": {
+    "html": "html"
+  },
+  "liveServer.settings.port": 0,
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-chrome": "chrome"
+  }
+}
