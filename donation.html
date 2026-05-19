@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/theme-init.js"></script>
-    <title>Crypto Education Initiative - Donate</title>
+    <title>Save a Student — Donate | DuaCrypto</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH7BJVBLP2"></script>
     <script>
@@ -60,18 +60,74 @@
             position: relative;
         }
         
+        .header-badge {
+            background: rgba(255, 255, 255, 0.22) !important;
+            color: #fff !important;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+        }
+
+        .mission-eyebrow,
+        .goal-badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            background: var(--light-green);
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+
+        .mission-section .mission-lead {
+            font-size: 1.15rem;
+            line-height: 1.65;
+            color: #444;
+        }
+
         .goal-container {
             background-color: var(--light-green);
-            border-radius: 15px;
-            padding: 2rem;
+            border-radius: 20px;
+            padding: 2rem 2rem 1.75rem;
             margin: 2rem 0;
-            border-left: 5px solid var(--primary-green);
+            border: 1px solid rgba(37, 165, 106, 0.25);
+            box-shadow: 0 8px 24px rgba(37, 165, 106, 0.12);
         }
-        
+
+        .goal-container h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .goal-subtitle {
+            color: #5a6c62;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            max-width: 36rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .goal-progress-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .goal-progress-label .goal-pct {
+            font-size: 1.25rem;
+        }
+
         .progress {
-            height: 30px;
-            border-radius: 15px;
-            margin: 1.5rem 0;
+            height: 1.25rem;
+            border-radius: 999px;
+            margin: 0 0 1.25rem;
             background-color: #d1e7dd;
             overflow: hidden;
         }
@@ -79,12 +135,38 @@
         .progress-bar {
             background: var(--gradient);
             transition: width 2s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            min-width: 2.5rem;
+        }
+
+        .goal-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .goal-stat {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1rem 0.75rem;
+            text-align: center;
+            border: 1px solid rgba(37, 165, 106, 0.15);
+        }
+
+        .goal-stat-value {
+            display: block;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            line-height: 1.2;
+        }
+
+        .goal-stat-label {
+            display: block;
+            font-size: 0.8rem;
+            color: #6b7c72;
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
         }
         
         .wallet-section {
@@ -96,10 +178,12 @@
         }
         
         .wallet-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 1.5rem;
+            background: var(--donation-surface, #fff);
+            border: 1px solid var(--donation-border, #e0e0e0);
+            border-radius: 16px;
+            padding: 1rem;
             margin: 1rem 0;
+            height: 100%;
             transition: all 0.3s ease;
         }
         
@@ -110,14 +194,27 @@
         }
         
         .wallet-address {
-            background-color: var(--light-green);
-            padding: 1rem;
-            border-radius: 8px;
-            font-family: monospace;
-            font-size: 1.1rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            background: var(--donation-address-bg, var(--light-green));
+            padding: 0.75rem;
+            border-radius: 12px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.9rem;
+        }
+
+        .wallet-address span {
+            flex: 1 1 220px;
+            word-break: break-all;
+            overflow-wrap: anywhere;
+            color: var(--donation-address-text, inherit);
+        }
+
+        .wallet-section .copy-btn {
+            flex: 0 0 auto;
+            white-space: nowrap;
         }
         
         .copy-btn {
@@ -146,24 +243,52 @@
         }
         
         .donation-impact {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
             margin: 2rem 0;
-            flex-wrap: wrap;
         }
-        
+
         .impact-item {
-            padding: 1.5rem;
-            flex: 1;
-            min-width: 200px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 1px solid #e8ece9;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        
-        .impact-number {
-            font-size: 2.5rem;
-            font-weight: bold;
+
+        .impact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(37, 165, 106, 0.12);
+        }
+
+        .impact-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--light-green);
             color: var(--primary-green);
-            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .impact-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 0.35rem;
+            line-height: 1.1;
+        }
+
+        .impact-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #4a5a52;
         }
         
         .donation-cta {
@@ -212,6 +337,118 @@
             margin-top: 3rem;
         }
         
+        @media (max-width: 576px) {
+            .wallet-card .text-center {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .wallet-card h4 {
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* Dark mode */
+        html.dark body {
+            background-color: #0d1117;
+            color: #e6edf3;
+        }
+
+        html.dark .mission-section,
+        html.dark .wallet-section {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            color: #e6edf3;
+        }
+
+        html.dark .goal-container {
+            background-color: #1a2e24;
+            border-left-color: #3fb950;
+            color: #c9d1d9;
+        }
+
+        html.dark .goal-container h3,
+        html.dark .mission-section h2,
+        html.dark .wallet-section h2,
+        html.dark .wallet-card h4 {
+            color: #e6edf3;
+        }
+
+        html.dark .goal-container .progress {
+            background-color: #21262d;
+        }
+
+        html.dark .wallet-card {
+            --donation-surface: #0d1117;
+            --donation-border: #30363d;
+            background: #0d1117;
+            border-color: #30363d;
+        }
+
+        html.dark .wallet-card:hover {
+            border-color: #3fb950;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+        }
+
+        html.dark .wallet-address {
+            --donation-address-bg: #21262d;
+            --donation-address-text: #7ee787;
+            background-color: #21262d;
+        }
+
+        html.dark .mission-eyebrow,
+        html.dark .goal-badge {
+            background: #21262d;
+            color: #7ee787;
+        }
+
+        html.dark .mission-section .mission-lead {
+            color: #c9d1d9;
+        }
+
+        html.dark .goal-subtitle,
+        html.dark .goal-stat-label,
+        html.dark .impact-label {
+            color: #8b949e;
+        }
+
+        html.dark .goal-stat {
+            background: #0d1117;
+            border-color: #30363d;
+        }
+
+        html.dark .goal-stat-value {
+            color: #3fb950;
+        }
+
+        html.dark .goal-progress-label {
+            color: #7ee787;
+        }
+
+        html.dark .impact-item {
+            background: #161b22;
+            border-color: #30363d;
+        }
+
+        html.dark .impact-icon {
+            background: #21262d;
+            color: #3fb950;
+        }
+
+        html.dark .impact-number {
+            color: #3fb950;
+        }
+
+        html.dark .donation-cta h2 {
+            color: #e6edf3;
+        }
+
+        html.dark footer {
+            background: linear-gradient(135deg, #1a5c3a 0%, #0f3d26 100%) !important;
+            color: #e6edf3;
+        }
+
         @media (max-width: 768px) {
             .donation-header {
                 padding: 3rem 0;
@@ -228,9 +465,12 @@
                 gap: 10px;
             }
             
-            .impact-item {
-                min-width: 100%;
-                margin-bottom: 1rem;
+            .goal-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .donation-impact {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -240,8 +480,9 @@
     <!-- Header Section -->
     <header class="donation-header">
         <div class="container position-relative">
-            <h1 class="display-4 fw-bold mb-3">Empowering Mothers Through Crypto Education</h1>
-            <p class="lead">Your donation helps provide cryptocurrency education to mothers worldwide</p>
+            <p class="goal-badge mb-3 header-badge">#SaveAStudent</p>
+            <h1 class="display-5 fw-bold mb-3">Help students learn crypto — without the ramen-only diet</h1>
+            <p class="lead mb-0">Your donation funds workshops, study materials, and real-world wallet skills for students across the Balkans and beyond.</p>
         </div>
     </header>
 
@@ -249,80 +490,67 @@
         <!-- Mission Section -->
         <section class="mission-section">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="mb-4">Our Mission</h2>
-                    <p class="lead">For every dollar donated, we're helping mothers learn about cryptocurrency and blockchain technology, empowering them to create better futures for their families and communities.</p>
-                    <p>We believe that financial education is the key to economic independence, and cryptocurrency represents the future of finance.</p>
+                <div class="col-lg-9 mx-auto text-center">
+                    <span class="mission-eyebrow">Why we&apos;re here</span>
+                    <h2 class="mb-3">Crypto education that actually sticks</h2>
+                    <p class="mission-lead mb-3">We teach students how wallets, stablecoins, and safety basics work — in plain language, at meetups and in the classroom — so they can participate in the economy without getting rekt.</p>
+                    <p class="text-muted mb-0">Every gift, from a full USDT transfer to meme-coin dust, goes toward seats, snacks, and study kits. <strong>#SaveAStudent</strong> isn&apos;t a slogan; it&apos;s the point.</p>
                 </div>
             </div>
         </section>
 
         <!-- Goal Section -->
-        <section class="goal-container">
-            <div class="text-center">
-                <h3>Our Fundraising Goal: $30,000</h3>
-                <p class="text-muted">This will allow us to educate 500+ mothers about cryptocurrency</p>
-                
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 2%;" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100">2%</div>
+        <section class="goal-container text-center" aria-labelledby="fundraising-heading">
+            <span class="goal-badge">Community goal</span>
+            <h3 id="fundraising-heading" class="mt-2">We&apos;re building toward $30,000</h3>
+            <p class="goal-subtitle">That funds 500+ student seats in workshops, materials, and community events. You&apos;re already helping — let&apos;s keep the momentum.</p>
+
+            <div class="goal-progress-label">
+                <span>Progress</span>
+                <span class="goal-pct" id="goal-pct-label">2%</span>
+            </div>
+            <div class="progress" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" aria-labelledby="fundraising-heading">
+                <div class="progress-bar" id="fundraising-progress" style="width: 2%;"></div>
+            </div>
+            <div class="goal-stats">
+                <div class="goal-stat">
+                    <span class="goal-stat-value">$600</span>
+                    <span class="goal-stat-label">Raised so far</span>
                 </div>
-                
-                <div class="d-flex justify-content-between">
-                    <span>Raised: $600</span>
-                    <span>Goal: $30,000</span>
+                <div class="goal-stat">
+                    <span class="goal-stat-value">$30,000</span>
+                    <span class="goal-stat-label">Our target</span>
+                </div>
+                <div class="goal-stat">
+                    <span class="goal-stat-value">127</span>
+                    <span class="goal-stat-label">Students supported</span>
                 </div>
             </div>
         </section>
 
-        <!-- Wallet Addresses -->
-        <!-- Mobile-safe tweaks -->
-<style>
-  .wallet-card{
-    background:#fff;
-    border:1px solid #eee;
-    border-radius:16px;
-    padding:1rem;
-    height:100%;
-  }
-  .wallet-address{
-    display:flex;
-    align-items:center;
-    gap:.5rem;
-    flex-wrap:wrap;              /* lejon butonin të bjerë në rreshtin tjetër në mobile */
-    background:#f8f9fa;
-    border-radius:12px;
-    padding:.75rem;
-  }
-  .wallet-address span{
-    flex:1 1 220px;              /* hapësirë elastike për adresën */
-    word-break:break-all;        /* ça adresën në mobile */
-    overflow-wrap:anywhere;      /* rezervë për browser-ët */
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size:.9rem;
-  }
-  .copy-btn{
-    flex:0 0 auto;
-    white-space:nowrap;
-    padding:.5rem .75rem;
-    border:0;
-    border-radius:8px;
-    background:#212529;
-    color:#fff;
-  }
-  /* Stack logo + titull në mobile që të mos shtyhet gjerësia */
-  @media (max-width: 576px){
-    .wallet-card .text-center{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-    }
-    .wallet-card h4{ margin-top:.5rem; }
-  }
-</style>
+        <!-- Impact -->
+        <section class="donation-impact" aria-label="Impact so far">
+            <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true"><i class="fas fa-user-graduate"></i></div>
+                <div class="impact-number">127</div>
+                <div class="impact-label">Students reached</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="impact-number">48</div>
+                <div class="impact-label">Workshops held</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true"><i class="fas fa-globe-europe"></i></div>
+                <div class="impact-number">18</div>
+                <div class="impact-label">Countries &amp; communities</div>
+            </div>
+        </section>
 
+        <!-- Wallet Addresses -->
 <section class="wallet-section">
-  <h2 class="text-center mb-2">Donate USDT</h2>
-  <p class="text-center mb-4">Send USDT to one of our wallet addresses below</p>
+  <h2 class="text-center mb-2">Send USDT in two taps</h2>
+  <p class="text-center mb-4 text-muted">Pick a network, copy the address, and send from your wallet app. Every bit counts — even meme dust.</p>
 
   <div class="row g-4">
     <div class="col-12 col-md-6">
@@ -333,7 +561,7 @@
         </div>
         <div class="wallet-address">
           <span id="bsc-address">0x26507ccEEaB8C073620205Bf4aE1cd50E9f612af</span>
-          <button class="copy-btn" onclick="copyToClipboard('bsc-address')">Copy</button>
+          <button type="button" class="copy-btn" onclick="copyToClipboard('bsc-address', event)">Copy</button>
         </div>
         <p class="text-muted mt-2"><small>Only USDT on BSC (and whatever meme dust you want to dump).
 Every drop helps save a student from drowning in ramen noodles 🍜📚
@@ -350,7 +578,7 @@ Every drop helps save a student from drowning in ramen noodles 🍜📚
         </div>
         <div class="wallet-address">
           <span id="solana-address">GEKpQGYxEFeCDU6mGSNwF6LWi8czx7Bug3ToQWyma7Tq</span>
-          <button class="copy-btn" onclick="copyToClipboard('solana-address')">Copy</button>
+          <button type="button" class="copy-btn" onclick="copyToClipboard('solana-address', event)">Copy</button>
         </div>
         <p class="text-muted mt-2"><small>Only USDT on Solana (and whatever meme dust you want to dump).
 Every drop helps save a student from drowning in ramen noodles 🍜📚
@@ -361,62 +589,10 @@ Every drop helps save a student from drowning in ramen noodles 🍜📚
   </div>
 </section>
 
-<script>
-  function copyToClipboard(id){
-    const el = document.getElementById(id);
-    const text = (el && el.textContent) ? el.textContent.trim() : "";
-    if(!text) return;
-
-    const done = () => {
-      const btn = document.querySelector(`[onclick*="${id}"]`);
-      if(!btn) return;
-      const prev = btn.textContent;
-      btn.textContent = "Copied!";
-      setTimeout(()=> btn.textContent = prev, 1200);
-    };
-
-    if(navigator.clipboard && window.isSecureContext){
-      navigator.clipboard.writeText(text).then(done).catch(()=>fallback());
-    } else {
-      fallback();
-    }
-
-    function fallback(){
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.top = '-9999px';
-      document.body.appendChild(ta);
-      ta.focus();
-      ta.select();
-      try { document.execCommand('copy'); } catch(e) {}
-      document.body.removeChild(ta);
-      done();
-    }
-  }
-</script>
-
-
-        <!-- Impact Section -->
-        <section class="donation-impact">
-            <div class="impact-item">
-                <div class="impact-number">127</div>
-                <div class="impact-label">Mothers Educated</div>
-            </div>
-            <div class="impact-item">
-                <div class="impact-number">18</div>
-                <div class="impact-label">Countries Reached</div>
-            </div>
-            <div class="impact-item">
-                <div class="impact-number">94%</div>
-                <div class="impact-label">Success Rate</div>
-            </div>
-        </section>
-
         <!-- Call to Action -->
         <section class="donation-cta">
-            <h2 class="mb-4">Make a Difference Today</h2>
-            <p class="lead mb-4">Your donation helps empower mothers with crypto knowledge</p>
+            <h2 class="mb-4">Ready to save a student?</h2>
+            <p class="lead mb-4">Chip in via USDT above, or use card checkout — either way, you&apos;re funding real seats in the classroom.</p>
             <button class="btn btn-donate pulse" onclick="window.open('https://gum.new/gum/cmeqaoynw000804js3gewhaqu','_blank')">
     <i class="fas fa-heart me-2 heart-beat"></i>Donate Now
 </button>
@@ -426,18 +602,56 @@ Every drop helps save a student from drowning in ramen noodles 🍜📚
 
     <footer>
         <div class="container">
-            <p>Thank you for supporting our mission to educate mothers about cryptocurrency</p>
-            <p>© 2023 Crypto Education Initiative. All rights reserved.</p>
+            <p>Thank you for helping students learn crypto — one wallet, one workshop, one less ramen-only week at a time.</p>
+            <p>© 2026 DuaCrypto Education Initiative. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Animate progress bar on page load
-        document.addEventListener('DOMContentLoaded', function() {
+        function copyToClipboard(elementId, ev) {
+            const el = document.getElementById(elementId);
+            const text = el ? el.textContent.trim() : '';
+            if (!text) return;
+
+            const btn = ev && ev.currentTarget;
+            const done = function () {
+                if (!btn) return;
+                const prev = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.setProperty('background', 'var(--dark-green)');
+                setTimeout(function () {
+                    btn.textContent = prev;
+                    btn.style.removeProperty('background');
+                }, 2000);
+            };
+
+            function fallback() {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); } catch (e) {}
+                document.body.removeChild(ta);
+                done();
+            }
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(done).catch(fallback);
+            } else {
+                fallback();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
             const progressBar = document.querySelector('.progress-bar');
-            setTimeout(() => {
-                progressBar.style.width = '2%';
-            }, 500);
+            if (progressBar) {
+                setTimeout(function () {
+                    progressBar.style.width = '2%';
+                }, 500);
+            }
         });
     </script>
     <script src="/js/theme-bootstrap.js" defer></script>

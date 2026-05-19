@@ -56,9 +56,6 @@ This will allow us to educate 500+ mothers about cryptocurrency
         
 
         
-        
-
-
 
   
 ## Donate USDT
@@ -110,9 +107,6 @@ Every drop helps save a student from drowning in ramen noodles 🍜📚
       
     
   
-
-
-
 
 
         

@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import {
   copyFileSync,
+  cpSync,
   existsSync,
   readFileSync,
   writeFileSync,
@@ -290,6 +291,41 @@ function syncThemeCss() {
   copyFileSync(publicPath, mirrorPath);
 }
 
+/** Mirror legacy /css, /lib, and /js assets into public/ for Vite dev + GitHub Pages. */
+function syncLegacyAssetsToPublic() {
+  const bootstrapSrc = join(root, "css", "bootstrap.min.css");
+  const bootstrapDest = join(root, "public", "css", "bootstrap.min.css");
+  if (!existsSync(bootstrapSrc)) {
+    throw new Error(
+      `Missing ${bootstrapSrc} — required for legacy pages (about, service, etc.)`
+    );
+  }
+  mkdirSync(dirname(bootstrapDest), { recursive: true });
+  copyFileSync(bootstrapSrc, bootstrapDest);
+
+  const styleSrc = join(root, "css", "style.css");
+  const styleDest = join(root, "public", "css", "style.css");
+  if (!existsSync(styleSrc)) {
+    throw new Error(`Missing ${styleSrc}`);
+  }
+  copyFileSync(styleSrc, styleDest);
+
+  const libSrc = join(root, "lib");
+  const libDest = join(root, "public", "lib");
+  if (!existsSync(libSrc)) {
+    throw new Error(`Missing ${libSrc}`);
+  }
+  cpSync(libSrc, libDest, { recursive: true });
+
+  const mainJsSrc = join(root, "js", "main.js");
+  const mainJsDest = join(root, "public", "js", "main.js");
+  if (!existsSync(mainJsSrc)) {
+    throw new Error(`Missing ${mainJsSrc}`);
+  }
+  mkdirSync(dirname(mainJsDest), { recursive: true });
+  copyFileSync(mainJsSrc, mainJsDest);
+}
+
 function writeRootDiscoveryFiles() {
   const robots = generateRobotsTxt();
   const sitemap = generateSitemapXml();
@@ -318,6 +354,7 @@ collectSkills();
 syncSiteApi();
 await buildThemeAssets();
 syncThemeCss();
+syncLegacyAssetsToPublic();
 generateWebBotAuth();
 writeRootDiscoveryFiles();
 console.log(

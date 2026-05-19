@@ -1,7 +1,7 @@
-@import "./bootstrap.min.css";
-@import "../lib/animate/animate.min.css";
-@import "../lib/owlcarousel/assets/owl.carousel.min.css";
-
+/*
+ * Template-only styles. Legacy pages link /css/style.css (mirrored to public/
+ * by scripts/generate-agent-assets.mjs). Use root-absolute paths for all assets.
+ */
 /********** Template CSS **********/
 :root {
     --primary: #16D5FF;
