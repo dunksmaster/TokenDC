@@ -32,7 +32,9 @@ jobs:
           cache: npm
 
       - name: Install and build
-        run: npm ci && npm run build
+        run: |
+          export SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)
+          npm ci && npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

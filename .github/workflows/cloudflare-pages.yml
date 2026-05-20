@@ -25,7 +25,9 @@ jobs:
           cache: npm
 
       - name: Install and build
-        run: npm ci && npm run build
+        run: |
+          export SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)
+          npm ci && npm run build
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3

@@ -248,15 +248,27 @@ function syncSiteApi() {
     "utf8"
   );
 
+  writeStaticHealthJson();
+}
+
+/** Static health JSON for GitHub Pages (no Functions). Skipped locally to avoid git churn. */
+function writeStaticHealthJson() {
+  const epochRaw = process.env.SOURCE_DATE_EPOCH;
+  if (!epochRaw) return;
+
+  const epoch = Number(epochRaw);
+  if (!Number.isFinite(epoch) || epoch <= 0) return;
+
+  const healthPath = join(root, "public", "api", "v1", "site", "health");
   writeFileSync(
-    join(root, "public", "api", "v1", "site", "health"),
+    healthPath,
     `${JSON.stringify(
       {
         status: "ok",
         service: "duacrypto-site-api",
         version: "1.0.0",
-        // Date-only so `npm run build` does not dirty git on every run (live API uses real time).
-        timestamp: `${today}T00:00:00.000Z`,
+        timestamp: new Date(epoch * 1000).toISOString(),
+        source: "static",
       },
       null,
       2
