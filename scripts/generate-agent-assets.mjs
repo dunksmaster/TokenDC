@@ -255,7 +255,8 @@ function syncSiteApi() {
         status: "ok",
         service: "duacrypto-site-api",
         version: "1.0.0",
-        timestamp: new Date().toISOString(),
+        // Date-only so `npm run build` does not dirty git on every run (live API uses real time).
+        timestamp: `${today}T00:00:00.000Z`,
       },
       null,
       2

@@ -2,6 +2,7 @@ node_modules/
 dist/
 .vite/
 .wrangler/
+.wrangler-test/
 _worker.bundle
 *.bundle
 secrets/
