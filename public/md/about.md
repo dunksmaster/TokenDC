@@ -176,20 +176,6 @@ Albania's Most Trusted Cryptocurrency Community
                                 
 Help fund workshops, study materials, and wallet skills for students across the Balkans. Every gift counts.
 
-                                
-                                
-                                    
-                                
-                                
-                                
-$600 raised of $30,000 goal (2%)
-
-                                
-
-                                    127 students supported
-                                    USDT on BSC or Solana
-                                
-
                                 Donate with crypto
                                 
                                 
