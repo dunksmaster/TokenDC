@@ -1,8 +1,9 @@
-import { copyFileSync, existsSync } from "node:fs";
+﻿import { copyFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { agentDiscoveryPlugin } from "./vite-plugins/agent-discovery.js";
+import { copyLegacyStaticPlugin } from "./vite-plugins/copy-legacy-static.js";
 
 /** Ensure robots.txt and sitemap.xml land in dist/ after every build. */
 function ensureDiscoveryFilesPlugin() {
@@ -25,7 +26,12 @@ function ensureDiscoveryFilesPlugin() {
 }
 
 export default defineConfig({
-  plugins: [tailwindcss(), agentDiscoveryPlugin(), ensureDiscoveryFilesPlugin()],
+  plugins: [
+    tailwindcss(),
+    agentDiscoveryPlugin(),
+    copyLegacyStaticPlugin(),
+    ensureDiscoveryFilesPlugin(),
+  ],
   server: {
     port: 5173,
     strictPort: true,
