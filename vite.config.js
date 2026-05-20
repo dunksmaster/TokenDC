@@ -2,7 +2,10 @@
 import { join } from "node:path";
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
-import { agentDiscoveryPlugin } from "./vite-plugins/agent-discovery.js";
+import {
+  agentDiscoveryPlugin,
+  copyMarkdownToDistPlugin,
+} from "./vite-plugins/agent-discovery.js";
 import { copyLegacyStaticPlugin } from "./vite-plugins/copy-legacy-static.js";
 
 /** Ensure robots.txt and sitemap.xml land in dist/ after every build. */
@@ -29,6 +32,7 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     agentDiscoveryPlugin(),
+    copyMarkdownToDistPlugin(),
     copyLegacyStaticPlugin(),
     ensureDiscoveryFilesPlugin(),
   ],
@@ -50,6 +54,8 @@ export default defineConfig({
         faq: "faq.html",
         contact: "contact.html",
         donation: "donation.html",
+        "$10": "$10.html",
+        "404": "404.html",
       },
     },
   },

@@ -72,7 +72,7 @@ html.dark {
   }
 
   .nav-link {
-    @apply block px-0 py-2 font-medium text-dark transition hover:text-primary lg:px-0 lg:py-6;
+    @apply block px-0 py-3 font-medium text-dark transition hover:text-primary lg:px-0 lg:py-6;
   }
 
   .nav-link-active {
@@ -80,7 +80,7 @@ html.dark {
   }
 
   .social-btn {
-    @apply flex h-10 w-10 items-center justify-center rounded-full bg-light text-primary transition hover:bg-primary hover:text-white;
+    @apply flex h-11 w-11 min-h-11 min-w-11 items-center justify-center rounded-full bg-light text-primary transition hover:bg-primary hover:text-white;
   }
 
   .check-row {
@@ -164,7 +164,7 @@ html.dark {
   }
 
   .footer-link {
-    @apply mb-1 block text-secondary transition hover:pl-1 hover:text-primary;
+    @apply mb-1 block break-words text-secondary transition hover:pl-1 hover:text-primary;
   }
 
   .back-to-top {
@@ -188,7 +188,7 @@ html.dark {
   }
 
   .theme-toggle {
-    @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-primary transition hover:border-primary hover:bg-primary hover:text-white;
+    @apply inline-flex h-11 w-11 min-h-11 min-w-11 items-center justify-center rounded-full border border-border bg-surface text-primary transition hover:border-primary hover:bg-primary hover:text-white;
   }
 
   /* Affiliate slideshow — light stage so white product photos don't clash in dark mode */

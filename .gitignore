@@ -1,12 +1,16 @@
 node_modules/
 dist/
 .vite/
+.wrangler/
+_worker.bundle
+*.bundle
 secrets/
 .env
 .env.local
 
 # Editor / accidental exports
 .cursor/
+debug-*.log
 
 # Cursor drag-drop images with path-like names (break Windows git)
 **/c__Users*
@@ -14,3 +18,9 @@ img/test-c__*
 
 # Mirrored from public/css/dark-mode.css by scripts/generate-agent-assets.mjs
 css/dark-mode.css
+
+# Mirrored from css/, lib/, js/ by scripts/generate-agent-assets.mjs (for Vite public/)
+public/css/bootstrap.min.css
+public/css/style.css
+public/lib/
+public/js/main.js

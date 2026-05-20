@@ -1,3 +1,7 @@
+/*
+ * Template-only styles. Legacy pages link /css/style.css (mirrored to public/
+ * by scripts/generate-agent-assets.mjs). Use root-absolute paths for all assets.
+ */
 /********** Template CSS **********/
 :root {
     --primary: #16D5FF;
@@ -479,4 +483,20 @@ h6,
     box-shadow: 0 5px 15px rgba(10, 102, 194, 0.4);
     color: #ffffff !important;
     text-decoration: none !important;
+}
+
+/*** Mobile layout guards ***/
+@media (max-width: 991.98px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .navbar-brand h2 {
+        font-size: 1.25rem;
+    }
+
+    .navbar-brand img {
+        width: 36px !important;
+        height: auto;
+    }
 }

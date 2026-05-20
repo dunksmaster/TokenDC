@@ -1,4 +1,4 @@
-# Build with Vite and deploy static output (includes /robots.txt, /sitemap.xml, /.well-known/*)
+# Production deploy: Vite build → dist/ → GitHub Pages (duacrypto.com custom domain).
 name: Deploy static content to Pages
 
 on:

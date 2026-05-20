@@ -87,11 +87,29 @@ CryptoCoin - Free Cryptocurrency Website Template
                             
                                 ⚡
                                 𝕏
-                                Edit profile
+                                [Join](https://signup.cluborange.org/co/duacryptofile_copy)
                             
                         
                         
-                            BUILDing Crypto (NFA) | Web3 Advisor for Albania | Albania's Web3 Community | Crypto OG | DeFi Security Consultant | Trading Crypto AGI | Tirana, Albania AML Chainalysis On-Chain Analysis
+                            
+Building crypto in public (NFA). Web3 advisor and community lead for Albania and the Balkans.
+
+                            
+                                Web3 community
+
+                                
+- DeFi security
+
+                                
+- On-chain analysis
+
+                                
+- Tirana, Albania
+
+                            
+                        
+                        
+                            [Join Club Orange](https://signup.cluborange.org/co/duacryptofile_copy)
                         
                     
                 
@@ -141,19 +159,21 @@ Albania's Most Trusted Cryptocurrency Community
 
 
             
+
             
             
                 
-                    
+                    [
                         
                             
                             
                             
+                                #SaveAStudent
                                 
-## Support Crypto Education
+## Support crypto education
 
                                 
-Your donation helps empower mothers with cryptocurrency knowledge and creates opportunities for financial independence
+Help fund workshops, study materials, and wallet skills for students across the Balkans. Every gift counts.
 
                                 
                                 
@@ -161,10 +181,15 @@ Your donation helps empower mothers with cryptocurrency knowledge and creates op
                                 
                                 
                                 
-Goal: $30,000 (2% Raised)
+$600 raised of $30,000 goal (2%)
 
                                 
-                                Donate Crypto Now
+
+                                    127 students supported
+                                    USDT on BSC or Solana
+                                
+
+                                Donate with crypto
                                 
                                 
                                     
@@ -182,7 +207,7 @@ Goal: $30,000 (2% Raised)
                                 
                             
                         
-                    
+                    ](donation.html)
                 
             
         
@@ -205,7 +230,8 @@ Goal: $30,000 (2% Raised)
     
 
     
-        We're open to collaborations, partnerships, and creative ideas.
+        
+- We're open to collaborations, partnerships, and creative ideas.
 
         
 - If you would like to see your logo featured on our site, please send us an email with your request.

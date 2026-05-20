@@ -6,15 +6,25 @@
     "dev": "node scripts/generate-agent-assets.mjs && vite",
     "dev:fresh": "npx --yes kill-port 5173 5174 5175 && npm run dev",
     "build": "node scripts/generate-agent-assets.mjs && vite build",
+    "deploy": "wrangler pages deploy dist --project-name=dc-site --branch=backup-working-state --commit-dirty",
+    "deploy:production": "wrangler pages deploy dist --project-name=dc-site --branch=main --commit-dirty",
+    "verify:headers": "node scripts/verify-link-headers.mjs",
     "preview": "vite preview",
-    "agent:generate": "node scripts/generate-agent-assets.mjs"
+    "agent:generate": "node scripts/generate-agent-assets.mjs",
+    "test:markdown": "node scripts/test-markdown-negotiation.mjs",
+    "postinstall": "node scripts/patch-wrangler-templates.mjs"
   },
   "dependencies": {
+    "@x402/core": "^2.12.0",
+    "@x402/evm": "^2.12.0",
+    "@x402/hono": "^2.12.0",
+    "hono": "^4.12.21",
     "web-bot-auth": "^0.1.3"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.8",
     "tailwindcss": "^4.1.8",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "wrangler": "^4.93.0"
   }
 }

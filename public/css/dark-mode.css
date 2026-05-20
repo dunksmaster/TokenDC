@@ -181,3 +181,76 @@ html.dark .theme-toggle,
   z-index: 60;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
+
+/* Donation page (donation.html) */
+html.dark .mission-section,
+html.dark .wallet-section,
+[data-bs-theme="dark"] .mission-section,
+[data-bs-theme="dark"] .wallet-section {
+  background-color: #161b22 !important;
+  border: 1px solid #30363d;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  color: #e6edf3;
+}
+
+html.dark .goal-container,
+[data-bs-theme="dark"] .goal-container {
+  background-color: #1a2e24 !important;
+  border-left-color: #3fb950;
+  color: #c9d1d9;
+}
+
+html.dark .goal-container .progress,
+[data-bs-theme="dark"] .goal-container .progress {
+  background-color: #21262d;
+}
+
+html.dark .wallet-card,
+[data-bs-theme="dark"] .wallet-card {
+  --donation-surface: #0d1117;
+  --donation-border: #30363d;
+  background-color: #0d1117 !important;
+  border-color: #30363d !important;
+}
+
+html.dark .wallet-card:hover,
+[data-bs-theme="dark"] .wallet-card:hover {
+  border-color: #3fb950 !important;
+}
+
+html.dark .wallet-address,
+[data-bs-theme="dark"] .wallet-address {
+  --donation-address-bg: #21262d;
+  --donation-address-text: #7ee787;
+  background-color: #21262d !important;
+}
+
+html.dark .wallet-address span,
+[data-bs-theme="dark"] .wallet-address span {
+  color: #7ee787;
+}
+
+html.dark .goal-container h3,
+html.dark .mission-section h2,
+html.dark .wallet-section h2,
+html.dark .wallet-card h4,
+html.dark .donation-cta h2,
+[data-bs-theme="dark"] .goal-container h3,
+[data-bs-theme="dark"] .mission-section h2,
+[data-bs-theme="dark"] .wallet-section h2,
+[data-bs-theme="dark"] .wallet-card h4,
+[data-bs-theme="dark"] .donation-cta h2 {
+  color: #e6edf3;
+}
+
+html.dark .impact-number,
+[data-bs-theme="dark"] .impact-number {
+  color: #3fb950;
+}
+
+html.dark .donation-header + .container footer,
+html.dark body:has(.donation-header) footer,
+[data-bs-theme="dark"] body:has(.donation-header) footer {
+  background: linear-gradient(135deg, #1a5c3a 0%, #0f3d26 100%) !important;
+  color: #e6edf3;
+}
