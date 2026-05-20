@@ -1,9 +1,10 @@
 ---
-title: "CryptoCoin - Free Cryptocurrency Website Template"
+title: "DuaCrypto - Features"
+description: "Explore DuaCrypto platform features for traders, students, and crypto enthusiasts in Albania."
 source: "feature.html"
 ---
 
-CryptoCoin - Free Cryptocurrency Website Template
+DuaCrypto - Features
     
     
     
@@ -144,7 +145,7 @@ The Best In The crypto Industry
             
                 
                     
-# CryptoCoin
+# DuaCrypto
 
                     Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.
                 
@@ -172,25 +173,25 @@ info@example.com
                 
                 
                     Our Services
-                    Currency Wallet
-                    Currency Transaction
-                    Bitcoin Investment
-                    Token Sale
+                    [Currency Wallet](service.html)
+                    [Currency Transaction](service.html)
+                    [Bitcoin Investment](service.html)
+                    [Token Sale](token.html)
                 
                 
                     Quick Links
-                    About Us
-                    Contact Us
-                    Our Services
-                    Terms & Condition
+                    [About Us](about.html)
+                    [Contact Us](contact.html)
+                    [Our Services](service.html)
+                    [Terms & Condition](contact.html)
                 
                 
                     Follow Us
                     
-                        
-                        
-                        
-                        
+                        [](https://twitter.com/duacrypto)
+                        [](https://facebook.com/duacrypto)
+                        [](https://youtube.com/@duacrypto)
+                        [](https://linkedin.com/company/duacrypto)
                     
                 
             

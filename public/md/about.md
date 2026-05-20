@@ -1,9 +1,10 @@
 ---
-title: "CryptoCoin - Free Cryptocurrency Website Template"
+title: "DuaCrypto - About Us"
+description: "Learn about DuaCrypto, Albania"
 source: "about.html"
 ---
 
-CryptoCoin - Free Cryptocurrency Website Template
+DuaCrypto - About Us
     
     
     
@@ -221,7 +222,7 @@ $600 raised of $30,000 goal (2%)
             
                 
                     
-# CryptoCoin
+# DuaCrypto
 
                    
     
@@ -275,25 +276,25 @@ info@duacrypto.com
                 
                 
                     Our Services
-                    Currency Wallet
-                    Currency Transaction
-                    Bitcoin Investment
-                    Token Sale
+                    [Currency Wallet](service.html)
+                    [Currency Transaction](service.html)
+                    [Bitcoin Investment](service.html)
+                    [Token Sale](token.html)
                 
                 
                     Quick Links
-                    About Us
-                    Contact Us
-                    Our Services
-                    Terms & Condition
+                    [About Us](about.html)
+                    [Contact Us](contact.html)
+                    [Our Services](service.html)
+                    [Terms & Condition](contact.html)
                 
                 
                     Follow Us
                     
-                        
-                        
-                        
-                        
+                        [](https://twitter.com/duacrypto)
+                        [](https://facebook.com/duacrypto)
+                        [](https://youtube.com/@duacrypto)
+                        [](https://linkedin.com/company/duacrypto)
                     
                 
             
