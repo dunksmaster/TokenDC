@@ -276,6 +276,7 @@
         box-shadow: 0 12px 32px rgba(29, 138, 90, 0.25);
         text-decoration: none;
         color: inherit;
+        cursor: pointer;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
@@ -366,27 +367,23 @@
         opacity: 0.95;
       }
       
-      .cta-button {
+      .banner-cta-pill {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         min-height: 48px;
         background: linear-gradient(135deg, #ffd166 0%, #ffb74d 100%);
         color: #1a2a32;
-        border: none;
         padding: 0.75rem 1.75rem;
         font-size: 1rem;
         font-weight: 700;
         border-radius: 999px;
-        cursor: pointer;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-        text-decoration: none;
       }
-      
+
       @media (hover: hover) {
-        .cta-button:hover {
-          color: #1a2a32;
+        .crypto-banner-container:hover .banner-cta-pill {
           transform: translateY(-2px);
           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
         }
@@ -470,7 +467,7 @@
           font-size: 1.1rem;
         }
 
-        .cta-button {
+        .banner-cta-pill {
           width: 100%;
           max-width: 20rem;
         }
@@ -643,7 +640,7 @@
                                     <span>127 students supported</span>
                                     <span>USDT on BSC or Solana</span>
                                 </p>
-                                <span class="cta-button">Donate with crypto</span>
+                                <span class="banner-cta-pill">Donate with crypto</span>
                                 
                                 <div class="crypto-logos" aria-hidden="true">
                                     <div class="crypto-logo">
