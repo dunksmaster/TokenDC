@@ -2,26 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Support DuaCrypto student education — help learners in Albania access Bitcoin and Web3 training without financial barriers.">
+    <meta name="description" content="Donate a Bitcoin book to Balkans students via Lightning Network. 100% of sats fund books through DuaCrypto and Konsensus Network (bitcoinbook.shop).">
     <!-- dc-seo:start -->
     <link rel="canonical" href="https://duacrypto.com/donation.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="DuaCrypto">
-    <meta property="og:title" content="Donate to Student Education | DuaCrypto">
-    <meta property="og:description" content="Support DuaCrypto student education — help learners in Albania access Bitcoin and Web3 training without financial barriers.">
+    <meta property="og:title" content="Donate a Book | DuaCrypto">
+    <meta property="og:description" content="Donate a Bitcoin book to Balkans students via Lightning Network. 100% of sats fund books through DuaCrypto and Konsensus Network (bitcoinbook.shop).">
     <meta property="og:url" content="https://duacrypto.com/donation.html">
     <meta property="og:image" content="https://duacrypto.com/img/duacrypto-mark.svg">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Donate to Student Education | DuaCrypto">
-    <meta name="twitter:description" content="Support DuaCrypto student education — help learners in Albania access Bitcoin and Web3 training without financial barriers.">
+    <meta name="twitter:title" content="Donate a Book | DuaCrypto">
+    <meta name="twitter:description" content="Donate a Bitcoin book to Balkans students via Lightning Network. 100% of sats fund books through DuaCrypto and Konsensus Network (bitcoinbook.shop).">
     <meta name="twitter:image" content="https://duacrypto.com/img/duacrypto-mark.svg">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"DuaCrypto","url":"https://duacrypto.com","logo":"https://duacrypto.com/img/duacrypto-mark.svg","email":"info@duacrypto.com","telephone":"+355697822224","address":{"@type":"PostalAddress","addressLocality":"Tirana","addressCountry":"AL"},"sameAs":["https://t.me/dua_crypto","https://x.com/duacrypto","https://youtube.com/@duacrypto","https://facebook.com/duacrypto","https://linkedin.com/company/duacrypto"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://duacrypto.com/"},{"@type":"ListItem","position":2,"name":"Donate","item":"https://duacrypto.com/donation.html"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://duacrypto.com/"},{"@type":"ListItem","position":2,"name":"Donate a Book","item":"https://duacrypto.com/donation.html"}]}</script>
     <!-- dc-seo:end -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/theme-init.js"></script>
-    <title>Donate to Student Education | DuaCrypto</title>
+    <title>Donate a Book | DuaCrypto</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH7BJVBLP2"></script>
     <script>
@@ -561,6 +561,107 @@
             color: #e6edf3;
         }
 
+        .lightning-card {
+            max-width: 420px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .lightning-amount-panel {
+            background: #1a1d21;
+            color: #fff;
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(255, 193, 7, 0.25);
+        }
+
+        .lightning-amount-sats {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffc107;
+            line-height: 1.1;
+        }
+
+        .lightning-amount-unit {
+            font-size: 0.95rem;
+            color: #adb5bd;
+            margin-bottom: 0.75rem;
+        }
+
+        .lightning-amount-usd {
+            font-size: 1rem;
+            color: #dee2e6;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(255, 193, 7, 0.35);
+        }
+
+        .lightning-amount-note {
+            font-size: 0.9rem;
+            color: #ced4da;
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+        }
+
+        .lightning-qr {
+            display: block;
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 12px;
+            background: #fff;
+            padding: 0.5rem;
+        }
+
+        .lightning-steps {
+            max-width: 36rem;
+            margin: 2rem auto 0;
+            text-align: left;
+        }
+
+        .lightning-steps ol {
+            padding-left: 1.25rem;
+            margin-bottom: 0;
+        }
+
+        .lightning-steps li {
+            margin-bottom: 0.75rem;
+            color: #555;
+            line-height: 1.55;
+        }
+
+        .partner-block {
+            background: var(--light-green);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .partner-block a {
+            color: var(--dark-green);
+            font-weight: 600;
+        }
+
+        html.dark .lightning-amount-panel {
+            background: #0d1117;
+            border-color: rgba(255, 193, 7, 0.2);
+        }
+
+        html.dark .lightning-steps li {
+            color: #c9d1d9;
+        }
+
+        html.dark .partner-block {
+            background: #21262d;
+            border: 1px solid #30363d;
+        }
+
+        html.dark .partner-block a {
+            color: #7ee787;
+        }
+
         @media (max-width: 768px) {
             .donation-header {
                 padding: 2.5rem 0;
@@ -613,7 +714,7 @@
             </a>
             <div class="donation-nav-links">
                 <a href="index.html">Home</a>
-                <a href="donation.html" class="active" aria-current="page">Donate</a>
+                <a href="donation.html" class="active" aria-current="page">Donate a Book</a>
                 <a href="events.html">Events</a>
                 <button type="button" data-theme-toggle class="theme-toggle ms-1" aria-pressed="false" aria-label="Switch color theme">
                     <i data-theme-icon class="fas fa-moon" aria-hidden="true"></i>
@@ -625,9 +726,9 @@
     <!-- Header Section -->
     <header class="donation-header">
         <div class="container position-relative">
-            <p class="goal-badge mb-3 header-badge">#SaveAStudent</p>
-            <h1 class="display-5 fw-bold mb-3">Help students learn crypto &mdash; without the ramen-only diet</h1>
-            <p class="lead mb-0">Your donation funds workshops, study materials, and real-world wallet skills for students across the Balkans and beyond.</p>
+            <p class="goal-badge mb-3 header-badge">#DonateABook</p>
+            <h1 class="display-5 fw-bold mb-3">Donate a Bitcoin book to a student</h1>
+            <p class="lead mb-0">100% of donations buy Bitcoin books shipped to Balkans students &mdash; in collaboration with our publishing partner.</p>
         </div>
     </header>
 
@@ -636,10 +737,14 @@
         <section class="mission-section">
             <div class="row">
                 <div class="col-lg-9 mx-auto text-center">
-                    <span class="mission-eyebrow">Why we&apos;re here</span>
-                    <h2 class="mb-3">Crypto education that actually sticks</h2>
-                    <p class="mission-lead mb-3">We teach students how wallets, stablecoins, and safety basics work &mdash; in plain language, at meetups and in the classroom &mdash; so they can participate in the economy without getting rekt.</p>
-                    <p class="text-muted mb-0">Every gift, from a full USDT transfer to meme-coin dust, goes toward seats, snacks, and study kits. <strong>#SaveAStudent</strong> isn&apos;t a slogan; it&apos;s the point.</p>
+                    <span class="mission-eyebrow">Why books</span>
+                    <h2 class="mb-3">Long-form Bitcoin education that lasts</h2>
+                    <p class="mission-lead mb-3">Books teach self-custody, sound money, and history in depth &mdash; the kind of knowledge that sticks after a meetup ends. We send quality Bitcoin titles to students who want to learn the maxi way.</p>
+                    <p class="text-muted mb-0">You donate sats &rarr; we pool funds &rarr; our partner sources books &rarr; students receive them. Simple, transparent, Bitcoin-native.</p>
+                    <div class="partner-block">
+                        <p class="mb-2 fw-semibold">Book partner</p>
+                        <p class="mb-0 small">In collaboration with <a href="https://x.com/OmniFinn" target="_blank" rel="noopener noreferrer">Niko (@OmniFinn)</a>, Full-Stack Publisher at <a href="https://konsensus.network" target="_blank" rel="noopener noreferrer">Konsensus Network</a> &mdash; <a href="https://bitcoinbook.shop" target="_blank" rel="noopener noreferrer">bitcoinbook.shop</a></p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -647,28 +752,28 @@
         <!-- Goal Section -->
         <section class="goal-container text-center" aria-labelledby="fundraising-heading">
             <span class="goal-badge">Community goal</span>
-            <h3 id="fundraising-heading" class="mt-2">We&apos;re building toward $30,000</h3>
-            <p class="goal-subtitle">That funds 500+ student seats in workshops, materials, and community events. You&apos;re already helping &mdash; let&apos;s keep the momentum.</p>
+            <h3 id="fundraising-heading" class="mt-2">1,000 Bitcoin books for students</h3>
+            <p class="goal-subtitle">Every ~150,000 sats (~$110 USD) funds roughly one quality Bitcoin book for a student in the Balkans.</p>
 
             <div class="goal-progress-label">
                 <span>Progress</span>
-                <span class="goal-pct" id="goal-pct-label">2%</span>
+                <span class="goal-pct" id="goal-pct-label">2.4%</span>
             </div>
-            <div class="progress" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" aria-labelledby="fundraising-heading">
-                <div class="progress-bar" id="fundraising-progress" style="width: 2%;"></div>
+            <div class="progress" role="progressbar" aria-valuenow="2.4" aria-valuemin="0" aria-valuemax="100" aria-labelledby="fundraising-heading">
+                <div class="progress-bar" id="fundraising-progress" style="width: 2.4%;"></div>
             </div>
             <div class="goal-stats">
                 <div class="goal-stat">
-                    <span class="goal-stat-value">$600</span>
-                    <span class="goal-stat-label">Raised so far</span>
+                    <span class="goal-stat-value">24</span>
+                    <span class="goal-stat-label">Books funded</span>
                 </div>
                 <div class="goal-stat">
-                    <span class="goal-stat-value">$30,000</span>
+                    <span class="goal-stat-value">1,000</span>
                     <span class="goal-stat-label">Our target</span>
                 </div>
                 <div class="goal-stat">
-                    <span class="goal-stat-value">127</span>
-                    <span class="goal-stat-label">Students supported</span>
+                    <span class="goal-stat-value">976</span>
+                    <span class="goal-stat-label">Books to go</span>
                 </div>
             </div>
         </section>
@@ -676,130 +781,63 @@
         <!-- Impact -->
         <section class="donation-impact" aria-label="Impact so far">
             <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true"><i class="fas fa-book"></i></div>
+                <div class="impact-number">24</div>
+                <div class="impact-label">Books funded</div>
+            </div>
+            <div class="impact-item">
                 <div class="impact-icon" aria-hidden="true"><i class="fas fa-user-graduate"></i></div>
                 <div class="impact-number">127</div>
                 <div class="impact-label">Students reached</div>
             </div>
             <div class="impact-item">
-                <div class="impact-icon" aria-hidden="true"><i class="fas fa-chalkboard-teacher"></i></div>
-                <div class="impact-number">48</div>
-                <div class="impact-label">Workshops held</div>
-            </div>
-            <div class="impact-item">
-                <div class="impact-icon" aria-hidden="true"><i class="fas fa-globe-europe"></i></div>
-                <div class="impact-number">18</div>
-                <div class="impact-label">Countries &amp; communities</div>
+                <div class="impact-icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
+                <div class="impact-number">1</div>
+                <div class="impact-label">Publishing partner</div>
             </div>
         </section>
 
-        <!-- Wallet Addresses -->
-<section class="wallet-section">
-  <h2 class="text-center mb-2">Send USDT in two taps</h2>
-  <p class="text-center mb-4 text-muted">Pick a network, copy the address, and send from your wallet app. Every bit counts &mdash; even meme dust.</p>
+        <!-- Lightning Network -->
+        <section class="wallet-section">
+            <h2 class="text-center mb-2"><i class="fas fa-bolt text-warning me-2" aria-hidden="true"></i>Bitcoin Lightning Network</h2>
+            <p class="text-center mb-4 text-muted">Scan to pay with any Lightning wallet. Wallet of Satoshi, Phoenix, Muun, and others supported.</p>
 
-  <div class="row g-4">
-    <div class="col-12 col-md-6">
-      <div class="wallet-card">
-        <div class="text-center mb-3">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23f3ba2f' d='M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm-2.691-20.916l2.712-2.712 2.708 2.708-2.712 2.712zM10 16l2.709-2.709 2.709 2.709-2.709 2.709zm6 0l2.709-2.709L22.418 16l-2.709 2.709zm-6 5.292l2.709-2.709 2.709 2.709-2.709 2.709zm6 0l2.709-2.709 2.709 2.709-2.709 2.709zm-3-1.292l2.712-2.712 2.708 2.708-2.712 2.712z'/%3E%3C/svg%3E" width="40" height="40" class="d-inline-block align-top" alt="BSC Logo">
-          <h4 class="d-inline-block ms-2">BSC Network</h4>
-        </div>
-        <div class="wallet-address">
-          <span id="bsc-address">0x26507ccEEaB8C073620205Bf4aE1cd50E9f612af</span>
-          <button type="button" class="copy-btn" onclick="copyToClipboard('bsc-address', this)">Copy</button>
-        </div>
-        <p class="text-muted mt-2"><small>Only USDT on BSC (and whatever meme dust you want to dump).
-Every drop helps save a student from drowning in ramen noodles <i class="fas fa-bowl-food me-1" aria-hidden="true"></i><i class="fas fa-book" aria-hidden="true"></i>
+            <div class="lightning-card">
+                <div class="lightning-amount-panel">
+                    <div class="lightning-amount-sats">150,000</div>
+                    <div class="lightning-amount-unit">sats</div>
+                    <div class="lightning-amount-usd">about $110 USD</div>
+                    <p class="lightning-amount-note">Sovereign Individual</p>
+                </div>
+                <img src="/img/donation-lightning-qr.png" class="lightning-qr" alt="Lightning Network QR code for Donate a Book — scan with your Bitcoin wallet">
+                <p class="text-muted small mt-3 mb-0">Suggested amount per book &mdash; any sats amount helps.</p>
+            </div>
 
-#SaveAStudent #SendYourDust</small></p>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-6">
-      <div class="wallet-card">
-        <div class="text-center mb-3">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%2300ffbd' d='M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm-2.884-9.715l-4.518-4.518L16.035 6l7.403 11.767-4.518 4.518-3.882 3.882-2.884-2.882zm-1.06-2.882l1.822 1.822 3.882-3.882 2.941-2.941-1.822-1.822-2.941 2.941-3.882 3.882zm2.941-10.824l-1.822 1.822 3.882 3.882 1.822-1.822-3.882-3.882zm0 7.764l-1.822 1.822 3.882 3.882 1.822-1.822-3.882-3.882z'/%3E%3C/svg%3E" width="40" height="40" class="d-inline-block align-top" alt="Solana Logo">
-          <h4 class="d-inline-block ms-2">Solana Network</h4>
-        </div>
-        <div class="wallet-address">
-          <span id="solana-address">GEKpQGYxEFeCDU6mGSNwF6LWi8czx7Bug3ToQWyma7Tq</span>
-          <button type="button" class="copy-btn" onclick="copyToClipboard('solana-address', this)">Copy</button>
-        </div>
-        <p class="text-muted mt-2"><small>Only USDT on Solana (and whatever meme dust you want to dump).
-Every drop helps save a student from drowning in ramen noodles <i class="fas fa-bowl-food me-1" aria-hidden="true"></i><i class="fas fa-book" aria-hidden="true"></i>
-
-#SaveAStudent #SendYourDust</small></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-        <!-- Call to Action -->
-        <section class="donation-cta">
-            <h2 class="mb-4">Ready to save a student?</h2>
-            <p class="lead mb-4">Chip in via USDT above, or use card checkout &mdash; either way, you&apos;re funding real seats in the classroom.</p>
-            <button class="btn btn-donate pulse" onclick="window.open('https://gum.new/gum/cmeqaoynw000804js3gewhaqu','_blank')">
-    <i class="fas fa-heart me-2 heart-beat"></i>Donate Now
-</button>
-
+            <div class="lightning-steps">
+                <h3 class="h5 text-center mb-3">How Lightning works</h3>
+                <ol>
+                    <li>Open a Lightning wallet (Wallet of Satoshi, Phoenix, Muun, etc.).</li>
+                    <li>Scan the QR code above with your wallet&apos;s camera or scanner.</li>
+                    <li>Confirm the amount in sats &mdash; any amount helps; ~150k sats &asymp; one book.</li>
+                    <li>Payment settles in seconds; we allocate sats to the next book shipment batch.</li>
+                </ol>
+            </div>
         </section>
     </div>
 
     <footer>
         <div class="container">
-            <p>Thank you for helping students learn crypto &mdash; one wallet, one workshop, one less ramen-only week at a time.</p>
-            <p>© 2026 DuaCrypto Education Initiative. All rights reserved.</p>
+            <p>Thank you for building Albania&rsquo;s Bitcoin library &mdash; one book at a time.</p>
+            <p>&copy; 2026 DuaCrypto Education Initiative. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        function copyToClipboard(elementId, trigger) {
-            const el = document.getElementById(elementId);
-            const text = el ? el.textContent.trim() : '';
-            if (!text) return;
-
-            const btn =
-                trigger instanceof Element
-                    ? trigger.closest('.copy-btn')
-                    : trigger && trigger.target instanceof Element
-                      ? trigger.target.closest('.copy-btn')
-                      : null;
-            const done = function () {
-                if (!btn) return;
-                const prev = btn.textContent;
-                btn.textContent = 'Copied!';
-                btn.style.setProperty('background', 'var(--dark-green)');
-                setTimeout(function () {
-                    btn.textContent = prev;
-                    btn.style.removeProperty('background');
-                }, 2000);
-            };
-
-            function fallback() {
-                const ta = document.createElement('textarea');
-                ta.value = text;
-                ta.setAttribute('readonly', '');
-                ta.style.position = 'fixed';
-                ta.style.left = '-9999px';
-                document.body.appendChild(ta);
-                ta.select();
-                try { document.execCommand('copy'); } catch (e) {}
-                document.body.removeChild(ta);
-                done();
-            }
-
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(text).then(done).catch(fallback);
-            } else {
-                fallback();
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', function () {
             const progressBar = document.querySelector('.progress-bar');
             if (progressBar) {
                 setTimeout(function () {
-                    progressBar.style.width = '2%';
+                    progressBar.style.width = '2.4%';
                 }, 500);
             }
         });

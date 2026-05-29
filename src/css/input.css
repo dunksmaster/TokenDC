@@ -200,30 +200,25 @@ html.dark {
     @apply inline-flex h-11 w-11 min-h-11 min-w-11 items-center justify-center rounded-full border border-border bg-surface text-primary transition hover:border-primary hover:bg-primary hover:text-white;
   }
 
-  /* Affiliate slideshow — light stage so white product photos don't clash in dark mode */
-  .affiliate-slideshow [data-carousel-prev],
-  .affiliate-slideshow [data-carousel-next] {
-    @apply shadow-md;
+  /* Affiliate products — cutout PNGs on card surface (no inner box) */
+  .affiliate-product-card {
+    @apply block rounded-2xl border border-border bg-card p-5 shadow-md transition hover:-translate-y-1 hover:shadow-lg sm:p-6;
   }
 
-  .affiliate-slide-card {
-    @apply block rounded-2xl border border-border bg-card p-4 shadow-md transition hover:shadow-lg sm:p-6;
+  .affiliate-product-stage {
+    @apply flex min-h-[200px] items-center justify-center px-2 py-4 sm:min-h-[220px];
   }
 
-  .affiliate-slide-stage {
-    @apply flex min-h-[280px] items-center justify-center rounded-xl bg-[#eef1f4] p-4 sm:min-h-[320px] sm:p-6;
+  .affiliate-product-img {
+    @apply mx-auto max-h-[200px] w-full object-contain;
   }
 
-  .affiliate-slide-img {
-    @apply mx-auto max-h-[400px] w-full object-contain;
+  .affiliate-product-label {
+    @apply mt-3 text-center text-lg font-semibold text-dark;
   }
 
-  html.dark .affiliate-slide-card {
+  html.dark .affiliate-product-card {
     @apply border-border bg-card shadow-lg shadow-black/25;
-  }
-
-  html.dark .affiliate-slide-stage {
-    @apply bg-[#d8dee6];
   }
 
   html.dark #nav-menu {

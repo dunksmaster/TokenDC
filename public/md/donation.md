@@ -1,10 +1,27 @@
 ---
-title: "Donate to Student Education | DuaCrypto"
-description: "Support DuaCrypto student education — help learners in Albania access Bitcoin and Web3 training without financial barriers."
+title: "Donate a Book | DuaCrypto"
+description: "Donate a Bitcoin book to Balkans students via Lightning Network. 100% of sats fund books through DuaCrypto and Konsensus Network (bitcoinbook.shop)."
 source: "donation.html"
 ---
 
-Donate to Student Education | DuaCrypto
+- 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    Donate a Book | DuaCrypto
     
     
     
@@ -25,16 +42,24 @@ Donate to Student Education | DuaCrypto
         
             
                 
-                    Why we&apos;re here
+                    Why books
                     
-## Crypto education that actually sticks
+## Long-form Bitcoin education that lasts
 
                     
-We teach students how wallets, stablecoins, and safety basics work &mdash; in plain language, at meetups and in the classroom &mdash; so they can participate in the economy without getting rekt.
+Books teach self-custody, sound money, and history in depth &mdash; the kind of knowledge that sticks after a meetup ends. We send quality Bitcoin titles to students who want to learn the maxi way.
 
                     
-Every gift, from a full USDT transfer to meme-coin dust, goes toward seats, snacks, and study kits. #SaveAStudent isn&apos;t a slogan; it&apos;s the point.
+You donate sats &rarr; we pool funds &rarr; our partner sources books &rarr; students receive them. Simple, transparent, Bitcoin-native.
 
+                    
+                        
+Book partner
+
+                        
+In collaboration with [Niko (@OmniFinn)](https://x.com/OmniFinn), Full-Stack Publisher at [Konsensus Network](https://konsensus.network) &mdash; [bitcoinbook.shop](https://bitcoinbook.shop)
+
+                    
                 
             
         
@@ -43,37 +68,42 @@ Every gift, from a full USDT transfer to meme-coin dust, goes toward seats, snac
         
             Community goal
             
-### We&apos;re building toward $30,000
+### 1,000 Bitcoin books for students
 
             
-That funds 500+ student seats in workshops, materials, and community events. You&apos;re already helping &mdash; let&apos;s keep the momentum.
+Every ~150,000 sats (~$110 USD) funds roughly one quality Bitcoin book for a student in the Balkans.
 
 
             
                 Progress
-                2%
+                2.4%
             
             
                 
             
             
                 
-                    $600
-                    Raised so far
+                    24
+                    Books funded
                 
                 
-                    $30,000
+                    1,000
                     Our target
                 
                 
-                    127
-                    Students supported
+                    976
+                    Books to go
                 
             
         
 
         
         
+            
+                
+                24
+                Books funded
+            
             
                 
                 127
@@ -81,77 +111,47 @@ That funds 500+ student seats in workshops, materials, and community events. You
             
             
                 
-                48
-                Workshops held
+                1
+                Publishing partner
             
+        
+
+        
+        
+            
+## Bitcoin Lightning Network
+
+            
+Scan to pay with any Lightning wallet. Wallet of Satoshi, Phoenix, Muun, and others supported.
+
+
             
                 
-                18
-                Countries & communities
-            
-        
+                    150,000
+                    sats
+                    about $110 USD
+                    
+Sovereign Individual
 
-        
-
-  
-## Send USDT in two taps
-
-  
-Pick a network, copy the address, and send from your wallet app. Every bit counts &mdash; even meme dust.
-
-
-  
-    
-      
-        
-          
-          
-#### BSC Network
-
-        
-        
-          0x26507ccEEaB8C073620205Bf4aE1cd50E9f612af
-          Copy
-        
-        
-Only USDT on BSC (and whatever meme dust you want to dump).
-Every drop helps save a student from drowning in ramen noodles 
-
-#SaveAStudent #SendYourDust
-
-      
-    
-
-    
-      
-        
-          
-          
-#### Solana Network
-
-        
-        
-          GEKpQGYxEFeCDU6mGSNwF6LWi8czx7Bug3ToQWyma7Tq
-          Copy
-        
-        
-Only USDT on Solana (and whatever meme dust you want to dump).
-Every drop helps save a student from drowning in ramen noodles 
-
-#SaveAStudent #SendYourDust
-
-      
-    
-  
-
-
-        
-        
-            
-## Ready to save a student?
+                
+                
+                
+Suggested amount per book &mdash; any sats amount helps.
 
             
-Chip in via USDT above, or use card checkout &mdash; either way, you&apos;re funding real seats in the classroom.
 
             
-    Donate Now
+                
+### How Lightning works
+
+                
+                    Open a Lightning wallet (Wallet of Satoshi, Phoenix, Muun, etc.).
+
+                    
+- Scan the QR code above with your wallet&apos;s camera or scanner.
+
+                    
+- Confirm the amount in sats &mdash; any amount helps; ~150k sats &asymp; one book.
+
+                    
+- Payment settles in seconds; we allocate sats to the next book shipment batch.

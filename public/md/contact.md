@@ -92,53 +92,54 @@ Contact | DuaCrypto
 ## Contact Us
 
                     
-If You Have Any Query, Please Contact Us
+Partnerships, consulting, and media inquiries
+
+                    
+We typically respond within 1&ndash;2 business days.
+
+
+                    
+                        
+                            [partner@duacrypto.com](mailto:partner@duacrypto.com)
+                            
+                                 Copy
+                            
+                        
+                        
+Copied to clipboard!
+
+                    
+
+                    Contact us
+
+                    
+
+                        Or message us on
+                        [Telegram](https://t.me/dua_crypto)
+                    
 
                 
             
-            
-            
-                
-                    
-Our office:
-
-                    
-#### Tirana Albania,Pyramid of Tirana
-
-                    
-                    
-Call us:
-
-                    
-#### +380 67 518 1203
-
-                    
-                    
-Mail us:
-
-                    
-#### web@duacrypto.com
-
-                    
-                    
-Follow us:
-
-                    
-                        
-                        
-                        
-                        
-                    
-                
-
-
-
+        
+    
     
 
-  
-  
-
-
+    
+    
+        
+            
+            [
+                
+                
+                    We are here
+                    Pyramid of Tirana, Albania
+                
+            ](https://www.google.com/maps/search/?api=1&query=Piramida+e+Tiran%C3%ABs)
+            
+            
+        
+    
+    
 
 
 
@@ -159,7 +160,7 @@ DuaCrypto, founded in 2020, is Albania's first crypto community &mdash; educatio
 
                     
                         
-Partnerships, donations, or media: [info@duacrypto.com](mailto:info@duacrypto.com)
+Partnerships and media: [partner@duacrypto.com](mailto:partner@duacrypto.com)
 
                     
                 
@@ -168,28 +169,22 @@ Partnerships, donations, or media: [info@duacrypto.com](mailto:info@duacrypto.co
                     
 Market insights, airdrop alerts, and community updates in your inbox.
 
-                    
-                        
-                        Sign Up
-                    
+                    [Subscribe on our newsletter page]($10.html)
                 
                 
                     Get In Touch
                     
-Tirana, Albania
+Pyramid of Tirana, Albania
 
                     
-[+355 69 782 2224](tel:+355697822224)
-
-                    
-[info@duacrypto.com](mailto:info@duacrypto.com)
+[partner@duacrypto.com](mailto:partner@duacrypto.com)
 
                 
                 
                     Our Services
                     [Education](service.html)
                     [Events](events.html)
-                    [Donate](donation.html)
+                    [Donate a Book](donation.html)
                     [Newsletter]($10.html)
                 
                 

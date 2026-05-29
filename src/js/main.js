@@ -2,7 +2,6 @@ import "../css/input.css";
 import { initTheme } from "./theme.js";
 import { initNav } from "./nav.js";
 import { initCounters } from "./counter.js";
-import { initCarousel } from "./carousel.js";
 import { initAccordion } from "./accordion.js";
 import { initBrandCards } from "./brand-cards.js";
 import "./webmcp.js";
@@ -35,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initSpinner();
   initNav();
   initCounters();
-  initCarousel("securitySlideshow");
   initAccordion("faq-accordion");
   initBrandCards();
   initBackToTop();

@@ -114,7 +114,7 @@ Whether you're a developer, a student eager to learn about blockchain, or someon
                     
 
                     
-Students Trained
+Company Collaborations
 
                 
                 
@@ -140,7 +140,7 @@ Follow Members
                     
 
                     
-Earned via Copy Trading
+Donations
 
                 
             
@@ -155,41 +155,82 @@ Earned via Copy Trading
 ## Why DuaCrypto Stands Out
 
                 
-Albania's First & Most Established Crypto Community
+Building Albania&rsquo;s Bitcoin-native ecosystem &mdash; for builders, businesses, and serious holders
 
             
             
                 
-### Local Roots, Global Vision
+                    
+                    
+                        
+### Blockchain Consulting
 
-Founded in Tirana (2020), we understand Balkan crypto needs better than international platforms.
+                        
+Strategy, audits, and pilot launches for companies entering Bitcoin and Web3 in the Balkans. [Contact us](contact.html) to scope your project.
 
+                    
                 
-### 9,600+ Verified Members
-
-Developers, traders, and beginners mastering blockchain basics together.
-
                 
-### Real Results
+                    
+                    
+                        
+### Bitcoin Self-Custody
 
-$500,000+ earned through copy trading. 150,000+ free resources accessed.
+                        
+Hardware wallets, seed security, and cold-storage training. Not your keys, not your coins &mdash; we teach the maxi way.
 
+                    
                 
-### Step-by-Step Learning Path
-
-Free guides, AI-powered tools, and mentor-led market simulations.
-
                 
-### Balkan-First Security
+                    
+                    
+                        
+### Local Exchange (690&ndash;730)
 
-Cold storage, insured transactions, and Albanian-language support 24/7.
+                        
+Honest local buy/sell guidance with transparent rates around 690&ndash;730 ALL/EUR. Your gateway to Bitcoin in Albania without hidden fees.
 
+                    
                 
-### Your Gateway to
+                
+                    
+                    
+                        
+### Education Content
 
-Regional P2P exchanges, tax-compliant trading, and local meetups.
+                        
+Free guides, videos, and workshops in Albanian and English. Partner with us to reach 10,000+ engaged learners.
 
+                    
+                
+                
+                    
+                    
+                        
+### Community Meetups
+
+                        
+Monthly events in Tirana and across the region. Sponsor a meetup or speak &mdash; put your brand in front of real Bitcoiners.
+
+                    
+                
+                
+                    
+                    
+                        
+### P2P Exchanges
+
+                        
+Peer-to-peer trading inside our vetted community. Trade directly, build reputation, stay sovereign.
+
+                    
+                
             
+            
+
+                [Partner with DuaCrypto](contact.html)
+            
+
         
     
 
@@ -252,34 +293,30 @@ Contact us to have your logo here
             
 
             
-                
-                    [
+                [
+                    
                         
-                            
-                        
-                    ](https://tangem.com/invite/BITCOINZAT)
-                
-                
-                    [
-                        
-                            
-                        
-                    ](https://shop.ledger.com/?r=2deb3872c973)
-                
-                
-                    [
-                        
-                            
-                        
-                    ](https://shop.deeper.network?sca_ref=2063681.3aWn8PiBjI)
-                
+                    
+                    
+Tangem Wallet
 
-                
+                ](https://tangem.com/invite/BITCOINZAT)
+                [
                     
-                
-                
+                        
                     
-                
+                    
+Ledger Flex
+
+                ](https://shop.ledger.com/?r=2deb3872c973)
+                [
+                    
+                        
+                    
+                    
+Deeper Network VPN
+
+                ](https://shop.deeper.network?sca_ref=2063681.3aWn8PiBjI)
             
         
     

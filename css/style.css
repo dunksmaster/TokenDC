@@ -517,10 +517,279 @@ h6,
     text-decoration: none !important;
 }
 
+/*** Contact page — email reveal & map badge ***/
+.contact-email-box {
+    padding: 0.875rem 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.08);
+}
+
+.contact-email-address {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--bs-dark, #212529);
+    text-decoration: none;
+}
+
+.contact-email-address:hover {
+    color: var(--primary);
+}
+
+.contact-map-section {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.contact-page-footer {
+    margin-top: 0 !important;
+}
+
+.contact-map-wrap {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.contact-map-iframe {
+    display: block;
+    height: 420px;
+    border: 0;
+    margin-bottom: 0;
+}
+
+.contact-map-pin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -100%);
+    pointer-events: none;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--primary);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+    animation: contact-map-pin-bounce 2s ease-in-out infinite;
+}
+
+@keyframes contact-map-pin-bounce {
+    0%, 100% { transform: translate(-50%, -100%); }
+    50% { transform: translate(-50%, calc(-100% - 6px)); }
+}
+
+.contact-map-pin::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 14px;
+    height: 4px;
+    margin-left: -7px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.contact-map-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    max-width: min(320px, calc(100% - 2rem));
+    padding: 0.875rem 1rem;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    box-shadow: 0 0.35rem 1.25rem rgba(0, 0, 0, 0.15);
+    color: inherit;
+    text-decoration: none;
+    pointer-events: auto;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-map-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.18);
+    color: inherit;
+}
+
+.contact-map-badge-icon {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--primary);
+    margin-top: 0.125rem;
+}
+
+.contact-map-badge-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    font-size: 0.875rem;
+    line-height: 1.35;
+    color: #6c757d;
+}
+
+.contact-map-badge-text strong {
+    font-size: 1rem;
+    color: #212529;
+}
+
+html.dark .contact-email-box,
+html.dark .contact-map-badge {
+    background: #1c2128;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .contact-email-address,
+html.dark .contact-map-badge-text strong {
+    color: #e6edf3;
+}
+
+html.dark .contact-map-badge-text {
+    color: #8b949e;
+}
+
+/*** Premium newsletter page ($10.html) ***/
+.newsletter-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.newsletter-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.12);
+}
+
+.newsletter-card-media {
+    background: #f4f7f9;
+}
+
+.newsletter-img-wrap {
+    position: relative;
+    height: 100%;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.newsletter-img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0.75rem;
+}
+
+.newsletter-price-badge {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    background: var(--primary);
+    color: #ffffff;
+    padding: 0.35rem 0.75rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(22, 213, 255, 0.35);
+}
+
+.newsletter-card-body {
+    padding: 2rem;
+}
+
+.newsletter-features li {
+    margin-bottom: 0.65rem;
+    color: #495057;
+}
+
+.newsletter-testimonials {
+    background: #f4f7f9;
+}
+
+.newsletter-testimonial {
+    margin: 0;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+}
+
+.newsletter-testimonial p {
+    font-style: italic;
+    color: #6c757d;
+}
+
+.newsletter-testimonial-author {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+html.dark .newsletter-card {
+    background: #1c2128;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.35);
+}
+
+html.dark .newsletter-card-media,
+html.dark .newsletter-testimonials {
+    background: #161b22;
+}
+
+html.dark .newsletter-testimonial {
+    background: #1c2128;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .newsletter-testimonial p {
+    color: #8b949e;
+}
+
+html.dark .newsletter-features li {
+    color: #c9d1d9;
+}
+
+@media (max-width: 767.98px) {
+    .newsletter-img-wrap {
+        min-height: 220px;
+        padding: 1.25rem;
+    }
+
+    .newsletter-card-body {
+        padding: 1.5rem;
+    }
+
+    .newsletter-card-body .btn-lg {
+        width: 100%;
+    }
+}
+
 /*** Mobile layout guards ***/
 @media (max-width: 991.98px) {
     body {
         overflow-x: hidden;
+    }
+
+    .contact-map-badge {
+        top: auto;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: calc(100% - 1.5rem);
+    }
+
+    .contact-map-badge:hover {
+        transform: translateX(-50%) translateY(-2px);
     }
 
 }

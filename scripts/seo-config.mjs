@@ -176,12 +176,12 @@ export const seoPages = [
   {
     file: "donation.html",
     path: "/donation.html",
-    title: "Donate to Student Education | DuaCrypto",
+    title: "Donate a Book | DuaCrypto",
     description:
-      "Support DuaCrypto student education — help learners in Albania access Bitcoin and Web3 training without financial barriers.",
+      "Donate a Bitcoin book to Balkans students via Lightning Network. 100% of sats fund books through DuaCrypto and Konsensus Network (bitcoinbook.shop).",
     ogType: "website",
     includeOrganization: true,
-    breadcrumb: [{ name: "Donate", path: "/donation.html" }],
+    breadcrumb: [{ name: "Donate a Book", path: "/donation.html" }],
   },
   {
     file: "privacy.html",

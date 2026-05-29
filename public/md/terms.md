@@ -132,7 +132,7 @@ These terms are governed by the laws of the Republic of Albania. Disputes shall 
 ## 10. Contact
 
                     
-Questions about these terms: [info@duacrypto.com](mailto:info@duacrypto.com) or [+355 69 782 2224](tel:+355697822224). See our [Privacy Policy](privacy.html).
+Questions about these terms: [info@duacrypto.com](mailto:info@duacrypto.com). See our [Privacy Policy](privacy.html).
 
                 
             
