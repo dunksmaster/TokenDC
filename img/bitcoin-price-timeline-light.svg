@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 504" role="img" aria-labelledby="btcTimelineTitle">
+  <title id="btcTimelineTitle">Bitcoin price highs and lows</title>
+  <rect width="720" height="504" rx="16" fill="#F2F8FE"/>
+  <text x="360" y="52" text-anchor="middle" fill="#16D5FF" font-family="Roboto, Arial, sans-serif" font-size="28" font-weight="700">Bitcoin price highs and lows</text>
+
+  <g font-family="Open Sans, Arial, sans-serif" font-size="16" fill="#111111">
+    <g transform="translate(40 80)">
+      <rect width="640" height="48" rx="12" fill="#FFFFFF" stroke="rgba(22,213,255,0.22)" stroke-width="1"/>
+      <rect width="88" height="48" rx="12" fill="rgba(22,213,255,0.14)"/>
+      <text x="44" y="31" text-anchor="middle" font-weight="700" font-size="17">2009</text>
+      <text x="108" y="31">Bitcoin's beginning</text>
+    </g>
+    <g transform="translate(40 136)">
+      <rect width="640" height="48" rx="12" fill="#FFFFFF" stroke="rgba(22,213,255,0.22)" stroke-width="1"/>
+      <rect width="88" height="48" rx="12" fill="rgba(22,213,255,0.14)"/>
+      <text x="44" y="31" text-anchor="middle" font-weight="700" font-size="17">2010</text>
+      <text x="108" y="31">Bitcoin Pizza Day (first real-world transaction)</text>
+    </g>
+    <g transform="translate(40 192)">
+      <rect width="640" height="48" rx="12" fill="#FFFFFF" stroke="rgba(22,213,255,0.22)" stroke-width="1"/>
+      <rect width="88" height="48" rx="12" fill="rgba(22,213,255,0.14)"/>
+      <text x="44" y="31" text-anchor="middle" font-weight="700" font-size="17">2013</text>
+      <text x="108" y="31">Bitcoin breaks $100 for the first time</text>
+    </g>
+    <g transform="translate(40 248)">
+      <rect width="640" height="48" rx="12" fill="#FFFFFF" stroke="rgba(22,213,255,0.22)" stroke-width="1"/>
+      <rect width="88" height="48" rx="12" fill="rgba(22,213,255,0.14)"/>
+      <text x="44" y="31" text-anchor="middle" font-weight="700" font-size="17">2017</text>
+      <text x="108" y="31">Historic bull run, reaching nearly $20,000</text>
+    </g>
+    <g transform="translate(40 304)">
+      <rect width="640" height="48" rx="12" fill="#FFFFFF" stroke="rgba(22,213,255,0.22)" stroke-width="1"/>
+      <rect width="88" height="48" rx="12" fill="rgba(22,213,255,0.14)"/>
+      <text x="44" y="31" text-anchor="middle" font-weight="700" font-size="17">2018</text>
+      <text x="108" y="31">Significant price correction</text>
+    </g>
+    <g transform="translate(40 360)">
+      <rect width="640" height="48" rx="12" fill="#FFFFFF" stroke="rgba(22,213,255,0.22)" stroke-width="1"/>
+      <rect width="88" height="48" rx="12" fill="rgba(22,213,255,0.14)"/>
+      <text x="44" y="31" text-anchor="middle" font-weight="700" font-size="17">2020</text>
+      <text x="108" y="31">Bitcoin recovery</text>
+    </g>
+    <g transform="translate(40 416)">
+      <rect width="640" height="48" rx="12" fill="#FFFFFF" stroke="rgba(22,213,255,0.22)" stroke-width="1"/>
+      <rect width="88" height="48" rx="12" fill="rgba(22,213,255,0.14)"/>
+      <text x="44" y="31" text-anchor="middle" font-weight="700" font-size="17">2024</text>
+      <text x="108" y="31">Approval of the first Bitcoin ETF</text>
+    </g>
+  </g>
+</svg>

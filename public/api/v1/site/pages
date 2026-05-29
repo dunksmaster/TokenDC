@@ -2,53 +2,63 @@
   "pages": [
     {
       "path": "/",
-      "title": "Made In Albania",
+      "title": "Albania's First Crypto Community | DuaCrypto",
       "url": "https://duacrypto.com/"
     },
     {
       "path": "/about.html",
-      "title": "DuaCrypto - About Us",
+      "title": "About Us | DuaCrypto",
       "url": "https://duacrypto.com/about.html"
     },
     {
       "path": "/service.html",
-      "title": "DuaCrypto - Services",
+      "title": "Crypto Education & Community Services | DuaCrypto",
       "url": "https://duacrypto.com/service.html"
     },
     {
       "path": "/roadmap.html",
-      "title": "DuaCrypto - Roadmap",
+      "title": "Community Roadmap | DuaCrypto",
       "url": "https://duacrypto.com/roadmap.html"
     },
     {
       "path": "/events.html",
-      "title": "Dua Crypto Albania - Events",
+      "title": "Bitcoin & Web3 Events in Tirana | DuaCrypto",
       "url": "https://duacrypto.com/events.html"
     },
     {
       "path": "/feature.html",
-      "title": "DuaCrypto - Features",
+      "title": "Why Join DuaCrypto | DuaCrypto",
       "url": "https://duacrypto.com/feature.html"
     },
     {
       "path": "/token.html",
-      "title": "DuaCrypto - Token Sale",
+      "title": "Token Sale | DuaCrypto",
       "url": "https://duacrypto.com/token.html"
     },
     {
       "path": "/faq.html",
-      "title": "DuaCrypto - FAQs",
+      "title": "FAQs | DuaCrypto",
       "url": "https://duacrypto.com/faq.html"
     },
     {
       "path": "/contact.html",
-      "title": "DuaCrypto - Contact",
+      "title": "Contact | DuaCrypto",
       "url": "https://duacrypto.com/contact.html"
     },
     {
       "path": "/donation.html",
-      "title": "Save a Student — Donate | DuaCrypto",
+      "title": "Donate to Student Education | DuaCrypto",
       "url": "https://duacrypto.com/donation.html"
+    },
+    {
+      "path": "/privacy.html",
+      "title": "Privacy Policy | DuaCrypto",
+      "url": "https://duacrypto.com/privacy.html"
+    },
+    {
+      "path": "/terms.html",
+      "title": "Terms of Service | DuaCrypto",
+      "url": "https://duacrypto.com/terms.html"
     }
   ]
 }

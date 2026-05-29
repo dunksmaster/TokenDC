@@ -13,6 +13,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { generateWebBotAuth } from "./generate-web-bot-auth.mjs";
 import { buildThemeAssets } from "./build-theme-assets.mjs";
+import { applySeoToHtmlFiles } from "./inject-seo.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
@@ -30,6 +31,8 @@ const htmlPages = [
   { file: "faq.html", loc: "/faq.html", changefreq: "monthly", priority: "0.8" },
   { file: "contact.html", loc: "/contact.html", changefreq: "yearly", priority: "0.6" },
   { file: "donation.html", loc: "/donation.html", changefreq: "yearly", priority: "0.5" },
+  { file: "privacy.html", loc: "/privacy.html", changefreq: "yearly", priority: "0.4" },
+  { file: "terms.html", loc: "/terms.html", changefreq: "yearly", priority: "0.4" },
 ];
 
 const DISALLOW_PATHS = [
@@ -362,6 +365,7 @@ function writeRootDiscoveryFiles() {
   }
 }
 
+applySeoToHtmlFiles();
 generateMarkdown();
 collectSkills();
 syncSiteApi();

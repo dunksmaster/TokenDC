@@ -2,6 +2,8 @@
  * Template-only styles. Legacy pages link /css/style.css (mirrored to public/
  * by scripts/generate-agent-assets.mjs). Use root-absolute paths for all assets.
  */
+@import url("brand-logos.css");
+
 /********** Template CSS **********/
 :root {
     --primary: #16D5FF;
@@ -273,6 +275,36 @@ h6,
 }
 
 
+/*** Bitcoin timeline (roadmap page) — themed SVG infographic ***/
+.bitcoin-timeline {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: transparent;
+    box-shadow: 0 4px 20px rgba(17, 17, 17, 0.08);
+}
+
+.bitcoin-timeline-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+@media (max-width: 575.98px) {
+    .bitcoin-timeline {
+        border-radius: 0.75rem;
+    }
+
+    .bitcoin-timeline-img {
+        border-radius: 0.75rem;
+    }
+}
+
+
 /*** FAQs ***/
 .accordion .accordion-item {
     border: none;
@@ -491,12 +523,4 @@ h6,
         overflow-x: hidden;
     }
 
-    .navbar-brand h2 {
-        font-size: 1.25rem;
-    }
-
-    .navbar-brand img {
-        width: 36px !important;
-        height: auto;
-    }
 }

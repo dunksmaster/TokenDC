@@ -1,10 +1,26 @@
 ---
-title: "DuaCrypto - About Us"
+title: "About Us | DuaCrypto"
 description: "Learn about DuaCrypto, Albania"
 source: "about.html"
 ---
 
-DuaCrypto - About Us
+About Us | DuaCrypto
+    
+    
+    
+- 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -13,7 +29,6 @@ DuaCrypto - About Us
 
     
     
-- 
 
     
     
@@ -49,6 +64,7 @@ DuaCrypto - About Us
 
     
     
+
     
 
     
@@ -78,7 +94,7 @@ DuaCrypto - About Us
                     
                         
                             
-                            📤 Share
+                            ?? Share
                         
                         
                             
@@ -86,8 +102,8 @@ DuaCrypto - About Us
                                 @Duacrypto
                             
                             
-                                ⚡
-                                𝕏
+                                ?
+                                ??
                                 [Join](https://signup.cluborange.org/co/duacryptofile_copy)
                             
                         
@@ -119,7 +135,7 @@ Building crypto in public (NFA). Web3 advisor and community lead for Albania and
 
     
         
-# About Us
+## About Us
 
         
 Albania's Most Trusted Cryptocurrency Community
@@ -208,78 +224,64 @@ Help fund workshops, study materials, and wallet skills for students across the 
             
                 
                     
-# DuaCrypto
-
-                   
-    
-
-        DuaCrypto, founded in 2020, is proud to be the first crypto community in Albania.
-    
-
-    
-        
-- We're open to collaborations, partnerships, and creative ideas.
-
-        
-- If you would like to see your logo featured on our site, please send us an email with your request.
-
-        
-- 
-            
-            For support, donations, or collaborations, feel free to reach out via email or 
-            contribute to our official crypto wallet at 
-            [
-                Blockchain Wallet
-            ](https://blockscan.com/address/2ECp5NXzGzx4R49DDnQu2nbJiVPKMzKXRHVmHrxp4Exh).
-        
-
-    
-
 
                         
+
+                        
+DuaCrypto, founded in 2020, is Albania's first crypto community � education, events, and Web3 support across the Balkans.
+
+
+                    
+
+                    
+                        
+Partnerships, donations, or media: [info@duacrypto.com](mailto:info@duacrypto.com)
+
+                    
+                
                 
                     Newsletter
                     
-    Subscribe to DuaCrypto’s newsletter to receive real-time crypto market insights, airdrop alerts, and early-stage meme coin opportunities directly to your inbox.
-
+Market insights, airdrop alerts, and community updates in your inbox.
 
                     
                         
-                        SignUp
+                        Sign Up
                     
                 
                 
                     Get In Touch
                     
-Tirana
+Tirana, Albania
 
                     
-+355 69 782 2224
+[+355 69 782 2224](tel:+355697822224)
 
                     
-info@duacrypto.com
+[info@duacrypto.com](mailto:info@duacrypto.com)
 
                 
                 
                     Our Services
-                    [Currency Wallet](service.html)
-                    [Currency Transaction](service.html)
-                    [Bitcoin Investment](service.html)
-                    [Token Sale](token.html)
+                    [Education](service.html)
+                    [Events](events.html)
+                    [Donate](donation.html)
+                    [Newsletter]($10.html)
                 
                 
                     Quick Links
                     [About Us](about.html)
-                    [Contact Us](contact.html)
-                    [Our Services](service.html)
-                    [Terms & Condition](contact.html)
+                    [Contact](contact.html)
+                    [Privacy](privacy.html)
+                    [Terms](terms.html)
                 
                 
                     Follow Us
                     
-                        [](https://twitter.com/duacrypto)
-                        [](https://facebook.com/duacrypto)
+                        [](https://t.me/dua_crypto)
+                        [](https://x.com/duacrypto)
                         [](https://youtube.com/@duacrypto)
+                        [](https://facebook.com/duacrypto)
                         [](https://linkedin.com/company/duacrypto)
                     
                 
@@ -289,15 +291,16 @@ info@duacrypto.com
             
                 
                     
-                        &copy; [DuaCrypto](#), All Right Reserved.
+                        &copy; [DuaCrypto](index.html), All Rights Reserved.
                     
                     
-                        Designed By [DC 2025 GPT](#)
+                        Designed by DuaCrypto
                     
                 
             
         
     
+
     
 
     

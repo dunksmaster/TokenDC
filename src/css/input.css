@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../../css/brand-logos.css";
 
 /* Scan HTML entries and JS so utilities in markup are included in the build */
 @source "../../**/*.html";
@@ -185,6 +186,14 @@ html.dark {
 
   .logo-img {
     @apply w-11;
+  }
+
+  .footer-brand-row {
+    @apply flex items-center gap-2;
+  }
+
+  .footer-brand-row > p {
+    @apply mb-0;
   }
 
   .theme-toggle {

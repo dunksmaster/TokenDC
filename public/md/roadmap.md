@@ -1,10 +1,25 @@
 ---
-title: "DuaCrypto - Roadmap"
-description: "DuaCrypto roadmap for community growth, education programs, and Web3 initiatives across the Balkans."
+title: "Community Roadmap | DuaCrypto"
+description: "DuaCrypto roadmap — from Tirana meetups to Balkans-wide Web3 education, events, and Bitcoin adoption milestones."
 source: "roadmap.html"
 ---
 
-DuaCrypto - Roadmap
+Community Roadmap | DuaCrypto
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -45,6 +60,7 @@ DuaCrypto - Roadmap
 
     
     
+
     
 
 
@@ -72,42 +88,46 @@ DuaCrypto - Roadmap
         
             
                 
-# Roadmap
+## Roadmap
 
                 
-We Translate Your Dream Into Reality
+From Tirana meetups to Balkans-wide Web3 education
 
             
             
                 
                     
-                    January 2045
-                    Diam dolor ipsum sit amet erat ipsum lorem sit
+                    2020 � Founded in Tirana
+                    DuaCrypto launches as Albania's first crypto community with weekly Bitcoin discussions and Telegram support.
                 
                 
                     
-                    March 2045
-                    Diam dolor ipsum sit amet erat ipsum lorem sit
+                    2021 � First Public Meetups
+                    In-person Bitcoin meetups in Tirana bring beginners and builders together for hands-on wallet and P2P workshops.
                 
                 
                     
-                    May 2045
-                    Diam dolor ipsum sit amet erat ipsum lorem sit
+                    2022 � 5,000+ Community Members
+                    Free guides at duacrypto.org and mentor-led sessions help thousands across Albania learn Web3 basics safely.
                 
                 
                     
-                    July 2045
-                    Diam dolor ipsum sit amet erat ipsum lorem sit
+                    2023 � Corporate & Media Outreach
+                    Corporate consulting for DLT compliance and national TV features on Bitcoin adoption in the Balkans.
                 
                 
                     
-                    September 2045
-                    Diam dolor ipsum sit amet erat ipsum lorem sit
+                    2024 � 10,000+ Members & Events
+                    Bitcoin Pizza Day celebrations, regional partnerships, and expanded Albanian-language education resources.
                 
                 
                     
-                    November 2045
-                    Diam dolor ipsum sit amet erat ipsum lorem sit
+                    2025 � Balkans Crypto Hub
+                    Balkans Crypto 2025 conference, student scholarships, and a Web3 builder network across the region.
+                
+            
+
+            
                 
             
         
@@ -121,52 +141,64 @@ We Translate Your Dream Into Reality
             
                 
                     
-# DuaCrypto
 
-                    Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.
+                        
+
+                        
+DuaCrypto, founded in 2020, is Albania's first crypto community � education, events, and Web3 support across the Balkans.
+
+
+                    
+
+                    
+                        
+Partnerships, donations, or media: [info@duacrypto.com](mailto:info@duacrypto.com)
+
+                    
                 
                 
                     Newsletter
                     
-Clita erat ipsum et lorem et sit, sed stet lorem sit clita.
+Market insights, airdrop alerts, and community updates in your inbox.
 
                     
                         
-                        SignUp
+                        Sign Up
                     
                 
                 
                     Get In Touch
                     
-123 Street, New York, USA
+Tirana, Albania
 
                     
-+012 345 67890
+[+355 69 782 2224](tel:+355697822224)
 
                     
-info@example.com
+[info@duacrypto.com](mailto:info@duacrypto.com)
 
                 
                 
                     Our Services
-                    [Currency Wallet](service.html)
-                    [Currency Transaction](service.html)
-                    [Bitcoin Investment](service.html)
-                    [Token Sale](token.html)
+                    [Education](service.html)
+                    [Events](events.html)
+                    [Donate](donation.html)
+                    [Newsletter]($10.html)
                 
                 
                     Quick Links
                     [About Us](about.html)
-                    [Contact Us](contact.html)
-                    [Our Services](service.html)
-                    [Terms & Condition](contact.html)
+                    [Contact](contact.html)
+                    [Privacy](privacy.html)
+                    [Terms](terms.html)
                 
                 
                     Follow Us
                     
-                        [](https://twitter.com/duacrypto)
-                        [](https://facebook.com/duacrypto)
+                        [](https://t.me/dua_crypto)
+                        [](https://x.com/duacrypto)
                         [](https://youtube.com/@duacrypto)
+                        [](https://facebook.com/duacrypto)
                         [](https://linkedin.com/company/duacrypto)
                     
                 
@@ -176,16 +208,16 @@ info@example.com
             
                 
                     
-                        &copy; [Your Site Name](#), All Right Reserved.
+                        &copy; [DuaCrypto](index.html), All Rights Reserved.
                     
                     
-                        
-                        Designed By [HTML Codex](https://htmlcodex.com)
+                        Designed by DuaCrypto
                     
                 
             
         
     
+
     
 
 

@@ -1,10 +1,25 @@
 ---
-title: "DuaCrypto - Contact"
-description: "Contact DuaCrypto in Tirana for partnerships, education, donations, and community support."
+title: "Contact | DuaCrypto"
+description: "Contact DuaCrypto in Tirana for partnerships, Bitcoin education, donations, and Balkans crypto community support."
 source: "contact.html"
 ---
 
-DuaCrypto - Contact
+Contact | DuaCrypto
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -45,6 +60,7 @@ DuaCrypto - Contact
 
     
     
+
     
 
 
@@ -73,7 +89,7 @@ DuaCrypto - Contact
             
                 
                     
-# Contact Us
+## Contact Us
 
                     
 If You Have Any Query, Please Contact Us
@@ -132,52 +148,64 @@ Follow us:
             
                 
                     
-# DuaCrypto
 
-                    Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.
+                        
+
+                        
+DuaCrypto, founded in 2020, is Albania's first crypto community � education, events, and Web3 support across the Balkans.
+
+
+                    
+
+                    
+                        
+Partnerships, donations, or media: [info@duacrypto.com](mailto:info@duacrypto.com)
+
+                    
                 
                 
                     Newsletter
                     
-Clita erat ipsum et lorem et sit, sed stet lorem sit clita.
+Market insights, airdrop alerts, and community updates in your inbox.
 
                     
                         
-                        SignUp
+                        Sign Up
                     
                 
                 
                     Get In Touch
                     
-123 Street, New York, USA
+Tirana, Albania
 
                     
-+012 345 67890
+[+355 69 782 2224](tel:+355697822224)
 
                     
-info@example.com
+[info@duacrypto.com](mailto:info@duacrypto.com)
 
                 
                 
                     Our Services
-                    [Currency Wallet](service.html)
-                    [Currency Transaction](service.html)
-                    [Bitcoin Investment](service.html)
-                    [Token Sale](token.html)
+                    [Education](service.html)
+                    [Events](events.html)
+                    [Donate](donation.html)
+                    [Newsletter]($10.html)
                 
                 
                     Quick Links
                     [About Us](about.html)
-                    [Contact Us](contact.html)
-                    [Our Services](service.html)
-                    [Terms & Condition](contact.html)
+                    [Contact](contact.html)
+                    [Privacy](privacy.html)
+                    [Terms](terms.html)
                 
                 
                     Follow Us
                     
-                        [](https://twitter.com/duacrypto)
-                        [](https://facebook.com/duacrypto)
+                        [](https://t.me/dua_crypto)
+                        [](https://x.com/duacrypto)
                         [](https://youtube.com/@duacrypto)
+                        [](https://facebook.com/duacrypto)
                         [](https://linkedin.com/company/duacrypto)
                     
                 
@@ -187,16 +215,16 @@ info@example.com
             
                 
                     
-                        &copy; [Your Site Name](#), All Right Reserved.
+                        &copy; [DuaCrypto](index.html), All Rights Reserved.
                     
                     
-                        
-                        Designed By [HTML Codex](https://htmlcodex.com)
+                        Designed by DuaCrypto
                     
                 
             
         
     
+
     
 
 

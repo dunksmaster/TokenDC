@@ -1,9 +1,10 @@
 ---
-title: "Save a Student — Donate | DuaCrypto"
+title: "Donate to Student Education | DuaCrypto"
+description: "Support DuaCrypto student education — help learners in Albania access Bitcoin and Web3 training without financial barriers."
 source: "donation.html"
 ---
 
-Save a Student — Donate | DuaCrypto
+Donate to Student Education | DuaCrypto
     
     
     

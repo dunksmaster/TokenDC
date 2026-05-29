@@ -1,10 +1,28 @@
 ---
-title: "Dua Crypto Albania - Events"
+title: "Bitcoin & Web3 Events in Tirana | DuaCrypto"
 description: "Join DuaCrypto events in Tirana — Bitcoin Pizza Day, Balkans Crypto 2025, and community meetups across the Balkans."
 source: "events.html"
 ---
 
-Dua Crypto Albania - Events
+Bitcoin & Web3 Events in Tirana | DuaCrypto
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -54,7 +72,7 @@ Dua Crypto Albania - Events
         
         
             
-Celebrate Bitcoin Pizza Day with DuaCrypto — the story of the first real-world Bitcoin purchase, community meetups, and live photos from our event.
+Celebrate Bitcoin Pizza Day with DuaCrypto ? the story of the first real-world Bitcoin purchase, community meetups, and live photos from our event.
 
             
                 [
@@ -85,7 +103,7 @@ Celebrate Bitcoin Pizza Day with DuaCrypto — the story of the first real-world
         
         
             
-Balkans Crypto 2025 Tech Conference — DeFi, Web3, and networking across the region. Meet builders, explore projects, and connect with the DuaCrypto community.
+Balkans Crypto 2025 Tech Conference ? DeFi, Web3, and networking across the region. Meet builders, explore projects, and connect with the DuaCrypto community.
 
             
                 [
@@ -116,7 +134,7 @@ Balkans Crypto 2025 Tech Conference — DeFi, Web3, and networking across the re
         
         
             
-DuaCrypto featured on leading Albanian media — ABC News, EKO, and Top Channel — covering Bitcoin, crypto education, and digital assets in the Balkans.
+DuaCrypto featured on leading Albanian media ? ABC News, EKO, and Top Channel ? covering Bitcoin, crypto education, and digital assets in the Balkans.
 
             
                 [

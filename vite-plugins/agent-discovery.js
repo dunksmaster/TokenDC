@@ -1,12 +1,6 @@
-import { readFileSync, existsSync, mkdirSync, cpSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import {
-  wantsMarkdown,
-  resolveMarkdownAssetPath,
-  estimateMarkdownTokens,
-  isHomepagePath,
-} from "../lib/markdown-negotiation.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -19,48 +13,29 @@ const LINK_HEADER =
 
 const CONTENT_SIGNAL = "ai-train=no, search=yes, ai-input=yes";
 
-function markdownFilePath(pathname) {
-  const assetPath = resolveMarkdownAssetPath(pathname);
-  if (!assetPath) return null;
-  return join(root, "public", assetPath);
+function wantsMarkdown(req) {
+  const accept = req.headers.accept ?? "";
+  return accept.includes("text/markdown");
 }
 
-function sendMarkdown(req, res, pathname) {
-  const filePath = markdownFilePath(pathname);
-  if (!filePath || !existsSync(filePath)) return false;
-
-  const body = readFileSync(filePath, "utf8");
-  const isHome = isHomepagePath(pathname);
-
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/markdown; charset=utf-8");
-  res.setHeader("Vary", "Accept");
-  res.setHeader("x-markdown-tokens", estimateMarkdownTokens(body));
-  res.setHeader("Content-Signal", CONTENT_SIGNAL);
-  if (isHome) res.setHeader("Link", LINK_HEADER);
-
-  if (req.method === "HEAD") {
-    res.end();
-    return true;
+function markdownPath(pathname) {
+  if (pathname === "/" || pathname === "") return "public/md/index.md";
+  if (pathname.endsWith(".html")) {
+    return `public/md/${pathname.replace(/^\//, "").replace(/\.html$/, ".md")}`;
   }
-
-  res.end(body);
-  return true;
+  return null;
 }
 
-function attachDiscoveryHeaders(res, pathname) {
-  const isHome = isHomepagePath(pathname);
-  const hasMarkdown = Boolean(resolveMarkdownAssetPath(pathname));
+function estimateTokens(text) {
+  return String(Math.ceil(text.length / 4));
+}
 
-  if (!isHome && !hasMarkdown) return;
-
+function attachDiscoveryHeaders(res, isHome) {
+  if (!isHome) return;
   const originalWriteHead = res.writeHead.bind(res);
   res.writeHead = (statusCode, ...args) => {
-    if (hasMarkdown) res.setHeader("Vary", "Accept");
-    if (isHome) {
-      res.setHeader("Link", LINK_HEADER);
-      res.setHeader("Content-Signal", CONTENT_SIGNAL);
-    }
+    res.setHeader("Link", LINK_HEADER);
+    res.setHeader("Content-Signal", CONTENT_SIGNAL);
     if (typeof statusCode === "number") {
       return originalWriteHead(statusCode, ...args);
     }
@@ -68,44 +43,35 @@ function attachDiscoveryHeaders(res, pathname) {
   };
 }
 
-function markdownMiddleware() {
-  return (req, res, next) => {
-    const pathname = req.url?.split("?")[0] ?? "/";
-
-    if (
-      (req.method === "GET" || req.method === "HEAD") &&
-      wantsMarkdown(req.headers.accept)
-    ) {
-      if (sendMarkdown(req, res, pathname)) return;
-    }
-
-    attachDiscoveryHeaders(res, pathname);
-    next();
-  };
-}
-
 export function agentDiscoveryPlugin() {
   return {
     name: "agent-discovery",
     configureServer(server) {
-      server.middlewares.use(markdownMiddleware());
-    },
-    configurePreviewServer(server) {
-      server.middlewares.use(markdownMiddleware());
-    },
-  };
-}
+      server.middlewares.use((req, res, next) => {
+        const pathname = req.url?.split("?")[0] ?? "/";
+        const isHome = pathname === "/" || pathname === "/index.html";
 
-/** Copy public/md into dist/md after build (belt-and-suspenders with Vite public/). */
-export function copyMarkdownToDistPlugin() {
-  return {
-    name: "copy-markdown-to-dist",
-    closeBundle() {
-      const src = join(root, "public", "md");
-      const dest = join(root, "dist", "md");
-      if (!existsSync(src)) return;
-      mkdirSync(dest, { recursive: true });
-      cpSync(src, dest, { recursive: true });
+        if (wantsMarkdown(req)) {
+          const relMd = markdownPath(pathname);
+          if (relMd) {
+            const filePath = join(root, relMd);
+            if (existsSync(filePath)) {
+              const body = readFileSync(filePath, "utf8");
+              res.statusCode = 200;
+              res.setHeader("Content-Type", "text/markdown; charset=utf-8");
+              res.setHeader("Vary", "Accept");
+              res.setHeader("x-markdown-tokens", estimateTokens(body));
+              res.setHeader("Content-Signal", CONTENT_SIGNAL);
+              if (isHome) res.setHeader("Link", LINK_HEADER);
+              res.end(body);
+              return;
+            }
+          }
+        }
+
+        attachDiscoveryHeaders(res, isHome);
+        next();
+      });
     },
   };
 }

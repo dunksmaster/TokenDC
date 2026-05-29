@@ -1,0 +1,45 @@
+/**
+ * Brand logo sizing — plain CSS (no Tailwind build required).
+ * Linked from index.html and imported by css/style.css.
+ */
+.navbar-brand-logo,
+.footer-brand-logo {
+  width: auto !important;
+  max-width: none;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar-brand-logo {
+  height: 44px !important;
+  max-height: 44px;
+}
+
+.footer-brand-logo {
+  height: 40px !important;
+  max-height: 40px;
+  flex-shrink: 0;
+}
+
+.footer-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-brand-row > p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-brand-logo {
+    height: 36px !important;
+    max-height: 36px;
+  }
+
+  .footer-brand-logo {
+    height: 36px !important;
+    max-height: 36px;
+  }
+}
