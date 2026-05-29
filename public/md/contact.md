@@ -152,7 +152,7 @@ Follow us:
                         
 
                         
-DuaCrypto, founded in 2020, is Albania's first crypto community � education, events, and Web3 support across the Balkans.
+DuaCrypto, founded in 2020, is Albania's first crypto community &mdash; education, events, and Web3 support across the Balkans.
 
 
                     

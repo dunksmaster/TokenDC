@@ -41,6 +41,7 @@ Bitcoin & Web3 Events in Tirana | DuaCrypto
 
     
     
+    
 
     
     
@@ -72,7 +73,7 @@ Bitcoin & Web3 Events in Tirana | DuaCrypto
         
         
             
-Celebrate Bitcoin Pizza Day with DuaCrypto ? the story of the first real-world Bitcoin purchase, community meetups, and live photos from our event.
+Celebrate Bitcoin Pizza Day with DuaCrypto &mdash; the story of the first real-world Bitcoin purchase, community meetups, and live photos from our event.
 
             
                 [
@@ -103,7 +104,7 @@ Celebrate Bitcoin Pizza Day with DuaCrypto ? the story of the first real-world B
         
         
             
-Balkans Crypto 2025 Tech Conference ? DeFi, Web3, and networking across the region. Meet builders, explore projects, and connect with the DuaCrypto community.
+Balkans Crypto 2025 Tech Conference &mdash; DeFi, Web3, and networking across the region. Meet builders, explore projects, and connect with the DuaCrypto community.
 
             
                 [
@@ -134,7 +135,7 @@ Balkans Crypto 2025 Tech Conference ? DeFi, Web3, and networking across the regi
         
         
             
-DuaCrypto featured on leading Albanian media ? ABC News, EKO, and Top Channel ? covering Bitcoin, crypto education, and digital assets in the Balkans.
+DuaCrypto featured on leading Albanian media &mdash; ABC News, EKO, and Top Channel &mdash; covering Bitcoin, crypto education, and digital assets in the Balkans.
 
             
                 [

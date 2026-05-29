@@ -12,6 +12,7 @@ Donate to Student Education | DuaCrypto
     
     
     
+    
 
 
     
@@ -29,7 +30,7 @@ Donate to Student Education | DuaCrypto
 ## Crypto education that actually sticks
 
                     
-We teach students how wallets, stablecoins, and safety basics work — in plain language, at meetups and in the classroom — so they can participate in the economy without getting rekt.
+We teach students how wallets, stablecoins, and safety basics work &mdash; in plain language, at meetups and in the classroom &mdash; so they can participate in the economy without getting rekt.
 
                     
 Every gift, from a full USDT transfer to meme-coin dust, goes toward seats, snacks, and study kits. #SaveAStudent isn&apos;t a slogan; it&apos;s the point.
@@ -45,7 +46,7 @@ Every gift, from a full USDT transfer to meme-coin dust, goes toward seats, snac
 ### We&apos;re building toward $30,000
 
             
-That funds 500+ student seats in workshops, materials, and community events. You&apos;re already helping — let&apos;s keep the momentum.
+That funds 500+ student seats in workshops, materials, and community events. You&apos;re already helping &mdash; let&apos;s keep the momentum.
 
 
             
@@ -96,7 +97,7 @@ That funds 500+ student seats in workshops, materials, and community events. You
 ## Send USDT in two taps
 
   
-Pick a network, copy the address, and send from your wallet app. Every bit counts — even meme dust.
+Pick a network, copy the address, and send from your wallet app. Every bit counts &mdash; even meme dust.
 
 
   
@@ -114,7 +115,7 @@ Pick a network, copy the address, and send from your wallet app. Every bit count
         
         
 Only USDT on BSC (and whatever meme dust you want to dump).
-Every drop helps save a student from drowning in ramen noodles 🍜📚
+Every drop helps save a student from drowning in ramen noodles 
 
 #SaveAStudent #SendYourDust
 
@@ -135,7 +136,7 @@ Every drop helps save a student from drowning in ramen noodles 🍜📚
         
         
 Only USDT on Solana (and whatever meme dust you want to dump).
-Every drop helps save a student from drowning in ramen noodles 🍜📚
+Every drop helps save a student from drowning in ramen noodles 
 
 #SaveAStudent #SendYourDust
 
@@ -150,7 +151,7 @@ Every drop helps save a student from drowning in ramen noodles 🍜📚
 ## Ready to save a student?
 
             
-Chip in via USDT above, or use card checkout — either way, you&apos;re funding real seats in the classroom.
+Chip in via USDT above, or use card checkout &mdash; either way, you&apos;re funding real seats in the classroom.
 
             
     Donate Now

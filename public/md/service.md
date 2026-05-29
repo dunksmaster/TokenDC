@@ -100,7 +100,7 @@ Education, events & community support across Albania
                         
                         Crypto Education
                         
-Beginner to advanced workshops on Bitcoin, wallets, DeFi, and Web3 � in Albanian and English, online and in Tirana.
+Beginner to advanced workshops on Bitcoin, wallets, DeFi, and Web3 &mdash; in Albanian and English, online and in Tirana.
 
                         [Read More ](events.html)
                     
@@ -110,7 +110,7 @@ Beginner to advanced workshops on Bitcoin, wallets, DeFi, and Web3 � in Albani
                         
                         Community Meetups
                         
-Regular Bitcoin and Web3 events in Tirana � from Pizza Day celebrations to Balkans Crypto conference networking.
+Regular Bitcoin and Web3 events in Tirana &mdash; from Pizza Day celebrations to Balkans Crypto conference networking.
 
                         [Read More ](events.html)
                     
@@ -213,7 +213,7 @@ Scholarships and donation-funded access to premium education so students can lea
               ](https://duacrypto.gumroad.com/l/newsleter?wanted=true)
               
 
-                Secure checkout via Gumroad � Cancel anytime
+                Secure checkout via Gumroad &mdash; Cancel anytime
               
 
             
@@ -240,7 +240,7 @@ Scholarships and donation-funded access to premium education so students can lea
                         
 
                         
-DuaCrypto, founded in 2020, is Albania's first crypto community � education, events, and Web3 support across the Balkans.
+DuaCrypto, founded in 2020, is Albania's first crypto community &mdash; education, events, and Web3 support across the Balkans.
 
 
                     

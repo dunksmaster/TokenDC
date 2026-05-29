@@ -86,7 +86,7 @@ DuaCrypto ("we", "us") operates duacrypto.com and related community channels. We
 - Analytics: anonymized usage data via Google Analytics (page views, device type, approximate location).
 
                         
-- Donations: blockchain transaction hashes and wallet addresses when you donate crypto — we do not collect traditional payment card data on this site.
+- Donations: blockchain transaction hashes and wallet addresses when you donate crypto &mdash; we do not collect traditional payment card data on this site.
 
                     
 

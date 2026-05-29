@@ -108,7 +108,7 @@ Common questions about DuaCrypto & Bitcoin in Albania
 
                             
                                 
-                                    DuaCrypto is Albania's first crypto community, founded in Tirana in 2020. Join free via our [Telegram group](https://t.me/dua_crypto), attend Bitcoin meetups, or explore guides at [duacrypto.org](https://duacrypto.org/) � no prior experience required.
+                                    DuaCrypto is Albania's first crypto community, founded in Tirana in 2020. Join free via our [Telegram group](https://t.me/dua_crypto), attend Bitcoin meetups, or explore guides at [duacrypto.org](https://duacrypto.org/) &mdash; no prior experience required.
                                 
                             
                         
@@ -150,7 +150,7 @@ Common questions about DuaCrypto & Bitcoin in Albania
 
                             
                                 
-                                    Absolutely. Our Tirana meetups � including Bitcoin Pizza Day and Balkans Crypto events � welcome beginners, students, developers, and professionals. See [events.html](events.html) for upcoming dates.
+                                    Absolutely. Our Tirana meetups &mdash; including Bitcoin Pizza Day and Balkans Crypto events &mdash; welcome beginners, students, developers, and professionals. See [events.html](events.html) for upcoming dates.
                                 
                             
                         
@@ -199,7 +199,7 @@ Common questions about DuaCrypto & Bitcoin in Albania
                         
 
                         
-DuaCrypto, founded in 2020, is Albania's first crypto community � education, events, and Web3 support across the Balkans.
+DuaCrypto, founded in 2020, is Albania's first crypto community &mdash; education, events, and Web3 support across the Balkans.
 
 
                     

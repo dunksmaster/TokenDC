@@ -94,7 +94,7 @@ About Us | DuaCrypto
                     
                         
                             
-                            ?? Share
+                             Share
                         
                         
                             
@@ -102,8 +102,8 @@ About Us | DuaCrypto
                                 @Duacrypto
                             
                             
-                                ?
-                                ??
+                                
+                                
                                 [Join](https://signup.cluborange.org/co/duacryptofile_copy)
                             
                         
@@ -228,7 +228,7 @@ Help fund workshops, study materials, and wallet skills for students across the 
                         
 
                         
-DuaCrypto, founded in 2020, is Albania's first crypto community � education, events, and Web3 support across the Balkans.
+DuaCrypto, founded in 2020, is Albania's first crypto community &mdash; education, events, and Web3 support across the Balkans.
 
 
                     

@@ -73,7 +73,7 @@ By accessing duacrypto.com, joining our Telegram community, attending events, or
 
 
                     
-## 2. Educational purpose — not financial advice
+## 2. Educational purpose &mdash; not financial advice
 
                     
 DuaCrypto provides Bitcoin, Web3, and blockchain education for the Albania and Balkans community. Content is for informational purposes only. We are not a licensed financial advisor, broker, or exchange. Cryptocurrency involves risk; do your own research before investing.

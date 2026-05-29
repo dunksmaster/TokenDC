@@ -100,7 +100,7 @@ Albania's trusted Bitcoin & Web3 community
                         
                         
                             Beginner-Friendly Education
-                            Learn Bitcoin, wallets, and Web3 from scratch with Albanian and English guides � no jargon, no gatekeeping.
+                            Learn Bitcoin, wallets, and Web3 from scratch with Albanian and English guides &mdash; no jargon, no gatekeeping.
                         
                     
                 
@@ -118,7 +118,7 @@ Albania's trusted Bitcoin & Web3 community
                         
                         
                             Free Resources
-                            150,000+ free guides, market insights, and workshop recordings � accessible to students and professionals across the Balkans.
+                            150,000+ free guides, market insights, and workshop recordings &mdash; accessible to students and professionals across the Balkans.
                         
                     
                 
@@ -127,7 +127,7 @@ Albania's trusted Bitcoin & Web3 community
                         
                         
                             Live Tirana Meetups
-                            Regular in-person events � from Bitcoin Pizza Day to Balkans Crypto � where you learn alongside real people in Tirana.
+                            Regular in-person events &mdash; from Bitcoin Pizza Day to Balkans Crypto &mdash; where you learn alongside real people in Tirana.
                         
                     
                 
@@ -165,7 +165,7 @@ Albania's trusted Bitcoin & Web3 community
                         
 
                         
-DuaCrypto, founded in 2020, is Albania's first crypto community � education, events, and Web3 support across the Balkans.
+DuaCrypto, founded in 2020, is Albania's first crypto community &mdash; education, events, and Web3 support across the Balkans.
 
 
                     
