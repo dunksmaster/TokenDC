@@ -241,10 +241,6 @@ html.dark {
     @apply border-border bg-card shadow-lg shadow-black/25;
   }
 
-  .affiliate-product-stage--dark {
-    @apply border-white/10 bg-gradient-to-b from-[#1a1d21] to-[#0d1117];
-  }
-
   .affiliate-pizza-partner {
     @apply mt-8 flex flex-col items-center gap-6 rounded-2xl border border-border bg-card p-6 text-left shadow-md sm:flex-row sm:items-center sm:justify-between;
   }

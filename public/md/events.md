@@ -58,7 +58,7 @@ Bitcoin & Web3 Events in Tirana | DuaCrypto
     
     
         
-             Bitcoin Pizza Day
+             Bitcoin Pizza Day 2025
         
         
             [
@@ -73,7 +73,7 @@ Bitcoin & Web3 Events in Tirana | DuaCrypto
         
         
             
-Celebrate Bitcoin Pizza Day with DuaCrypto &mdash; the story of the first real-world Bitcoin purchase, community meetups, and live photos from our event.
+Our 2025 Bitcoin Pizza Day in Tirana &mdash; the story of the first real-world Bitcoin purchase, community meetups, and live photos from The Taproom.
 
             
                 [
@@ -120,7 +120,7 @@ Balkans Crypto 2025 Tech Conference &mdash; DeFi, Web3, and networking across th
     
     
         
-             As Seen On
+             As Seen On TV
         
         
             
