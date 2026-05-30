@@ -1,6 +1,7 @@
 /** Balkans Crypto 2026 — linked partners, media, and community supporters for the events hero ticker. */
 const EVENTS_SUPPORTERS_2026 = [
-  { name: "Binance", href: "https://accounts.binance.com/register?ref=QH7UTFK8" },
+  { name: "Ballet", href: "https://bit.ly/43mMBs9" },
+  { name: "Trezor", href: "https://satoshilabs.visualbook.pro/trezor" },
   { name: "Bitget", href: "https://www.bitget.com/referral/register?clacCode=GK802F53" },
   { name: "CEX.IO", href: "https://cex.io/join?c=20&a=513&o=3&s=sc&prid=referral-promo" },
   { name: "Tangem", href: "https://tangem.com/invite/BITCOINZAT" },

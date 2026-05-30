@@ -72,20 +72,31 @@ export const seoPages = [
     path: "/events.html",
     title: "Bitcoin & Web3 Events in Tirana | DuaCrypto",
     description:
-      "Join DuaCrypto events in Tirana — Bitcoin Pizza Day, Balkans Crypto 2025, and community meetups across the Balkans.",
+      "Join DuaCrypto in Tirana — Balkans Crypto 2026 updates, plus Bitcoin Pizza Day 2025 and Balkans Crypto 2025 highlights across the Balkans.",
     ogType: "website",
-    ogImage: `${siteUrl}/img/bitcoin-pizza-day-3.png`,
+    ogImage: `${siteUrl}/img/balkans-crypto-2025-3.png`,
     includeOrganization: true,
     breadcrumb: [{ name: "Events", path: "/events.html" }],
     events: [
       {
-        name: "Bitcoin Pizza Day — DuaCrypto Tirana Meetup",
+        name: "Balkans Crypto 2026 Tech Conference",
+        description:
+          "Upcoming regional DeFi and Web3 conference in Tirana with DuaCrypto community meetups and partner showcases.",
+        startDate: "2026-06-15",
+        location: "Tirana, Albania",
+        image: `${siteUrl}/img/balkans-crypto-2025-3.png`,
+        url: `${siteUrl}/events.html#balkans-crypto-2026`,
+        eventStatus: "https://schema.org/EventScheduled",
+      },
+      {
+        name: "Bitcoin Pizza Day 2025 — DuaCrypto Tirana Meetup",
         description:
           "Community celebration of Bitcoin Pizza Day with meetups, pizza, and live photos from The Taproom in Tirana.",
         startDate: "2025-05-22",
         location: "The Taproom, Tirana, Albania",
         image: `${siteUrl}/img/bitcoin-pizza-day-3.png`,
         url: `${siteUrl}/events.html#bitcoin-pizza-day`,
+        eventStatus: "https://schema.org/EventCompleted",
       },
       {
         name: "Balkans Crypto 2025 Tech Conference",
@@ -96,6 +107,7 @@ export const seoPages = [
         location: "Tirana, Albania",
         image: `${siteUrl}/img/balkans-crypto-2025-3.png`,
         url: `${siteUrl}/events.html#balkans-crypto-2025`,
+        eventStatus: "https://schema.org/EventCompleted",
       },
     ],
   },
@@ -281,7 +293,8 @@ export function eventsJsonLd(events) {
     startDate: event.startDate,
     ...(event.endDate ? { endDate: event.endDate } : {}),
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-    eventStatus: "https://schema.org/EventScheduled",
+    eventStatus:
+      event.eventStatus ?? "https://schema.org/EventScheduled",
     location: {
       "@type": "Place",
       name: event.location,

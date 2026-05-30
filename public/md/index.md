@@ -8,6 +8,7 @@ Albania's First Crypto Community | DuaCrypto
     
     
     
+- 
     
     
     
@@ -285,22 +286,69 @@ Expert mentors help you build a trader's mindset from scratch.
         
             
                 
-## Affiliate Products We Use
+## Affiliate Links We Use
 
                 
-Contact us to have your logo here
+Tools we actually use and trust. Referral links — we may earn a commission at no extra cost to you.
 
+            
+
+            
+                
+                    
+                        
+### Hardware Wallets
+
+                        
+                            [Tangem](https://tangem.com/invite/BITCOINZAT)
+
+                            
+- [Ledger Flex](https://shop.ledger.com/?r=2deb3872c973)
+
+                            
+- [Deeper Network](https://shop.deeper.network?sca_ref=2063681.3aWn8PiBjI)
+
+                            
+- [Ballet](https://bit.ly/43mMBs9)
+
+                            
+- [Trezor](https://satoshilabs.visualbook.pro/trezor)
+
+                        
+                    
+                    
+                        
+### Exchanges
+
+                        
+                            
+- [CEX.IO](https://cex.io/join?c=20&a=513&o=3&s=sc&prid=referral-promo)
+
+                            
+- [Bitget](https://www.bitget.com/referral/register?clacCode=GK802F53)
+
+                            
+- [Join us as a partner](contact.html)
+
+                        
+                    
+                
+            
+
+            
+                
+Featured partner
 
                 
                     
                         
-Bitcoin Pizza Day partner
+Bitcoin Pizza Day
 
                         
 ### DuaCrypto &times; Konsensus Network
 
                         
-Official book partner for our Bitcoin Pizza Day events &mdash; hover the featured title to fund a Bitcoin book for a student.
+Official book partner — hover the title to fund a Bitcoin book for a student.
 
                     
                     
@@ -308,75 +356,6 @@ Official book partner for our Bitcoin Pizza Day events &mdash; hover the feature
                         [Donate a Book](donation.html)
                     
                 
-            
-
-            
-                [
-                    
-                        
-                    
-                    
-Tangem Wallet
-
-                ](https://tangem.com/invite/BITCOINZAT)
-                [
-                    
-                        
-                    
-                    
-Ledger Flex
-
-                ](https://shop.ledger.com/?r=2deb3872c973)
-                [
-                    
-                        
-                    
-                    
-Deeper Network VPN
-
-                ](https://shop.deeper.network?sca_ref=2063681.3aWn8PiBjI)
-                [
-                    
-                        
-                    
-                    
-Binance Exchange
-
-                ](https://accounts.binance.com/register?ref=QH7UTFK8)
-            
-        
-    
-
-    
-    
-        
-            
-                
-## Join Our Partners
-
-                
-Click to access exclusive offers
-
-            
-            
-                [
-                    
-                        
-                        
-Buy & sell with a credit card in Albania
-
-                        Get Started 
-                    
-                ](https://cex.io/join?c=20&a=513&o=3&s=sc&prid=referral-promo)
-                [
-                    
-                        
-                        
-Copy Trading Platform
-
-                        Sign Up Bonus 
-                    
-                ](https://www.bitget.com/referral/register?clacCode=GK802F53)
             
         
     

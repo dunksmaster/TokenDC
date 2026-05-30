@@ -237,8 +237,251 @@ html.dark {
     @apply mt-4 text-center text-lg font-semibold text-dark;
   }
 
+  .affiliate-product-sublabel {
+    @apply mt-1 text-center text-sm text-secondary;
+  }
+
   html.dark .affiliate-product-card {
     @apply border-border bg-card shadow-lg shadow-black/25;
+  }
+
+  .affiliate-group-title {
+    @apply mb-3 text-xs font-semibold uppercase tracking-wide text-primary;
+  }
+
+  /* Section background — subtle cyan glow + dot grid */
+  .affiliate-section-bg {
+    position: relative;
+    isolation: isolate;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(22, 213, 255, 0.08), transparent 60%),
+      radial-gradient(circle at 20% 80%, rgba(22, 213, 255, 0.04), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(22, 213, 255, 0.05), transparent 35%);
+  }
+
+  .affiliate-section-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.35;
+    background-image: radial-gradient(circle, rgba(22, 213, 255, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+
+  html.dark .affiliate-section-bg {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(22, 213, 255, 0.12), transparent 60%),
+      radial-gradient(circle at 20% 80%, rgba(22, 213, 255, 0.06), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(22, 213, 255, 0.07), transparent 35%);
+  }
+
+  html.dark .affiliate-section-bg::before {
+    opacity: 0.2;
+  }
+
+  /* Card grids */
+  .affiliate-grid {
+    @apply grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3;
+  }
+
+  .affiliate-grid--devices {
+    @apply lg:grid-cols-5;
+  }
+
+  .affiliate-grid--exchanges {
+    @apply lg:max-w-3xl;
+  }
+
+  /* Premium glassy cards */
+  .affiliate-card {
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    @apply block rounded-xl border border-border/80 bg-card/80 p-2 shadow-sm backdrop-blur-sm transition duration-300 ease-out sm:p-3;
+    transform: perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    will-change: transform;
+  }
+
+  .affiliate-card:hover,
+  .affiliate-card:focus-visible {
+    @apply -translate-y-1 scale-[1.02] border-primary/50;
+    box-shadow:
+      0 0 0 1px var(--color-primary),
+      0 12px 30px -8px rgba(22, 213, 255, 0.45);
+  }
+
+  .affiliate-card:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-surface;
+  }
+
+  html.dark .affiliate-card {
+    @apply border-border/60 bg-card/70 shadow-md shadow-black/20;
+  }
+
+  html.dark .affiliate-card:hover,
+  html.dark .affiliate-card:focus-visible {
+    box-shadow:
+      0 0 0 1px var(--color-primary),
+      0 12px 30px -8px rgba(22, 213, 255, 0.35);
+  }
+
+  /* Staggered reveal */
+  .affiliate-reveal {
+    opacity: 0;
+    transform: translateY(16px) perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    transition:
+      opacity 0.5s ease var(--reveal-delay, 0ms),
+      transform 0.5s ease var(--reveal-delay, 0ms),
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .affiliate-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  }
+
+  .affiliate-reveal.is-visible:hover,
+  .affiliate-reveal.is-visible:focus-visible {
+    transform: translateY(-4px) scale(1.02) perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  }
+
+  /* Open slot card */
+  .affiliate-card--open {
+    @apply border-dashed border-primary/40;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .affiliate-card--open::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(22, 213, 255, 0.12) 50%,
+      transparent 60%
+    );
+    transform: translateX(-100%);
+    animation: affiliate-sheen 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes affiliate-sheen {
+    0%,
+    70%,
+    100% {
+      transform: translateX(-100%);
+    }
+    85% {
+      transform: translateX(100%);
+    }
+  }
+
+  .affiliate-card--open:hover .affiliate-join-icon,
+  .affiliate-card--open:focus-visible .affiliate-join-icon {
+    @apply scale-110 border-primary bg-primary/10;
+    animation: affiliate-pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes affiliate-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(22, 213, 255, 0.35);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(22, 213, 255, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .affiliate-card {
+      transform: none;
+      will-change: auto;
+    }
+
+    .affiliate-reveal {
+      opacity: 1;
+      transform: none;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .affiliate-reveal.is-visible:hover,
+    .affiliate-reveal.is-visible:focus-visible {
+      transform: translateY(-4px);
+    }
+
+    .affiliate-card--open::after {
+      animation: none;
+    }
+
+    .affiliate-card--open:hover .affiliate-join-icon,
+    .affiliate-card--open:focus-visible .affiliate-join-icon {
+      animation: none;
+    }
+  }
+
+  .affiliate-product-card--compact {
+    @apply rounded-lg p-2 shadow-sm hover:-translate-y-0.5 hover:shadow-md sm:p-3;
+  }
+
+  /* Shared photo stage — same background on every affiliate tile (light + dark) */
+  .affiliate-product-stage--compact {
+    @apply flex min-h-[88px] items-center justify-center overflow-hidden rounded-lg border border-black/[0.06] bg-gradient-to-b from-white to-[#f2f8fe] px-2 py-2 sm:min-h-[100px] sm:px-3 sm:py-3;
+  }
+
+  html.dark .affiliate-product-stage--compact {
+    @apply border-white/10 bg-gradient-to-b from-[#f6f8fa] to-[#e9edf2];
+  }
+
+  .affiliate-product-img--compact {
+    @apply mx-auto w-full max-h-[72px] object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)] sm:max-h-[84px];
+  }
+
+  html.dark .affiliate-product-img--compact {
+    @apply drop-shadow-[0_6px_16px_rgba(0,0,0,0.28)];
+  }
+
+  .affiliate-product-label--compact {
+    @apply mt-1.5 text-center text-xs font-semibold text-dark sm:text-sm;
+  }
+
+  .affiliate-product-sublabel--compact {
+    @apply mt-0.5 text-center text-[11px] text-secondary;
+  }
+
+  .affiliate-product-img--logo {
+    @apply max-h-[56px] w-auto max-w-[92%] sm:max-h-[64px];
+  }
+
+  .affiliate-join-card {
+    @apply border-dashed;
+  }
+
+  .affiliate-join-stage {
+    @apply border-dashed border-primary/30 bg-gradient-to-b from-white to-[#f2f8fe];
+  }
+
+  html.dark .affiliate-join-stage {
+    @apply border-primary/40 bg-gradient-to-b from-[#f6f8fa] to-[#e9edf2];
+  }
+
+  .affiliate-join-icon {
+    @apply flex h-10 w-10 items-center justify-center rounded-full border border-primary/40 bg-white/80 text-lg text-primary sm:h-11 sm:w-11;
+  }
+
+  html.dark .affiliate-join-icon {
+    @apply border-primary/50 bg-[#f6f8fa]/90;
+  }
+
+  .affiliate-pizza-partner--compact {
+    @apply gap-3 p-3 sm:flex-row sm:items-center sm:justify-between sm:p-4;
+  }
+
+  .pizza-book-reveal-img--compact {
+    @apply h-24 max-w-[80px];
   }
 
   .affiliate-pizza-partner {

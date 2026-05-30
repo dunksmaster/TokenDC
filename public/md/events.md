@@ -1,6 +1,6 @@
 ---
 title: "Bitcoin & Web3 Events in Tirana | DuaCrypto"
-description: "Join DuaCrypto events in Tirana — Bitcoin Pizza Day, Balkans Crypto 2025, and community meetups across the Balkans."
+description: "Join DuaCrypto in Tirana — Balkans Crypto 2026 updates, plus Bitcoin Pizza Day 2025 and Balkans Crypto 2025 highlights across the Balkans."
 source: "events.html"
 ---
 
@@ -27,13 +27,6 @@ Bitcoin & Web3 Events in Tirana | DuaCrypto
     
     
     
-
-    
-    
-
-    
-    
-    
     
 
     
@@ -42,17 +35,45 @@ Bitcoin & Web3 Events in Tirana | DuaCrypto
     
     
     
+    
+
+    
+    
 
     
     
     
 
+    
+    
+    
+
 
 
     
     
 
     
+    
+
+    
+    
+        
+             Balkans Crypto 2026
+        
+        
+            
+Our next regional DeFi and Web3 conference in Tirana. Follow Telegram for dates, lineup, and partnership announcements &mdash; the supporters above are partners we work with for community events.
+
+            
+                [
+                     Get 2026 Updates
+                ](https://t.me/dua_crypto)
+                [
+                     Partner With Us
+                ](contact.html)
+            
+        
     
 
     
@@ -104,7 +125,7 @@ Our 2025 Bitcoin Pizza Day in Tirana &mdash; the story of the first real-world B
         
         
             
-Balkans Crypto 2025 Tech Conference &mdash; DeFi, Web3, and networking across the region. Meet builders, explore projects, and connect with the DuaCrypto community.
+Our 2025 Balkans Crypto Tech Conference (15&ndash;16 June 2025, Tirana) &mdash; DeFi, Web3, and networking across the region. Photos and highlights from last year&rsquo;s expo and community sessions.
 
             
                 [

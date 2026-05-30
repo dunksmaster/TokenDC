@@ -4,6 +4,7 @@ import { initNav } from "./nav.js";
 import { initCounters } from "./counter.js";
 import { initAccordion } from "./accordion.js";
 import { initBrandCards } from "./brand-cards.js";
+import { initAffiliates } from "./affiliates.js";
 import "./webmcp.js";
 
 function initSpinner() {
@@ -36,5 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initCounters();
   initAccordion("faq-accordion");
   initBrandCards();
+  initAffiliates();
   initBackToTop();
 });
