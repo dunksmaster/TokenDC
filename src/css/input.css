@@ -108,6 +108,18 @@ html.dark {
     @apply h-full cursor-pointer rounded-xl p-6 text-center font-medium shadow-lg transition hover:-translate-y-1.5 hover:brightness-110 hover:shadow-2xl;
   }
 
+  .brand-card--logo {
+    @apply flex flex-col items-center justify-center bg-[#12151a] p-4 text-white;
+  }
+
+  .brand-card-logo-img {
+    @apply mx-auto w-full max-w-[220px] rounded-lg object-contain;
+  }
+
+  html.dark .brand-card--logo {
+    @apply bg-[#0d1117];
+  }
+
   .stat-card {
     @apply rounded-2xl bg-card p-8 shadow-md transition hover:-translate-y-1 hover:shadow-lg;
   }
@@ -200,25 +212,62 @@ html.dark {
     @apply inline-flex h-11 w-11 min-h-11 min-w-11 items-center justify-center rounded-full border border-border bg-surface text-primary transition hover:border-primary hover:bg-primary hover:text-white;
   }
 
-  /* Affiliate products — cutout PNGs on card surface (no inner box) */
+  /* Affiliate products — transparent PNG cutouts on a neutral photo stage */
   .affiliate-product-card {
     @apply block rounded-2xl border border-border bg-card p-5 shadow-md transition hover:-translate-y-1 hover:shadow-lg sm:p-6;
   }
 
   .affiliate-product-stage {
-    @apply flex min-h-[200px] items-center justify-center px-2 py-4 sm:min-h-[220px];
+    @apply flex min-h-[220px] items-center justify-center overflow-hidden rounded-xl border border-black/[0.06] bg-gradient-to-b from-white to-light px-4 py-6 sm:min-h-[240px];
   }
 
   .affiliate-product-img {
-    @apply mx-auto max-h-[200px] w-full object-contain;
+    @apply mx-auto w-full max-h-[200px] object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.14)];
+  }
+
+  html.dark .affiliate-product-stage {
+    @apply border-white/10 bg-gradient-to-b from-[#f6f8fa] to-[#e9edf2];
+  }
+
+  html.dark .affiliate-product-img {
+    @apply drop-shadow-[0_12px_32px_rgba(0,0,0,0.35)];
   }
 
   .affiliate-product-label {
-    @apply mt-3 text-center text-lg font-semibold text-dark;
+    @apply mt-4 text-center text-lg font-semibold text-dark;
   }
 
   html.dark .affiliate-product-card {
     @apply border-border bg-card shadow-lg shadow-black/25;
+  }
+
+  .affiliate-product-stage--dark {
+    @apply border-white/10 bg-gradient-to-b from-[#1a1d21] to-[#0d1117];
+  }
+
+  .affiliate-pizza-partner {
+    @apply mt-8 flex flex-col items-center gap-6 rounded-2xl border border-border bg-card p-6 text-left shadow-md sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .pizza-book-reveal {
+    @apply relative inline-flex shrink-0;
+  }
+
+  .pizza-book-reveal-img {
+    @apply block h-40 w-auto max-w-[120px] rounded-lg shadow-lg;
+  }
+
+  .pizza-book-reveal-btn {
+    @apply absolute inset-0 flex items-center justify-center rounded-lg bg-primary/95 px-3 text-center text-sm font-semibold text-white opacity-0 shadow-lg transition-opacity duration-200 hover:bg-primary;
+  }
+
+  .pizza-book-reveal:hover .pizza-book-reveal-btn,
+  .pizza-book-reveal:focus-within .pizza-book-reveal-btn {
+    @apply opacity-100;
+  }
+
+  html.dark .affiliate-pizza-partner {
+    @apply bg-card shadow-lg shadow-black/25;
   }
 
   html.dark #nav-menu {

@@ -230,11 +230,97 @@
             overflow: hidden;
         }
 
-        /* Header Image */
-        .hero-img {
-            max-height: 320px;
-            object-fit: cover;
-            border-radius: 12px;
+        /* Supporters marquee */
+        .supporters-ticker {
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .supporters-ticker-label {
+            margin: 0 0 0.75rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--brand-green-dark);
+        }
+
+        .supporters-ticker-viewport {
+            overflow: hidden;
+            mask-image: linear-gradient(
+                90deg,
+                transparent,
+                #000 8%,
+                #000 92%,
+                transparent
+            );
+            -webkit-mask-image: linear-gradient(
+                90deg,
+                transparent,
+                #000 8%,
+                #000 92%,
+                transparent
+            );
+        }
+
+        .supporters-ticker-track {
+            display: flex;
+            width: max-content;
+            animation: supporters-scroll 50s linear infinite;
+        }
+
+        .supporters-ticker-row {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            gap: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .supporter-pill {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            line-height: 1.2;
+            white-space: nowrap;
+            color: #2c2c2c;
+            background: #fff;
+            border: 1px solid rgba(126, 211, 33, 0.35);
+            border-radius: 999px;
+        }
+
+        html.dark .supporter-pill {
+            color: #e6edf3;
+            background: #161b22;
+            border-color: rgba(126, 211, 33, 0.25);
+        }
+
+        @keyframes supporters-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .supporters-ticker-track {
+                animation: none;
+                flex-wrap: wrap;
+                width: 100%;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .supporters-ticker-row[aria-hidden="true"] {
+                display: none;
+            }
+
+            .supporters-ticker-viewport {
+                mask-image: none;
+                -webkit-mask-image: none;
+            }
         }
 
         .page-hero {
@@ -457,7 +543,12 @@
             <p class="page-hero-tags">
                 <span>Tirana</span> &bull; Crypto &bull; Balkans Crypto 2025 &bull; Community
             </p>
-            <img src="/img/bitcoin-pizza-day-3.png" alt="Dua Crypto community celebrating Bitcoin Pizza Day at The Taproom" class="img-fluid hero-img mt-4" onerror="if(!this.dataset.fallback){this.dataset.fallback='local';this.src='/img/bitcoin-pizza-day-1.png';}else if(this.dataset.fallback==='local'){this.dataset.fallback='remote';this.src='https://spu.alltuu.com/cover/ALBUM4319036/SHARE/1.jpg';}else{this.onerror=null;}">
+            <div class="supporters-ticker mt-4" role="region" aria-label="Community supporters">
+                <p class="supporters-ticker-label">Supported by</p>
+                <div class="supporters-ticker-viewport">
+                    <div class="supporters-ticker-track" id="supporters-ticker-track"></div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -587,6 +678,7 @@
         });
     </script>
 
+    <script src="/js/events-supporters.js" defer></script>
     <script src="/js/theme-bootstrap.js" defer></script>
 </body>
 </html>

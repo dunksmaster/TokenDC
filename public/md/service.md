@@ -148,9 +148,9 @@ Enterprise advisory on DLT compliance, mining operations, OTC setups, and regula
                 
                     
                         
-                        Student Support
+                        Donate a Book
                         
-Scholarships and donation-funded access to premium education so students can learn crypto without financial barriers.
+Fund Bitcoin books for Balkans students via Lightning. Every ~150k sats sends one quality title from our Konsensus Network partner.
 
                         [Read More ](donation.html)
                     

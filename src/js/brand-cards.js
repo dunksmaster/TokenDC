@@ -1,8 +1,8 @@
 const brandColors = {
-  Tangem: {
-    background: "linear-gradient(135deg, #1293E6, #1F8FE0)",
-    text: "#F0F0F0",
-    accent: "#1F1F1F",
+  Cexio: {
+    background: "#12151a",
+    text: "#ffffff",
+    accent: "#1db6a4",
   },
   Bitget: {
     background: "linear-gradient(135deg, #00F0FF, #00CFFF)",
@@ -21,6 +21,14 @@ export function initBrandCards() {
     const brand = card.dataset.brand;
     const colors = brandColors[brand];
     if (!colors) return;
+
+    if (card.classList.contains("brand-card--logo")) {
+      card.style.background = colors?.background ?? "#12151a";
+      card.style.color = colors?.text ?? "#ffffff";
+      const accent = card.querySelector("[data-brand-accent]");
+      if (accent) accent.style.color = colors?.accent ?? "#00f0ff";
+      return;
+    }
 
     card.style.background = colors.background;
     card.style.color = colors.text;

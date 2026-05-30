@@ -565,40 +565,56 @@
             max-width: 420px;
             margin: 0 auto;
             text-align: center;
+            background: var(--light-green);
+            border: 1px solid rgba(37, 165, 106, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem 1.25rem 1.25rem;
+            box-shadow: 0 8px 24px rgba(37, 165, 106, 0.1);
+        }
+
+        .lightning-qr-wrap {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1rem;
+            border: 2px solid rgba(37, 165, 106, 0.25);
+            box-shadow: 0 4px 16px rgba(37, 165, 106, 0.12);
+            display: inline-block;
+            max-width: 100%;
         }
 
         .lightning-amount-panel {
-            background: #1a1d21;
+            background: var(--gradient);
             color: #fff;
             border-radius: 16px;
             padding: 1.25rem 1.5rem;
             margin-bottom: 1.25rem;
-            border: 1px solid rgba(255, 193, 7, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 24px rgba(37, 165, 106, 0.25);
         }
 
         .lightning-amount-sats {
             font-size: 2rem;
             font-weight: 700;
-            color: #ffc107;
+            color: #ffffff;
             line-height: 1.1;
         }
 
         .lightning-amount-unit {
             font-size: 0.95rem;
-            color: #adb5bd;
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 0.75rem;
         }
 
         .lightning-amount-usd {
             font-size: 1rem;
-            color: #dee2e6;
+            color: rgba(255, 255, 255, 0.95);
             padding-top: 0.75rem;
-            border-top: 1px solid rgba(255, 193, 7, 0.35);
+            border-top: 1px solid rgba(255, 255, 255, 0.35);
         }
 
         .lightning-amount-note {
             font-size: 0.9rem;
-            color: #ced4da;
+            color: rgba(255, 255, 255, 0.9);
             margin-top: 0.5rem;
             margin-bottom: 0;
         }
@@ -606,12 +622,14 @@
         .lightning-qr {
             display: block;
             width: 100%;
-            max-width: 320px;
+            max-width: 260px;
             height: auto;
             margin: 0 auto;
-            border-radius: 12px;
+            border-radius: 8px;
             background: #fff;
-            padding: 0.5rem;
+            padding: 0;
+            border: 0;
+            box-shadow: none;
         }
 
         .lightning-steps {
@@ -644,9 +662,68 @@
             font-weight: 600;
         }
 
+        .mission-book-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin: 1.75rem 0 1.25rem;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .mission-book-hero {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+            }
+        }
+
+        .mission-book-hero .featured-book-cover {
+            flex-shrink: 0;
+            width: 160px;
+            max-width: 45vw;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .mission-book-hero .featured-book-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 0.35rem;
+        }
+
+        .mission-book-hero .featured-book-author {
+            font-size: 0.95rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        html.dark .mission-book-hero .featured-book-title {
+            color: #e6edf3;
+        }
+
+        html.dark .mission-book-hero .featured-book-author {
+            color: #7ee787;
+        }
+
+        html.dark .lightning-card {
+            background: #1a2e24;
+            border-color: rgba(126, 231, 135, 0.2);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        html.dark .lightning-qr-wrap {
+            background: #ffffff;
+            border-color: rgba(126, 231, 135, 0.35);
+        }
+
         html.dark .lightning-amount-panel {
-            background: #0d1117;
-            border-color: rgba(255, 193, 7, 0.2);
+            background: linear-gradient(135deg, #1a5c3a 0%, #0f3d26 100%);
+            border-color: rgba(126, 231, 135, 0.25);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
         }
 
         html.dark .lightning-steps li {
@@ -736,11 +813,23 @@
         <!-- Mission Section -->
         <section class="mission-section">
             <div class="row">
-                <div class="col-lg-9 mx-auto text-center">
-                    <span class="mission-eyebrow">Why books</span>
-                    <h2 class="mb-3">Long-form Bitcoin education that lasts</h2>
-                    <p class="mission-lead mb-3">Books teach self-custody, sound money, and history in depth &mdash; the kind of knowledge that sticks after a meetup ends. We send quality Bitcoin titles to students who want to learn the maxi way.</p>
-                    <p class="text-muted mb-0">You donate sats &rarr; we pool funds &rarr; our partner sources books &rarr; students receive them. Simple, transparent, Bitcoin-native.</p>
+                <div class="col-lg-9 mx-auto">
+                    <div class="text-center">
+                        <span class="mission-eyebrow">Why books</span>
+                        <h2 class="mb-3">Long-form Bitcoin education that lasts</h2>
+                    </div>
+
+                    <div class="mission-book-hero">
+                        <img src="/img/donation-book-featured.png" class="featured-book-cover" alt="Un scénario optimiste pour Bitcoin — Vijay Boyapati, Konsensus Network">
+                        <div>
+                            <p class="text-uppercase small text-muted mb-1">Featured title</p>
+                            <p class="featured-book-title">Un sc&eacute;nario optimiste pour Bitcoin</p>
+                            <p class="featured-book-author">Vijay Boyapati &middot; Konsensus Network</p>
+                            <p class="mission-lead mb-0">This is the book we send first: a French edition on Bitcoin&rsquo;s bullish case &mdash; self-custody, sound money, and history in depth. The kind of knowledge that sticks after a meetup ends, for students who want to learn the maxi way.</p>
+                        </div>
+                    </div>
+
+                    <p class="text-muted text-center mb-0">You donate sats &rarr; we pool funds &rarr; our partner sources books &rarr; students receive them. Simple, transparent, Bitcoin-native.</p>
                     <div class="partner-block">
                         <p class="mb-2 fw-semibold">Book partner</p>
                         <p class="mb-0 small">In collaboration with <a href="https://x.com/OmniFinn" target="_blank" rel="noopener noreferrer">Niko (@OmniFinn)</a>, Full-Stack Publisher at <a href="https://konsensus.network" target="_blank" rel="noopener noreferrer">Konsensus Network</a> &mdash; <a href="https://bitcoinbook.shop" target="_blank" rel="noopener noreferrer">bitcoinbook.shop</a></p>
@@ -799,7 +888,7 @@
 
         <!-- Lightning Network -->
         <section class="wallet-section">
-            <h2 class="text-center mb-2"><i class="fas fa-bolt text-warning me-2" aria-hidden="true"></i>Bitcoin Lightning Network</h2>
+            <h2 class="text-center mb-2"><i class="fas fa-bolt me-2" style="color: var(--primary-green);" aria-hidden="true"></i>Bitcoin Lightning Network</h2>
             <p class="text-center mb-4 text-muted">Scan to pay with any Lightning wallet. Wallet of Satoshi, Phoenix, Muun, and others supported.</p>
 
             <div class="lightning-card">
@@ -807,9 +896,11 @@
                     <div class="lightning-amount-sats">150,000</div>
                     <div class="lightning-amount-unit">sats</div>
                     <div class="lightning-amount-usd">about $110 USD</div>
-                    <p class="lightning-amount-note">Sovereign Individual</p>
+                    <p class="lightning-amount-note">Donate a Book</p>
                 </div>
-                <img src="/img/donation-lightning-qr.png" class="lightning-qr" alt="Lightning Network QR code for Donate a Book — scan with your Bitcoin wallet">
+                <div class="lightning-qr-wrap">
+                    <img src="/img/donation-lightning-qr-only.png" class="lightning-qr" alt="Lightning Network QR code for Donate a Book — scan with your Bitcoin wallet">
+                </div>
                 <p class="text-muted small mt-3 mb-0">Suggested amount per book &mdash; any sats amount helps.</p>
             </div>
 

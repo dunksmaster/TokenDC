@@ -290,6 +290,24 @@ Expert mentors help you build a trader's mindset from scratch.
                 
 Contact us to have your logo here
 
+
+                
+                    
+                        
+Bitcoin Pizza Day partner
+
+                        
+### DuaCrypto &times; Konsensus Network
+
+                        
+Official book partner for our Bitcoin Pizza Day events &mdash; hover the featured title to fund a Bitcoin book for a student.
+
+                    
+                    
+                        
+                        [Donate a Book](donation.html)
+                    
+                
             
 
             
@@ -317,6 +335,14 @@ Ledger Flex
 Deeper Network VPN
 
                 ](https://shop.deeper.network?sca_ref=2063681.3aWn8PiBjI)
+                [
+                    
+                        
+                    
+                    
+Binance Exchange
+
+                ](https://accounts.binance.com/register?ref=QH7UTFK8)
             
         
     
@@ -336,36 +362,21 @@ Click to access exclusive offers
                 [
                     
                         
-### Tangem Wallet
-
                         
-Secure Hardware Wallet
+Buy & sell with a credit card in Albania
 
-                        Get Discount 
+                        Get Started 
                     
-                ](https://tangem.com/invite/BITCOINZAT)
+                ](https://cex.io/join?c=20&a=513&o=3&s=sc&prid=referral-promo)
                 [
                     
                         
-### Bitget Exchange
-
                         
 Copy Trading Platform
 
                         Sign Up Bonus 
                     
                 ](https://www.bitget.com/referral/register?clacCode=GK802F53)
-                [
-                    
-                        
-### Binance
-
-                        
-World's Largest Exchange
-
-                        Get Started 
-                    
-                ](https://accounts.binance.com/register?ref=QH7UTFK8)
             
         
     

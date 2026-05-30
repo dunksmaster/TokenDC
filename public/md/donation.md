@@ -42,12 +42,30 @@ source: "donation.html"
         
             
                 
-                    Why books
                     
+                        Why books
+                        
 ## Long-form Bitcoin education that lasts
 
                     
-Books teach self-custody, sound money, and history in depth &mdash; the kind of knowledge that sticks after a meetup ends. We send quality Bitcoin titles to students who want to learn the maxi way.
+
+                    
+                        
+                        
+                            
+Featured title
+
+                            
+Un sc&eacute;nario optimiste pour Bitcoin
+
+                            
+Vijay Boyapati &middot; Konsensus Network
+
+                            
+This is the book we send first: a French edition on Bitcoin&rsquo;s bullish case &mdash; self-custody, sound money, and history in depth. The kind of knowledge that sticks after a meetup ends, for students who want to learn the maxi way.
+
+                        
+                    
 
                     
 You donate sats &rarr; we pool funds &rarr; our partner sources books &rarr; students receive them. Simple, transparent, Bitcoin-native.
@@ -131,9 +149,11 @@ Scan to pay with any Lightning wallet. Wallet of Satoshi, Phoenix, Muun, and oth
                     sats
                     about $110 USD
                     
-Sovereign Individual
+Donate a Book
 
                 
+                
+                    
                 
                 
 Suggested amount per book &mdash; any sats amount helps.

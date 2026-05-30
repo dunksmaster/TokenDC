@@ -185,14 +185,14 @@ Albania's Most Trusted Cryptocurrency Community
                             
                             
                             
-                                #SaveAStudent
+                                #DonateABook
                                 
-## Support crypto education
+## Send a Bitcoin book to a student
 
                                 
-Help fund workshops, study materials, and wallet skills for students across the Balkans. Every gift counts.
+100% of Lightning donations fund Bitcoin books for Balkans students &mdash; in partnership with Konsensus Network.
 
-                                Donate with crypto
+                                Donate a Book
                                 
                                 
                                     
