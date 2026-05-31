@@ -202,7 +202,7 @@ export function initHeroNetwork(container) {
   };
 }
 
-/** About: rotating DAL logo cube */
+/** About: rotating DAL logo cube (PNG texture; SVG kept as HTML fallback) */
 export function initAboutCube(container) {
   if (!container || prefersReducedMotion() || isMobileViewport()) {
     showFallbackOnly(container);
@@ -212,6 +212,8 @@ export function initAboutCube(container) {
   const canvas = container.querySelector("canvas");
   if (!canvas) return null;
 
+  showFallbackOnly(container);
+
   const renderer = new WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
@@ -219,20 +221,18 @@ export function initAboutCube(container) {
   const camera = new PerspectiveCamera(45, 1, 0.1, 100);
   camera.position.z = 4;
 
-  const loader = new TextureLoader();
-  const texture = loader.load("/img/dal-logo.svg");
-  texture.colorSpace = SRGBColorSpace;
-
-  const materials = Array.from({ length: 6 }, () =>
-    new MeshStandardMaterial({ map: texture, metalness: 0.3, roughness: 0.4 })
-  );
-  const cube = new Mesh(new BoxGeometry(2, 2, 2), materials);
-  scene.add(cube);
-
   const ambient = new AmbientLight(0xffffff, 0.6);
   const dir = new DirectionalLight(0xd4af37, 1.2);
   dir.position.set(3, 4, 5);
   scene.add(ambient, dir);
+
+  let loop = null;
+  let ro = null;
+  let visibilityIo = null;
+  let cube = null;
+  let materials = [];
+  let texture = null;
+  let destroyed = false;
 
   function resize() {
     const w = container.clientWidth;
@@ -242,30 +242,71 @@ export function initAboutCube(container) {
     camera.updateProjectionMatrix();
   }
 
-  const loop = createAnimLoop(() => {
-    cube.rotation.x += 0.008;
-    cube.rotation.y += 0.012;
-    renderer.render(scene, camera);
-  });
+  function teardown() {
+    loop?.stop();
+    ro?.disconnect();
+    visibilityIo?.disconnect();
+    texture?.dispose();
+    cube?.geometry?.dispose();
+    materials.forEach((m) => m.dispose());
+    renderer.dispose();
+    loop = null;
+    ro = null;
+    visibilityIo = null;
+    cube = null;
+    materials = [];
+    texture = null;
+  }
 
-  resize();
-  hideFallback(container);
+  function fail() {
+    if (destroyed) return;
+    teardown();
+    showFallbackOnly(container);
+  }
 
-  const ro = new ResizeObserver(resize);
-  ro.observe(container);
-  const visibilityIo = attachVisibilityPause(container, loop);
+  const loader = new TextureLoader();
+  loader.load(
+    "/img/dal-logo.png",
+    (loadedTexture) => {
+      if (destroyed) {
+        loadedTexture.dispose();
+        return;
+      }
+
+      texture = loadedTexture;
+      texture.colorSpace = SRGBColorSpace;
+
+      materials = Array.from(
+        { length: 6 },
+        () => new MeshStandardMaterial({ map: texture, metalness: 0.3, roughness: 0.4 })
+      );
+      cube = new Mesh(new BoxGeometry(2, 2, 2), materials);
+      scene.add(cube);
+
+      loop = createAnimLoop(() => {
+        cube.rotation.x += 0.008;
+        cube.rotation.y += 0.012;
+        renderer.render(scene, camera);
+      });
+
+      resize();
+      hideFallback(container);
+
+      ro = new ResizeObserver(resize);
+      ro.observe(container);
+      visibilityIo = attachVisibilityPause(container, loop);
+    },
+    undefined,
+    fail
+  );
 
   return {
-    pause: () => loop.pause(),
-    resume: () => loop.resume(),
+    pause: () => loop?.pause(),
+    resume: () => loop?.resume(),
     destroy() {
-      loop.stop();
-      ro.disconnect();
-      visibilityIo?.disconnect();
-      texture.dispose();
-      cube.geometry.dispose();
-      materials.forEach((m) => m.dispose());
-      renderer.dispose();
+      destroyed = true;
+      teardown();
+      showFallbackOnly(container);
     },
   };
 }

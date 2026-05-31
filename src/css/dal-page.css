@@ -322,9 +322,25 @@ html.dark .dal-section--light .dal-about__bullets li,
 
 .dal-about__visual canvas,
 .dal-about__visual .dal-fallback {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 260px;
+  height: 100%;
   display: block;
+}
+
+.dal-about__visual .dal-fallback {
+  object-fit: contain;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.dal-about__visual canvas.dal-hidden {
+  display: none;
+}
+
+.dal-about__visual .dal-fallback.dal-hidden {
+  display: none;
 }
 
 .dal-stat-pill {
