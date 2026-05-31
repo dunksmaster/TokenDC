@@ -164,6 +164,16 @@ export const seoPages = [
           "Durana Tech Park is an Albanian innovation park offering fiscal incentives and a thriving tech ecosystem. DAL consults members through the residency application process.",
       },
       {
+        question: "What does my company gain from Durana Tech Park residency?",
+        answer:
+          "Qualifying residents access fiscal incentives, a tech-focused innovation ecosystem, local talent, soft-landing support, a competitive cost base, and a Balkans gateway for regional expansion. DAL guides you through eligibility and the application.",
+      },
+      {
+        question: "How does DAL help my crypto company register at Durana?",
+        answer:
+          "As a local Tirana-based partner, DAL consults you end to end: choosing your category, preparing the online application and feasibility study, and navigating the roughly three-week evaluation.",
+      },
+      {
         question: "Is membership refundable?",
         answer:
           "Membership is an annual $99 subscription that unlocks access for the full year. If something isn't right, email info@duacrypto.com and we'll work with you to resolve it.",

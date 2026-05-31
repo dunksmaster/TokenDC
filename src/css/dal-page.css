@@ -347,44 +347,91 @@ html.dark .dal-section--light .dal-about__bullets li,
   margin: 0;
 }
 
-.dal-about__brand-card {
+/* "How DAL helps" panel (replaces duplicate about logo card) */
+.dal-help-card {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  min-height: 220px;
-  padding: 2rem 1.5rem;
+  padding: 1.75rem;
   border-radius: 1rem;
-  background: var(--dal-navy-light);
-  border: 1px solid var(--dal-border);
-  text-align: center;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(10, 15, 44, 0.06);
+  height: 100%;
 }
 
-html.dark .dal-about__brand-card,
-[data-bs-theme="dark"] .dal-about__brand-card {
+html.dark .dal-help-card,
+[data-bs-theme="dark"] .dal-help-card {
   background: #1a1f3a;
   border-color: var(--dal-border);
+  box-shadow: none;
 }
 
-.dal-about__logo {
-  width: min(11rem, 55vw);
-  height: auto;
-  display: block;
+.dal-help-card__title {
+  margin: 0 0 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dal-gold-text);
 }
 
-.dal-about__brand-caption {
+html.dark .dal-help-card__title,
+[data-bs-theme="dark"] .dal-help-card__title {
+  color: var(--dal-gold);
+}
+
+.dal-help-list {
+  list-style: none;
   margin: 0;
-  max-width: 18rem;
-  font-size: 0.875rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dal-help-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.dal-help-list__icon {
+  flex: 0 0 auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--dal-gold-text);
+  font-size: 1.0625rem;
+}
+
+html.dark .dal-help-list__icon,
+[data-bs-theme="dark"] .dal-help-list__icon {
+  color: var(--dal-gold);
+}
+
+.dal-help-list li > span:last-child {
+  font-size: 0.9375rem;
   line-height: 1.5;
   color: var(--dal-text-on-light-muted);
 }
 
-html.dark .dal-about__brand-caption,
-[data-bs-theme="dark"] .dal-about__brand-caption {
+html.dark .dal-help-list li > span:last-child,
+[data-bs-theme="dark"] .dal-help-list li > span:last-child {
   color: var(--dal-text-on-dark-secondary);
+}
+
+.dal-help-list strong {
+  display: block;
+  margin-bottom: 0.125rem;
+  color: var(--dal-text-on-light-heading);
+}
+
+html.dark .dal-help-list strong,
+[data-bs-theme="dark"] .dal-help-list strong {
+  color: var(--dal-text-on-dark);
 }
 
 .dal-stat-pill {

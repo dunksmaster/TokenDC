@@ -6,18 +6,26 @@ source: "curated"
 
 # Bitcoin for Corporations — DAL (Digital Asset Leaders)
 
-**DAL** is DuaCrypto's corporate Bitcoin program for **enterprise adoption**, **treasury strategy**, and **executive networking** in **Tirana, Albania** and internationally. Membership is **$99/year**, paid via **Bitcoin Lightning** only.
+**DAL** is DuaCrypto's local partner in **Tirana, Albania** that acts as a **bridge for crypto-first companies into Durana Tech Park** — consulting them through residency and Albania's fiscal incentives — alongside **corporate Bitcoin treasury**, **policy**, and **executive networking** support. Membership is **$99/year**, paid via **Bitcoin Lightning** only.
 
 ## Who it is for
 
-CTOs, directors, corporate treasurers, and founders building Bitcoin-first organizations who want peers, treasury resources, and policy working groups.
+CTOs, directors, corporate treasurers, and founders building Bitcoin-first organizations who want a local partner to enter Durana Tech Park plus treasury resources and policy working groups.
 
-## Highlights
+## What DAL helps with
 
-- Enterprise Bitcoin strategy and board-level guidance
-- Treasury best practices for corporate Bitcoin holdings
-- **Durana Tech Park** residency consulting (Albanian innovation park, fiscal incentives)
-- Private Telegram community after Lightning payment verification
+- **Durana Tech Park residency consulting** — end-to-end application and feasibility-study guidance (our core service)
+- Access to Durana's fiscal incentives, innovation ecosystem, tech talent, and competitive cost base
+- Treasury best practices and board-level guidance for corporate Bitcoin holdings
+- Executive roundtables, policy working groups, and a private Telegram community after Lightning payment verification
+
+## Why companies choose Durana Tech Park
+
+- Fiscal incentives for qualifying residents
+- Innovation ecosystem of startups, companies, and research institutions
+- Growing local tech talent pool
+- Soft-landing support for registration and setup
+- Competitive operating cost base and a Balkans / EU-adjacent gateway
 
 ## Related pages
 
@@ -43,6 +51,14 @@ Pay $99 via Lightning, then email your receipt or payment hash to info@duacrypto
 ### What is Durana Tech Park residency?
 
 Durana Tech Park is an Albanian innovation park offering fiscal incentives and a thriving tech ecosystem. DAL consults members through the residency application process.
+
+### What does my company gain from Durana Tech Park residency?
+
+Qualifying residents access fiscal incentives, a tech-focused innovation ecosystem, local talent, soft-landing support, a competitive cost base, and a Balkans gateway for regional expansion. DAL guides you through eligibility and the application.
+
+### How does DAL help my crypto company register at Durana?
+
+As a local Tirana-based partner, DAL consults you end to end: choosing your category, preparing the online application and feasibility study, and navigating the roughly three-week evaluation.
 
 ### Is membership refundable?
 
