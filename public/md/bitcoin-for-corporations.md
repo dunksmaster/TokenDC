@@ -25,6 +25,7 @@ Bitcoin for Corporations | DAL — DuaCrypto
     
     
     
+    
 
     
 
@@ -73,7 +74,6 @@ Annual membership · Bitcoin Lightning only · Operated by DuaCrypto in Tirana, 
                     
                     
                         
-                        
                     
                 
             
@@ -88,7 +88,7 @@ Annual membership · Bitcoin Lightning only · Operated by DuaCrypto in Tirana, 
 ## Who we are
 
                         
-The Digital Asset Leaders Association (DAL) connects CTOs, directors, and corporate treasurers building Bitcoin-first organizations across Albania and globally.
+DAL (Digital Asset Leaders Association) connects CTOs, directors, and corporate treasurers building Bitcoin-first organizations across Albania and globally.
 
                         
                             Enterprise Bitcoin strategy and board-level guidance
@@ -105,7 +105,6 @@ Founding members — be among the first
 
                     
                     
-                        
                         
                     
                 
@@ -342,6 +341,60 @@ DAL annual membership · one-time payment
                         
 After payment: email a screenshot or payment hash to [info@duacrypto.com](mailto:info@duacrypto.com?subject=DAL%20membership%20proof) from your work email. A DuaCrypto team member verifies within 1 business day and approves your private Telegram join request. Questions? Same email — no DMs required.
 
+                    
+                
+            
+        
+
+        
+        
+            
+                
+## Frequently asked questions
+
+                
+Corporate Bitcoin, membership, and Durana residency — answered.
+
+                
+                    
+                        What is DAL?
+                        
+                            
+DAL is the Digital Asset Leaders Association — DuaCrypto's corporate Bitcoin program for enterprise adoption, treasury strategy, and executive networking.
+
+                        
+                    
+                    
+                        Who is the $99/year membership for?
+                        
+                            
+CTOs, directors, corporate treasurers, and founders building Bitcoin-first organizations who want practical access to peers, treasury resources, and policy working groups.
+
+                        
+                    
+                    
+                        How is my Lightning payment verified?
+                        
+                            
+Pay $99 via Lightning, then email your receipt or payment hash to [info@duacrypto.com](mailto:info@duacrypto.com?subject=DAL%20membership%20proof). We verify within 1 business day and approve your private Telegram join request.
+
+                        
+                    
+                    
+                        What is Durana Tech Park residency?
+                        
+                            
+Durana Tech Park is an Albanian innovation park offering fiscal incentives and a thriving tech ecosystem. DAL consults members through the residency application process.
+
+                        
+                    
+                    
+                        Is membership refundable?
+                        
+                            
+Membership is an annual $99 subscription that unlocks access for the full year. If something isn't right, email [info@duacrypto.com](mailto:info@duacrypto.com?subject=DAL%20membership) and we'll work with you to resolve it.
+
+                        
                     
                 
             

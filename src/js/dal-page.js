@@ -1,22 +1,6 @@
 import "../css/dal-page.css";
 import { DAL_CONFIG } from "./dal-config.js";
 
-function prefersReducedMotion() {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
-function isMobileViewport() {
-  return window.matchMedia("(max-width: 767px)").matches;
-}
-
-function showFallbackOnly(container) {
-  if (!container) return;
-  const fallback = container.querySelector(".dal-fallback");
-  const canvas = container.querySelector("canvas");
-  if (canvas) canvas.classList.add("dal-hidden");
-  if (fallback) fallback.classList.remove("dal-hidden");
-}
-
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
@@ -49,52 +33,6 @@ function initReveal() {
   els.forEach((el) => observer.observe(el));
 }
 
-let threeModulePromise = null;
-
-function loadThreeModule() {
-  if (!threeModulePromise) {
-    threeModulePromise = import("./dal-three.js");
-  }
-  return threeModulePromise;
-}
-
-function lazyInitVisual(container, initMethod, { eager = false } = {}) {
-  if (!container) return;
-
-  if (prefersReducedMotion() || isMobileViewport()) {
-    showFallbackOnly(container);
-    return;
-  }
-
-  let started = false;
-
-  const start = () => {
-    if (started) return;
-    started = true;
-    io.disconnect();
-    loadThreeModule().then((mod) => {
-      mod[initMethod](container);
-    });
-  };
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      if (entries.some((e) => e.isIntersecting)) start();
-    },
-    { rootMargin: "120px", threshold: 0.01 }
-  );
-
-  io.observe(container);
-
-  if (eager) {
-    if ("requestIdleCallback" in window) {
-      requestIdleCallback(start, { timeout: 2000 });
-    } else {
-      setTimeout(start, 800);
-    }
-  }
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initReveal();
@@ -102,7 +40,4 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".dal-founding-label").forEach((el) => {
     el.textContent = DAL_CONFIG.foundingMembersLabel;
   });
-
-  lazyInitVisual(document.getElementById("hero-visual"), "initHeroNetwork", { eager: true });
-  lazyInitVisual(document.getElementById("about-visual"), "initAboutCube");
 });

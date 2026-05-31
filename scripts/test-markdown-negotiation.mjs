@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -26,6 +26,25 @@ assert.equal(resolveMarkdownAssetPath("/api/v1/site/health"), null);
 const indexMd = join(root, "public", "md", "index.md");
 assert.ok(existsSync(indexMd), "public/md/index.md must exist (run npm run build)");
 assert.ok(Number(estimateMarkdownTokens("abcd")) >= 1);
+
+const indexBody = readFileSync(indexMd, "utf8");
+assert.match(indexBody, /source: "curated"/);
+assert.match(indexBody, /Albania's first Bitcoin and crypto community/);
+
+const aboutMd = join(root, "public", "md", "about.md");
+assert.ok(existsSync(aboutMd));
+const aboutBody = readFileSync(aboutMd, "utf8");
+assert.match(
+  aboutBody,
+  /description: "Learn about DuaCrypto, Albania's first crypto community/
+);
+assert.doesNotMatch(aboutBody, /description: "Learn about DuaCrypto, Albania"\n/);
+
+const dalMd = join(root, "public", "md", "bitcoin-for-corporations.md");
+assert.ok(existsSync(dalMd));
+const dalBody = readFileSync(dalMd, "utf8");
+assert.match(dalBody, /source: "curated"/);
+assert.match(dalBody, /### What is DAL\?/);
 
 async function curlMarkdown(baseUrl, path) {
   const url = `${baseUrl}${path}`;

@@ -122,7 +122,6 @@ html.dark body.dal-page,
   overflow: hidden;
 }
 
-.dal-hero__visual canvas,
 .dal-hero__visual .dal-fallback {
   width: 100%;
   height: 100%;
@@ -130,22 +129,7 @@ html.dark body.dal-page,
   max-height: 340px;
   display: block;
   border-radius: 1rem;
-}
-
-.dal-hero__visual .dal-fallback {
   object-fit: cover;
-}
-
-.dal-hero__visual canvas.dal-hidden {
-  display: none;
-}
-
-.dal-hero__visual .dal-fallback.dal-hidden {
-  display: none;
-}
-
-.dal-hidden {
-  display: none !important;
 }
 
 /* Buttons */
@@ -320,27 +304,15 @@ html.dark .dal-section--light .dal-about__bullets li,
   overflow: hidden;
 }
 
-.dal-about__visual canvas,
 .dal-about__visual .dal-fallback {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   display: block;
-}
-
-.dal-about__visual .dal-fallback {
   object-fit: contain;
   padding: 2rem;
   box-sizing: border-box;
-}
-
-.dal-about__visual canvas.dal-hidden {
-  display: none;
-}
-
-.dal-about__visual .dal-fallback.dal-hidden {
-  display: none;
 }
 
 .dal-stat-pill {
@@ -1240,6 +1212,103 @@ html.dark body.dal-page .dal-footer,
 
 .dal-modal [hidden] {
   display: none !important;
+}
+
+/* FAQ accordion */
+.dal-faq {
+  max-width: 48rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dal-faq__item {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0 1.25rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+html.dark .dal-faq__item,
+[data-bs-theme="dark"] .dal-faq__item {
+  background: var(--dal-navy-light);
+  border-color: var(--dal-border);
+}
+
+.dal-faq__item[open] {
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 6px 24px rgba(10, 15, 44, 0.06);
+}
+
+.dal-faq__q {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  padding: 1.1rem 2rem 1.1rem 0;
+  position: relative;
+  color: var(--dal-text-on-light-heading);
+}
+
+html.dark .dal-faq__q,
+[data-bs-theme="dark"] .dal-faq__q {
+  color: var(--dal-text-on-dark);
+}
+
+.dal-faq__q::-webkit-details-marker {
+  display: none;
+}
+
+.dal-faq__q::after {
+  content: "\f067";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dal-gold);
+  font-size: 0.875rem;
+  transition: transform 0.2s;
+}
+
+.dal-faq__item[open] .dal-faq__q::after {
+  content: "\f068";
+}
+
+.dal-faq__q:focus-visible {
+  outline: 2px solid var(--dal-gold);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+.dal-faq__a {
+  padding: 0 0 1.1rem;
+}
+
+.dal-faq__a p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--dal-text-on-light-muted);
+}
+
+html.dark .dal-faq__a p,
+[data-bs-theme="dark"] .dal-faq__a p {
+  color: var(--dal-text-on-dark-secondary);
+}
+
+.dal-faq__a a {
+  color: var(--dal-gold-text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+html.dark .dal-faq__a a,
+[data-bs-theme="dark"] .dal-faq__a a {
+  color: var(--dal-gold);
 }
 
 /* Reveal animation */

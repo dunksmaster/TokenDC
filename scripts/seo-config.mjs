@@ -140,8 +140,35 @@ export const seoPages = [
       "Digital Asset Leaders Association — enterprise Bitcoin adoption, treasury strategy, and executive networking for CTOs, directors, and corporate treasuries.",
     ogType: "website",
     includeOrganization: true,
-    ogImage: `${siteUrl}/img/dal-logo.svg`,
+    ogImage: `${siteUrl}/img/og-default.png`,
     breadcrumb: [{ name: "Bitcoin for Corporations", path: "/bitcoin-for-corporations.html" }],
+    faqs: [
+      {
+        question: "What is DAL?",
+        answer:
+          "DAL is the Digital Asset Leaders Association — DuaCrypto's corporate Bitcoin program for enterprise adoption, treasury strategy, and executive networking.",
+      },
+      {
+        question: "Who is the $99/year membership for?",
+        answer:
+          "CTOs, directors, corporate treasurers, and founders building Bitcoin-first organizations who want practical access to peers, treasury resources, and policy working groups.",
+      },
+      {
+        question: "How is my Lightning payment verified?",
+        answer:
+          "Pay $99 via Lightning, then email your receipt or payment hash to info@duacrypto.com. We verify within 1 business day and approve your private Telegram join request.",
+      },
+      {
+        question: "What is Durana Tech Park residency?",
+        answer:
+          "Durana Tech Park is an Albanian innovation park offering fiscal incentives and a thriving tech ecosystem. DAL consults members through the residency application process.",
+      },
+      {
+        question: "Is membership refundable?",
+        answer:
+          "Membership is an annual $99 subscription that unlocks access for the full year. If something isn't right, email info@duacrypto.com and we'll work with you to resolve it.",
+      },
+    ],
   },
   {
     file: "faq.html",

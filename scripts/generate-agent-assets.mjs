@@ -72,17 +72,37 @@ const STANDARD_CRAWLER_AGENTS = [
   { name: "Bingbot", aiInput: true },
 ];
 
+const seoByFile = Object.fromEntries(seoPages.map((p) => [p.file, p]));
+
+function parseMetaDescription(html) {
+  const match =
+    html.match(/<meta\s+name="description"\s+content="([^"]*)"/i) ??
+    html.match(/<meta\s+content="([^"]*)"\s+name="description"/i);
+  return match?.[1]?.replace(/&quot;/g, '"').replace(/&amp;/g, "&").trim();
+}
+
+function buildMarkdownFrontmatter({ title, description, source }) {
+  return [
+    "---",
+    `title: ${JSON.stringify(title)}`,
+    description ? `description: ${JSON.stringify(description)}` : null,
+    `source: ${JSON.stringify(source)}`,
+    "---",
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
 function htmlToMarkdown(html, sourcePath) {
-  const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i);
-  const descMatch = html.match(
-    /<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i
-  );
-  const title = titleMatch?.[1]?.trim() ?? sourcePath;
-  const description = descMatch?.[1]?.trim();
+  const seo = seoByFile[sourcePath];
+  const title =
+    seo?.title ?? html.match(/<title[^>]*>([^<]+)<\/title>/i)?.[1]?.trim() ?? sourcePath;
+  const description = seo?.description ?? parseMetaDescription(html);
 
   let body = html
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<div[^>]*id=["']spinner["'][\s\S]*?<\/div>/gi, "")
     .replace(/<nav[\s\S]*?<\/nav>/gi, "")
     .replace(/<footer[\s\S]*?<\/footer>/gi, "")
     .replace(/<header[\s\S]*?<\/header>/gi, "")
@@ -93,6 +113,7 @@ function htmlToMarkdown(html, sourcePath) {
     .replace(/<h2[^>]*>([\s\S]*?)<\/h2>/gi, "\n## $1\n")
     .replace(/<h3[^>]*>([\s\S]*?)<\/h3>/gi, "\n### $1\n")
     .replace(/<h4[^>]*>([\s\S]*?)<\/h4>/gi, "\n#### $1\n")
+    .replace(/<summary[^>]*>([\s\S]*?)<\/summary>/gi, "\n### $1\n")
     .replace(/<p[^>]*>([\s\S]*?)<\/p>/gi, "\n$1\n")
     .replace(/<li[^>]*>([\s\S]*?)<\/li>/gi, "\n- $1\n")
     .replace(/<a[^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi, "[$2]($1)")
@@ -103,23 +124,20 @@ function htmlToMarkdown(html, sourcePath) {
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
+    .replace(/&rsquo;/g, "'")
+    .replace(/&mdash;/g, "—")
+    .split("\n")
+    .map((line) => line.trimEnd())
+    .filter((line) => line.trim() !== "" && line.trim() !== "-")
+    .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
 
-  const frontmatter = [
-    "---",
-    `title: ${JSON.stringify(title)}`,
-    description ? `description: ${JSON.stringify(description)}` : null,
-    `source: ${JSON.stringify(sourcePath)}`,
-    "---",
-  ]
-    .filter(Boolean)
-    .join("\n");
-
-  return `${frontmatter}\n\n${body}\n`;
+  return `${buildMarkdownFrontmatter({ title, description, source: sourcePath })}\n\n${body}\n`;
 }
 
-const homepageSeo = seoPages.find((p) => p.file === "index.html");
+const homepageSeo = seoByFile["index.html"];
+const dalSeo = seoByFile["bitcoin-for-corporations.html"];
 
 /**
  * Curated homepage mirror for AI crawlers (GPTBot, OAI-SearchBot).
@@ -131,13 +149,11 @@ function homepageAgentMarkdown() {
     homepageSeo?.description ??
     "Albania's first Bitcoin and crypto community in Tirana.";
 
-  const frontmatter = [
-    "---",
-    `title: ${JSON.stringify(title)}`,
-    `description: ${JSON.stringify(description)}`,
-    `source: ${JSON.stringify("curated")}`,
-    "---",
-  ].join("\n");
+  const frontmatter = buildMarkdownFrontmatter({
+    title,
+    description,
+    source: "curated",
+  });
 
   const u = seoSiteUrl;
   const body = `# DuaCrypto — Bitcoin & crypto community in Albania
@@ -157,6 +173,64 @@ We offer beginner-friendly education (Albanian and English), corporate guidance 
 **Contact:** info@duacrypto.com · [Telegram](https://t.me/dua_crypto) · [duacrypto.com](${u}/)`;
 
   return `${frontmatter}\n\n${body}\n`;
+}
+
+/** Curated DAL page mirror (corporate Bitcoin / Lightning membership). */
+function dalAgentMarkdown() {
+  const title = dalSeo?.title ?? "Bitcoin for Corporations | DAL — DuaCrypto";
+  const description =
+    dalSeo?.description ??
+    "Digital Asset Leaders Association — enterprise Bitcoin adoption in Albania and the Balkans.";
+
+  const frontmatter = buildMarkdownFrontmatter({
+    title,
+    description,
+    source: "curated",
+  });
+
+  const u = seoSiteUrl;
+  const faqBlock = (dalSeo?.faqs ?? [])
+    .map(
+      (item) =>
+        `### ${item.question}\n\n${item.answer}`
+    )
+    .join("\n\n");
+
+  const body = `# Bitcoin for Corporations — DAL (Digital Asset Leaders)
+
+**DAL** is DuaCrypto's corporate Bitcoin program for **enterprise adoption**, **treasury strategy**, and **executive networking** in **Tirana, Albania** and internationally. Membership is **$99/year**, paid via **Bitcoin Lightning** only.
+
+## Who it is for
+
+CTOs, directors, corporate treasurers, and founders building Bitcoin-first organizations who want peers, treasury resources, and policy working groups.
+
+## Highlights
+
+- Enterprise Bitcoin strategy and board-level guidance
+- Treasury best practices for corporate Bitcoin holdings
+- **Durana Tech Park** residency consulting (Albanian innovation park, fiscal incentives)
+- Private Telegram community after Lightning payment verification
+
+## Related pages
+
+- [Community homepage](${u}/)
+- [Community FAQs](${u}/faq.html)
+- [Events](${u}/events.html)
+- [Contact](${u}/contact.html)
+
+## Frequently asked questions
+
+${faqBlock}
+
+**Contact:** info@duacrypto.com · [Telegram](https://t.me/dua_crypto)`;
+
+  return `${frontmatter}\n\n${body}\n`;
+}
+
+function markdownForPage(page) {
+  if (page.file === "index.html") return homepageAgentMarkdown();
+  if (page.file === "bitcoin-for-corporations.html") return dalAgentMarkdown();
+  return htmlToMarkdown(readFileSync(join(root, page.file), "utf8"), page.file);
 }
 
 function sha256File(path) {
@@ -231,10 +305,7 @@ function generateMarkdown() {
   mkdirSync(mdDir, { recursive: true });
 
   for (const page of htmlPages) {
-    const markdown =
-      page.file === "index.html"
-        ? homepageAgentMarkdown()
-        : htmlToMarkdown(readFileSync(join(root, page.file), "utf8"), page.file);
+    const markdown = markdownForPage(page);
     const outName =
       page.file === "index.html" ? "index.md" : page.file.replace(/\.html$/, ".md");
     writeFileSync(join(mdDir, outName), markdown, "utf8");
