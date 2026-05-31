@@ -13,7 +13,7 @@
       "type": "skill-md",
       "description": "Navigate the DuaCrypto public website and list canonical page URLs.",
       "url": "https://duacrypto.com/.well-known/agent-skills/site-navigation/SKILL.md",
-      "digest": "sha256:e3914b49257a14aa935a35dec071daf6b3ac45ea645a470d018f7d59a784280b"
+      "digest": "sha256:247fa290d4a2099134408cdda900dc06cbf8176254760d5715fdbee3405383fb"
     },
     {
       "name": "web-bot-auth",

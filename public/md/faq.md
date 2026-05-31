@@ -182,6 +182,48 @@ About DuaCrypto & Bitcoin in Albania
                                 
                             
                         
+                        
+                            
+## 
+                                
+                                    What is the best crypto community in Albania?
+                                
+                            
+
+                            
+                                
+                                    DuaCrypto is Albania's leading Bitcoin and crypto community, founded in Tirana in 2020 with 10,000+ members. Join via [Telegram](https://t.me/dua_crypto), attend monthly meetups, and access Albanian and English education on Bitcoin, Web3, and wallet security.
+                                
+                            
+                        
+                        
+                            
+## 
+                                
+                                    Where are Bitcoin meetups in Tirana?
+                                
+                            
+
+                            
+                                
+                                    DuaCrypto hosts monthly Bitcoin meetups in Tirana, including Bitcoin Pizza Day celebrations and Balkans Crypto conference side events. See [events.html](events.html) for upcoming dates, photos, and registration details.
+                                
+                            
+                        
+                        
+                            
+## 
+                                
+                                    What is DAL / Bitcoin for Corporations at DuaCrypto?
+                                
+                            
+
+                            
+                                
+                                    DAL (Digital Asset Leaders Association) is DuaCrypto's enterprise program for corporate Bitcoin adoption, treasury strategy, and executive networking. Learn more at [bitcoin-for-corporations.html](bitcoin-for-corporations.html).
+                                
+                            
+                        
                     
                 
             

@@ -12,8 +12,16 @@ Operational checklist for search visibility, rich results, and post-deploy verif
 2. Add property **URL prefix**: `https://duacrypto.com`.
 3. Verify ownership (HTML file upload, DNS TXT, or Google Analytics if already linked — site uses GA4 `G-BH7BJVBLP2`).
 4. Submit sitemap: `https://duacrypto.com/sitemap.xml`.
-5. Request indexing for key URLs after deploy: `/`, `/about.html`, `/events.html`, `/faq.html`.
+5. Request indexing for key URLs after deploy: `/`, `/about.html`, `/events.html`, `/faq.html`, `/bitcoin-for-corporations.html`.
 6. Monitor **Pages**, **Core Web Vitals**, and **Enhancements** (FAQ, Organization) weekly.
+
+### GSC cleanup (one-time)
+
+If HTML page URLs were previously submitted as sitemaps (e.g. `https://duacrypto.com/index.html` as a sitemap entry), **remove them** under **Sitemaps**. Keep only:
+
+- `https://duacrypto.com/sitemap.xml`
+
+Individual page URLs belong in **URL Inspection → Request indexing**, not as separate sitemap submissions.
 
 ### Bing Webmaster Tools
 
@@ -88,12 +96,14 @@ npm run agent:generate
 ## 6. Post-deploy checklist
 
 - [ ] `https://duacrypto.com/robots.txt` returns sitemap reference
-- [ ] `https://duacrypto.com/sitemap.xml` lists all public pages (incl. privacy, terms)
-- [ ] Homepage title: **Albania's First Crypto Community | DuaCrypto**
+- [ ] `https://duacrypto.com/sitemap.xml` lists all public pages (incl. privacy, terms, bitcoin-for-corporations)
+- [ ] Homepage title: **Bitcoin & Crypto Community in Albania | DuaCrypto Tirana**
+- [ ] Default OG image loads: `https://duacrypto.com/img/og-default.png` (1200×630)
 - [ ] One `<h1>` per indexable page
 - [ ] `/privacy.html` and `/terms.html` return 200 (no footer 404s)
+- [ ] `/token.html` returns **301** to `/bitcoin-for-corporations.html`
 - [ ] Rich Results Test passes for FAQ and Event pages
-- [ ] GSC sitemap status: Success
+- [ ] GSC sitemap status: Success (only `sitemap.xml` submitted — no HTML URLs as sitemaps)
 - [ ] No critical Core Web Vitals regressions on mobile
 - [ ] Internal links in footer/nav resolve correctly
 

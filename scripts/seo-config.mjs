@@ -1,12 +1,24 @@
 /** Central SEO metadata for DuaCrypto public HTML pages. */
 export const siteUrl = "https://duacrypto.com";
 export const siteName = "DuaCrypto";
-export const defaultOgImage = `${siteUrl}/img/duacrypto-mark.svg`;
+export const defaultOgImage = `${siteUrl}/img/og-default.png`;
 
 export const organization = {
   "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
   name: "DuaCrypto",
   url: siteUrl,
+  description:
+    "Albania's first Bitcoin and crypto community in Tirana. Web3 education, Balkans events, corporate Bitcoin (DAL), and 10,000+ members.",
+  foundingDate: "2020",
+  areaServed: ["Albania", "Balkans"],
+  knowsAbout: [
+    "Bitcoin",
+    "Cryptocurrency",
+    "Web3",
+    "Blockchain education",
+    "Corporate Bitcoin treasury",
+  ],
   logo: `${siteUrl}/img/duacrypto-mark.svg`,
   email: "info@duacrypto.com",
   address: {
@@ -28,9 +40,9 @@ export const seoPages = [
   {
     file: "index.html",
     path: "/",
-    title: "Albania's First Crypto Community | DuaCrypto",
+    title: "Bitcoin & Crypto Community in Albania | DuaCrypto Tirana",
     description:
-      "DuaCrypto — Albania's first crypto community. Learn Bitcoin, Web3, and blockchain in Tirana with 10,000+ members across the Balkans.",
+      "DuaCrypto — Albania's first Bitcoin and crypto community in Tirana. Web3 education, Balkans events, corporate Bitcoin (DAL), and 10,000+ members.",
     ogType: "website",
     includeOrganization: true,
     includeWebSite: true,
@@ -172,6 +184,21 @@ export const seoPages = [
         question: "Is DuaCrypto financial advice or an exchange?",
         answer:
           "DuaCrypto is an educational community, not a licensed exchange or investment advisor. We teach Bitcoin and Web3 skills; always do your own research before investing.",
+      },
+      {
+        question: "What is the best crypto community in Albania?",
+        answer:
+          "DuaCrypto is Albania's leading Bitcoin and crypto community, founded in Tirana in 2020 with 10,000+ members. Join via Telegram, attend monthly meetups, and access Albanian and English education on Bitcoin, Web3, and wallet security.",
+      },
+      {
+        question: "Where are Bitcoin meetups in Tirana?",
+        answer:
+          "DuaCrypto hosts monthly Bitcoin meetups in Tirana, including Bitcoin Pizza Day celebrations and Balkans Crypto conference side events. See events.html for upcoming dates, photos, and registration details.",
+      },
+      {
+        question: "What is DAL / Bitcoin for Corporations at DuaCrypto?",
+        answer:
+          "DAL (Digital Asset Leaders Association) is DuaCrypto's enterprise program for corporate Bitcoin adoption, treasury strategy, and executive networking. Learn more at bitcoin-for-corporations.html.",
       },
     ],
   },

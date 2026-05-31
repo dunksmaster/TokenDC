@@ -14,6 +14,7 @@ import { fileURLToPath } from "node:url";
 import { generateWebBotAuth } from "./generate-web-bot-auth.mjs";
 import { buildThemeAssets } from "./build-theme-assets.mjs";
 import { applySeoToHtmlFiles } from "./inject-seo.mjs";
+import { siteUrl as seoSiteUrl, seoPages } from "./seo-config.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
@@ -118,6 +119,46 @@ function htmlToMarkdown(html, sourcePath) {
   return `${frontmatter}\n\n${body}\n`;
 }
 
+const homepageSeo = seoPages.find((p) => p.file === "index.html");
+
+/**
+ * Curated homepage mirror for AI crawlers (GPTBot, OAI-SearchBot).
+ * index.html uses Tailwind/spinner/counter markup that htmlToMarkdown cannot clean.
+ */
+function homepageAgentMarkdown() {
+  const title = homepageSeo?.title ?? "DuaCrypto";
+  const description =
+    homepageSeo?.description ??
+    "Albania's first Bitcoin and crypto community in Tirana.";
+
+  const frontmatter = [
+    "---",
+    `title: ${JSON.stringify(title)}`,
+    `description: ${JSON.stringify(description)}`,
+    `source: ${JSON.stringify("curated")}`,
+    "---",
+  ].join("\n");
+
+  const u = seoSiteUrl;
+  const body = `# DuaCrypto — Bitcoin & crypto community in Albania
+
+DuaCrypto is **Albania's first Bitcoin and crypto community**, founded in **Tirana** in 2020 and active across the **Balkans**. We bring together developers, students, and professionals to learn **Bitcoin**, **cryptocurrency**, and **Web3** through workshops, meetups, and free educational resources. Our community has **10,000+ members** and hosts regional events including Balkans Crypto conferences and Bitcoin Pizza Day meetups in Tirana.
+
+We offer beginner-friendly education (Albanian and English), corporate guidance on Bitcoin treasury strategy via the **Digital Asset Leaders (DAL)** program, and community initiatives such as Lightning book donations for Balkans students.
+
+## Key pages
+
+- [Events](${u}/events.html) — Balkans Crypto, Bitcoin Pizza Day, and Tirana meetups
+- [FAQs](${u}/faq.html) — joining the community, education, and regulations
+- [Bitcoin for Corporations](${u}/bitcoin-for-corporations.html) — DAL enterprise Bitcoin adoption
+- [Donate a Book](${u}/donation.html) — fund Bitcoin books via Lightning Network
+- [About](${u}/about.html) · [Services](${u}/service.html) · [Contact](${u}/contact.html)
+
+**Contact:** info@duacrypto.com · [Telegram](https://t.me/dua_crypto) · [duacrypto.com](${u}/)`;
+
+  return `${frontmatter}\n\n${body}\n`;
+}
+
 function sha256File(path) {
   const data = readFileSync(path);
   return `sha256:${createHash("sha256").update(data).digest("hex")}`;
@@ -190,9 +231,10 @@ function generateMarkdown() {
   mkdirSync(mdDir, { recursive: true });
 
   for (const page of htmlPages) {
-    const htmlPath = join(root, page.file);
-    const html = readFileSync(htmlPath, "utf8");
-    const markdown = htmlToMarkdown(html, page.file);
+    const markdown =
+      page.file === "index.html"
+        ? homepageAgentMarkdown()
+        : htmlToMarkdown(readFileSync(join(root, page.file), "utf8"), page.file);
     const outName =
       page.file === "index.html" ? "index.md" : page.file.replace(/\.html$/, ".md");
     writeFileSync(join(mdDir, outName), markdown, "utf8");
