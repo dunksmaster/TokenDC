@@ -121,15 +121,15 @@ export const seoPages = [
     breadcrumb: [{ name: "Features", path: "/feature.html" }],
   },
   {
-    file: "token.html",
-    path: "/token.html",
+    file: "bitcoin-for-corporations.html",
+    path: "/bitcoin-for-corporations.html",
     title: "Bitcoin for Corporations | DAL — DuaCrypto",
     description:
       "Digital Asset Leaders Association — enterprise Bitcoin adoption, treasury strategy, and executive networking for CTOs, directors, and corporate treasuries.",
     ogType: "website",
     includeOrganization: true,
     ogImage: `${siteUrl}/img/dal-logo.svg`,
-    breadcrumb: [{ name: "Bitcoin for Corporations", path: "/token.html" }],
+    breadcrumb: [{ name: "Bitcoin for Corporations", path: "/bitcoin-for-corporations.html" }],
   },
   {
     file: "faq.html",

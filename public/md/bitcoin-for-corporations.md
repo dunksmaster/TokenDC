@@ -1,7 +1,7 @@
 ---
 title: "Bitcoin for Corporations | DAL — DuaCrypto"
 description: "Digital Asset Leaders Association — enterprise Bitcoin adoption, treasury strategy, and executive networking for CTOs, directors, and corporate treasuries."
-source: "token.html"
+source: "bitcoin-for-corporations.html"
 ---
 
 Bitcoin for Corporations | DAL — DuaCrypto

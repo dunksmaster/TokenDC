@@ -15,7 +15,7 @@ const ROOT_HTML = [
   "faq.html",
   "events.html",
   "donation.html",
-  "token.html",
+  "bitcoin-for-corporations.html",
   "privacy.html",
   "terms.html",
   "404.html",

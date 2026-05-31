@@ -27,7 +27,7 @@ const htmlPages = [
   { file: "roadmap.html", loc: "/roadmap.html", changefreq: "monthly", priority: "0.8" },
   { file: "events.html", loc: "/events.html", changefreq: "weekly", priority: "0.9" },
   { file: "feature.html", loc: "/feature.html", changefreq: "monthly", priority: "0.7" },
-  { file: "token.html", loc: "/token.html", changefreq: "monthly", priority: "0.7" },
+  { file: "bitcoin-for-corporations.html", loc: "/bitcoin-for-corporations.html", changefreq: "monthly", priority: "0.7" },
   { file: "faq.html", loc: "/faq.html", changefreq: "monthly", priority: "0.8" },
   { file: "contact.html", loc: "/contact.html", changefreq: "yearly", priority: "0.6" },
   { file: "donation.html", loc: "/donation.html", changefreq: "yearly", priority: "0.5" },

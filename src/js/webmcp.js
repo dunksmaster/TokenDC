@@ -5,7 +5,7 @@ const PAGES = [
   { name: "roadmap", path: "/roadmap.html", title: "Roadmap" },
   { name: "events", path: "/events.html", title: "Events" },
   { name: "feature", path: "/feature.html", title: "Feature" },
-  { name: "token", path: "/token.html", title: "Token Sale" },
+  { name: "bitcoin-for-corporations", path: "/bitcoin-for-corporations.html", title: "Bitcoin for Corporations" },
   { name: "faq", path: "/faq.html", title: "FAQs" },
   { name: "contact", path: "/contact.html", title: "Contact" },
   { name: "donation", path: "/donation.html", title: "Donation" },

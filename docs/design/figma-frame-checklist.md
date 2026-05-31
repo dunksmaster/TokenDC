@@ -98,7 +98,7 @@ Use this checklist when building the Figma file. Check off each frame when compl
 
 Home · About · Service · Roadmap · Events · Donate · **Other** ▾ · Contact · **[Join Next Event →]**
 
-**Other dropdown:** Feature · Token Sale · FAQs · Newsletter  
+**Other dropdown:** Feature · Bitcoin for Corporations · FAQs · Newsletter  
 **Remove:** 404 Page / "404 Other"
 
 ### Hero

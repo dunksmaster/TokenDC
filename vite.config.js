@@ -12,6 +12,7 @@ function ensureDiscoveryFilesPlugin() {
     ["public/robots.txt", "dist/robots.txt"],
     ["public/sitemap.xml", "dist/sitemap.xml"],
     ["public/css/dark-mode.css", "dist/css/dark-mode.css"],
+    ["public/_redirects", "dist/_redirects"],
   ];
   return {
     name: "ensure-discovery-files",
@@ -46,7 +47,7 @@ export default defineConfig({
         roadmap: "roadmap.html",
         events: "events.html",
         feature: "feature.html",
-        token: "token.html",
+        "bitcoin-for-corporations": "bitcoin-for-corporations.html",
         faq: "faq.html",
         contact: "contact.html",
         donation: "donation.html",

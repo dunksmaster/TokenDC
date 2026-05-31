@@ -1,6 +1,6 @@
 # DAL Phase 2 — Lightning payments and Telegram integration
 
-Follow-up work after the Phase 1 static page at [`token.html`](../token.html) (Bitcoin for Corporations / Digital Asset Leaders Association).
+Follow-up work after the Phase 1 static page at [`bitcoin-for-corporations.html`](../bitcoin-for-corporations.html) (Bitcoin for Corporations / Digital Asset Leaders Association).
 
 ## Phase 1 (current)
 
@@ -140,7 +140,7 @@ curl http://localhost:8788/api/telegram-count
 
 ## Related files
 
-- Page: [`token.html`](../token.html)
+- Page: [`bitcoin-for-corporations.html`](../bitcoin-for-corporations.html)
 - Styles: [`src/css/dal-page.css`](../src/css/dal-page.css)
 - Three.js: [`src/js/dal-three.js`](../src/js/dal-three.js)
 - Payment UI: [`src/js/dal-payment-mock.js`](../src/js/dal-payment-mock.js)

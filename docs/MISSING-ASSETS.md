@@ -22,10 +22,10 @@ Images referenced in HTML that are **missing or should be replaced** in the fina
 | `hero-1.png` | `index.html` hero | 800×600 | Missing | **`balkans-crypto-2025-1.png`** |
 | `hero-2.png` | Bootstrap page headers | 600×400 | Missing | Event photo or abstract |
 | `2029.webp` | index about section | 600×400 | Missing | `kane-profile.png` or education stock |
-| `payment-1.png` | `token.html` | 50×50 | Missing | Text "BTC" badge |
-| `payment-2.png` | `token.html` | 50×50 | Missing | Text "ETH" badge |
-| `payment-3.png` | `token.html` | 50×50 | Missing | Text "USDT" badge |
-| `payment-4.png` | `token.html` | 50×50 | Missing | Text "USDC" badge |
+| `payment-1.png` | `bitcoin-for-corporations.html` | 50×50 | Missing | Text "BTC" badge |
+| `payment-2.png` | `bitcoin-for-corporations.html` | 50×50 | Missing | Text "ETH" badge |
+| `payment-3.png` | `bitcoin-for-corporations.html` | 50×50 | Missing | Text "USDT" badge |
+| `payment-4.png` | `bitcoin-for-corporations.html` | 50×50 | Missing | Text "USDC" badge |
 | `Iphone_cards.png` | index affiliate slideshow | 800×400 | Missing | **Remove slideshow in design** |
 | `ledger-.jpg` | index slideshow | 800×400 | Missing | **Remove slideshow** |
 | `decentralized-VPN-router.jpg` | index slideshow | 800×400 | Missing | **Remove slideshow** |
