@@ -213,6 +213,38 @@ h6,
 
 
 /*** Roadmap ***/
+@keyframes roadmap-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.page-section--compact .roadmap-section-head,
+.page-section--compact .roadmap-carousel-wrap,
+.page-section--compact .bitcoin-timeline {
+    animation: roadmap-fade-in 0.55s ease-out both;
+}
+
+.page-section--compact .roadmap-carousel-wrap {
+    animation-delay: 0.1s;
+}
+
+.page-section--compact .bitcoin-timeline {
+    animation-delay: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-section--compact .roadmap-section-head,
+    .page-section--compact .roadmap-carousel-wrap,
+    .page-section--compact .bitcoin-timeline {
+        animation: none;
+    }
+}
+
 .roadmap-carousel {
     position: relative;
 }
@@ -250,32 +282,58 @@ h6,
 }
 
 .roadmap-carousel .roadmap-item {
-    position: relative;
-    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
 }
 
-.roadmap-carousel .roadmap-item::before {
+.roadmap-carousel .roadmap-item__track {
+    position: relative;
+    flex-shrink: 0;
+    height: 128px;
+}
+
+.roadmap-carousel .roadmap-item__track::before {
     position: absolute;
     content: "";
     width: 0;
-    height: 88px;
+    height: 96px;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     border-right: 2px dashed var(--secondary);
 }
 
-.roadmap-carousel .roadmap-item::after {
+.roadmap-carousel .roadmap-item__track::after {
     position: absolute;
     content: "";
     width: 14px;
     height: 14px;
-    top: 111px;
+    top: 104px;
     left: 50%;
     margin-left: -7px;
     transform: rotate(45deg);
     background: var(--primary);
+}
+
+.roadmap-carousel.owl-carousel .owl-item {
+    height: auto;
+}
+
+.roadmap-carousel .roadmap-item__content {
+    padding-top: 1.25rem;
+    padding-bottom: 1.5rem;
+}
+
+.roadmap-carousel .roadmap-item__content h5 {
+    margin-bottom: 0.75rem;
+    color: var(--dark);
+}
+
+.roadmap-carousel .roadmap-item__desc {
+    display: block;
+    color: var(--secondary);
+    line-height: 1.6;
 }
 
 .roadmap-carousel .owl-nav {

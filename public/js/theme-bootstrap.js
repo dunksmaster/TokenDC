@@ -38,6 +38,25 @@
       }
     });
   }
+  function stabilizeWowAnimations() {
+    document.querySelectorAll(".wow").forEach((el) => {
+      el.style.visibility = "visible";
+      el.style.opacity = "1";
+      el.style.transform = "none";
+      el.classList.remove("animated");
+    });
+  }
+  function syncBitcoinTimelineImages(isDark) {
+    document.querySelectorAll(".bitcoin-timeline-img").forEach((img) => {
+      const lightSrc = img.getAttribute("data-timeline-light") || "/img/bitcoin-price-timeline-light.svg";
+      const darkSrc = img.getAttribute("data-timeline-dark") || "/img/bitcoin-price-timeline-dark.svg";
+      img.src = isDark ? darkSrc : lightSrc;
+    });
+  }
+  function refreshRoadmapCarousel() {
+    if (typeof window.jQuery === "undefined") return;
+    window.jQuery(".roadmap-carousel").trigger("refresh.owl.carousel");
+  }
   function applyTheme(theme) {
     const root = document.documentElement;
     const isDark = theme === "dark";
@@ -45,6 +64,9 @@
     root.setAttribute("data-bs-theme", isDark ? "dark" : "light");
     root.style.colorScheme = isDark ? "dark" : "light";
     syncThemeToggleUi(theme);
+    stabilizeWowAnimations();
+    syncBitcoinTimelineImages(isDark);
+    refreshRoadmapCarousel();
     if (typeof window !== "undefined") {
       window.__DUACRYPTO_THEME__ = { early: false, theme };
     }
@@ -88,6 +110,7 @@
     const theme = window.__DUACRYPTO_THEME__?.theme ?? getPreferredTheme();
     if (early) {
       syncThemeToggleUi(theme);
+      syncBitcoinTimelineImages(theme === "dark");
     } else {
       applyTheme(theme);
     }

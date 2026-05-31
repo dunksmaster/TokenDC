@@ -254,3 +254,26 @@ html.dark body:has(.donation-header) footer,
   background: linear-gradient(135deg, #1a5c3a 0%, #0f3d26 100%) !important;
   color: #e6edf3;
 }
+
+/* Roadmap page — journey timeline */
+html.dark .page-section--compact h2,
+html.dark .page-section--compact .display-6,
+[data-bs-theme="dark"] .page-section--compact h2,
+[data-bs-theme="dark"] .page-section--compact .display-6 {
+  color: #e6edf3;
+}
+
+html.dark .roadmap-carousel .roadmap-item__content h5,
+[data-bs-theme="dark"] .roadmap-carousel .roadmap-item__content h5 {
+  color: #e6edf3;
+}
+
+html.dark .roadmap-carousel .roadmap-item__desc,
+[data-bs-theme="dark"] .roadmap-carousel .roadmap-item__desc {
+  color: #c9d1d9;
+}
+
+html.dark .roadmap-carousel .roadmap-item .roadmap-point,
+[data-bs-theme="dark"] .roadmap-carousel .roadmap-item .roadmap-point {
+  background: #161b22;
+}

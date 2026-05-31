@@ -51,12 +51,13 @@
     });
 
 
-    // Roadmap carousel
+    // Roadmap carousel — no autoplay (slide motion clashes with timeline layout)
     $(".roadmap-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
+        autoplay: false,
+        smartSpeed: 600,
         margin: 25,
         loop: true,
+        autoHeight: true,
         dots: false,
         nav: true,
         navText : [
