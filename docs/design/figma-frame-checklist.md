@@ -156,7 +156,7 @@ Tangem Wallet · Bitget Exchange · Binance — **no slideshow, no product PNGs*
 ### Footer
 
 - Blurb: Albania's first and leading crypto community. Building the Web3 future through education and events.  
-- Contact: Tirana, Albania · +355 69 782 2224 · info@duacrypto.com  
+- Contact: Tirana, Albania · info@duacrypto.com  
 - Newsletter: Market insights, airdrop alerts, and community updates — Formspree `xnnpkkqo`  
 - Quick links: About, Contact, Privacy, Terms (Privacy/Terms pages TBD in code)  
 - Services links: Education, Events, Donate, Newsletter  
@@ -203,7 +203,7 @@ Confirm with checkboxes (in Figma comments or reply to agent):
 - [ ] Mobile nav: no logo/link overlap at **1024px** and below  
 - [ ] Hero uses **balkans-crypto** photo, not `hero-1.png`  
 - [ ] Partners = **icon cards only** (slideshow removed in design)  
-- [ ] Footer contact: Tirana, +355 69 782 2224, info@duacrypto.com  
+- [ ] Footer contact: Tirana, info@duacrypto.com  
 - [ ] Bootstrap chrome matches homepage (mark SVG, social order, Other dropdown)  
 - [ ] Subtitle choice locked (recommended: Satoshi line above)  
 

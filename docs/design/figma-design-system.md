@@ -256,7 +256,7 @@ Grid: 6 columns desktop, 3×2 tablet, 2×3 mobile.
 
 - Background `bg-footer`  
 - 4 columns desktop: Brand + blurb | Quick links ×2 | Follow + social | Newsletter  
-- Contact: **Tirana, Albania** · **+355 69 782 2224** · **info@duacrypto.com**  
+- Contact: **Tirana, Albania** · **info@duacrypto.com**  
 - Copyright: © DuaCrypto, All Rights Reserved · Designed by DuaCrypto  
 
 ### 7.13 Bootstrap chrome (inner pages)

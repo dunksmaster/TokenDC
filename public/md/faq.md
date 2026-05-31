@@ -89,10 +89,10 @@ FAQs | DuaCrypto
         
             
                 
-## FAQs
+## Common questions
 
                 
-Common questions about DuaCrypto & Bitcoin in Albania
+About DuaCrypto & Bitcoin in Albania
 
             
             
@@ -164,7 +164,7 @@ Common questions about DuaCrypto & Bitcoin in Albania
 
                             
                                 
-                                    Email [info@duacrypto.com](mailto:info@duacrypto.com), call [+355 69 782 2224](tel:+355697822224), or message us on [Telegram](https://t.me/dua_crypto). We welcome collaborations, donations, and media inquiries.
+                                    Email [info@duacrypto.com](mailto:info@duacrypto.com) or message us on [Telegram](https://t.me/dua_crypto). We welcome collaborations, donations, and media inquiries.
                                 
                             
                         
@@ -190,6 +190,7 @@ Common questions about DuaCrypto & Bitcoin in Albania
     
 
 
+
     
         
             
@@ -206,7 +207,7 @@ DuaCrypto, founded in 2020, is Albania's first crypto community &mdash; educatio
 
                     
                         
-Partnerships, donations, or media: [info@duacrypto.com](mailto:info@duacrypto.com)
+Partnerships or media: [info@duacrypto.com](mailto:info@duacrypto.com)
 
                     
                 
@@ -224,9 +225,6 @@ Market insights, airdrop alerts, and community updates in your inbox.
                     Get In Touch
                     
 Tirana, Albania
-
-                    
-[+355 69 782 2224](tel:+355697822224)
 
                     
 [info@duacrypto.com](mailto:info@duacrypto.com)

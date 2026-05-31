@@ -9,7 +9,6 @@ export const organization = {
   url: siteUrl,
   logo: `${siteUrl}/img/duacrypto-mark.svg`,
   email: "info@duacrypto.com",
-  telephone: "+355697822224",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Tirana",
@@ -74,7 +73,7 @@ export const seoPages = [
     description:
       "Join DuaCrypto in Tirana — Balkans Crypto 2026 updates, plus Bitcoin Pizza Day 2025 and Balkans Crypto 2025 highlights across the Balkans.",
     ogType: "website",
-    ogImage: `${siteUrl}/img/balkans-crypto-2025-3.png`,
+    ogImage: `${siteUrl}/img/balkans-crypto-2026-2.png`,
     includeOrganization: true,
     breadcrumb: [{ name: "Events", path: "/events.html" }],
     events: [
@@ -84,7 +83,7 @@ export const seoPages = [
           "Upcoming regional DeFi and Web3 conference in Tirana with DuaCrypto community meetups and partner showcases.",
         startDate: "2026-06-15",
         location: "Tirana, Albania",
-        image: `${siteUrl}/img/balkans-crypto-2025-3.png`,
+        image: `${siteUrl}/img/balkans-crypto-2026-2.png`,
         url: `${siteUrl}/events.html#balkans-crypto-2026`,
         eventStatus: "https://schema.org/EventScheduled",
       },
@@ -124,12 +123,13 @@ export const seoPages = [
   {
     file: "token.html",
     path: "/token.html",
-    title: "Token Sale | DuaCrypto",
+    title: "Bitcoin for Corporations | DAL — DuaCrypto",
     description:
-      "DuaCrypto token sale information and community token initiatives for Albania's crypto community.",
+      "Digital Asset Leaders Association — enterprise Bitcoin adoption, treasury strategy, and executive networking for CTOs, directors, and corporate treasuries.",
     ogType: "website",
     includeOrganization: true,
-    breadcrumb: [{ name: "Token Sale", path: "/token.html" }],
+    ogImage: `${siteUrl}/img/dal-logo.svg`,
+    breadcrumb: [{ name: "Bitcoin for Corporations", path: "/token.html" }],
   },
   {
     file: "faq.html",
@@ -166,7 +166,7 @@ export const seoPages = [
       {
         question: "How can I contact DuaCrypto for partnerships or media?",
         answer:
-          "Email info@duacrypto.com, call +355 69 782 2224, or message us on Telegram at t.me/dua_crypto. We welcome collaborations, donations, and media inquiries.",
+          "Email info@duacrypto.com or message us on Telegram at t.me/dua_crypto. We welcome collaborations, donations, and media inquiries.",
       },
       {
         question: "Is DuaCrypto financial advice or an exchange?",

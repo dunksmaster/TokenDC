@@ -348,7 +348,7 @@ Bitcoin Pizza Day
 ### DuaCrypto &times; Konsensus Network
 
                         
-Official book partner — hover the title to fund a Bitcoin book for a student.
+Official book partner — hover or tap the book to fund a Bitcoin book for a student.
 
                     
                     

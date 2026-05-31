@@ -8,6 +8,7 @@ Crypto Education & Community Services | DuaCrypto
     
     
     
+- 
     
     
     
@@ -159,76 +160,78 @@ Fund Bitcoin books for Balkans students via Lightning. Every ~150k sats sends on
         
     
     
-
-
-  
     
-      
-        
-          
-## Paid Newsletters
-
-          
-
-            Unlock premium crypto insights, meme coin signals, and airdrop alerts from DuaCrypto.
-          
-
-        
-
-        
-          
-          
-            
-            
-               $10/month
-            
-          
-
-          
-          
-            
-### 
-              Crypto Meme Coin Newsletter & Airdrop Alerts
-            
-
-            
-
-              Get early access to 100x potential meme coins, Murad wallet strategies, and real-time airdrop alerts.
-            
-
-
-            
-            
-               Early-Stage Meme Coin Alerts
-               Murad Wallet & Privacy Tactics
-               Proven Exit Signals Before Dumps
-               Exclusive Telegram Group Access
-               Weekly 100x Project Reports
-            
-
-            
-            
-              [
-                 Subscribe Now - $10/month
-              ](https://duacrypto.gumroad.com/l/newsleter?wanted=true)
-              
-
-                Secure checkout via Gumroad &mdash; Cancel anytime
-              
-
-            
-          
-        
-      
     
-  
+        
+            
+                
+                    
+## Paid Newsletter
+
+                    
+Paid membership
+
+                    
+Not financial advice. Do your own research before trading or investing.
+
+                
+            
+
+            
+                
+                    
+                        
+                            
+                                
+                                 $10/month
+                            
+                        
+                        
+                            
+                                
+### Crypto Newsletter & Airdrop Alerts
+
+                                
+
+                                    Curated signals from the DuaCrypto team: on-chain trends, airdrop opportunities, privacy and wallet hygiene, and Balkans-relevant market notes &mdash; delivered when they matter.
+                                
 
 
+                                
+                                     Early airdrop and launch alerts
 
+                                    
+-  Wallet privacy & self-custody tips
 
+                                    
+-  Risk framing before volatile moves
 
+                                    
+-  Subscriber-only Telegram channel
 
+                                    
+-  Weekly research roundup
+
+                                
+
+                                
+                                    [
+                                         Subscribe &mdash; $10/month
+                                    ](https://duacrypto.gumroad.com/l/newsleter?wanted=true)
+                                    [Learn more]($10.html)
+                                
+                                
+Secure checkout via Gumroad &bull; Cancel anytime
+
+                            
+                        
+                    
+                
+            
+        
     
+    
+
 
     
     
@@ -247,7 +250,7 @@ DuaCrypto, founded in 2020, is Albania's first crypto community &mdash; educatio
 
                     
                         
-Partnerships, donations, or media: [info@duacrypto.com](mailto:info@duacrypto.com)
+Partnerships or media: [info@duacrypto.com](mailto:info@duacrypto.com)
 
                     
                 
@@ -265,9 +268,6 @@ Market insights, airdrop alerts, and community updates in your inbox.
                     Get In Touch
                     
 Tirana, Albania
-
-                    
-[+355 69 782 2224](tel:+355697822224)
 
                     
 [info@duacrypto.com](mailto:info@duacrypto.com)

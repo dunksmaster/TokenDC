@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="dalGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8C547"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
+    </linearGradient>
+    <linearGradient id="dalNavy" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#121836"/>
+      <stop offset="100%" stop-color="#0A0F2C"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="24" fill="url(#dalNavy)"/>
+  <circle cx="100" cy="88" r="52" fill="none" stroke="url(#dalGold)" stroke-width="4"/>
+  <path fill="url(#dalGold)" d="M88 62h16c8 0 14 4.5 14 12 0 5-2.8 8.5-7 10.5 5.5 2 9 6.5 9 13 0 9-7 14.5-18 14.5H88V62zm8 20h6.5c3.5 0 5.5-1.8 5.5-5s-2-5-5.5-5H96v10zm0 21h7.5c4.5 0 7-2.2 7-6 0-3.8-2.5-6-7-6H96v12z"/>
+  <text x="100" y="168" text-anchor="middle" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700" letter-spacing="4">DAL</text>
+</svg>

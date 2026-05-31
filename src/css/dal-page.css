@@ -1,0 +1,1255 @@
+/* DAL — Bitcoin for Corporations (scoped to .dal-page) */
+.dal-page {
+  --dal-navy: #0a0f2c;
+  --dal-navy-light: #121836;
+  --dal-gold: #d4af37;
+  --dal-gold-hover: #e8c547;
+  --dal-gold-text: #9a7b1a;
+  --dal-white: #ffffff;
+  --dal-muted: rgba(255, 255, 255, 0.82);
+  --dal-text-on-dark: #ffffff;
+  --dal-text-on-dark-secondary: #dce4f2;
+  --dal-text-on-dark-muted: #a8b8d4;
+  --dal-text-on-light-heading: var(--dal-navy);
+  --dal-text-on-light-body: #2a3348;
+  --dal-text-on-light-muted: #4a5568;
+  --dal-card-bg: rgba(18, 24, 54, 0.85);
+  --dal-border: rgba(212, 175, 55, 0.25);
+  font-family: "Inter", "Open Sans", system-ui, sans-serif;
+}
+
+html.dark .dal-page,
+[data-bs-theme="dark"] .dal-page {
+  --dal-gold-text: var(--dal-gold);
+  --dal-text-on-light-heading: #f3f4f6;
+  --dal-text-on-light-body: #d1d9e6;
+  --dal-text-on-light-muted: #a8b4c9;
+}
+
+/* Page shell — align with section backgrounds (theme uses html.dark, not data-theme) */
+html:not(.dark) body.dal-page {
+  background-color: #f4f5f8;
+}
+
+html.dark body.dal-page,
+[data-bs-theme="dark"] body.dal-page {
+  background-color: var(--dal-navy) !important;
+  color: var(--dal-text-on-dark-secondary);
+}
+
+.dal-page .dal-anchor-nav {
+  background: rgba(10, 15, 44, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--dal-border);
+  z-index: 40;
+}
+
+.dal-page .dal-anchor-nav .nav-link {
+  color: var(--dal-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  transition: color 0.2s;
+}
+
+.dal-page .dal-anchor-nav .nav-link:hover,
+.dal-page .dal-anchor-nav .nav-link:focus {
+  color: var(--dal-gold);
+}
+
+/* Hero */
+.dal-hero {
+  background: linear-gradient(155deg, var(--dal-navy) 0%, #0d1438 52%, var(--dal-navy-light) 100%);
+  color: var(--dal-text-on-dark);
+  min-height: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .dal-hero {
+    min-height: min(55vh, 460px);
+  }
+}
+
+.dal-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  min-height: auto;
+  padding: 2rem 0 2.25rem;
+}
+
+@media (min-width: 992px) {
+  .dal-hero__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+}
+
+.dal-hero h1 {
+  font-weight: 800;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--dal-text-on-dark);
+}
+
+.dal-hero h2.dal-subtitle {
+  font-weight: 500;
+  font-size: clamp(1.0625rem, 2.2vw, 1.5rem);
+  color: var(--dal-text-on-dark-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+  max-width: 34rem;
+}
+
+.dal-hero__cta-note {
+  font-size: 0.8125rem;
+  color: var(--dal-text-on-dark-muted);
+  margin: 0.75rem 0 0;
+  max-width: 28rem;
+  line-height: 1.5;
+}
+
+.dal-hero__visual {
+  position: relative;
+  min-height: 220px;
+  max-height: 340px;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.dal-hero__visual canvas,
+.dal-hero__visual .dal-fallback {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  max-height: 340px;
+  display: block;
+  border-radius: 1rem;
+}
+
+.dal-hero__visual .dal-fallback {
+  object-fit: cover;
+}
+
+.dal-hero__visual canvas.dal-hidden {
+  display: none;
+}
+
+.dal-hero__visual .dal-fallback.dal-hidden {
+  display: none;
+}
+
+.dal-hidden {
+  display: none !important;
+}
+
+/* Buttons */
+.dal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: box-shadow 0.25s, transform 0.2s, background 0.2s;
+  text-decoration: none;
+}
+
+.dal-btn:focus-visible {
+  outline: 2px solid var(--dal-gold);
+  outline-offset: 2px;
+}
+
+.dal-btn--primary {
+  background: var(--dal-gold);
+  color: var(--dal-navy);
+  border-color: var(--dal-gold);
+}
+
+.dal-btn--primary:hover {
+  background: var(--dal-gold-hover);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.45);
+  transform: translateY(-1px);
+  color: var(--dal-navy);
+}
+
+.dal-btn--outline {
+  background: transparent;
+  color: var(--dal-text-on-dark);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.dal-btn--outline:hover {
+  border-color: var(--dal-gold);
+  color: var(--dal-gold);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.dal-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Sections */
+.dal-page main section[id] {
+  scroll-margin-top: 5rem;
+}
+
+.dal-section {
+  padding: 3rem 0;
+}
+
+.dal-section--compact {
+  padding: 2rem 0;
+}
+
+.dal-section--dark {
+  background: var(--dal-navy);
+  color: var(--dal-text-on-dark);
+}
+
+.dal-section--light {
+  background: #f4f5f8;
+  color: var(--dal-text-on-light-body);
+}
+
+html.dark .dal-section--light,
+[data-bs-theme="dark"] .dal-section--light {
+  background: #14141a;
+  color: var(--dal-text-on-light-body);
+}
+
+.dal-section h2 {
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 1.25rem;
+  color: inherit;
+}
+
+.dal-section--light h2 {
+  color: var(--dal-text-on-light-heading);
+}
+
+.dal-section--dark h2 {
+  color: var(--dal-text-on-dark);
+}
+
+.dal-section__lead {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 42rem;
+  color: inherit;
+}
+
+.dal-section--light .dal-section__lead {
+  color: var(--dal-text-on-light-body);
+}
+
+.dal-section--dark .dal-section__lead {
+  color: var(--dal-text-on-dark-secondary);
+}
+
+.dal-section--light h3 {
+  color: var(--dal-text-on-light-heading);
+}
+
+html.dark .dal-section--light h3,
+[data-bs-theme="dark"] .dal-section--light h3 {
+  color: var(--dal-text-on-light-heading);
+}
+
+/* About */
+.dal-about__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .dal-about__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.dal-about__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.dal-about__bullets li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  color: var(--dal-text-on-light-muted);
+}
+
+html.dark .dal-section--light .dal-about__bullets li,
+[data-bs-theme="dark"] .dal-section--light .dal-about__bullets li {
+  color: var(--dal-text-on-light-body);
+}
+
+.dal-about__bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dal-gold);
+}
+
+.dal-about__visual {
+  position: relative;
+  min-height: 260px;
+  border-radius: 1rem;
+  background: var(--dal-navy-light);
+  border: 1px solid var(--dal-border);
+  overflow: hidden;
+}
+
+.dal-about__visual canvas,
+.dal-about__visual .dal-fallback {
+  width: 100%;
+  height: 260px;
+  display: block;
+}
+
+.dal-stat-pill {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(10, 15, 44, 0.9);
+  border: 1px solid var(--dal-gold);
+  color: var(--dal-gold);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.dal-founding-badge {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid var(--dal-gold);
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--dal-gold-text);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.dal-section--light .dal-founding-badge {
+  color: var(--dal-gold-text);
+  background: rgba(212, 175, 55, 0.15);
+}
+
+html.dark .dal-section--light .dal-founding-badge,
+[data-bs-theme="dark"] .dal-section--light .dal-founding-badge {
+  color: var(--dal-gold);
+  background: rgba(212, 175, 55, 0.12);
+}
+
+.dal-founding-badge--widget {
+  margin: 0.75rem 0 1rem;
+}
+
+/* Benefits cards */
+.dal-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .dal-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .dal-benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Center the 5th card — avoids empty third-column hole */
+  .dal-benefits-grid .dal-benefit-card:last-child:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: 36rem;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
+.dal-benefit-card {
+  background: rgba(28, 36, 72, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+}
+
+.dal-section--dark .dal-benefit-card {
+  background: rgba(28, 36, 72, 0.95);
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.dal-section--dark .dal-benefit-card h3 {
+  color: var(--dal-text-on-dark);
+}
+
+.dal-section--dark .dal-benefit-card p {
+  color: var(--dal-text-on-dark-secondary);
+  opacity: 1;
+}
+
+html:not(.dark) .dal-section--light .dal-benefit-card {
+  background: #fff;
+  border-color: #e5e7eb;
+  box-shadow: 0 4px 20px rgba(10, 15, 44, 0.06);
+}
+
+html:not(.dark) .dal-section--light .dal-benefit-card h3 {
+  color: var(--dal-text-on-light-heading);
+}
+
+html:not(.dark) .dal-section--light .dal-benefit-card p {
+  color: var(--dal-text-on-light-muted);
+  opacity: 1;
+}
+
+html.dark .dal-section--light .dal-benefit-card,
+[data-bs-theme="dark"] .dal-section--light .dal-benefit-card {
+  background: var(--dal-navy-light);
+  border-color: var(--dal-border);
+}
+
+html.dark .dal-section--light .dal-benefit-card h3,
+[data-bs-theme="dark"] .dal-section--light .dal-benefit-card h3 {
+  color: var(--dal-text-on-dark);
+}
+
+html.dark .dal-section--light .dal-benefit-card p,
+[data-bs-theme="dark"] .dal-section--light .dal-benefit-card p {
+  color: var(--dal-text-on-dark-secondary);
+  opacity: 1;
+}
+
+.dal-benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.12);
+}
+
+.dal-benefit-card__icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--dal-gold-text);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+html.dark .dal-benefit-card__icon,
+[data-bs-theme="dark"] .dal-benefit-card__icon,
+.dal-section--dark .dal-benefit-card__icon {
+  color: var(--dal-gold);
+}
+
+.dal-benefit-card h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.dal-benefit-card p {
+  font-size: 0.9375rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Durana residency */
+.dal-durana-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .dal-durana-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.dal-durana-block {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  height: 100%;
+}
+
+html.dark .dal-durana-block,
+[data-bs-theme="dark"] .dal-durana-block {
+  background: var(--dal-navy-light);
+  border-color: var(--dal-border);
+  color: var(--dal-text-on-dark-secondary);
+}
+
+.dal-durana-block h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--dal-gold-text);
+}
+
+html.dark .dal-durana-block h3,
+[data-bs-theme="dark"] .dal-durana-block h3 {
+  color: var(--dal-gold);
+}
+
+.dal-durana-block p,
+.dal-durana-block strong {
+  color: inherit;
+}
+
+html:not(.dark) .dal-durana-block p {
+  color: var(--dal-text-on-light-muted);
+}
+
+html:not(.dark) .dal-durana-block strong {
+  color: var(--dal-text-on-light-heading);
+}
+
+.dal-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dal-steps li strong {
+  color: var(--dal-text-on-light-heading);
+}
+
+html.dark .dal-durana-block .dal-steps li strong,
+[data-bs-theme="dark"] .dal-durana-block .dal-steps li strong {
+  color: var(--dal-text-on-dark);
+}
+
+.dal-steps li:last-child {
+  margin-bottom: 0;
+}
+
+.dal-steps__num {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--dal-gold);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.dal-steps p {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--dal-text-on-light-muted);
+}
+
+html.dark .dal-durana-block .dal-steps p,
+[data-bs-theme="dark"] .dal-durana-block .dal-steps p {
+  color: var(--dal-text-on-dark-secondary);
+}
+
+.dal-categories-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 576px) {
+  .dal-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .dal-categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.dal-category-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+html.dark .dal-category-card,
+[data-bs-theme="dark"] .dal-category-card {
+  background: var(--dal-navy-light);
+  border-color: var(--dal-border);
+  color: var(--dal-text-on-dark-secondary);
+}
+
+html.dark .dal-category-card p,
+[data-bs-theme="dark"] .dal-category-card p {
+  color: var(--dal-text-on-dark-muted);
+}
+
+.dal-category-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dal-text-on-light-heading);
+}
+
+html.dark .dal-category-card h4,
+[data-bs-theme="dark"] .dal-category-card h4 {
+  color: var(--dal-text-on-dark);
+}
+
+.dal-category-card p {
+  font-size: 0.875rem;
+  margin: 0;
+  color: var(--dal-text-on-light-muted);
+}
+
+.dal-category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.12);
+}
+
+.dal-category-card__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 auto 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--dal-gold-text);
+  font-size: 1.125rem;
+}
+
+html.dark .dal-category-card__icon,
+[data-bs-theme="dark"] .dal-category-card__icon {
+  color: var(--dal-gold);
+}
+
+.dal-durana-cta {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+html.dark .dal-durana-cta {
+  background: rgba(212, 175, 55, 0.06);
+}
+
+.dal-durana-cta a {
+  color: var(--dal-gold);
+}
+
+/* Events */
+.dal-events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .dal-events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dal-event-card {
+  background: var(--dal-card-bg);
+  border: 1px solid var(--dal-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+html:not(.dark) .dal-section--light .dal-event-card {
+  background: #fff;
+  border-color: #e5e7eb;
+  color: #111827;
+}
+
+html.dark .dal-section--light .dal-event-card {
+  background: var(--dal-navy-light);
+  border-color: var(--dal-border);
+  color: var(--dal-white);
+}
+
+.dal-event-card__img {
+  height: 160px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.dal-event-card__body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dal-event-card__date {
+  color: var(--dal-gold);
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.dal-event-card h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.dal-event-card p {
+  font-size: 0.9375rem;
+  color: var(--dal-text-on-light-muted);
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+html.dark .dal-section--light .dal-event-card p,
+[data-bs-theme="dark"] .dal-section--light .dal-event-card p {
+  color: var(--dal-text-on-dark-secondary);
+}
+
+/* Membership pricing */
+.dal-pricing-card {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--dal-navy-light);
+  border: 2px solid var(--dal-gold);
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+}
+
+.dal-pricing-card--inline {
+  max-width: none;
+  margin: 0;
+  text-align: left;
+  padding: 1.75rem 1.5rem;
+}
+
+.dal-membership-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .dal-membership-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Lightning card (same QR as donation page) */
+.dal-lightning-card {
+  background: var(--dal-navy-light);
+  border: 1px solid var(--dal-border);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.dal-lightning-card__org {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--dal-text-on-dark-muted);
+  margin: 0 0 0.75rem;
+}
+
+.dal-lightning-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.625rem;
+  color: var(--dal-text-on-dark);
+}
+
+.dal-lightning-card__title i {
+  color: var(--dal-gold);
+  margin-right: 0.35rem;
+}
+
+.dal-lightning-card__lead {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--dal-text-on-dark-secondary);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.dal-lightning-card__lead a {
+  color: var(--dal-gold);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.dal-lightning-card__lead a:hover {
+  color: var(--dal-gold-hover);
+}
+
+.dal-lightning-amount-panel {
+  background: linear-gradient(135deg, #1c2450 0%, #0a0f2c 100%);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.dal-lightning-amount-usd {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--dal-gold);
+}
+
+.dal-lightning-amount-note {
+  font-size: 0.875rem;
+  color: var(--dal-text-on-dark-muted);
+  margin: 0.25rem 0 0;
+}
+
+.dal-lightning-qr-wrap {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.dal-lightning-qr {
+  display: block;
+  width: 200px;
+  height: 200px;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.dal-lightning-steps {
+  text-align: left;
+  margin: 0 0 1rem;
+  padding: 0.875rem 0.875rem 0.875rem 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dal-lightning-steps li {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--dal-text-on-dark-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.dal-lightning-steps li:last-child {
+  margin-bottom: 0;
+}
+
+.dal-lightning-card__hint {
+  font-size: 0.8125rem;
+  color: var(--dal-text-on-dark-muted);
+  margin: 0;
+  line-height: 1.6;
+  text-align: left;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dal-lightning-card__hint strong {
+  color: var(--dal-text-on-dark-secondary);
+}
+
+.dal-lightning-card__hint a {
+  color: var(--dal-gold);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.dal-lightning-card__hint a:hover {
+  color: var(--dal-gold-hover);
+}
+
+.dal-pricing-card__price {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--dal-gold);
+  line-height: 1;
+}
+
+.dal-pricing-card__price span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dal-text-on-dark-muted);
+}
+
+.dal-pricing-card > p.opacity-75,
+.dal-pricing-card__label {
+  color: var(--dal-text-on-dark-muted) !important;
+  opacity: 1 !important;
+}
+
+.dal-pricing-card ul li {
+  color: var(--dal-text-on-dark-secondary);
+}
+
+.dal-pricing-card__badge {
+  display: inline-block;
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--dal-gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  margin: 1rem 0;
+}
+
+.dal-pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.dal-pricing-card ul li {
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  position: relative;
+  font-size: 0.9375rem;
+}
+
+.dal-pricing-card ul li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: var(--dal-gold);
+  font-size: 0.75rem;
+  top: 0.55rem;
+}
+
+/* Telegram widget */
+.dal-telegram-widget {
+  max-width: 360px;
+  margin: 0 auto;
+  background: var(--dal-card-bg);
+  border: 1px solid var(--dal-border);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+html:not(.dark) .dal-section--light .dal-telegram-widget {
+  background: #fff;
+  border-color: #e5e7eb;
+  color: #111827;
+}
+
+html.dark .dal-section--light .dal-telegram-widget {
+  background: var(--dal-navy-light);
+  border-color: var(--dal-border);
+  color: var(--dal-white);
+}
+
+.dal-telegram-widget__icon {
+  font-size: 2.5rem;
+  color: #229ed9;
+  margin-bottom: 1rem;
+}
+
+.dal-telegram-widget__count {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--dal-gold);
+}
+
+.dal-modal__success i.fa-envelope {
+  font-size: 2.5rem;
+  color: var(--dal-gold);
+  margin-bottom: 1rem;
+}
+
+.dal-telegram-widget__status {
+  font-size: 0.875rem;
+  opacity: 0.75;
+  margin: 0.5rem 0 1.25rem;
+}
+
+/* Contact */
+.dal-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .dal-contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.dal-contact-info p {
+  margin-bottom: 0.75rem;
+}
+
+.dal-contact-info a {
+  color: var(--dal-gold);
+}
+
+.dal-contact-form .form-control {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--dal-border);
+  color: inherit;
+  padding: 0.875rem 1rem;
+}
+
+html:not(.dark) .dal-section--light .dal-contact-form .form-control {
+  background: #fff;
+  border-color: #e5e7eb;
+  color: #111;
+}
+
+html.dark .dal-section--light .dal-contact-form .form-control {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--dal-border);
+  color: var(--dal-white);
+}
+
+/* Footer (DAL-specific strip inside page) */
+.dal-footer {
+  background: var(--dal-navy);
+  color: var(--dal-text-on-dark-muted);
+  padding: 2rem 0;
+  border-top: 1px solid var(--dal-border);
+  font-size: 0.875rem;
+}
+
+html.dark body.dal-page .dal-footer,
+[data-bs-theme="dark"] body.dal-page .dal-footer {
+  background: var(--dal-navy) !important;
+  color: var(--dal-text-on-dark-muted);
+  border-top-color: var(--dal-border);
+}
+
+.dal-footer a {
+  color: var(--dal-gold);
+  text-decoration: none;
+}
+
+.dal-footer a:hover {
+  color: var(--dal-gold-hover);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.dal-footer__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.dal-pricing-card--inline ul {
+  text-align: left;
+}
+
+/* Payment modal */
+.dal-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 44, 0.85);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+
+.dal-modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dal-modal {
+  background: var(--dal-navy-light);
+  border: 1px solid var(--dal-border);
+  border-radius: 1rem;
+  max-width: 440px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: var(--dal-white);
+  padding: 2rem;
+  position: relative;
+}
+
+.dal-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--dal-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.25rem;
+}
+
+.dal-modal__close:hover {
+  color: var(--dal-white);
+}
+
+.dal-modal h3 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.dal-modal .form-control {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--dal-border);
+  color: var(--dal-white);
+  margin-bottom: 1rem;
+}
+
+.dal-modal .form-control:focus {
+  border-color: var(--dal-gold);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--dal-white);
+}
+
+.dal-qr-wrap {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.dal-qr-wrap canvas {
+  display: block;
+}
+
+.dal-invoice-field {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.dal-invoice-field input {
+  flex: 1;
+  font-size: 0.75rem;
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--dal-border);
+  color: var(--dal-white);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.dal-timer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--dal-gold);
+  margin-bottom: 1rem;
+}
+
+.dal-modal__success {
+  text-align: center;
+}
+
+.dal-modal__success i {
+  font-size: 3rem;
+  color: #22c55e;
+  margin-bottom: 1rem;
+}
+
+.dal-modal__error {
+  color: #f87171;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.dal-modal [hidden] {
+  display: none !important;
+}
+
+/* Reveal animation */
+.dal-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.dal-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dal-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .dal-btn--primary:hover {
+    transform: none;
+  }
+
+  .dal-benefit-card:hover {
+    transform: none;
+  }
+}

@@ -148,6 +148,37 @@ h6,
     color: var(--secondary);
 }
 
+/* Compact hero — trims the doubled py-5 padding on inner pages */
+.hero-header--compact {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.hero-header--compact > .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Hide the decorative hero illustration on text-light pages */
+.hero-header--compact .hero-header-art {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .hero-header--compact .hero-header-copy {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Compact first content section — replaces the leading py-5 */
+.page-section--compact {
+    padding-top: 1.5rem !important;
+    padding-bottom: 2rem !important;
+}
+
 
 /*** Service ***/
 .service-item {
@@ -220,7 +251,7 @@ h6,
 
 .roadmap-carousel .roadmap-item {
     position: relative;
-    padding-top: 150px;
+    padding-top: 120px;
     text-align: center;
 }
 
@@ -228,7 +259,7 @@ h6,
     position: absolute;
     content: "";
     width: 0;
-    height: 115px;
+    height: 88px;
     top: 0;
     left: 50%;
     transform: translateX(-50%);

@@ -55,6 +55,13 @@ export default defineConfig({
         "$10": "$10.html",
         "404": "404.html",
       },
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules/three")) {
+            return "three";
+          }
+        },
+      },
     },
   },
 });

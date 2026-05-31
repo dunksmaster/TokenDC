@@ -89,9 +89,6 @@ Contact | DuaCrypto
             
                 
                     
-## Contact Us
-
-                    
 Partnerships, consulting, and media inquiries
 
                     

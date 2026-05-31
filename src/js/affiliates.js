@@ -52,9 +52,12 @@ function createOpenSlotCard(index) {
     "affiliate-product-stage affiliate-product-stage--compact affiliate-join-stage";
 
   const icon = document.createElement("span");
-  icon.className = "affiliate-join-icon";
+  icon.className = "affiliate-join-bitcoin";
   icon.setAttribute("aria-hidden", "true");
-  icon.innerHTML = '<i class="fa fa-plus"></i>';
+  icon.innerHTML = `<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+    <circle cx="16" cy="16" r="16" fill="#F7931A"/>
+    <path fill="#fff" d="M22.5 14.2c.3-2-1.2-3.1-3.3-3.8l.7-2.7-1.6-.4-.7 2.6c-.4-.1-.9-.2-1.4-.3l.7-2.7-1.6-.4-.7 2.6c-.3-.1-.7-.2-1-.3l-2.2-.6-.4 1.7s1.2.3 1.2.3c.7.2.8.6.8 1l-.8 3.1c0 .1.1.1.2.2h-.2l-1.1 4.5c-.1.2-.3.5-.8.4 0 0-1.2-.3-1.2-.3l-.8 1.9 2.1.5c.4.1.8.2 1.2.3l-.7 2.8 1.6.4.7-2.7c.5.1.9.2 1.4.3l-.7 2.7 1.6.4.7-2.7c2.9.5 5.1.3 6-2.3.7-2.2-.1-3.5-1.5-4.3 1.1-.3 1.9-1 2.1-2.6zm-3.8 5.7c-.5 2.1-4.1 1-5.3.7l.9-3.8c1.2.3 5 .9 4.4 3.1zm.5-5.7c-.5 1.9-3.5.9-4.5.7l.9-3.5c1 .2 4.2.7 3.6 2.8z"/>
+  </svg>`;
 
   stage.appendChild(icon);
 

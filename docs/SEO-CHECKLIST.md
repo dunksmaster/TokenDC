@@ -29,7 +29,7 @@ Operational checklist for search visibility, rich results, and post-deploy verif
 1. Go to [Google Business Profile](https://business.google.com).
 2. Create or claim listing: **DuaCrypto**, category *Education* or *Community organization*.
 3. Address: Tirana, Albania (use exact meetup address if public).
-4. Phone: +355 69 782 2224 · Website: `https://duacrypto.com`.
+4. Email: info@duacrypto.com · Website: `https://duacrypto.com`.
 5. Add photos from `/events.html` (Bitcoin Pizza Day, Balkans Crypto).
 6. Post event updates linking to `events.html`.
 
