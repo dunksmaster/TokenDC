@@ -184,6 +184,13 @@
             margin-bottom: 1rem;
         }
 
+        .goal-container .goal-badge {
+            background: rgba(37, 165, 106, 0.14);
+            color: #1a5c41;
+            border: 1px solid rgba(37, 165, 106, 0.28);
+            margin-bottom: 0.75rem;
+        }
+
         .mission-section .mission-lead {
             font-size: 1.15rem;
             line-height: 1.65;
@@ -191,27 +198,30 @@
         }
 
         .goal-container {
-            background-color: var(--light-green);
+            background-color: #ffffff;
             border-radius: 20px;
             padding: 2rem 2rem 1.75rem;
             margin: 2rem 0;
-            border: 1px solid rgba(37, 165, 106, 0.25);
-            box-shadow: 0 8px 24px rgba(37, 165, 106, 0.12);
+            border: 1px solid rgba(37, 165, 106, 0.22);
+            border-left: 4px solid var(--primary-green);
+            box-shadow: 0 8px 28px rgba(37, 165, 106, 0.1);
         }
 
         .goal-container h3 {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            color: #1a3328;
         }
 
         .goal-subtitle {
-            color: #5a6c62;
+            color: #4a5d54;
             font-size: 1.05rem;
             margin-bottom: 1.5rem;
             max-width: 36rem;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
 
         .goal-progress-label {
@@ -220,19 +230,20 @@
             align-items: baseline;
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--dark-green);
+            color: #2d6b4a;
             margin-bottom: 0.5rem;
         }
 
         .goal-progress-label .goal-pct {
             font-size: 1.25rem;
+            color: var(--primary-green);
         }
 
         .progress {
             height: 1.25rem;
             border-radius: 999px;
             margin: 0 0 1.25rem;
-            background-color: #d1e7dd;
+            background-color: #dceee4;
             overflow: hidden;
         }
         
@@ -249,25 +260,25 @@
         }
 
         .goal-stat {
-            background: #fff;
+            background: #f4faf7;
             border-radius: 12px;
             padding: 1rem 0.75rem;
             text-align: center;
-            border: 1px solid rgba(37, 165, 106, 0.15);
+            border: 1px solid rgba(37, 165, 106, 0.2);
         }
 
         .goal-stat-value {
             display: block;
             font-size: 1.35rem;
             font-weight: 700;
-            color: var(--primary-green);
+            color: #1d8a5a;
             line-height: 1.2;
         }
 
         .goal-stat-label {
             display: block;
             font-size: 0.8rem;
-            color: #6b7c72;
+            color: #5a6c62;
             margin-top: 0.25rem;
             text-transform: uppercase;
             letter-spacing: 0.04em;
@@ -475,9 +486,17 @@
         }
 
         html.dark .goal-container {
-            background-color: #1a2e24;
-            border-left-color: #3fb950;
-            color: #c9d1d9;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-left: 4px solid #3fb950;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+            color: #e6edf3;
+        }
+
+        html.dark .goal-container .goal-badge {
+            background: rgba(63, 185, 80, 0.16);
+            color: #7ee787;
+            border: 1px solid rgba(63, 185, 80, 0.35);
         }
 
         html.dark .goal-container h3,
@@ -522,7 +541,7 @@
         html.dark .goal-subtitle,
         html.dark .goal-stat-label,
         html.dark .impact-label {
-            color: #8b949e;
+            color: #b1bac4;
         }
 
         html.dark .goal-stat {
@@ -531,11 +550,15 @@
         }
 
         html.dark .goal-stat-value {
-            color: #3fb950;
+            color: #56d364;
         }
 
         html.dark .goal-progress-label {
-            color: #7ee787;
+            color: #c9d1d9;
+        }
+
+        html.dark .goal-progress-label .goal-pct {
+            color: #56d364;
         }
 
         html.dark .impact-item {

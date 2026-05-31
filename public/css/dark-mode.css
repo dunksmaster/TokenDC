@@ -195,9 +195,46 @@ html.dark .wallet-section,
 
 html.dark .goal-container,
 [data-bs-theme="dark"] .goal-container {
-  background-color: #1a2e24 !important;
-  border-left-color: #3fb950;
+  background-color: #161b22 !important;
+  border: 1px solid #30363d !important;
+  border-left: 4px solid #3fb950 !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  color: #e6edf3;
+}
+
+html.dark .goal-container .goal-badge,
+[data-bs-theme="dark"] .goal-container .goal-badge {
+  background: rgba(63, 185, 80, 0.16) !important;
+  color: #7ee787 !important;
+  border: 1px solid rgba(63, 185, 80, 0.35);
+}
+
+html.dark .goal-container .goal-subtitle,
+html.dark .goal-container .goal-stat-label,
+[data-bs-theme="dark"] .goal-container .goal-subtitle,
+[data-bs-theme="dark"] .goal-container .goal-stat-label {
+  color: #b1bac4;
+}
+
+html.dark .goal-container .goal-stat,
+[data-bs-theme="dark"] .goal-container .goal-stat {
+  background: #0d1117 !important;
+  border-color: #30363d !important;
+}
+
+html.dark .goal-container .goal-stat-value,
+[data-bs-theme="dark"] .goal-container .goal-stat-value {
+  color: #56d364;
+}
+
+html.dark .goal-container .goal-progress-label,
+[data-bs-theme="dark"] .goal-container .goal-progress-label {
   color: #c9d1d9;
+}
+
+html.dark .goal-container .goal-progress-label .goal-pct,
+[data-bs-theme="dark"] .goal-container .goal-progress-label .goal-pct {
+  color: #56d364;
 }
 
 html.dark .goal-container .progress,
