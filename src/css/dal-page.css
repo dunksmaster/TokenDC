@@ -114,22 +114,70 @@ html.dark body.dal-page,
   line-height: 1.5;
 }
 
-.dal-hero__visual {
-  position: relative;
-  min-height: 220px;
-  max-height: 340px;
-  border-radius: 1rem;
-  overflow: hidden;
+/* Hero brand card (static; replaces WebGL network visual) */
+.dal-hero__brand {
+  display: none;
 }
 
-.dal-hero__visual .dal-fallback {
-  width: 100%;
-  height: 100%;
-  min-height: 220px;
+@media (min-width: 992px) {
+  .dal-hero__brand {
+    display: block;
+  }
+}
+
+.dal-hero__brand-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 1.75rem;
+  min-height: 280px;
   max-height: 340px;
-  display: block;
   border-radius: 1rem;
-  object-fit: cover;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: linear-gradient(165deg, rgba(18, 24, 54, 0.95) 0%, rgba(10, 15, 44, 0.98) 100%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.dal-hero__logo {
+  width: min(10rem, 42vw);
+  height: auto;
+  display: block;
+}
+
+.dal-hero__brand-name {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dal-gold);
+}
+
+.dal-hero__trust-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 16rem;
+}
+
+.dal-hero__trust-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--dal-text-on-dark-secondary);
+}
+
+.dal-hero__trust-list .fa-bolt {
+  color: var(--dal-gold);
 }
 
 /* Buttons */
@@ -295,24 +343,48 @@ html.dark .dal-section--light .dal-about__bullets li,
   background: var(--dal-gold);
 }
 
-.dal-about__visual {
-  position: relative;
-  min-height: 260px;
+.dal-about__brand {
+  margin: 0;
+}
+
+.dal-about__brand-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 220px;
+  padding: 2rem 1.5rem;
   border-radius: 1rem;
   background: var(--dal-navy-light);
   border: 1px solid var(--dal-border);
-  overflow: hidden;
+  text-align: center;
 }
 
-.dal-about__visual .dal-fallback {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+html.dark .dal-about__brand-card,
+[data-bs-theme="dark"] .dal-about__brand-card {
+  background: #1a1f3a;
+  border-color: var(--dal-border);
+}
+
+.dal-about__logo {
+  width: min(11rem, 55vw);
+  height: auto;
   display: block;
-  object-fit: contain;
-  padding: 2rem;
-  box-sizing: border-box;
+}
+
+.dal-about__brand-caption {
+  margin: 0;
+  max-width: 18rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--dal-text-on-light-muted);
+}
+
+html.dark .dal-about__brand-caption,
+[data-bs-theme="dark"] .dal-about__brand-caption {
+  color: var(--dal-text-on-dark-secondary);
 }
 
 .dal-stat-pill {
@@ -373,7 +445,8 @@ html.dark .dal-section--light .dal-founding-badge,
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Center the 5th card — avoids empty third-column hole */
+  /* Center a lone trailing card — avoids empty third-column hole */
+  .dal-benefits-grid .dal-benefit-card:last-child:nth-child(4),
   .dal-benefits-grid .dal-benefit-card:last-child:nth-child(5) {
     grid-column: 1 / -1;
     max-width: 36rem;
