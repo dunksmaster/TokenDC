@@ -117,11 +117,17 @@ Requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in GitHub Actions se
 
 ## GitHub Actions secrets (required for deploy on push)
 
-`cloudflare-pages.yml` deploys on every push to `main`. The token must include
-**Account → Cloudflare Pages → Edit** (use **Edit Cloudflare Workers** template).
-A **DNS-only** token works for `fix-dns` but will fail deploy with `Authentication error [10000]`.
+`cloudflare-pages.yml` deploys on every push to `main`. Use **two secrets** if you
+split DNS and Pages permissions:
 
-1. [Create API token](https://dash.cloudflare.com/profile/api-tokens) → **Edit Cloudflare Workers** template (Pages deploy). For `fix-dns`, also add **Zone → DNS → Edit** on `duacrypto.com`.
+| Secret | Permissions |
+|--------|-------------|
+| `CLOUDFLARE_API_TOKEN` | Account → **Cloudflare Pages → Edit** (Edit Cloudflare Workers template) |
+| `CLOUDFLARE_DNS_API_TOKEN` | Zone → **DNS → Edit** on `duacrypto.com` (for `fix-dns` workflow) |
+
+A DNS-only `CLOUDFLARE_API_TOKEN` makes `fix-dns` work but deploy fails with HTTP 403.
+
+1. [Create API token](https://dash.cloudflare.com/profile/api-tokens) → **Edit Cloudflare Workers** for deploy; create a second token with **Edit zone DNS** for `fix-dns` → `gh secret set CLOUDFLARE_DNS_API_TOKEN`.
 2. Copy **Account ID** from Cloudflare Dashboard → Workers & Pages (right sidebar)
 3. GitHub → **dunksmaster/TokenDC** → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**:
 

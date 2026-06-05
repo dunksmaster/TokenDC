@@ -1,5 +1,5 @@
 # Run after nameservers point to Cloudflare (aurora/ernest.ns.cloudflare.com).
-# Uses CLOUDFLARE_API_TOKEN repo secret (Zone.DNS Edit on duacrypto.com).
+# Uses CLOUDFLARE_DNS_API_TOKEN (or CLOUDFLARE_API_TOKEN) — Zone.DNS Edit on duacrypto.com.
 name: Fix Cloudflare DNS
 
 on:
@@ -20,7 +20,7 @@ jobs:
       - name: Fix DNS records + DNS-AID + DNSSEC
         run: npm run fix:dns
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_DNS_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
 
       - name: Diagnose domain
         run: npm run diagnose:domain
