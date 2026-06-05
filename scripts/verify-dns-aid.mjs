@@ -9,8 +9,8 @@
 import { DNS_AID_HTTPS_RECORDS, ZONE_NAME } from "../lib/dns-aid-records.mjs";
 
 const DOH_RESOLVERS = [
-  "https://cloudflare-dns.com/dns-query",
-  "https://dns.google/resolve",
+  { url: "https://cloudflare-dns.com/dns-query", label: "cloudflare-dns.com (isitagentready primary)" },
+  { url: "https://dns.google/resolve", label: "dns.google" },
 ];
 
 const zone = process.argv[2] ?? ZONE_NAME;
@@ -30,18 +30,32 @@ async function dohQuery(qname, type, resolver) {
   return res.json();
 }
 
+/** @param {string} qname @param {number} [type] @param {string} [resolverUrl] */
+async function queryResolver(qname, type, resolverUrl) {
+  const data = await dohQuery(qname, type, resolverUrl);
+  return { resolver: resolverUrl, data };
+}
+
 /** @param {string} qname @param {number} [type] */
-async function queryWithFallback(qname, type = HTTPS_TYPE) {
-  let lastErr;
-  for (const resolver of DOH_RESOLVERS) {
+async function queryAllResolvers(qname, type = HTTPS_TYPE) {
+  const results = [];
+  for (const { url } of DOH_RESOLVERS) {
     try {
-      const data = await dohQuery(qname, type, resolver);
-      return { resolver, data };
+      results.push(await queryResolver(qname, type, url));
     } catch (err) {
-      lastErr = err;
+      results.push({ resolver: url, error: err.message });
     }
   }
-  throw lastErr ?? new Error("DoH query failed");
+  return results;
+}
+
+/** @param {string} qname @param {number} [type] */
+async function queryWithFallback(qname, type = HTTPS_TYPE) {
+  const results = await queryAllResolvers(qname, type);
+  const ok = results.find((r) => !r.error && r.data?.Status !== 3);
+  if (ok) return ok;
+  const err = results.find((r) => r.error);
+  throw new Error(err?.error ?? "DoH query failed");
 }
 
 function formatAnswer(data) {
@@ -96,25 +110,34 @@ function httpsAnswerMatchesSpec(answers, spec) {
   return hasTarget && hasPort && hasAlpn;
 }
 
+function resolverLabel(url) {
+  return DOH_RESOLVERS.find((r) => r.url === url)?.label ?? new URL(url).hostname;
+}
+
+function dsAnswers(data) {
+  return (data?.Answer ?? []).filter((a) => a.type === 43).map((a) => a.data);
+}
+
 let failed = 0;
+let propagationPending = false;
 
 console.log(`DNS-AID verification for ${zone}\n`);
 
 for (const spec of DNS_AID_HTTPS_RECORDS) {
   const qname = `${spec.name}.${zone}`;
   try {
-    const { resolver, data } = await queryWithFallback(qname);
-    const answers = formatAnswer(data);
-    const ad = data.AD === true;
-    const nxdomain = data.Status === 3;
+    const results = await queryAllResolvers(qname);
+    const usable = results.filter((r) => !r.error && r.data?.Status !== 3);
+    const primary = usable[0] ?? results[0];
 
-    if (nxdomain || !answers) {
+    if (!primary || primary.error || primary.data?.Status === 3) {
       console.log(`[FAIL] ${qname}`);
-      console.log(`  No HTTPS record (status=${data.Status}, resolver=${resolver})`);
+      console.log(`  No HTTPS record (${primary?.error ?? `status=${primary?.data?.Status}`})`);
       failed++;
       continue;
     }
 
+    const answers = formatAnswer(primary.data);
     if (!httpsAnswerMatchesSpec(answers, spec)) {
       console.log(`[FAIL] ${qname}`);
       console.log(`  Unexpected answer: ${answers}`);
@@ -122,12 +145,33 @@ for (const spec of DNS_AID_HTTPS_RECORDS) {
       continue;
     }
 
-    const flag = ad ? "OK" : "WARN";
+    const cf = results.find((r) => r.resolver === DOH_RESOLVERS[0].url && !r.error);
+    const google = results.find((r) => r.resolver === DOH_RESOLVERS[1].url && !r.error);
+    const cfAd = cf?.data?.AD === true;
+    const googleAd = google?.data?.AD === true;
+    const flag = cfAd ? "OK" : googleAd ? "PENDING" : "WARN";
+
     console.log(`[${flag}] ${qname}`);
     console.log(`  answer: ${answers}`);
-    console.log(`  DNSSEC AD=${ad} (resolver: ${new URL(resolver).hostname})`);
-    if (!ad) {
-      console.log("  Hint: enable DNSSEC on Cloudflare and publish DS at registrar.");
+    for (const r of results) {
+      if (r.error) {
+        console.log(`  ${resolverLabel(r.resolver)}: error ${r.error}`);
+        continue;
+      }
+      console.log(
+        `  ${resolverLabel(r.resolver)}: AD=${r.data.AD === true}, status=${r.data.Status}`
+      );
+    }
+
+    if (!cfAd) {
+      if (googleAd) {
+        propagationPending = true;
+        console.log(
+          "  DS is live (Google validates). Waiting for cloudflare-dns.com / isitagentready to catch up."
+        );
+      } else {
+        console.log("  Hint: enable DNSSEC on Cloudflare and publish DS at Dynadot.");
+      }
       failed++;
     }
   } catch (err) {
@@ -138,19 +182,33 @@ for (const spec of DNS_AID_HTTPS_RECORDS) {
 }
 
 // DS chain at parent (type 43)
-try {
-  const { data } = await queryWithFallback(zone, 43);
-  const dsAnswers = (data.Answer ?? []).filter((a) => a.type === 43);
-  if (dsAnswers.length) {
-    console.log(`\n[OK] DS records for ${zone}: ${dsAnswers.map((a) => a.data).join("; ")}`);
-  } else {
-    console.log(`\n[WARN] No DS record for ${zone} — add Cloudflare DS at Dynadot.`);
-    failed++;
+console.log("");
+const dsResults = await queryAllResolvers(zone, 43);
+let dsSeen = false;
+for (const r of dsResults) {
+  if (r.error) {
+    console.log(`[WARN] DS via ${resolverLabel(r.resolver)}: ${r.error}`);
+    continue;
   }
-} catch (err) {
-  console.log(`\n[WARN] Could not query DS for ${zone}: ${err.message}`);
+  const answers = dsAnswers(r.data);
+  if (answers.length) {
+    dsSeen = true;
+    console.log(`[OK] DS via ${resolverLabel(r.resolver)}: ${answers.join("; ")} (AD=${r.data.AD === true})`);
+  } else {
+    console.log(`[WARN] DS via ${resolverLabel(r.resolver)}: not visible yet (AD=${r.data.AD === true})`);
+    if (r.resolver === DOH_RESOLVERS[0].url) failed++;
+  }
+}
+if (!dsSeen) {
+  console.log("\nNo resolver returned a DS record yet. Confirm Dynadot DNSSEC values match Cloudflare.");
   failed++;
 }
 
-console.log(failed ? `\n${failed} check(s) failed.` : "\nAll DNS-AID checks passed.");
-process.exit(failed ? 1 : 0);
+if (propagationPending) {
+  console.log(
+    "\nPropagation in progress: records are correct. Re-run in a few hours; isitagentready uses cloudflare-dns.com."
+  );
+}
+
+console.log(failed ? `\n${failed} check(s) pending/failed.` : "\nAll DNS-AID checks passed.");
+process.exitCode = failed ? 1 : 0;
