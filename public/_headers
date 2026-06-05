@@ -1,10 +1,10 @@
 /
-  Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="describedby", </openapi/site-api.yaml>; rel="service-desc"; type="application/yaml", </docs/api>; rel="service-doc"; type="text/html", </.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"
+  Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="describedby", </openapi/site-api.yaml>; rel="service-desc"; type="application/yaml", </docs/api>; rel="service-doc"; type="text/html", </.well-known/mcp/server-card.json>; rel="describedby"; type="application/json", </auth.md>; rel="describedby"; type="text/markdown", </.well-known/oauth-protected-resource>; rel="oauth-protected-resource"; type="application/json"
   Content-Signal: ai-train=no, search=yes, ai-input=yes
   Vary: Accept
 
 /index.html
-  Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="describedby", </openapi/site-api.yaml>; rel="service-desc"; type="application/yaml", </docs/api>; rel="service-doc"; type="text/html", </.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"
+  Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="describedby", </openapi/site-api.yaml>; rel="service-desc"; type="application/yaml", </docs/api>; rel="service-doc"; type="text/html", </.well-known/mcp/server-card.json>; rel="describedby"; type="application/json", </auth.md>; rel="describedby"; type="text/markdown", </.well-known/oauth-protected-resource>; rel="oauth-protected-resource"; type="application/json"
   Content-Signal: ai-train=no, search=yes, ai-input=yes
   Vary: Accept
 
@@ -16,6 +16,9 @@
 
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
+
+/auth.md
+  Content-Type: text/markdown; charset=utf-8
 
 /md/*
   Content-Type: text/markdown; charset=utf-8

@@ -16,6 +16,12 @@ import { buildThemeAssets } from "./build-theme-assets.mjs";
 import { applySeoToHtmlFiles } from "./inject-seo.mjs";
 import { siteUrl as seoSiteUrl, seoPages } from "./seo-config.mjs";
 import { cloudflareHeadersBlock } from "../lib/agent-discovery-headers.mjs";
+import {
+  generateAuthMd,
+  OPENID_CONFIGURATION,
+  OAUTH_AUTHORIZATION_SERVER,
+  PROTECTED_RESOURCE_METADATA,
+} from "../lib/auth-md-config.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
@@ -464,6 +470,30 @@ function syncLegacyAssetsToPublic() {
   copyFileSync(mainJsSrc, mainJsDest);
 }
 
+/** auth.md + OAuth PRM / AS metadata for agent registration discovery. */
+function syncAuthMdFiles() {
+  writeFileSync(
+    join(root, "public", "auth.md"),
+    `${generateAuthMd()}\n`,
+    "utf8"
+  );
+  writeFileSync(
+    join(root, "public", ".well-known", "oauth-protected-resource"),
+    `${JSON.stringify(PROTECTED_RESOURCE_METADATA, null, 2)}\n`,
+    "utf8"
+  );
+  writeFileSync(
+    join(root, "public", ".well-known", "oauth-authorization-server"),
+    `${JSON.stringify(OAUTH_AUTHORIZATION_SERVER, null, 2)}\n`,
+    "utf8"
+  );
+  writeFileSync(
+    join(root, "public", ".well-known", "openid-configuration"),
+    `${JSON.stringify(OPENID_CONFIGURATION, null, 2)}\n`,
+    "utf8"
+  );
+}
+
 /** RFC 8288 Link headers for Cloudflare Pages (`public/_headers` → `dist/_headers`). */
 function syncLinkHeadersFile() {
   const home = cloudflareHeadersBlock();
@@ -481,6 +511,9 @@ ${home}
 
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
+
+/auth.md
+  Content-Type: text/markdown; charset=utf-8
 
 /md/*
   Content-Type: text/markdown; charset=utf-8
@@ -527,8 +560,9 @@ await buildThemeAssets();
 syncThemeCss();
 syncLegacyAssetsToPublic();
 generateWebBotAuth();
+syncAuthMdFiles();
 syncLinkHeadersFile();
 writeRootDiscoveryFiles();
 console.log(
-  "Agent assets generated (robots, sitemap, markdown, skills, API, theme, web-bot-auth, link-headers)."
+  "Agent assets generated (robots, sitemap, markdown, skills, API, theme, web-bot-auth, auth.md, link-headers)."
 );

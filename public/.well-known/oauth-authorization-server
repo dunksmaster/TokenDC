@@ -4,9 +4,56 @@
   "token_endpoint": "https://duacrypto.com/oauth/token",
   "jwks_uri": "https://duacrypto.com/.well-known/jwks.json",
   "registration_endpoint": "https://duacrypto.com/oauth/register",
-  "scopes_supported": ["site.read"],
-  "response_types_supported": ["code"],
-  "grant_types_supported": ["authorization_code", "client_credentials"],
-  "token_endpoint_auth_methods_supported": ["client_secret_basic", "none"],
-  "service_documentation": "https://duacrypto.com/docs/api"
+  "revocation_endpoint": "https://duacrypto.com/agent/auth/revoke",
+  "scopes_supported": [
+    "openid",
+    "site.read"
+  ],
+  "response_types_supported": [
+    "code"
+  ],
+  "grant_types_supported": [
+    "authorization_code",
+    "client_credentials",
+    "urn:ietf:params:oauth:grant-type:jwt-bearer"
+  ],
+  "subject_types_supported": [
+    "public"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ],
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_basic",
+    "none"
+  ],
+  "service_documentation": "https://duacrypto.com/docs/api",
+  "agent_auth": {
+    "skill": "https://duacrypto.com/auth.md",
+    "register_uri": "https://duacrypto.com/agent/auth",
+    "claim_uri": "https://duacrypto.com/agent/auth/claim",
+    "revocation_uri": "https://duacrypto.com/agent/auth/revoke",
+    "identity_types_supported": [
+      "anonymous",
+      "identity_assertion"
+    ],
+    "anonymous": {
+      "credential_types_supported": [
+        "api_key"
+      ]
+    },
+    "identity_assertion": {
+      "assertion_types_supported": [
+        "urn:ietf:params:oauth:token-type:id-jag",
+        "verified_email"
+      ],
+      "credential_types_supported": [
+        "access_token",
+        "api_key"
+      ]
+    },
+    "events_supported": [
+      "https://schemas.workos.com/events/agent/auth/identity/assertion/revoked"
+    ]
+  }
 }

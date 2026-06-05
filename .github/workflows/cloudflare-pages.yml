@@ -63,3 +63,6 @@ jobs:
 
       - name: Verify Link headers on Pages preview
         run: npm run verify:headers -- https://dc-site-4p3.pages.dev/
+
+      - name: Verify auth.md on Pages preview
+        run: npm run verify:auth-md -- https://dc-site-4p3.pages.dev

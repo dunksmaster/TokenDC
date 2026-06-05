@@ -28,6 +28,7 @@ This script:
 - Removes bad CNAMEs (`www` → `duacrypto.com`, stray `dc-site-4p3.pages.dev` name)
 - Adds `@` + `www` CNAME → `dc-site-4p3.pages.dev` (proxied)
 - Ensures MX + SPF + DMARC for PrivateEmail
+- Publishes **DNS-AID** HTTPS records (`_index._agents`, `_mcp._agents`) and enables **DNSSEC**
 
 ## Manual Dynadot steps (required for DNS to go live)
 
@@ -37,12 +38,15 @@ Cloudflare DNS only applies after nameservers point to Cloudflare.
 2. **Dynadot → Name Servers** → custom:
    - `aurora.ns.cloudflare.com`
    - `ernest.ns.cloudflare.com`
-3. Wait 15–30 minutes
+3. **Dynadot → DNSSEC** → add DS records printed by `npm run fix:dns` (or Cloudflare dashboard → DNS → DNSSEC)
+4. Wait 15–30 minutes
 
 ## Verify
 
 ```powershell
 npm run diagnose:domain
+npm run verify:auth-md
+npm run verify:dns-aid
 curl.exe -s https://duacrypto.com/ | findstr "<title>"
 curl.exe -sI https://duacrypto.com/robots.txt
 curl.exe -sI https://duacrypto.com/sitemap.xml
@@ -50,8 +54,29 @@ curl.exe -sI https://duacrypto.com/sitemap.xml
 
 Expected:
 - All diagnose URLs: `OK`
+- `verify:auth-md`: `/auth.md` 200, PRM + `agent_auth` block present
+- `verify:dns-aid`: `_index._agents` HTTPS records, DNSSEC AD=true, DS at parent
 - Title: `Bitcoin & Crypto Community in Albania | DuaCrypto Tirana`
 - `robots.txt` and `sitemap.xml`: HTTP 200
+
+## Agent discovery (auth.md + DNS-AID)
+
+**auth.md** (HTTP — deploy first): push to `main` so Cloudflare Pages serves:
+
+- `/auth.md` — agent registration guide (`# auth.md` heading)
+- `/.well-known/oauth-protected-resource` — PRM with `authorization_servers`
+- `/.well-known/oauth-authorization-server` — includes `agent_auth` block
+
+Regenerate and build locally: `npm run agent:generate && npm run build`
+
+**DNS-AID** (DNS — after NS cutover): `npm run publish:dns-aid` or `npm run fix:dns` publishes:
+
+```
+_index._agents.duacrypto.com. 3600 IN HTTPS 1 duacrypto.com. alpn="h3,h2" port=443 mandatory=alpn,port
+_mcp._agents.duacrypto.com.   3600 IN HTTPS 1 duacrypto.com. alpn="mcp,h3,h2" port=443 mandatory=alpn,port
+```
+
+[isitagentready](https://isitagentready.com/) scans `https://duacrypto.com` — both checks fail until apex DNS points to Cloudflare **and** the latest build is deployed.
 
 ## Google Search Console (after DNS fix)
 

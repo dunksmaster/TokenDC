@@ -6,7 +6,15 @@
  * Usage:
  *   CLOUDFLARE_API_TOKEN=... npm run fix:dns
  */
-const ZONE_NAME = "duacrypto.com";
+import {
+  cloudflareApi,
+  dnsRecordFqdn,
+  getZone,
+  normDnsName,
+  ZONE_NAME,
+} from "../lib/cloudflare-dns-api.mjs";
+import { publishDnsAid } from "../lib/publish-dns-aid.mjs";
+
 const PAGES_TARGET = "dc-site-4p3.pages.dev";
 const GITHUB_A_IPS = new Set([
   "185.199.108.153",
@@ -43,35 +51,14 @@ if (!token) {
   process.exit(1);
 }
 
-async function api(path, options = {}) {
-  const res = await fetch(`https://api.cloudflare.com/client/v4${path}`, {
-    ...options,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-      ...(options.headers ?? {}),
-    },
-  });
-  const data = await res.json();
-  if (!data.success) {
-    const msg = data.errors?.map((e) => e.message).join("; ") ?? res.statusText;
-    throw new Error(msg);
-  }
-  return data;
-}
-
-function normName(name) {
-  return name === ZONE_NAME ? ZONE_NAME : name.replace(/\.$/, "");
-}
+const api = (path, options) => cloudflareApi(token, path, options);
 
 function recordKey(r) {
-  return `${r.type}|${normName(r.name)}|${r.content}`;
+  return `${r.type}|${normDnsName(r.name)}|${r.content}`;
 }
 
 async function main() {
-  const zones = await api(`/zones?name=${ZONE_NAME}`);
-  const zone = zones.result?.[0];
-  if (!zone) throw new Error(`Zone not found: ${ZONE_NAME}`);
+  const zone = await getZone(token);
   const zoneId = zone.id;
 
   console.log(`Zone: ${ZONE_NAME} (${zoneId})`);
@@ -82,10 +69,12 @@ async function main() {
 
   const toDelete = existing.filter((r) => {
     if (r.type === "A" && GITHUB_A_IPS.has(r.content)) return true;
-    if (r.type === "CNAME" && normName(r.name) === PAGES_TARGET) return true;
+    if (r.type === "CNAME" && normDnsName(r.name) === normDnsName(PAGES_TARGET)) {
+      return true;
+    }
     if (
       r.type === "CNAME" &&
-      normName(r.name) === `www.${ZONE_NAME}` &&
+      normDnsName(r.name) === dnsRecordFqdn(`www.${ZONE_NAME}`) &&
       r.content === ZONE_NAME
     ) {
       return true;
@@ -123,10 +112,14 @@ async function main() {
     });
   }
 
+  console.log("\nPublishing DNS-AID records + DNSSEC...");
+  await publishDnsAid(token);
+
   console.log("\nDone. Next:");
   console.log("1. Dynadot: disable Email Settings, set NS to aurora/ernest.cloudflare.com");
-  console.log("2. Wait 15-30 min, then: npm run diagnose:domain");
-  console.log("3. Google Search Console: request indexing + submit sitemap.xml");
+  console.log("2. Add Cloudflare DS records at Dynadot (printed above if DNSSEC enabled)");
+  console.log("3. Wait 15-30 min, then: npm run diagnose:domain && npm run verify:dns-aid");
+  console.log("4. Google Search Console: request indexing + submit sitemap.xml");
 }
 
 main().catch((err) => {
