@@ -9,6 +9,8 @@
     "deploy": "wrangler pages deploy dist --project-name=dc-site --branch=backup-working-state --commit-dirty",
     "deploy:production": "wrangler pages deploy dist --project-name=dc-site --branch=main --commit-dirty",
     "verify:headers": "node scripts/verify-link-headers.mjs",
+    "diagnose:domain": "node scripts/diagnose-domain.mjs",
+    "fix:dns": "node scripts/fix-cloudflare-dns.mjs",
     "preview": "vite preview",
     "agent:generate": "node scripts/generate-agent-assets.mjs",
     "test:markdown": "node scripts/test-markdown-negotiation.mjs",
