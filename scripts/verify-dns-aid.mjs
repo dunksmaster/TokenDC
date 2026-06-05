@@ -21,6 +21,7 @@ async function dohQuery(qname, type, resolver) {
   const url = new URL(resolver);
   url.searchParams.set("name", qname);
   url.searchParams.set("type", String(type));
+  url.searchParams.set("do", "1");
 
   const res = await fetch(url, {
     headers: { Accept: "application/dns-json" },
@@ -51,6 +52,50 @@ function formatAnswer(data) {
     .join("; ");
 }
 
+/** Encode DNS wire-format owner name for hex substring checks. */
+function wireNameHex(hostname) {
+  return hostname
+    .split(".")
+    .map((label) => label.length.toString(16).padStart(2, "0") + Buffer.from(label).toString("hex"))
+    .join("") + "00";
+}
+
+/** @param {string} answers @param {{ priority: number; target: string; value: string }} spec */
+function httpsAnswerMatchesSpec(answers, spec) {
+  if (!answers) return false;
+
+  const textOk =
+    answers.includes(String(spec.priority)) &&
+    answers.includes(spec.target) &&
+    answers.includes("alpn") &&
+    answers.includes("port");
+  if (textOk) return true;
+
+  // DoH often returns RFC 3597 \# hex encoding for HTTPS/SVCB RDATA.
+  const match = answers.match(/\\?#\s*(\d+)\s+([\da-fA-F\s]+)/);
+  if (!match) return false;
+
+  const bytes = match[2]
+    .trim()
+    .split(/\s+/)
+    .map((b) => parseInt(b, 16))
+    .filter((n) => !Number.isNaN(n));
+  if (bytes.length < 8) return false;
+
+  const priority = (bytes[0] << 8) | bytes[1];
+  if (priority !== spec.priority) return false;
+
+  const blob = Buffer.from(bytes).toString("hex");
+  const targetWire = wireNameHex(spec.target);
+  const hasTarget = blob.includes(targetWire);
+  const hasPort = blob.includes("0003000201bb");
+  const hasAlpn =
+    blob.includes("026833") ||
+    blob.includes("026832") ||
+    blob.includes("036d6370");
+  return hasTarget && hasPort && hasAlpn;
+}
+
 let failed = 0;
 
 console.log(`DNS-AID verification for ${zone}\n`);
@@ -70,12 +115,7 @@ for (const spec of DNS_AID_HTTPS_RECORDS) {
       continue;
     }
 
-    const hasTarget =
-      answers.includes(String(spec.priority)) && answers.includes(spec.target);
-    const hasAlpn = answers.includes("alpn");
-    const hasPort = answers.includes("port");
-
-    if (!hasTarget || !hasAlpn || !hasPort) {
+    if (!httpsAnswerMatchesSpec(answers, spec)) {
       console.log(`[FAIL] ${qname}`);
       console.log(`  Unexpected answer: ${answers}`);
       failed++;
