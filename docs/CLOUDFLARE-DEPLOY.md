@@ -1,17 +1,46 @@
 # Cloudflare Pages — production hosting
 
-Production deploys from `main` via `.github/workflows/cloudflare-pages.yml` → **dc-site** on Cloudflare Pages.
+Production deploys via **Cloudflare Pages native Git integration**: Cloudflare is
+connected to the GitHub repo and builds + deploys **dc-site** on every push to
+`main`. No GitHub Actions required.
 
-GitHub Pages (`static.yml`) is **legacy / manual only** — it cannot set RFC 8288 `Link` response headers.
+- GitHub Actions (`cloudflare-pages.yml`) is now **manual fallback only** (`workflow_dispatch`) — use it for rollback/redeploy or delete once native builds are confirmed.
+- GitHub Pages (`static.yml`) is **legacy / manual only** — it cannot set RFC 8288 `Link` response headers.
 
-## Migration checklist (GitHub Pages → Cloudflare)
+## Cloudflare native Git build settings
 
-### 1. Code & CI (done in repo)
+Workers & Pages → **dc-site** → **Settings** → **Builds & deployments**:
 
-- [x] Cloudflare workflow deploys on every `main` push
+| Setting | Value |
+|--------|--------|
+| Git repository | `dunksmaster/TokenDC` (connect via **Connect to Git**) |
+| Production branch | `main` |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Root directory | `/` |
+| Node version | `22` (pinned via `.node-version`) |
+
+`functions/` (Pages Functions) and `dist/_headers` are picked up automatically.
+Do **not** set a Deploy command and never use `npx wrangler versions upload` (Workers-only; breaks Pages).
+
+## Migration checklist (GitHub → Cloudflare)
+
+### 1. Code & repo (done in repo)
+
+- [x] `wrangler.toml` configured for Pages project `dc-site` (`pages_build_output_dir = "dist"`)
+- [x] `.node-version` pins Node 22 for Cloudflare's native builder
+- [x] `esbuild` declared as an explicit devDependency (used by `scripts/build-theme-assets.mjs`)
+- [x] GitHub Actions Cloudflare workflow set to manual-only (no push trigger → no double deploys)
 - [x] GitHub Pages workflow disabled on push (`workflow_dispatch` only)
 - [x] `public/CNAME` removed (Cloudflare uses dashboard custom domains, not a CNAME file)
 - [x] `dist/_headers` + `functions/_middleware.ts` inject `Link` headers on homepage
+
+### 1b. Connect Git (Cloudflare dashboard — one-time)
+
+1. Workers & Pages → **dc-site** → **Settings** → **Builds & deployments** → **Connect to Git**
+2. Authorize the GitHub app for `dunksmaster/TokenDC`, pick branch `main`
+3. Set build command `npm run build`, output `dist` (table above)
+4. Trigger a deployment and confirm it builds green
 
 ### 2. Cloudflare Dashboard
 
@@ -86,9 +115,11 @@ npm run deploy:production
 
 Requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in GitHub Actions secrets.
 
-## GitHub Actions secrets (required for CI deploy)
+## GitHub Actions secrets (optional — only for the manual fallback workflow)
 
-The repo currently has **no** Cloudflare secrets configured. Add them before the next `main` push:
+With native Git integration, production deploys need **no** GitHub secrets. These
+are only required if you run the `workflow_dispatch` fallback in
+`cloudflare-pages.yml` or deploy from CI. To enable that fallback:
 
 1. [Create API token](https://dash.cloudflare.com/profile/api-tokens) → **Edit Cloudflare Workers** template (includes Pages deploy)
 2. Copy **Account ID** from Cloudflare Dashboard → Workers & Pages (right sidebar)
