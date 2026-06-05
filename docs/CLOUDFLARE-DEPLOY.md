@@ -1,77 +1,94 @@
-# Cloudflare Pages deploy (Link headers / agent discovery)
+# Cloudflare Pages — production hosting
 
-## Why agent scans fail today
+Production deploys from `main` via `.github/workflows/cloudflare-pages.yml` → **dc-site** on Cloudflare Pages.
 
-1. **Cloudflare builds are failing** — the Git integration uses deploy command `npx wrangler versions upload`, which is for Workers, not Pages. The Vite build succeeds; only deploy fails.
-2. **duacrypto.com still serves GitHub Pages** — `curl -I https://duacrypto.com/` shows `Server: GitHub.com` and no `Link` header. GitHub Pages cannot set custom response headers.
+GitHub Pages (`static.yml`) is **legacy / manual only** — it cannot set RFC 8288 `Link` response headers.
 
-## Fix Cloudflare (required)
+## Migration checklist (GitHub Pages → Cloudflare)
 
-In [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **dc-site** → **Settings** → **Build**:
+### 1. Code & CI (done in repo)
+
+- [x] Cloudflare workflow deploys on every `main` push
+- [x] GitHub Pages workflow disabled on push (`workflow_dispatch` only)
+- [x] `public/CNAME` removed (Cloudflare uses dashboard custom domains, not a CNAME file)
+- [x] `dist/_headers` + `functions/_middleware.ts` inject `Link` headers on homepage
+
+### 2. Cloudflare Dashboard
+
+[Workers & Pages](https://dash.cloudflare.com/) → **dc-site** → **Settings** → **Build**:
 
 | Setting | Value |
 |--------|--------|
-| Build command | `npm run build` |
+| Build command | *(leave empty — GitHub Actions builds)* |
 | Build output directory | `dist` |
-| **Deploy command** | **Leave empty** (recommended) |
+| **Deploy command** | **Leave empty** |
 
-Do **not** use `npx wrangler versions upload`. That command is for Workers with a script entrypoint, not for this static Pages site with `functions/`.
+Do **not** use `npx wrangler versions upload` (Workers-only; breaks Pages).
 
-Optional alternative deploy command (if your project requires one):
+### 3. Custom domain
+
+1. **dc-site** → **Custom domains** → add `duacrypto.com` (and `www.duacrypto.com` if used)
+2. Cloudflare shows the DNS records to create (usually CNAME to `dc-site.pages.dev` or apex A/AAAA)
+
+### 4. DNS (required — site stays on GitHub until this is done)
+
+Current `duacrypto.com` resolves to GitHub Pages (`185.199.x.x`). Update DNS:
+
+- **If the zone is on Cloudflare:** orange-cloud proxy on; follow the records Pages suggests when adding the custom domain
+- **If DNS is elsewhere:** point apex/`www` to Cloudflare Pages per the custom-domain wizard (may require moving the zone to Cloudflare for apex)
+
+### 5. Remove GitHub Pages custom domain
+
+[GitHub repo Settings → Pages](https://github.com/dunksmaster/TokenDC/settings/pages) → remove `duacrypto.com` as custom domain so TLS/DNS are not split.
+
+Or via CLI:
 
 ```bash
-npm run deploy
+gh api --method PUT repos/dunksmaster/TokenDC/pages \
+  --input - <<< '{"build_type":"workflow","source":{"branch":"main","path":"/"},"cname":null}'
 ```
 
-Then **Retry deployment** on the latest failed build, or push any commit to `backup-working-state` to trigger a new build.
-
-## Point the custom domain at Cloudflare
-
-After a successful Pages deploy:
-
-1. In **dc-site** → **Custom domains**, add `duacrypto.com` (and `www` if used).
-2. In **GitHub** → repo **Settings** → **Pages**, remove `duacrypto.com` as a custom domain (so DNS is not split).
-3. Update DNS at your registrar: apex/`www` CNAME to the hostname Cloudflare shows (or use Cloudflare DNS).
-
-## Verify Link headers
-
-```bash
-curl.exe -sI https://duacrypto.com/ | findstr /i link
-```
-
-You should see:
-
-```http
-Link: </.well-known/api-catalog>; rel="api-catalog", ...
-```
-
-Or run:
+### 6. Verify
 
 ```bash
 npm run verify:headers -- https://duacrypto.com/
+curl.exe -sI https://duacrypto.com/ | findstr /i "link server"
 ```
 
-Local dev (`npm run dev`) and Cloudflare Pages also inject the same `Link` value via `lib/agent-discovery-headers.mjs` (Vite middleware + `functions/_middleware.ts` + `dist/_headers`).
+Expect `Server: cloudflare` and a `Link:` header with `rel="api-catalog"`.
 
-## Interim: GitHub Pages + Cloudflare proxy (Transform Rule)
+Preview (before DNS cutover):
 
-If you must keep GitHub Pages as origin but want `Link` headers on `duacrypto.com` before migrating:
+```bash
+npm run verify:headers -- https://main.dc-site.pages.dev/
+```
 
-1. In Cloudflare Dashboard → **Rules** → **Response Header Transform Rules** → **Create rule**
-2. **Name:** `Agent discovery Link headers (homepage)`
-3. **When:** `(http.host eq "duacrypto.com" or http.host eq "www.duacrypto.com") and (http.request.uri.path eq "/" or http.request.uri.path eq "/index.html")`
-4. **Then:** Set static response header  
-   **Header name:** `Link`  
-   **Value:** (copy from `public/_headers` line 2, or run `node -e "import('./lib/agent-discovery-headers.mjs').then(m=>console.log(m.LINK_HEADER))"`)
+## Link header sources
 
-Orange-cloud proxy must be enabled on the GitHub Pages CNAME. HTML `<link rel="api-catalog">` tags in `index.html` are a fallback for parsers that read the document, but agent scanners expect the **response** header.
+Single source of truth: `lib/agent-discovery-headers.mjs`
 
-## Local / CLI deploy
+| Layer | File |
+|-------|------|
+| Static headers | `public/_headers` → `dist/_headers` |
+| Edge middleware | `functions/_middleware.ts` |
+| Local dev | `vite-plugins/agent-discovery.js` |
+| HTML fallback | `index.html` `<link rel="api-catalog">` tags |
+
+## Local / manual deploy
 
 ```bash
 npm run build
 npx wrangler login
-npm run deploy
+npm run deploy:production
 ```
 
-Requires `CLOUDFLARE_API_TOKEN` in CI (GitHub Actions workflow `cloudflare-pages.yml` on `main`).
+Requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in GitHub Actions secrets.
+
+## GitHub Actions secrets
+
+| Secret | Purpose |
+|--------|---------|
+| `CLOUDFLARE_API_TOKEN` | Pages deploy + domain attach |
+| `CLOUDFLARE_ACCOUNT_ID` | Account scope for wrangler |
+
+Token permissions: **Cloudflare Pages Edit**, **Account Settings Read** (minimum).

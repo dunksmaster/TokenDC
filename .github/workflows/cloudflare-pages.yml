@@ -1,4 +1,5 @@
-# Cloudflare Pages deploy — required for RFC 8288 Link response headers (GitHub Pages cannot set them).
+# Production deploy: Vite build → dist/ → Cloudflare Pages (duacrypto.com).
+# Required for RFC 8288 Link response headers, Pages Functions, and x402 API routes.
 name: Deploy to Cloudflare Pages
 
 on:
@@ -23,7 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
 
       - name: Install and build
@@ -32,16 +33,17 @@ jobs:
           npm ci && npm run build
 
       - name: Deploy to Cloudflare Pages
-        id: cloudflare
-        continue-on-error: true
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # Pages deploy (not `wrangler versions upload`). Requires CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID secrets.
-          command: npm run deploy:production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler pages deploy dist --project-name=dc-site --branch=main
 
-      - name: Cloudflare deploy note
-        if: steps.cloudflare.outcome == 'failure'
-        run: |
-          echo "::warning::Cloudflare Pages deploy skipped or failed. Link response headers require Cloudflare Pages (or a Transform Rule on proxied GitHub Pages). See docs/CLOUDFLARE-DEPLOY.md."
+      - name: Attach custom domain (idempotent)
+        continue-on-error: true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler pages domain add duacrypto.com --project-name=dc-site
+
+      - name: Verify Link headers on Pages preview
+        run: npm run verify:headers -- https://main.dc-site.pages.dev/

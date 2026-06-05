@@ -1,11 +1,8 @@
-# Production deploy: Vite build → dist/ → GitHub Pages (duacrypto.com custom domain).
-# Note: GitHub Pages cannot set HTTP Link headers (RFC 8288). Use Cloudflare Pages (cloudflare-pages.yml)
-# or a Cloudflare Transform Rule — see docs/CLOUDFLARE-DEPLOY.md.
-name: Deploy static content to Pages
+# Legacy GitHub Pages deploy — disabled on push (production is Cloudflare Pages).
+# GitHub Pages cannot set HTTP Link headers (RFC 8288). Use workflow_dispatch only for rollback.
+name: Deploy static content to Pages (legacy)
 
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -30,7 +27,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
 
       - name: Install and build
