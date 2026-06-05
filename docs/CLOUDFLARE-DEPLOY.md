@@ -60,8 +60,10 @@ Expect `Server: cloudflare` and a `Link:` header with `rel="api-catalog"`.
 Preview (before DNS cutover):
 
 ```bash
-npm run verify:headers -- https://main.dc-site.pages.dev/
+npm run verify:headers -- https://dc-site-4p3.pages.dev/
 ```
+
+(Custom domains like `duacrypto.com` are attached in Cloudflare Dashboard → **dc-site** → **Custom domains** — wrangler v4 has no `pages domain add` CLI.)
 
 ## Link header sources
 

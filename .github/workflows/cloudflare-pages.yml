@@ -42,23 +42,22 @@ jobs:
           export SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)
           npm ci && npm run build
 
+      - name: Ensure Pages project exists
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.93.0"
+          command: pages project create dc-site --production-branch=main
+        continue-on-error: true
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4.93.0"
-          command: pages deploy dist --project-name=dc-site --branch=main
-
-      - name: Attach custom domain (idempotent)
-        continue-on-error: true
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4.93.0"
-          command: pages domain add duacrypto.com --project-name=dc-site
+          command: pages deploy dist --project-name=dc-site --branch=main --commit-dirty=true
 
       - name: Verify Link headers on Pages preview
-        continue-on-error: true
-        run: npm run verify:headers -- https://main.dc-site.pages.dev/
+        run: npm run verify:headers -- https://dc-site-4p3.pages.dev/
