@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Verify DNS-AID HTTPS records via DNS-over-HTTPS (same resolvers as isitagentready).
+ * Verify DNS-AID SVCB records via DNS-over-HTTPS (same resolvers as isitagentready).
  *
  * Usage:
  *   npm run verify:dns-aid
@@ -16,6 +16,7 @@ const DOH_RESOLVERS = [
 const PRIMARY_RESOLVER = DOH_RESOLVERS[0].url;
 
 const zone = process.argv[2] ?? ZONE_NAME;
+const SVCB_TYPE = 64;
 const HTTPS_TYPE = 65;
 
 /** @param {string} qname @param {number} type @param {string} resolver */
@@ -32,14 +33,14 @@ async function dohQuery(qname, type, resolver) {
   return res.json();
 }
 
-/** @param {string} qname @param {number} [type] @param {string} [resolverUrl] */
+/** @param {string} qname @param {number} type @param {string} resolverUrl */
 async function queryResolver(qname, type, resolverUrl) {
   const data = await dohQuery(qname, type, resolverUrl);
   return { resolver: resolverUrl, data };
 }
 
-/** @param {string} qname @param {number} [type] */
-async function queryAllResolvers(qname, type = HTTPS_TYPE) {
+/** @param {string} qname @param {number} type */
+async function queryAllResolvers(qname, type) {
   const results = [];
   for (const { url } of DOH_RESOLVERS) {
     try {
@@ -51,12 +52,16 @@ async function queryAllResolvers(qname, type = HTTPS_TYPE) {
   return results;
 }
 
-function formatAnswer(data) {
+function formatServiceAnswer(data, rrType) {
   const answers = data.Answer ?? [];
   return answers
-    .filter((a) => a.type === HTTPS_TYPE)
+    .filter((a) => a.type === rrType)
     .map((a) => a.data)
     .join("; ");
+}
+
+function hasServiceAnswer(data, rrType) {
+  return (data.Answer ?? []).some((a) => a.type === rrType);
 }
 
 /** Encode DNS wire-format owner name for hex substring checks. */
@@ -68,7 +73,7 @@ function wireNameHex(hostname) {
 }
 
 /** @param {string} answers @param {{ priority: number; target: string; value: string }} spec */
-function httpsAnswerMatchesSpec(answers, spec) {
+function serviceAnswerMatchesSpec(answers, spec) {
   if (!answers) return false;
 
   const textOk =
@@ -78,7 +83,7 @@ function httpsAnswerMatchesSpec(answers, spec) {
     answers.includes("port");
   if (textOk) return true;
 
-  // DoH often returns RFC 3597 \# hex encoding for HTTPS/SVCB RDATA.
+  // DoH often returns RFC 3597 \# hex encoding for SVCB/HTTPS RDATA.
   const match = answers.match(/\\?#\s*(\d+)\s+([\da-fA-F\s]+)/);
   if (!match) return false;
 
@@ -112,15 +117,12 @@ function dsAnswers(data) {
 }
 
 let failed = 0;
-let cfHttpsAdPending = false;
 
 console.log(`DNS-AID verification for ${zone}\n`);
 
-// DS chain at parent first — migration is complete when DS validates on the primary resolver.
 console.log("DS chain:");
 const dsResults = await queryAllResolvers(zone, 43);
 let dsSeen = false;
-let dsChainValidOnPrimary = false;
 
 for (const r of dsResults) {
   if (r.error) {
@@ -131,9 +133,6 @@ for (const r of dsResults) {
   if (answers.length) {
     dsSeen = true;
     console.log(`[OK] DS via ${resolverLabel(r.resolver)}: ${answers.join("; ")} (AD=${r.data.AD === true})`);
-    if (r.resolver === PRIMARY_RESOLVER && r.data.AD === true) {
-      dsChainValidOnPrimary = true;
-    }
   } else {
     console.log(`[WARN] DS via ${resolverLabel(r.resolver)}: not visible yet (AD=${r.data.AD === true})`);
     if (r.resolver === PRIMARY_RESOLVER) failed++;
@@ -150,35 +149,38 @@ console.log("");
 for (const spec of DNS_AID_HTTPS_RECORDS) {
   const qname = `${spec.name}.${zone}`;
   try {
-    const results = await queryAllResolvers(qname);
-    const usable = results.filter((r) => !r.error && r.data?.Status !== 3);
-    const primary = usable[0] ?? results[0];
+    const svcbResults = await queryAllResolvers(qname, SVCB_TYPE);
+    const cfSvcb = svcbResults.find((r) => r.resolver === PRIMARY_RESOLVER && !r.error);
+    const googleSvcb = svcbResults.find((r) => r.resolver === DOH_RESOLVERS[1].url && !r.error);
 
-    if (!primary || primary.error || primary.data?.Status === 3) {
+    if (!cfSvcb || cfSvcb.error || cfSvcb.data?.Status === 3) {
       console.log(`[FAIL] ${qname}`);
-      console.log(`  No HTTPS record (${primary?.error ?? `status=${primary?.data?.Status}`})`);
+      console.log(`  No SVCB record (${cfSvcb?.error ?? `status=${cfSvcb?.data?.Status}`})`);
       failed++;
       continue;
     }
 
-    const answers = formatAnswer(primary.data);
-    if (!httpsAnswerMatchesSpec(answers, spec)) {
+    if (!hasServiceAnswer(cfSvcb.data, SVCB_TYPE)) {
       console.log(`[FAIL] ${qname}`);
-      console.log(`  Unexpected answer: ${answers}`);
+      console.log("  No SVCB answers on cloudflare-dns.com (isitagentready primary)");
       failed++;
       continue;
     }
 
-    const cf = results.find((r) => r.resolver === PRIMARY_RESOLVER && !r.error);
-    const google = results.find((r) => r.resolver === DOH_RESOLVERS[1].url && !r.error);
-    const cfAd = cf?.data?.AD === true;
-    const googleAd = google?.data?.AD === true;
-    const dnssecOk = cfAd || (googleAd && dsChainValidOnPrimary);
-    const flag = cfAd ? "OK" : dnssecOk ? "OK" : "FAIL";
+    const answers = formatServiceAnswer(cfSvcb.data, SVCB_TYPE);
+    if (!serviceAnswerMatchesSpec(answers, spec)) {
+      console.log(`[FAIL] ${qname}`);
+      console.log(`  Unexpected SVCB answer: ${answers}`);
+      failed++;
+      continue;
+    }
 
-    console.log(`[${flag}] ${qname}`);
+    const cfAd = cfSvcb.data.AD === true;
+    const flag = cfAd ? "OK" : "FAIL";
+
+    console.log(`[${flag}] ${qname} (SVCB, AD=${cfAd} via cloudflare-dns.com)`);
     console.log(`  answer: ${answers}`);
-    for (const r of results) {
+    for (const r of svcbResults) {
       if (r.error) {
         console.log(`  ${resolverLabel(r.resolver)}: error ${r.error}`);
         continue;
@@ -188,26 +190,27 @@ for (const spec of DNS_AID_HTTPS_RECORDS) {
       );
     }
 
-    if (!dnssecOk) {
+    if (!cfAd) {
       console.log("  Hint: enable DNSSEC on Cloudflare and publish DS at Dynadot.");
       failed++;
-    } else if (!cfAd && googleAd && dsChainValidOnPrimary) {
-      cfHttpsAdPending = true;
-      console.log(
-        "  DS chain valid; dns.google validates HTTPS. cloudflare-dns.com AD may lag on some edges."
-      );
+    }
+
+    // Warn on stale legacy HTTPS records (type 65 fails AD=true on cloudflare-dns.com).
+    const httpsResults = await queryAllResolvers(qname, HTTPS_TYPE);
+    const cfHttps = httpsResults.find((r) => r.resolver === PRIMARY_RESOLVER && !r.error);
+    if (cfHttps && hasServiceAnswer(cfHttps.data, HTTPS_TYPE)) {
+      console.log(`[WARN] ${qname} still has legacy HTTPS (type 65) record — delete via npm run publish:dns-aid`);
+      failed++;
+    }
+
+    if (googleSvcb && !googleSvcb.error && googleSvcb.data.AD !== true && cfAd) {
+      console.log(`  Note: dns.google AD=${googleSvcb.data.AD === true} (primary resolver passed)`);
     }
   } catch (err) {
     console.log(`[FAIL] ${qname}`);
     console.log(`  ${err.message}`);
     failed++;
   }
-}
-
-if (cfHttpsAdPending) {
-  console.log(
-    "\nDNSSEC migration complete. cloudflare-dns.com HTTPS AD may take longer on some resolvers; isitagentready should pass once its edge catches up."
-  );
 }
 
 console.log(failed ? `\n${failed} check(s) failed.` : "\nAll DNS-AID checks passed.");

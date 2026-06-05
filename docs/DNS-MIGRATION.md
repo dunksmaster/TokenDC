@@ -69,14 +69,14 @@ Expected:
 
 Regenerate and build locally: `npm run agent:generate && npm run build`
 
-**DNS-AID** (DNS — after NS cutover): `npm run publish:dns-aid` or `npm run fix:dns` publishes:
+**DNS-AID** (DNS — after NS cutover): `npm run publish:dns-aid` or `npm run fix:dns` publishes **SVCB** (type 64) records — required for DNSSEC `AD=true` on [isitagentready](https://isitagentready.com/)'s primary resolver (`cloudflare-dns.com`):
 
 ```
-_index._agents.duacrypto.com. 3600 IN HTTPS 1 duacrypto.com. alpn="h3,h2" port=443 mandatory=alpn,port
-_mcp._agents.duacrypto.com.   3600 IN HTTPS 1 duacrypto.com. alpn="mcp,h3,h2" port=443 mandatory=alpn,port
+_index._agents.duacrypto.com. 3600 IN SVCB 1 duacrypto.com. alpn="h3,h2" port=443 mandatory=alpn,port
+_mcp._agents.duacrypto.com.   3600 IN SVCB 1 duacrypto.com. alpn="mcp,h3,h2" port=443 mandatory=alpn,port
 ```
 
-[isitagentready](https://isitagentready.com/) scans `https://duacrypto.com` — both checks fail until apex DNS points to Cloudflare **and** the latest build is deployed.
+Verify: `npm run verify:dns-aid` (requires `AD=true` on `cloudflare-dns.com` for SVCB answers and DS at Dynadot).
 
 ## Google Search Console (after DNS fix)
 
