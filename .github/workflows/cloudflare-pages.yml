@@ -18,6 +18,16 @@ jobs:
       contents: read
       deployments: write
     steps:
+      - name: Require Cloudflare secrets
+        run: |
+          if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ] || [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ]; then
+            echo "::error::Missing GitHub secrets CLOUDFLARE_API_TOKEN and/or CLOUDFLARE_ACCOUNT_ID."
+            echo "Create an API token at https://dash.cloudflare.com/profile/api-tokens (template: Edit Cloudflare Workers)"
+            echo "Account ID: Cloudflare Dashboard → Workers & Pages → right sidebar."
+            echo "Add both as repo secrets, then re-run this workflow."
+            exit 1
+          fi
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -33,17 +43,22 @@ jobs:
           npm ci && npm run build
 
       - name: Deploy to Cloudflare Pages
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: npx wrangler pages deploy dist --project-name=dc-site --branch=main
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.93.0"
+          command: pages deploy dist --project-name=dc-site --branch=main
 
       - name: Attach custom domain (idempotent)
         continue-on-error: true
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: npx wrangler pages domain add duacrypto.com --project-name=dc-site
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.93.0"
+          command: pages domain add duacrypto.com --project-name=dc-site
 
       - name: Verify Link headers on Pages preview
+        continue-on-error: true
         run: npm run verify:headers -- https://main.dc-site.pages.dev/

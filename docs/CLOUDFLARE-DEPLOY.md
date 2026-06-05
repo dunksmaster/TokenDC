@@ -84,11 +84,33 @@ npm run deploy:production
 
 Requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in GitHub Actions secrets.
 
-## GitHub Actions secrets
+## GitHub Actions secrets (required for CI deploy)
 
-| Secret | Purpose |
-|--------|---------|
-| `CLOUDFLARE_API_TOKEN` | Pages deploy + domain attach |
-| `CLOUDFLARE_ACCOUNT_ID` | Account scope for wrangler |
+The repo currently has **no** Cloudflare secrets configured. Add them before the next `main` push:
 
-Token permissions: **Cloudflare Pages Edit**, **Account Settings Read** (minimum).
+1. [Create API token](https://dash.cloudflare.com/profile/api-tokens) → **Edit Cloudflare Workers** template (includes Pages deploy)
+2. Copy **Account ID** from Cloudflare Dashboard → Workers & Pages (right sidebar)
+3. GitHub → **dunksmaster/TokenDC** → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**:
+
+| Secret | Value |
+|--------|--------|
+| `CLOUDFLARE_API_TOKEN` | API token from step 1 |
+| `CLOUDFLARE_ACCOUNT_ID` | Account ID from step 2 |
+
+4. Re-run **Deploy to Cloudflare Pages** workflow (or push any commit to `main`)
+
+CLI alternative (one-time, from your machine):
+
+```bash
+gh secret set CLOUDFLARE_API_TOKEN
+gh secret set CLOUDFLARE_ACCOUNT_ID
+```
+
+### Manual deploy (no GitHub secrets)
+
+```bash
+npm run build
+npx wrangler login
+npm run deploy:production
+npx wrangler pages domain add duacrypto.com --project-name=dc-site
+```
