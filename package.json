@@ -13,6 +13,7 @@
     "fix:dns": "node scripts/fix-cloudflare-dns.mjs",
     "publish:dns-aid": "node scripts/publish-dns-aid.mjs",
     "verify:dns-aid": "node scripts/verify-dns-aid.mjs",
+    "verify:cf-token": "node scripts/verify-cloudflare-token.mjs",
     "verify:auth-md": "node scripts/verify-auth-md.mjs",
     "preview": "vite preview",
     "agent:generate": "node scripts/generate-agent-assets.mjs",
