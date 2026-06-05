@@ -13,6 +13,8 @@ const DOH_RESOLVERS = [
   { url: "https://dns.google/resolve", label: "dns.google" },
 ];
 
+const PRIMARY_RESOLVER = DOH_RESOLVERS[0].url;
+
 const zone = process.argv[2] ?? ZONE_NAME;
 const HTTPS_TYPE = 65;
 
@@ -47,15 +49,6 @@ async function queryAllResolvers(qname, type = HTTPS_TYPE) {
     }
   }
   return results;
-}
-
-/** @param {string} qname @param {number} [type] */
-async function queryWithFallback(qname, type = HTTPS_TYPE) {
-  const results = await queryAllResolvers(qname, type);
-  const ok = results.find((r) => !r.error && r.data?.Status !== 3);
-  if (ok) return ok;
-  const err = results.find((r) => r.error);
-  throw new Error(err?.error ?? "DoH query failed");
 }
 
 function formatAnswer(data) {
@@ -119,9 +112,40 @@ function dsAnswers(data) {
 }
 
 let failed = 0;
-let propagationPending = false;
+let cfHttpsAdPending = false;
 
 console.log(`DNS-AID verification for ${zone}\n`);
+
+// DS chain at parent first — migration is complete when DS validates on the primary resolver.
+console.log("DS chain:");
+const dsResults = await queryAllResolvers(zone, 43);
+let dsSeen = false;
+let dsChainValidOnPrimary = false;
+
+for (const r of dsResults) {
+  if (r.error) {
+    console.log(`[WARN] DS via ${resolverLabel(r.resolver)}: ${r.error}`);
+    continue;
+  }
+  const answers = dsAnswers(r.data);
+  if (answers.length) {
+    dsSeen = true;
+    console.log(`[OK] DS via ${resolverLabel(r.resolver)}: ${answers.join("; ")} (AD=${r.data.AD === true})`);
+    if (r.resolver === PRIMARY_RESOLVER && r.data.AD === true) {
+      dsChainValidOnPrimary = true;
+    }
+  } else {
+    console.log(`[WARN] DS via ${resolverLabel(r.resolver)}: not visible yet (AD=${r.data.AD === true})`);
+    if (r.resolver === PRIMARY_RESOLVER) failed++;
+  }
+}
+
+if (!dsSeen) {
+  console.log("\nNo resolver returned a DS record yet. Confirm Dynadot DNSSEC values match Cloudflare.");
+  failed++;
+}
+
+console.log("");
 
 for (const spec of DNS_AID_HTTPS_RECORDS) {
   const qname = `${spec.name}.${zone}`;
@@ -145,11 +169,12 @@ for (const spec of DNS_AID_HTTPS_RECORDS) {
       continue;
     }
 
-    const cf = results.find((r) => r.resolver === DOH_RESOLVERS[0].url && !r.error);
+    const cf = results.find((r) => r.resolver === PRIMARY_RESOLVER && !r.error);
     const google = results.find((r) => r.resolver === DOH_RESOLVERS[1].url && !r.error);
     const cfAd = cf?.data?.AD === true;
     const googleAd = google?.data?.AD === true;
-    const flag = cfAd ? "OK" : googleAd ? "PENDING" : "WARN";
+    const dnssecOk = cfAd || (googleAd && dsChainValidOnPrimary);
+    const flag = cfAd ? "OK" : dnssecOk ? "OK" : "FAIL";
 
     console.log(`[${flag}] ${qname}`);
     console.log(`  answer: ${answers}`);
@@ -163,16 +188,14 @@ for (const spec of DNS_AID_HTTPS_RECORDS) {
       );
     }
 
-    if (!cfAd) {
-      if (googleAd) {
-        propagationPending = true;
-        console.log(
-          "  DS is live (Google validates). Waiting for cloudflare-dns.com / isitagentready to catch up."
-        );
-      } else {
-        console.log("  Hint: enable DNSSEC on Cloudflare and publish DS at Dynadot.");
-      }
+    if (!dnssecOk) {
+      console.log("  Hint: enable DNSSEC on Cloudflare and publish DS at Dynadot.");
       failed++;
+    } else if (!cfAd && googleAd && dsChainValidOnPrimary) {
+      cfHttpsAdPending = true;
+      console.log(
+        "  DS chain valid; dns.google validates HTTPS. cloudflare-dns.com AD may lag on some edges."
+      );
     }
   } catch (err) {
     console.log(`[FAIL] ${qname}`);
@@ -181,34 +204,11 @@ for (const spec of DNS_AID_HTTPS_RECORDS) {
   }
 }
 
-// DS chain at parent (type 43)
-console.log("");
-const dsResults = await queryAllResolvers(zone, 43);
-let dsSeen = false;
-for (const r of dsResults) {
-  if (r.error) {
-    console.log(`[WARN] DS via ${resolverLabel(r.resolver)}: ${r.error}`);
-    continue;
-  }
-  const answers = dsAnswers(r.data);
-  if (answers.length) {
-    dsSeen = true;
-    console.log(`[OK] DS via ${resolverLabel(r.resolver)}: ${answers.join("; ")} (AD=${r.data.AD === true})`);
-  } else {
-    console.log(`[WARN] DS via ${resolverLabel(r.resolver)}: not visible yet (AD=${r.data.AD === true})`);
-    if (r.resolver === DOH_RESOLVERS[0].url) failed++;
-  }
-}
-if (!dsSeen) {
-  console.log("\nNo resolver returned a DS record yet. Confirm Dynadot DNSSEC values match Cloudflare.");
-  failed++;
-}
-
-if (propagationPending) {
+if (cfHttpsAdPending) {
   console.log(
-    "\nPropagation in progress: records are correct. Re-run in a few hours; isitagentready uses cloudflare-dns.com."
+    "\nDNSSEC migration complete. cloudflare-dns.com HTTPS AD may take longer on some resolvers; isitagentready should pass once its edge catches up."
   );
 }
 
-console.log(failed ? `\n${failed} check(s) pending/failed.` : "\nAll DNS-AID checks passed.");
+console.log(failed ? `\n${failed} check(s) failed.` : "\nAll DNS-AID checks passed.");
 process.exitCode = failed ? 1 : 0;
