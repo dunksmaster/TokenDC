@@ -115,13 +115,13 @@ npm run deploy:production
 
 Requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in GitHub Actions secrets.
 
-## GitHub Actions secrets (optional — only for the manual fallback workflow)
+## GitHub Actions secrets (required for deploy on push)
 
-With native Git integration, production deploys need **no** GitHub secrets. These
-are only required if you run the `workflow_dispatch` fallback in
-`cloudflare-pages.yml` or deploy from CI. To enable that fallback:
+`cloudflare-pages.yml` deploys on every push to `main`. The token must include
+**Account → Cloudflare Pages → Edit** (use **Edit Cloudflare Workers** template).
+A **DNS-only** token works for `fix-dns` but will fail deploy with `Authentication error [10000]`.
 
-1. [Create API token](https://dash.cloudflare.com/profile/api-tokens) → **Edit Cloudflare Workers** template (includes Pages deploy)
+1. [Create API token](https://dash.cloudflare.com/profile/api-tokens) → **Edit Cloudflare Workers** template (Pages deploy). For `fix-dns`, also add **Zone → DNS → Edit** on `duacrypto.com`.
 2. Copy **Account ID** from Cloudflare Dashboard → Workers & Pages (right sidebar)
 3. GitHub → **dunksmaster/TokenDC** → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**:
 
