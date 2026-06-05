@@ -92,7 +92,7 @@ async function main() {
   const keys = new Set(afterDelete.map(recordKey));
 
   for (const spec of [...SITE_RECORDS, ...EMAIL_RECORDS]) {
-    const key = `${spec.type}|${spec.name}|${spec.content}`;
+    const key = recordKey({ type: spec.type, name: spec.name, content: spec.content });
     if (keys.has(key)) {
       console.log(`KEEP  ${spec.type} ${spec.name} -> ${spec.content}`);
       continue;
