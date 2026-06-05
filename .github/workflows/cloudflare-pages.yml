@@ -1,12 +1,11 @@
-# MANUAL FALLBACK ONLY. Production now deploys via Cloudflare Pages native Git
-# integration (Cloudflare builds duacrypto.com on every push to main).
-# This workflow no longer runs on push to avoid double-deploys; keep it for
-# manual rollback/redeploy (Actions tab → Run workflow), or delete it once the
-# native Git build is confirmed working. Requires CLOUDFLARE_API_TOKEN +
+# Production deploy: every push to main → build dist/ → Cloudflare Pages (dc-site).
+# Also runnable via workflow_dispatch. Requires CLOUDFLARE_API_TOKEN +
 # CLOUDFLARE_ACCOUNT_ID repo secrets. See docs/CLOUDFLARE-DEPLOY.md.
-name: Deploy to Cloudflare Pages (manual fallback)
+name: Deploy to Cloudflare Pages
 
 on:
+  push:
+    branches: ["main"]
   workflow_dispatch:
 
 concurrency:

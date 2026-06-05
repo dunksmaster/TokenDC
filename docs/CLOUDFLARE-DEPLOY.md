@@ -1,10 +1,10 @@
 # Cloudflare Pages — production hosting
 
-Production deploys via **Cloudflare Pages native Git integration**: Cloudflare is
-connected to the GitHub repo and builds + deploys **dc-site** on every push to
-`main`. No GitHub Actions required.
+Production deploys on every push to `main` via **`.github/workflows/cloudflare-pages.yml`**
+→ build `dist/` → **dc-site** on Cloudflare Pages.
 
-- GitHub Actions (`cloudflare-pages.yml`) is now **manual fallback only** (`workflow_dispatch`) — use it for rollback/redeploy or delete once native builds are confirmed.
+Optional: connect **Cloudflare native Git** in the dashboard instead — if you do,
+disable the push trigger in `cloudflare-pages.yml` to avoid double-deploys.
 - GitHub Pages (`static.yml`) is **legacy / manual only** — it cannot set RFC 8288 `Link` response headers.
 
 ## Cloudflare native Git build settings
@@ -59,9 +59,9 @@ Do **not** use `npx wrangler versions upload` (Workers-only; breaks Pages).
 1. **dc-site** → **Custom domains** → add `duacrypto.com` (and `www.duacrypto.com` if used)
 2. Cloudflare shows the DNS records to create (usually CNAME to `dc-site.pages.dev` or apex A/AAAA)
 
-### 4. DNS (required — site stays on GitHub until this is done)
+### 4. DNS (apex cutover — done when NS point to Cloudflare)
 
-Current `duacrypto.com` resolves to GitHub Pages (`185.199.x.x`). Update DNS:
+If apex still resolves to GitHub Pages (`185.199.x.x`), update DNS:
 
 - **If the zone is on Cloudflare:** orange-cloud proxy on; follow the records Pages suggests when adding the custom domain
 - **If DNS is elsewhere:** point apex/`www` to Cloudflare Pages per the custom-domain wizard (may require moving the zone to Cloudflare for apex)

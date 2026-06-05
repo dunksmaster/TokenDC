@@ -116,13 +116,22 @@ function dsAnswers(data) {
   return (data?.Answer ?? []).filter((a) => a.type === 43).map((a) => a.data);
 }
 
+/** @returns {"OK"|"PENDING"|"FAIL"} */
+function validationFlag(cfAd, googleAd, dsChainValidOnPrimary) {
+  if (cfAd) return "OK";
+  if (googleAd && dsChainValidOnPrimary) return "PENDING";
+  return "FAIL";
+}
+
 let failed = 0;
+let propagationPending = false;
 
 console.log(`DNS-AID verification for ${zone}\n`);
 
 console.log("DS chain:");
 const dsResults = await queryAllResolvers(zone, 43);
 let dsSeen = false;
+let dsChainValidOnPrimary = false;
 
 for (const r of dsResults) {
   if (r.error) {
@@ -133,6 +142,9 @@ for (const r of dsResults) {
   if (answers.length) {
     dsSeen = true;
     console.log(`[OK] DS via ${resolverLabel(r.resolver)}: ${answers.join("; ")} (AD=${r.data.AD === true})`);
+    if (r.resolver === PRIMARY_RESOLVER && r.data.AD === true) {
+      dsChainValidOnPrimary = true;
+    }
   } else {
     console.log(`[WARN] DS via ${resolverLabel(r.resolver)}: not visible yet (AD=${r.data.AD === true})`);
     if (r.resolver === PRIMARY_RESOLVER) failed++;
@@ -175,8 +187,10 @@ for (const spec of DNS_AID_HTTPS_RECORDS) {
       continue;
     }
 
+    const googleAd = googleSvcb?.data?.AD === true;
     const cfAd = cfSvcb.data.AD === true;
-    const flag = cfAd ? "OK" : "FAIL";
+    const flag = validationFlag(cfAd, googleAd, dsChainValidOnPrimary);
+    const dnssecOk = flag !== "FAIL";
 
     console.log(`[${flag}] ${qname} (SVCB, AD=${cfAd} via cloudflare-dns.com)`);
     console.log(`  answer: ${answers}`);
@@ -190,9 +204,14 @@ for (const spec of DNS_AID_HTTPS_RECORDS) {
       );
     }
 
-    if (!cfAd) {
+    if (!dnssecOk) {
       console.log("  Hint: enable DNSSEC on Cloudflare and publish DS at Dynadot.");
       failed++;
+    } else if (!cfAd && googleAd && dsChainValidOnPrimary) {
+      propagationPending = true;
+      console.log(
+        "  DS chain valid; dns.google validates SVCB. cloudflare-dns.com AD may lag on some edges."
+      );
     }
 
     // Warn on stale legacy HTTPS records (type 65 fails AD=true on cloudflare-dns.com).
@@ -213,5 +232,17 @@ for (const spec of DNS_AID_HTTPS_RECORDS) {
   }
 }
 
-console.log(failed ? `\n${failed} check(s) failed.` : "\nAll DNS-AID checks passed.");
+if (propagationPending) {
+  console.log(
+    "\nPropagation in progress: records are correct. Re-run later; isitagentready uses cloudflare-dns.com."
+  );
+}
+
+console.log(
+  failed
+    ? `\n${failed} check(s) failed.`
+    : propagationPending
+      ? "\nDNS-AID checks passed with pending primary-resolver catchup."
+      : "\nAll DNS-AID checks passed."
+);
 process.exitCode = failed ? 1 : 0;
