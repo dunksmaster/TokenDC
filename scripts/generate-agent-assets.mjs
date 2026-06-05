@@ -15,6 +15,7 @@ import { generateWebBotAuth } from "./generate-web-bot-auth.mjs";
 import { buildThemeAssets } from "./build-theme-assets.mjs";
 import { applySeoToHtmlFiles } from "./inject-seo.mjs";
 import { siteUrl as seoSiteUrl, seoPages } from "./seo-config.mjs";
+import { cloudflareHeadersBlock } from "../lib/agent-discovery-headers.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
@@ -463,6 +464,38 @@ function syncLegacyAssetsToPublic() {
   copyFileSync(mainJsSrc, mainJsDest);
 }
 
+/** RFC 8288 Link headers for Cloudflare Pages (`public/_headers` → `dist/_headers`). */
+function syncLinkHeadersFile() {
+  const home = cloudflareHeadersBlock();
+  const content = `/
+${home}
+
+/index.html
+${home}
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+
+/md/*
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept
+
+/.well-known/http-message-signatures-directory
+  Content-Type: application/http-message-signatures-directory+json; charset=utf-8
+  Cache-Control: max-age=86400
+
+/.well-known/jwks.json
+  Content-Type: application/json; charset=utf-8
+`;
+  writeFileSync(join(root, "public", "_headers"), content, "utf8");
+}
+
 function writeRootDiscoveryFiles() {
   const robots = generateRobotsTxt();
   const sitemap = generateSitemapXml();
@@ -494,7 +527,8 @@ await buildThemeAssets();
 syncThemeCss();
 syncLegacyAssetsToPublic();
 generateWebBotAuth();
+syncLinkHeadersFile();
 writeRootDiscoveryFiles();
 console.log(
-  "Agent assets generated (robots, sitemap, markdown, skills, API, theme, web-bot-auth)."
+  "Agent assets generated (robots, sitemap, markdown, skills, API, theme, web-bot-auth, link-headers)."
 );

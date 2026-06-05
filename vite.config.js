@@ -13,6 +13,7 @@ function ensureDiscoveryFilesPlugin() {
     ["public/sitemap.xml", "dist/sitemap.xml"],
     ["public/css/dark-mode.css", "dist/css/dark-mode.css"],
     ["public/_redirects", "dist/_redirects"],
+    ["public/_headers", "dist/_headers"],
   ];
   return {
     name: "ensure-discovery-files",

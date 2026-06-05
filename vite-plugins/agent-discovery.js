@@ -1,17 +1,12 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  CONTENT_SIGNAL,
+  LINK_HEADER,
+} from "../lib/agent-discovery-headers.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-
-const LINK_HEADER =
-  '</.well-known/api-catalog>; rel="api-catalog", ' +
-  '</.well-known/agent-skills/index.json>; rel="describedby", ' +
-  '</openapi/site-api.yaml>; rel="service-desc"; type="application/yaml", ' +
-  '</docs/api>; rel="service-doc"; type="text/html", ' +
-  '</.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"';
-
-const CONTENT_SIGNAL = "ai-train=no, search=yes, ai-input=yes";
 
 function wantsMarkdown(req) {
   const accept = req.headers.accept ?? "";

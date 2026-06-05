@@ -51,6 +51,21 @@ Or run:
 npm run verify:headers -- https://duacrypto.com/
 ```
 
+Local dev (`npm run dev`) and Cloudflare Pages also inject the same `Link` value via `lib/agent-discovery-headers.mjs` (Vite middleware + `functions/_middleware.ts` + `dist/_headers`).
+
+## Interim: GitHub Pages + Cloudflare proxy (Transform Rule)
+
+If you must keep GitHub Pages as origin but want `Link` headers on `duacrypto.com` before migrating:
+
+1. In Cloudflare Dashboard → **Rules** → **Response Header Transform Rules** → **Create rule**
+2. **Name:** `Agent discovery Link headers (homepage)`
+3. **When:** `(http.host eq "duacrypto.com" or http.host eq "www.duacrypto.com") and (http.request.uri.path eq "/" or http.request.uri.path eq "/index.html")`
+4. **Then:** Set static response header  
+   **Header name:** `Link`  
+   **Value:** (copy from `public/_headers` line 2, or run `node -e "import('./lib/agent-discovery-headers.mjs').then(m=>console.log(m.LINK_HEADER))"`)
+
+Orange-cloud proxy must be enabled on the GitHub Pages CNAME. HTML `<link rel="api-catalog">` tags in `index.html` are a fallback for parsers that read the document, but agent scanners expect the **response** header.
+
 ## Local / CLI deploy
 
 ```bash

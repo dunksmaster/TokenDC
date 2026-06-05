@@ -1,18 +1,13 @@
 import {
+  CONTENT_SIGNAL,
+  LINK_HEADER,
+} from "../lib/agent-discovery-headers.mjs";
+import {
   wantsMarkdown,
   resolveMarkdownAssetPath,
   estimateMarkdownTokens,
   isHomepagePath,
 } from "../lib/markdown-negotiation.mjs";
-
-const LINK_HEADER =
-  '</.well-known/api-catalog>; rel="api-catalog", ' +
-  '</.well-known/agent-skills/index.json>; rel="describedby", ' +
-  '</openapi/site-api.yaml>; rel="service-desc"; type="application/yaml", ' +
-  '</docs/api>; rel="service-doc"; type="text/html", ' +
-  '</.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"';
-
-const CONTENT_SIGNAL = "ai-train=no, search=yes, ai-input=yes";
 
 const WEB_BOT_AUTH_DIRECTORY =
   "/.well-known/http-message-signatures-directory";

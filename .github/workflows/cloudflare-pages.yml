@@ -1,7 +1,9 @@
-# Optional Cloudflare Pages deploy (disabled on push — production uses GitHub Pages via static.yml).
+# Cloudflare Pages deploy — required for RFC 8288 Link response headers (GitHub Pages cannot set them).
 name: Deploy to Cloudflare Pages
 
 on:
+  push:
+    branches: ["main"]
   workflow_dispatch:
 
 concurrency:
@@ -30,9 +32,16 @@ jobs:
           npm ci && npm run build
 
       - name: Deploy to Cloudflare Pages
+        id: cloudflare
+        continue-on-error: true
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           # Pages deploy (not `wrangler versions upload`). Requires CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID secrets.
           command: npm run deploy:production
+
+      - name: Cloudflare deploy note
+        if: steps.cloudflare.outcome == 'failure'
+        run: |
+          echo "::warning::Cloudflare Pages deploy skipped or failed. Link response headers require Cloudflare Pages (or a Transform Rule on proxied GitHub Pages). See docs/CLOUDFLARE-DEPLOY.md."
