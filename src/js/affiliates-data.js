@@ -37,7 +37,7 @@ export const affiliateGroups = [
       },
       {
         name: "Trezor",
-        href: "https://satoshilabs.visualbook.pro/trezor",
+        href: "https://affil.trezor.io/aff_c?offer_id=382&aff_id=33259",
         img: "/img/trezor-wallet.png",
         alt: "Trezor Safe 7 hardware wallet",
         kind: "product",
