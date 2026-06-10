@@ -298,7 +298,7 @@ html.dark {
   .affiliate-card {
     --tilt-x: 0deg;
     --tilt-y: 0deg;
-    @apply block rounded-xl border border-border/80 bg-card/80 p-2 shadow-sm backdrop-blur-sm transition duration-300 ease-out sm:p-3;
+    @apply block cursor-pointer rounded-xl border border-border/80 bg-card/80 p-2 shadow-sm backdrop-blur-sm transition duration-300 ease-out sm:p-3;
     transform: perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
     will-change: transform;
   }
@@ -427,6 +427,10 @@ html.dark {
 
   html.dark .affiliate-product-img--compact {
     @apply drop-shadow-[0_6px_16px_rgba(0,0,0,0.28)];
+  }
+
+  .affiliate-card > * {
+    pointer-events: none;
   }
 
   .affiliate-product-label--compact {

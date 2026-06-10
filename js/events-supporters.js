@@ -1,9 +1,13 @@
-/** Balkans Crypto 2026 — linked partners, media, and community supporters for the events hero ticker. */
+/** Balkans Crypto 2026 — linked partners, media, and community supporters for the events hero ticker.
+ *  CEX.IO href must match CEX_IO_AFFILIATE_HREF in src/js/affiliates-data.js */
+const CEX_IO_AFFILIATE_HREF =
+  "https://cex.io/join?c=20&a=513&o=3&s=sc&prid=referral-promo";
+
 const EVENTS_SUPPORTERS_2026 = [
   { name: "Ballet", href: "https://bit.ly/43mMBs9" },
   { name: "Trezor", href: "https://affil.trezor.io/aff_c?offer_id=382&aff_id=33259" },
   { name: "Bitget", href: "https://www.bitget.com/referral/register?clacCode=GK802F53" },
-  { name: "CEX.IO", href: "https://cex.io/join?c=20&a=513&o=3&s=sc&prid=referral-promo" },
+  { name: "CEX.IO", href: CEX_IO_AFFILIATE_HREF },
   { name: "Tangem", href: "https://tangem.com/invite/BITCOINZAT" },
   { name: "Ledger", href: "https://shop.ledger.com/?r=2deb3872c973" },
   { name: "Deeper Network", href: "https://shop.deeper.network?sca_ref=2063681.3aWn8PiBjI" },
@@ -27,7 +31,8 @@ function buildSupporterRow(supporters) {
     pill.textContent = name;
     if (href.startsWith("http")) {
       pill.target = "_blank";
-      pill.rel = "noopener noreferrer";
+      pill.rel = "noopener sponsored";
+      pill.referrerPolicy = "unsafe-url";
     }
     row.appendChild(pill);
   }

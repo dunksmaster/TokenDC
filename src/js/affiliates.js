@@ -14,7 +14,8 @@ function createPartnerCard(item, index) {
 
   if (isExternal(item.href)) {
     link.target = "_blank";
-    link.rel = "noopener noreferrer";
+    link.rel = "noopener sponsored";
+    link.referrerPolicy = "unsafe-url";
   }
 
   const stage = document.createElement("div");

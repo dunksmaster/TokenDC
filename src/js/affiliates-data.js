@@ -1,6 +1,10 @@
 /** Homepage affiliate section — single source of truth for partner cards. */
 export const affiliateJoinHref = "contact.html";
 
+/** Keep in sync with js/events-supporters.js */
+export const CEX_IO_AFFILIATE_HREF =
+  "https://cex.io/join?c=20&a=513&o=3&s=sc&prid=referral-promo";
+
 export const affiliateGroups = [
   {
     id: "devices",
@@ -52,7 +56,7 @@ export const affiliateGroups = [
     items: [
       {
         name: "CEX.IO",
-        href: "https://cex.io/join?c=20&a=513&o=3&s=sc&prid=referral-promo",
+        href: CEX_IO_AFFILIATE_HREF,
         img: "/img/cex-io-partner.png",
         alt: "CEX.IO Exchange",
         kind: "logo",
