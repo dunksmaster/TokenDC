@@ -29,9 +29,12 @@
     "qrcode": "^1.5.4",
     "web-bot-auth": "^0.1.3"
   },
+  "overrides": {
+    "esbuild": "0.28.1"
+  },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.8",
-    "esbuild": "^0.25.0",
+    "esbuild": "0.28.1",
     "playwright": "^1.60.0",
     "tailwindcss": "^4.1.8",
     "vite": "^6.3.5",

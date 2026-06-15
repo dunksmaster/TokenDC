@@ -44,7 +44,8 @@ function buildTools() {
         required: ["page"],
         additionalProperties: false,
       },
-      async execute({ page }) {
+      async execute(input) {
+        const page = input.page;
         const target = PAGES.find((p) => p.name === page);
         if (!target) throw new Error(`Unknown page: ${page}`);
         window.location.assign(target.path);
