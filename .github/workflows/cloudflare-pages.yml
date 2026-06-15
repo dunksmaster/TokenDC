@@ -18,24 +18,26 @@ jobs:
     permissions:
       contents: read
       deployments: write
+    env:
+      # Prefer CLOUDFLARE_PAGES_API_TOKEN (Pages Edit). CLOUDFLARE_API_TOKEN is legacy fallback.
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
       - name: Require Cloudflare secrets
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "::error::Missing GitHub secrets CLOUDFLARE_API_TOKEN and/or CLOUDFLARE_ACCOUNT_ID."
+            echo "::error::Missing GitHub secrets. Set CLOUDFLARE_PAGES_API_TOKEN (recommended) or CLOUDFLARE_API_TOKEN, plus CLOUDFLARE_ACCOUNT_ID."
             exit 1
           fi
           code=$(curl -s -o /tmp/cf-pages.json -w "%{http_code}" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/dc-site")
           if [ "$code" != "200" ]; then
-            echo "::error::CLOUDFLARE_API_TOKEN cannot access Pages project dc-site (HTTP $code)."
-            echo "Create a token at https://dash.cloudflare.com/profile/api-tokens"
-            echo "Required: Account → Cloudflare Pages → Edit (Edit Cloudflare Workers template)."
-            echo "DNS-only tokens work for fix-dns but NOT for deploy."
+            echo "::error::Cloudflare token cannot access Pages project dc-site (HTTP $code)."
+            echo "Fix: https://dash.cloudflare.com/profile/api-tokens → Create Token → Custom"
+            echo "Permission: Account → Cloudflare Pages → Edit"
+            echo "Then run: gh secret set CLOUDFLARE_PAGES_API_TOKEN"
+            echo "Keep CLOUDFLARE_DNS_API_TOKEN for fix-dns; do not use a DNS-only token here."
             cat /tmp/cf-pages.json || true
             exit 1
           fi
@@ -57,7 +59,7 @@ jobs:
       - name: Ensure Pages project exists
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4.93.0"
           command: pages project create dc-site --production-branch=main
@@ -66,7 +68,7 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4.93.0"
           command: pages deploy dist --project-name=dc-site --branch=main --commit-dirty=true
