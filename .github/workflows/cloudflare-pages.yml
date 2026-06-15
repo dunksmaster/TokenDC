@@ -61,7 +61,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4.93.0"
+          wranglerVersion: "4.100.0"
           command: pages project create dc-site --production-branch=main
         continue-on-error: true
 
@@ -70,7 +70,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4.93.0"
+          wranglerVersion: "4.100.0"
           command: pages deploy dist --project-name=dc-site --branch=main --commit-dirty=true
 
       - name: Verify Link headers on Pages preview

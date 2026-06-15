@@ -52,7 +52,7 @@ if (zones.status === 200 && zoneId) {
 
 console.log(
   failed
-    ? "\nToken NOT ready for GitHub CLOUDFLARE_API_TOKEN (deploy)."
-    : "\nToken OK for deploy. Set with: gh secret set CLOUDFLARE_API_TOKEN"
+    ? "\nToken NOT ready. Use for: gh secret set CLOUDFLARE_PAGES_API_TOKEN"
+    : "\nToken OK. Run: gh secret set CLOUDFLARE_PAGES_API_TOKEN"
 );
 process.exit(failed ? 1 : 0);
