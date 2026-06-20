@@ -1,11 +1,14 @@
 # Cloudflare Pages — production hosting
 
-# Production deploys on push to `main` via **`.github/workflows/cloudflare-pages.yml`**
-→ build `dist/` → **dc-site** on Cloudflare Pages.
+# Production deploys on push to `main` via **Cloudflare native Git** (dashboard:
+# dc-site → Connect to Git) → build `dist/` → **dc-site** on Cloudflare Pages.
 
-Optional: connect **Cloudflare native Git** in the dashboard instead — if you do,
-disable the push trigger in `cloudflare-pages.yml` to avoid double-deploys.
-- GitHub Pages (`static.yml`) is **legacy / manual only** — it cannot set RFC 8288 `Link` response headers.
+This is the **only** deploy path. GitHub Actions deploy workflows were removed
+(`cloudflare-pages.yml` and the legacy GitHub Pages `static.yml`) — they were a
+redundant second path and only caused failed-run emails when a DNS-only token
+was used. Cloudflare deploys through its own Git connection, with no GitHub
+secret involved. GitHub is now used only as the code repository (plus the manual
+`fix-dns.yml` workflow for DNS/email maintenance).
 
 ## Cloudflare native Git build settings
 
@@ -30,8 +33,7 @@ Do **not** set a Deploy command and never use `npx wrangler versions upload` (Wo
 - [x] `wrangler.toml` configured for Pages project `dc-site` (`pages_build_output_dir = "dist"`)
 - [x] `.node-version` pins Node 22 for Cloudflare's native builder
 - [x] `esbuild` declared as an explicit devDependency (used by `scripts/build-theme-assets.mjs`)
-- [x] GitHub Actions Cloudflare workflow set to manual-only (no push trigger → no double deploys)
-- [x] GitHub Pages workflow disabled on push (`workflow_dispatch` only)
+- [x] GitHub Actions deploy workflows removed (`cloudflare-pages.yml`, `static.yml`) — Cloudflare native Git is the single deploy path
 - [x] `public/CNAME` removed (Cloudflare uses dashboard custom domains, not a CNAME file)
 - [x] `dist/_headers` + `functions/_middleware.ts` inject `Link` headers on homepage
 
@@ -115,16 +117,16 @@ npm run deploy:production
 
 ## GitHub Actions secrets
 
-Two tokens — **do not reuse the DNS token for Pages deploy** (HTTP 403).
+Only the manual `fix-dns.yml` workflow uses GitHub secrets now. Deploy is handled
+by Cloudflare native Git and needs **no** GitHub secret.
 
 | Secret | Used by | Permissions |
 |--------|---------|-------------|
-| `CLOUDFLARE_API_TOKEN` | `fix-dns.yml` | Zone → **DNS → Edit** on `duacrypto.com` |
-| `CLOUDFLARE_PAGES_API_TOKEN` | `cloudflare-pages.yml` (manual) | Account → **Cloudflare Pages → Edit** |
-| `CLOUDFLARE_ACCOUNT_ID` | both | Account ID from Cloudflare dashboard |
+| `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_DNS_API_TOKEN` | `fix-dns.yml` | Zone → **DNS → Edit** on `duacrypto.com` |
+| `CLOUDFLARE_ACCOUNT_ID` | `fix-dns.yml` | Account ID from Cloudflare dashboard |
 
-`cloudflare-pages.yml` deploys on every push to `main` once `CLOUDFLARE_PAGES_API_TOKEN`
-is set. Manual re-run: Actions → **Deploy to Cloudflare Pages** → **Run workflow**.
+`CLOUDFLARE_PAGES_API_TOKEN` is **no longer used** and can be deleted from the
+repo's Actions secrets.
 
 ### Manual deploy (no GitHub secrets)
 
