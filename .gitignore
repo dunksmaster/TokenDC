@@ -9,6 +9,10 @@ secrets/
 .env
 .env.local
 
+# Token/secret temp files (never commit)
+*.tmp
+cf-pages-token.tmp
+
 # Editor / accidental exports
 .cursor/
 debug-*.log
