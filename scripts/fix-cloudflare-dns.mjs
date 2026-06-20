@@ -8,6 +8,7 @@
  */
 import {
   cloudflareApi,
+  dnsNamesEqual,
   dnsRecordFqdn,
   getZone,
   normDnsName,
@@ -57,6 +58,30 @@ function recordKey(r) {
   return `${r.type}|${normDnsName(r.name)}|${r.content}`;
 }
 
+function txtContent(record) {
+  return String(record.content ?? "").replace(/^"|"$/g, "");
+}
+
+function emailRecordExists(records, spec) {
+  if (spec.type === "TXT" && dnsNamesEqual(spec.name, ZONE_NAME)) {
+    return records.some(
+      (r) =>
+        r.type === "TXT" &&
+        dnsNamesEqual(r.name, ZONE_NAME) &&
+        /v=spf1/i.test(txtContent(r))
+    );
+  }
+  if (spec.type === "TXT" && dnsNamesEqual(spec.name, `_dmarc.${ZONE_NAME}`)) {
+    return records.some(
+      (r) =>
+        r.type === "TXT" &&
+        dnsNamesEqual(r.name, `_dmarc.${ZONE_NAME}`) &&
+        /v=DMARC1/i.test(txtContent(r))
+    );
+  }
+  return records.some((r) => recordKey(r) === recordKey(spec));
+}
+
 async function main() {
   const zone = await getZone(token);
   const zoneId = zone.id;
@@ -93,7 +118,7 @@ async function main() {
 
   for (const spec of [...SITE_RECORDS, ...EMAIL_RECORDS]) {
     const key = recordKey({ type: spec.type, name: spec.name, content: spec.content });
-    if (keys.has(key)) {
+    if (emailRecordExists(afterDelete, spec) || keys.has(key)) {
       console.log(`KEEP  ${spec.type} ${spec.name} -> ${spec.content}`);
       continue;
     }

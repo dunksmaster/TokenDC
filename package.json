@@ -11,6 +11,7 @@
     "verify:headers": "node scripts/verify-link-headers.mjs",
     "diagnose:domain": "node scripts/diagnose-domain.mjs",
     "fix:dns": "node scripts/fix-cloudflare-dns.mjs",
+    "fix:email-dns": "node scripts/fix-email-dns.mjs",
     "publish:dns-aid": "node scripts/publish-dns-aid.mjs",
     "verify:dns-aid": "node scripts/verify-dns-aid.mjs",
     "verify:cf-token": "node scripts/verify-cloudflare-token.mjs",
