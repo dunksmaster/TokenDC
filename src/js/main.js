@@ -7,15 +7,6 @@ import { initBrandCards } from "./brand-cards.js";
 import { initAffiliates } from "./affiliates.js";
 import "./webmcp.js";
 
-function initSpinner() {
-  const spinner = document.getElementById("spinner");
-  if (!spinner) return;
-
-  window.setTimeout(() => {
-    spinner.classList.add("opacity-0", "invisible");
-  }, 300);
-}
-
 function initBackToTop() {
   const button = document.querySelector(".back-to-top");
   if (!button) return;
@@ -32,7 +23,6 @@ function initBackToTop() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
-  initSpinner();
   initNav();
   initCounters();
   initAccordion("faq-accordion");

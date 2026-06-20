@@ -22,37 +22,28 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://duacrypto.com/#organization","name":"DuaCrypto","url":"https://duacrypto.com","description":"Albania's first Bitcoin and crypto community in Tirana. Web3 education, Balkans events, corporate Bitcoin (DAL), and 10,000+ members.","foundingDate":"2020","areaServed":["Albania","Balkans"],"knowsAbout":["Bitcoin","Cryptocurrency","Web3","Blockchain education","Corporate Bitcoin treasury"],"logo":"https://duacrypto.com/img/duacrypto-mark.svg","email":"info@duacrypto.com","address":{"@type":"PostalAddress","addressLocality":"Tirana","addressCountry":"AL"},"sameAs":["https://t.me/dua_crypto","https://x.com/duacrypto","https://youtube.com/@duacrypto","https://facebook.com/duacrypto","https://linkedin.com/company/duacrypto"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"DuaCrypto","url":"https://duacrypto.com","description":"Albania's first Bitcoin and crypto community in Tirana. Web3 education, Balkans events, corporate Bitcoin (DAL), and 10,000+ members.","publisher":{"@id":"https://duacrypto.com/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://duacrypto.com/faq.html?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
     <!-- dc-seo:end -->
+    <link rel="preload" as="image" href="/img/hero-albania-blockchain.webp" type="image/webp" fetchpriority="high">
     <!-- Agent discovery (RFC 8288); HTML link tags (GitHub Pages cannot set HTTP Link headers) -->
     <link rel="api-catalog" href="/.well-known/api-catalog">
     <link rel="describedby" href="/.well-known/agent-skills/index.json" type="application/json">
     <link rel="service-desc" href="/openapi/site-api.yaml" type="application/yaml">
     <link rel="service-doc" href="/docs/api/" type="text/html">
     <link rel="describedby" href="/.well-known/mcp/server-card.json" type="application/json">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH7BJVBLP2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BH7BJVBLP2');
-    </script>
+    <script defer src="/js/gtag-deferred.js"></script>
 
     <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg">
     <link rel="icon" type="image/png" href="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/32/Bitcoin-BTC-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap"></noscript>
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
     <link rel="stylesheet" href="/css/brand-logos.css">
     <link rel="stylesheet" href="/src/css/input.css">
 </head>
 <body class="bg-page">
-
-    <!-- Spinner -->
-    <div id="spinner" class="fixed inset-0 z-[99999] flex items-center justify-center bg-page transition-opacity duration-500">
-        <div class="h-12 w-12 animate-pulse rounded-full bg-primary"></div>
-    </div>
 
     <!-- Navbar -->
     <nav id="navbar" class="sticky top-0 z-50 border-b border-border bg-surface shadow-sm transition-shadow duration-300 dark:border-border">
@@ -117,7 +108,10 @@
                     <a href="https://duacrypto.org/" target="_blank" rel="noopener noreferrer" class="btn-primary wave-animation">Free guide in crypto</a>
                 </div>
                 <div>
-                    <img class="mx-auto w-full max-w-lg wave-animation" src="/img/hero-albania-blockchain.png" alt="DuaCrypto Bitcoin and Web3 community in Albania">
+                    <picture>
+                        <source srcset="/img/hero-albania-blockchain.webp" type="image/webp">
+                        <img class="mx-auto w-full max-w-lg wave-animation" src="/img/hero-albania-blockchain.png" alt="DuaCrypto Bitcoin and Web3 community in Albania" width="1024" height="571" fetchpriority="high" decoding="async">
+                    </picture>
                 </div>
             </div>
         </div>
