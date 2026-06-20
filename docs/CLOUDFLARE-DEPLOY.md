@@ -1,10 +1,8 @@
 # Cloudflare Pages — production hosting
 
-Production deploys on every push to `main` via **`.github/workflows/cloudflare-pages.yml`**
-→ build `dist/` → **dc-site** on Cloudflare Pages.
-
-Optional: connect **Cloudflare native Git** in the dashboard instead — if you do,
-disable the push trigger in `cloudflare-pages.yml` to avoid double-deploys.
+# Production deploys on push to `main` via **Cloudflare native Git** (dashboard:
+# dc-site → Connect to Git). GitHub Actions deploy is **manual only** to avoid
+# double-deploys and failed runs when only a DNS token is configured.
 - GitHub Pages (`static.yml`) is **legacy / manual only** — it cannot set RFC 8288 `Link` response headers.
 
 ## Cloudflare native Git build settings
@@ -48,7 +46,7 @@ Do **not** set a Deploy command and never use `npx wrangler versions upload` (Wo
 
 | Setting | Value |
 |--------|--------|
-| Build command | *(leave empty — GitHub Actions builds)* |
+| Build command | `npm run build` |
 | Build output directory | `dist` |
 | **Deploy command** | **Leave empty** |
 
@@ -113,37 +111,24 @@ npx wrangler login
 npm run deploy:production
 ```
 
-Requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in GitHub Actions secrets.
+## GitHub Actions secrets
 
-## GitHub Actions secrets (required for deploy on push)
+Two tokens — **do not reuse the DNS token for Pages deploy** (HTTP 403).
 
-`cloudflare-pages.yml` deploys on every push to `main`. Use **two secrets** if you
-split DNS and Pages permissions:
+| Secret | Used by | Permissions |
+|--------|---------|-------------|
+| `CLOUDFLARE_API_TOKEN` | `fix-dns.yml` | Zone → **DNS → Edit** on `duacrypto.com` |
+| `CLOUDFLARE_PAGES_API_TOKEN` | `cloudflare-pages.yml` (manual) | Account → **Cloudflare Pages → Edit** |
+| `CLOUDFLARE_ACCOUNT_ID` | both | Account ID from Cloudflare dashboard |
 
-| Secret | Permissions |
-|--------|-------------|
-| `CLOUDFLARE_API_TOKEN` | Account → **Cloudflare Pages → Edit** (Edit Cloudflare Workers template) |
-| `CLOUDFLARE_DNS_API_TOKEN` | Zone → **DNS → Edit** on `duacrypto.com` (for `fix-dns` workflow) |
+`cloudflare-pages.yml` is **workflow_dispatch only**. To deploy from GitHub Actions:
 
-A DNS-only `CLOUDFLARE_API_TOKEN` makes `fix-dns` work but deploy fails with HTTP 403.
+1. [Create API token](https://dash.cloudflare.com/profile/api-tokens) → **Edit Cloudflare Workers** (Pages Edit)
+2. `gh secret set CLOUDFLARE_PAGES_API_TOKEN`
+3. Actions → **Deploy to Cloudflare Pages** → **Run workflow**
 
-1. [Create API token](https://dash.cloudflare.com/profile/api-tokens) → **Edit Cloudflare Workers** for deploy; create a second token with **Edit zone DNS** for `fix-dns` → `gh secret set CLOUDFLARE_DNS_API_TOKEN`.
-2. Copy **Account ID** from Cloudflare Dashboard → Workers & Pages (right sidebar)
-3. GitHub → **dunksmaster/TokenDC** → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**:
-
-| Secret | Value |
-|--------|--------|
-| `CLOUDFLARE_API_TOKEN` | API token from step 1 |
-| `CLOUDFLARE_ACCOUNT_ID` | Account ID from step 2 |
-
-4. Re-run **Deploy to Cloudflare Pages** workflow (or push any commit to `main`)
-
-CLI alternative (one-time, from your machine):
-
-```bash
-gh secret set CLOUDFLARE_API_TOKEN
-gh secret set CLOUDFLARE_ACCOUNT_ID
-```
+Optional: rename DNS secret for clarity — `gh secret set CLOUDFLARE_DNS_API_TOKEN` and keep
+`CLOUDFLARE_API_TOKEN` as the DNS token (fix-dns accepts either).
 
 ### Manual deploy (no GitHub secrets)
 

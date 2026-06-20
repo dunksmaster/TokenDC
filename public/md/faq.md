@@ -7,7 +7,7 @@ source: "faq.html"
 FAQs | DuaCrypto
 # FAQs
 ## Common questions
-About DuaCrypto & Bitcoin in Albania
+                About DuaCrypto & Bitcoin in Albania
 ##
                                     What is DuaCrypto and how do I join the Albania crypto community?
                                     DuaCrypto is Albania's first crypto community, founded in Tirana in 2020. Join free via our [Telegram group](https://t.me/dua_crypto), attend Bitcoin meetups, or explore guides at [duacrypto.org](https://duacrypto.org/) — no prior experience required.

@@ -6,7 +6,7 @@ source: "contact.html"
 
 Contact | DuaCrypto
 # Contact Us
-Partnerships, consulting, and media inquiries
+                    Partnerships, consulting, and media inquiries
 We typically respond within 1&ndash;2 business days.
                             [partner@duacrypto.com](mailto:partner@duacrypto.com)
                                  Copy

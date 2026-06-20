@@ -10,7 +10,7 @@ About Us | DuaCrypto
                                 Dkane
                                 @Duacrypto
                                 [Join](https://signup.cluborange.org/co/duacryptofile_copy)
-Building crypto in public (NFA). Web3 advisor and community lead for Albania and the Balkans.
+                            Building crypto in public (NFA). Web3 advisor and community lead for Albania and the Balkans.
                                 Web3 community
 - DeFi security
 - On-chain analysis

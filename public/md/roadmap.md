@@ -7,7 +7,7 @@ source: "roadmap.html"
 Community Roadmap | DuaCrypto
 # Roadmap
 ## Our journey
-From Tirana meetups to Balkans-wide Web3 education
+                From Tirana meetups to Balkans-wide Web3 education
                         2020 — Founded in Tirana
                         DuaCrypto launches as Albania's first crypto community with weekly Bitcoin discussions and Telegram support.
                         2021 — First Public Meetups

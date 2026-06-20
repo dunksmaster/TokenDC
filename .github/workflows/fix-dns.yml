@@ -1,5 +1,6 @@
 # Run after nameservers point to Cloudflare (aurora/ernest.ns.cloudflare.com).
-# Uses CLOUDFLARE_DNS_API_TOKEN (or CLOUDFLARE_API_TOKEN) — Zone.DNS Edit on duacrypto.com.
+# Uses CLOUDFLARE_API_TOKEN (DNS Edit on duacrypto.com) or CLOUDFLARE_DNS_API_TOKEN.
+# Do not use CLOUDFLARE_PAGES_API_TOKEN here — Pages tokens may lack DNS Edit.
 name: Fix Cloudflare DNS
 
 on:

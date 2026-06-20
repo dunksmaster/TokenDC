@@ -7,7 +7,7 @@ source: "service.html"
 Crypto Education & Community Services | DuaCrypto
 # Services
 ## Our Services
-Education, events & community support across Albania
+                Education, events & community support across Albania
                         Crypto Education
 Beginner to advanced workshops on Bitcoin, wallets, DeFi, and Web3 — in Albanian and English, online and in Tirana.
                         [Read More ](events.html)

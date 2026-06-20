@@ -7,7 +7,7 @@ source: "feature.html"
 Why Join DuaCrypto | DuaCrypto
 # Feature
 ## Why DuaCrypto
-Albania's trusted Bitcoin & Web3 community
+                Albania's trusted Bitcoin & Web3 community
                             Beginner-Friendly Education
                             Learn Bitcoin, wallets, and Web3 from scratch with Albanian and English guides — no jargon, no gatekeeping.
                             Safe & Verified Community

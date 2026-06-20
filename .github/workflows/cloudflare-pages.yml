@@ -1,11 +1,10 @@
-# Production deploy: every push to main → build dist/ → Cloudflare Pages (dc-site).
-# Also runnable via workflow_dispatch. Requires CLOUDFLARE_API_TOKEN +
-# CLOUDFLARE_ACCOUNT_ID repo secrets. See docs/CLOUDFLARE-DEPLOY.md.
+# Manual deploy via GitHub Actions → build dist/ → Cloudflare Pages (dc-site).
+# Production deploys run on Cloudflare native Git (push to main). Do not enable
+# push here unless CLOUDFLARE_PAGES_API_TOKEN is set (Pages Edit — not DNS-only).
+# See docs/CLOUDFLARE-DEPLOY.md.
 name: Deploy to Cloudflare Pages
 
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 
 concurrency:
@@ -19,14 +18,14 @@ jobs:
       contents: read
       deployments: write
     env:
-      # Prefer CLOUDFLARE_PAGES_API_TOKEN (Pages Edit). CLOUDFLARE_API_TOKEN is legacy fallback.
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
-      - name: Require Cloudflare secrets
+      - name: Require Cloudflare Pages secrets
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "::error::Missing GitHub secrets. Set CLOUDFLARE_PAGES_API_TOKEN (recommended) or CLOUDFLARE_API_TOKEN, plus CLOUDFLARE_ACCOUNT_ID."
+            echo "::error::Missing GitHub secrets. Set CLOUDFLARE_PAGES_API_TOKEN (Account → Cloudflare Pages → Edit) and CLOUDFLARE_ACCOUNT_ID."
+            echo "CLOUDFLARE_API_TOKEN is DNS-only and cannot deploy Pages. See docs/CLOUDFLARE-DEPLOY.md."
             exit 1
           fi
           code=$(curl -s -o /tmp/cf-pages.json -w "%{http_code}" \
@@ -37,7 +36,7 @@ jobs:
             echo "Fix: https://dash.cloudflare.com/profile/api-tokens → Create Token → Custom"
             echo "Permission: Account → Cloudflare Pages → Edit"
             echo "Then run: gh secret set CLOUDFLARE_PAGES_API_TOKEN"
-            echo "Keep CLOUDFLARE_DNS_API_TOKEN for fix-dns; do not use a DNS-only token here."
+            echo "Keep CLOUDFLARE_API_TOKEN for fix-dns (DNS Edit only)."
             cat /tmp/cf-pages.json || true
             exit 1
           fi
@@ -59,7 +58,7 @@ jobs:
       - name: Ensure Pages project exists
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4.100.0"
           command: pages project create dc-site --production-branch=main
@@ -68,7 +67,7 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4.100.0"
           command: pages deploy dist --project-name=dc-site --branch=main --commit-dirty=true
