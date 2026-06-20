@@ -33,12 +33,7 @@ const EMAIL_RECORDS = [
     content: "v=spf1 include:spf.privateemail.com ~all",
     proxied: false,
   },
-  {
-    type: "TXT",
-    name: `_dmarc.${ZONE_NAME}`,
-    content: "v=DMARC1; p=none;",
-    proxied: false,
-  },
+  // DMARC is managed in Cloudflare Email Security (rua= reports). Do not auto-create here.
 ];
 
 const SITE_RECORDS = [

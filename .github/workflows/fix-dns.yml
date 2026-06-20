@@ -19,11 +19,11 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Dedupe SPF/DMARC (keep PrivateEmail)
-        run: npm run fix:email-dns
-
       - name: Fix DNS records + DNS-AID + DNSSEC
         run: npm run fix:dns
+
+      - name: Dedupe SPF/DMARC (keep PrivateEmail)
+        run: npm run fix:email-dns
 
       - name: Diagnose domain
         run: npm run diagnose:domain
