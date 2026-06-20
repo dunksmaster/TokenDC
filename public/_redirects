@@ -1,2 +1,5 @@
 /docs/api /docs/api/index.html 200
 /token.html /bitcoin-for-corporations.html 301
+/learn/* https://duacrypto.org/ 301
+/bitcoin/* https://duacrypto.org/ 301
+/affiliate/* https://duacrypto.com/ 301
