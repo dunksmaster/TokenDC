@@ -1,10 +1,11 @@
-# Manual deploy via GitHub Actions → build dist/ → Cloudflare Pages (dc-site).
-# Production deploys run on Cloudflare native Git (push to main). Do not enable
-# push here unless CLOUDFLARE_PAGES_API_TOKEN is set (Pages Edit — not DNS-only).
+# Auto-deploy on push to main + manual workflow_dispatch.
+# Requires CLOUDFLARE_PAGES_API_TOKEN (Pages Edit) — not the DNS-only token.
 # See docs/CLOUDFLARE-DEPLOY.md.
 name: Deploy to Cloudflare Pages
 
 on:
+  push:
+    branches: ["main"]
   workflow_dispatch:
 
 concurrency:

@@ -1,8 +1,10 @@
 # Cloudflare Pages — production hosting
 
-# Production deploys on push to `main` via **Cloudflare native Git** (dashboard:
-# dc-site → Connect to Git). GitHub Actions deploy is **manual only** to avoid
-# double-deploys and failed runs when only a DNS token is configured.
+# Production deploys on push to `main` via **`.github/workflows/cloudflare-pages.yml`**
+→ build `dist/` → **dc-site** on Cloudflare Pages.
+
+Optional: connect **Cloudflare native Git** in the dashboard instead — if you do,
+disable the push trigger in `cloudflare-pages.yml` to avoid double-deploys.
 - GitHub Pages (`static.yml`) is **legacy / manual only** — it cannot set RFC 8288 `Link` response headers.
 
 ## Cloudflare native Git build settings
@@ -121,14 +123,8 @@ Two tokens — **do not reuse the DNS token for Pages deploy** (HTTP 403).
 | `CLOUDFLARE_PAGES_API_TOKEN` | `cloudflare-pages.yml` (manual) | Account → **Cloudflare Pages → Edit** |
 | `CLOUDFLARE_ACCOUNT_ID` | both | Account ID from Cloudflare dashboard |
 
-`cloudflare-pages.yml` is **workflow_dispatch only**. To deploy from GitHub Actions:
-
-1. [Create API token](https://dash.cloudflare.com/profile/api-tokens) → **Edit Cloudflare Workers** (Pages Edit)
-2. `gh secret set CLOUDFLARE_PAGES_API_TOKEN`
-3. Actions → **Deploy to Cloudflare Pages** → **Run workflow**
-
-Optional: rename DNS secret for clarity — `gh secret set CLOUDFLARE_DNS_API_TOKEN` and keep
-`CLOUDFLARE_API_TOKEN` as the DNS token (fix-dns accepts either).
+`cloudflare-pages.yml` deploys on every push to `main` once `CLOUDFLARE_PAGES_API_TOKEN`
+is set. Manual re-run: Actions → **Deploy to Cloudflare Pages** → **Run workflow**.
 
 ### Manual deploy (no GitHub secrets)
 
