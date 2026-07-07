@@ -16,6 +16,7 @@ import { buildThemeAssets } from "./build-theme-assets.mjs";
 import { applySeoToHtmlFiles } from "./inject-seo.mjs";
 import { siteUrl as seoSiteUrl, seoPages } from "./seo-config.mjs";
 import { cloudflareHeadersBlock } from "../lib/agent-discovery-headers.mjs";
+import { buildHeadersFile } from "../lib/site-security-headers.mjs";
 import {
   generateAuthMd,
   OPENID_CONFIGURATION,
@@ -494,38 +495,9 @@ function syncAuthMdFiles() {
   );
 }
 
-/** RFC 8288 Link headers for Cloudflare Pages (`public/_headers` → `dist/_headers`). */
+/** Security, cache, and RFC 8288 Link headers for Cloudflare Pages (`public/_headers` → `dist/_headers`). */
 function syncLinkHeadersFile() {
-  const home = cloudflareHeadersBlock();
-  const content = `/
-${home}
-
-/index.html
-${home}
-
-/.well-known/api-catalog
-  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
-
-/robots.txt
-  Content-Type: text/plain; charset=utf-8
-
-/sitemap.xml
-  Content-Type: application/xml; charset=utf-8
-
-/auth.md
-  Content-Type: text/markdown; charset=utf-8
-
-/md/*
-  Content-Type: text/markdown; charset=utf-8
-  Vary: Accept
-
-/.well-known/http-message-signatures-directory
-  Content-Type: application/http-message-signatures-directory+json; charset=utf-8
-  Cache-Control: max-age=86400
-
-/.well-known/jwks.json
-  Content-Type: application/json; charset=utf-8
-`;
+  const content = buildHeadersFile(cloudflareHeadersBlock());
   writeFileSync(join(root, "public", "_headers"), content, "utf8");
 }
 
