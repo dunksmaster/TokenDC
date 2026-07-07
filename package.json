@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node scripts/generate-agent-assets.mjs && vite",
     "dev:fresh": "npx --yes kill-port 5173 5174 5175 && npm run dev",
-    "build": "node scripts/generate-agent-assets.mjs && vite build",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "build": "node scripts/optimize-images.mjs && node scripts/generate-agent-assets.mjs && vite build",
     "deploy": "wrangler pages deploy dist --project-name=dc-site --branch=backup-working-state --commit-dirty",
     "deploy:production": "wrangler pages deploy dist --project-name=dc-site --branch=main --commit-dirty",
     "verify:headers": "node scripts/verify-link-headers.mjs",
@@ -38,6 +39,7 @@
     "@tailwindcss/vite": "^4.1.8",
     "esbuild": "0.28.1",
     "playwright": "^1.60.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.8",
     "vite": "^6.3.5",
     "wrangler": "^4.93.0"
