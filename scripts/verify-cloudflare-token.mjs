@@ -6,13 +6,14 @@
  * Usage:
  *   CLOUDFLARE_API_TOKEN=... CLOUDFLARE_ACCOUNT_ID=... npm run verify:cf-token
  */
-const token = process.env.CLOUDFLARE_API_TOKEN;
+const token =
+  process.env.CLOUDFLARE_PAGES_API_TOKEN ?? process.env.CLOUDFLARE_API_TOKEN;
 const accountId =
   process.env.CLOUDFLARE_ACCOUNT_ID ?? "51d0340bb43eebb07f7c2da17733c3e9";
 const zone = "duacrypto.com";
 
 if (!token) {
-  console.error("Set CLOUDFLARE_API_TOKEN");
+  console.error("Set CLOUDFLARE_PAGES_API_TOKEN (or CLOUDFLARE_API_TOKEN for legacy)");
   process.exit(1);
 }
 

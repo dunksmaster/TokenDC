@@ -15,7 +15,7 @@ Workers & Pages → **dc-site** → **Settings** → **Builds & deployments**:
 |--------|--------|
 | Git repository | `dunksmaster/TokenDC` (connect via **Connect to Git**) |
 | Production branch | `main` |
-| Build command | `npm run build` |
+| Build command | `bash scripts/cloudflare-ci-build.sh` (or `npm run build`) |
 | Build output directory | `dist` |
 | Root directory | `/` |
 | Node version | `22` (pinned via `.node-version`) |
@@ -39,7 +39,7 @@ Do **not** set a Deploy command and never use `npx wrangler versions upload` (Wo
 
 1. Workers & Pages → **dc-site** → **Settings** → **Builds & deployments** → **Connect to Git**
 2. Authorize the GitHub app for `dunksmaster/TokenDC`, pick branch `main`
-3. Set build command `npm run build`, output `dist` (table above)
+3. Set build command `bash scripts/cloudflare-ci-build.sh`, output `dist` (table above)
 4. Trigger a deployment and confirm it builds green
 
 ### 2. Cloudflare Dashboard
@@ -48,7 +48,7 @@ Do **not** set a Deploy command and never use `npx wrangler versions upload` (Wo
 
 | Setting | Value |
 |--------|--------|
-| Build command | `npm run build` |
+| Build command | `bash scripts/cloudflare-ci-build.sh` |
 | Build output directory | `dist` |
 | **Deploy command** | **Leave empty** |
 
@@ -125,6 +125,10 @@ Two tokens — **do not reuse the DNS token for Pages deploy** (HTTP 403).
 
 Refresh Pages token from Wrangler login: `node scripts/set-pages-github-secret.mjs`
 
+**Local wrangler OAuth expired?** Run `npx wrangler login`, then `node scripts/set-pages-github-secret.mjs` and `npm run verify:cf-token` with `CLOUDFLARE_PAGES_API_TOKEN` set.
+
+**Stop duplicate failing checks:** if `Workers Builds: dc-site` fails on PRs but GitHub `verify` passes, either fix dashboard settings (table above) or **disconnect Git** on dc-site and rely on GitHub Actions only (Option A below).
+
 ### Manual deploy (no GitHub secrets)
 
 ```bash
@@ -157,7 +161,7 @@ This check comes from **Cloudflare Dashboard → Git connected to repo**, not fr
 
 | Setting | Required value |
 |---------|----------------|
-| Build command | `npm run build` |
+| Build command | `bash scripts/cloudflare-ci-build.sh` |
 | Build output directory | `dist` |
 | **Deploy command** | **empty** (not `wrangler versions upload`) |
 | Node.js version | `22` (or rely on `.node-version`) |
