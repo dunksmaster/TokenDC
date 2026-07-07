@@ -5,12 +5,11 @@ source: "privacy.html"
 ---
 
 Privacy Policy | DuaCrypto
-# Privacy Policy
 Last updated: May 29, 2025
 ## 1. Who we are
 DuaCrypto ("we", "us") operates duacrypto.com and related community channels. We are Albania's first crypto community, based in Tirana. Contact: [info@duacrypto.com](mailto:info@duacrypto.com).
 ## 2. Information we collect
-                        Contact forms & newsletter: email address and any message you submit via Formspree or similar forms.
+                Contact forms & newsletter: email address and any message you submit via Formspree or similar forms.
 - Community platforms: username and messages you post on Telegram, X, or other public channels we operate.
 - Analytics: anonymized usage data via Google Analytics (page views, device type, approximate location).
 - Donations: blockchain transaction hashes and wallet addresses when you donate crypto — we do not collect traditional payment card data on this site.
@@ -27,10 +26,3 @@ You may request access, correction, or deletion of personal data we hold by emai
 ## 8. Changes
 We may update this policy periodically. Material changes will be reflected on this page with an updated date. Continued use of our site after changes constitutes acceptance.
 See also our [Terms of Service](terms.html).
-[info@duacrypto.com](mailto:info@duacrypto.com)
-                    Quick Links
-                    [About Us](about.html)
-                    [Contact](contact.html)
-                    [Privacy](privacy.html)
-                    [Terms](terms.html)
-                    &copy; [DuaCrypto](index.html), All Rights Reserved.

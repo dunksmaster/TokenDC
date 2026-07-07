@@ -5,7 +5,6 @@ source: "terms.html"
 ---
 
 Terms of Service | DuaCrypto
-# Terms of Service
 Last updated: May 29, 2025
 ## 1. Acceptance
 By accessing duacrypto.com, joining our Telegram community, attending events, or using our educational resources, you agree to these Terms of Service. If you disagree, please do not use our services.
@@ -27,10 +26,3 @@ To the fullest extent permitted by Albanian law, DuaCrypto and its founders, men
 These terms are governed by the laws of the Republic of Albania. Disputes shall be subject to the courts of Tirana, Albania.
 ## 10. Contact
 Questions about these terms: [info@duacrypto.com](mailto:info@duacrypto.com). See our [Privacy Policy](privacy.html).
-[info@duacrypto.com](mailto:info@duacrypto.com)
-                    Quick Links
-                    [About Us](about.html)
-                    [Contact](contact.html)
-                    [Privacy](privacy.html)
-                    [Terms](terms.html)
-                    &copy; [DuaCrypto](index.html), All Rights Reserved.
