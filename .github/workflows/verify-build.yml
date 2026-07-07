@@ -8,8 +8,8 @@ on:
     branches: [main]
 
 concurrency:
-  group: verify-build-${{ github.ref }}
-  cancel-in-progress: true
+  group: verify-build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
 
 jobs:
   verify:

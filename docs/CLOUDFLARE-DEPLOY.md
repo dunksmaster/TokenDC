@@ -133,3 +133,55 @@ npx wrangler login
 npm run deploy:production
 npx wrangler pages domain add duacrypto.com --project-name=dc-site
 ```
+
+## GitHub checks troubleshooting
+
+### `Verify build` — cancelled (red X on PR)
+
+Harmless. GitHub cancelled an older run when a newer commit was pushed to the same PR (`cancel-in-progress` was enabled). **Check the latest run** — it should be green. Workflow updated to `cancel-in-progress: false` to reduce confusion.
+
+### `Verify build` — failed
+
+Run locally (must match CI):
+
+```bash
+export SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)
+npm ci && npm run build && npm run verify:build
+```
+
+### `Workers Builds: dc-site` — failed (Cloudflare native Git)
+
+This check comes from **Cloudflare Dashboard → Git connected to repo**, not from `.github/workflows/verify-build.yml`. Our GitHub Action build can pass while Cloudflare's native builder still fails if dashboard settings are wrong.
+
+**Dashboard → Workers & Pages → dc-site → Settings → Builds:**
+
+| Setting | Required value |
+|---------|----------------|
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| **Deploy command** | **empty** (not `wrangler versions upload`) |
+| Node.js version | `22` (or rely on `.node-version`) |
+| Root directory | `/` |
+
+Open the failed build log from the check link (Cloudflare dashboard) and look for:
+
+- `Authentication error` / HTTP 401 → wrong or expired API token in Cloudflare Git integration
+- `wrangler versions upload` → remove Deploy command (Pages, not Workers)
+- `sharp` / `npm ci` errors → ensure Node 22 and `package-lock.json` is committed
+
+**Recommended:** use **one** deploy path to avoid double builds:
+
+- **Option A (current docs):** GitHub Actions `cloudflare-pages.yml` only — disconnect Git in Cloudflare dashboard
+- **Option B:** Cloudflare native Git only — disable `on: push` in `cloudflare-pages.yml`
+
+### `Deploy to Cloudflare Pages` on `main` — failed (HTTP 401)
+
+GitHub secret `CLOUDFLARE_PAGES_API_TOKEN` is missing, expired, or is the DNS-only token.
+
+```bash
+# After: wrangler login (Pages Edit permission)
+node scripts/set-pages-github-secret.mjs
+```
+
+Re-run: Actions → Deploy to Cloudflare Pages → Run workflow.
+
