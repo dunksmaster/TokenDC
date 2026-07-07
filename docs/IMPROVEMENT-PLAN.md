@@ -2,7 +2,7 @@
 
 Operational plan for speed, SEO, template, security, and layout improvements for [duacrypto.com](https://duacrypto.com).
 
-**Last updated:** 2026-07-07  
+**Last updated:** 2026-07-07 (Steps 1–2 implemented on `cursor/image-pipeline-headers-d4c1`)  
 **Related:** [SEO-CHECKLIST.md](./SEO-CHECKLIST.md), [MISSING-ASSETS.md](./MISSING-ASSETS.md)
 
 ---
@@ -26,19 +26,43 @@ This plan was written against the **committed `main` branch** (what ships today)
 ## Revised execution order
 
 ```
-Step 0  →  Commit + push the current migration (split into sensible commits)
-Step 1  →  Image optimization pipeline (highest remaining impact)
-Step 2  →  CSP + X-Content-Type-Options + Cache-Control headers
+Step 0  →  Commit + push the current migration (split into sensible commits)  [LOCAL ONLY — not in remote main]
+Step 1  →  Image optimization pipeline (highest remaining impact)               [DONE — this branch]
+Step 2  →  CSP + X-Content-Type-Options + Cache-Control headers               [DONE — this branch]
 Step 3  →  Delete dead assets (bootstrap, owlcarousel, wow, waypoints, counterup)
 Step 4  →  SEO polish (apple-touch-icon, webmanifest, hreflang when /sq/ exists)
 Step 5  →  Self-host fonts / Font Awesome subset (lower priority — already async-preloaded)
 ```
 
+### Completed on `cursor/image-pipeline-headers-d4c1` (2026-07-07)
+
+| Item | Result |
+|------|--------|
+| Image pipeline | `scripts/optimize-images.mjs` + `sharp`; wired into `npm run build` |
+| `img/` size | **33 MB → ~5 MB** (28 MB of unreferenced assets removed; referenced images compressed + WebP siblings) |
+| Security headers | `lib/site-security-headers.mjs` → merged into `public/_headers` via `syncLinkHeadersFile()` |
+| CSP | `Content-Security-Policy-Report-Only` (enforce after 1 week clean reports) |
+| `nosniff` | `X-Content-Type-Options: nosniff` on `/*` |
+| Cache-Control | `max-age=31536000, immutable` on `/img/*`, `/css/*`, `/js/*`, `/lib/*`, `/webp/*` |
+
 ---
 
 ## Step 0 — Commit the migration (do this first)
 
-**Why:** An entire Tailwind migration, partials system, favicon fix, and partial security headers sit uncommitted. If anything happens to the local folder, that work is lost. Nothing else should start until this is pushed.
+**Status:** Still required on your **local machine** if the Tailwind migration / partials work is not yet pushed. This cloud agent branch does **not** include `src/partials/` or `html-includes.js` — those exist only in your local working tree per prior verification.
+
+### Remote branches reviewed (2026-07-07)
+
+| Branch | Notes |
+|--------|-------|
+| `origin/website-update` | Large content/design overhaul (226 files); removes Cloudflare workflows, Vite config, many docs — **do not merge blindly** |
+| `origin/cursor/fix-and-improve-code-issue-3d2b` | Similar scale reduction; appears to strip agent/Cloudflare infra |
+| `origin/backup-working-state` | Cloudflare deploy backup branch |
+| `origin/cursor/improvement-plan-update-d4c1` | This improvement plan doc only (PR #4) |
+
+**Action:** Push your local migration to a new branch (e.g. `cursor/tailwind-migration-d4c1`) so it can be reviewed separately from the image/header work.
+
+**Why:** An entire Tailwind migration, partials system, favicon fix, and partial security headers may still sit uncommitted locally. If anything happens to the local folder, that work is lost.
 
 **Suggested commit split:**
 
