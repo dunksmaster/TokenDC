@@ -1,0 +1,25 @@
+{
+  "name": "DuaCrypto",
+  "short_name": "DuaCrypto",
+  "description": "Albania's first Bitcoin and crypto community in Tirana. Web3 education, Balkans events, and corporate Bitcoin (DAL).",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#16d5ff",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/duacrypto-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

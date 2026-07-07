@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "node scripts/generate-agent-assets.mjs && vite",
     "dev:fresh": "npx --yes kill-port 5173 5174 5175 && npm run dev",
-    "build": "node scripts/generate-agent-assets.mjs && vite build",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "build": "node scripts/optimize-images.mjs && node scripts/generate-agent-assets.mjs && vite build",
     "deploy": "wrangler pages deploy dist --project-name=dc-site --branch=backup-working-state --commit-dirty",
     "deploy:production": "wrangler pages deploy dist --project-name=dc-site --branch=main --commit-dirty",
     "verify:headers": "node scripts/verify-link-headers.mjs",
+    "verify:security-headers": "node scripts/verify-security-headers.mjs",
+    "verify:build": "node scripts/verify-build.mjs",
     "diagnose:domain": "node scripts/diagnose-domain.mjs",
     "fix:dns": "node scripts/fix-cloudflare-dns.mjs",
     "fix:email-dns": "node scripts/fix-email-dns.mjs",
@@ -18,11 +21,15 @@
     "verify:auth-md": "node scripts/verify-auth-md.mjs",
     "preview": "vite preview",
     "agent:generate": "node scripts/generate-agent-assets.mjs",
+    "inject:icons": "node scripts/inject-icons.mjs",
     "test:markdown": "node scripts/test-markdown-negotiation.mjs",
     "test:dns-names": "node scripts/test-dns-name-matching.mjs",
     "postinstall": "node scripts/patch-wrangler-templates.mjs"
   },
   "dependencies": {
+    "@fontsource/open-sans": "^5.2.7",
+    "@fontsource/roboto": "^5.2.10",
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "@x402/core": "^2.12.0",
     "@x402/evm": "^2.12.0",
     "@x402/hono": "^2.12.0",
@@ -38,6 +45,7 @@
     "@tailwindcss/vite": "^4.1.8",
     "esbuild": "0.28.1",
     "playwright": "^1.60.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.8",
     "vite": "^6.3.5",
     "wrangler": "^4.93.0"

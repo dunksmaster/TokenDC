@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { agentDiscoveryPlugin } from "./vite-plugins/agent-discovery.js";
 import { copyLegacyStaticPlugin } from "./vite-plugins/copy-legacy-static.js";
+import { htmlIncludesPlugin } from "./vite-plugins/html-includes.js";
 
 /** Ensure robots.txt and sitemap.xml land in dist/ after every build. */
 function ensureDiscoveryFilesPlugin() {
@@ -11,6 +12,7 @@ function ensureDiscoveryFilesPlugin() {
   const copies = [
     ["public/robots.txt", "dist/robots.txt"],
     ["public/sitemap.xml", "dist/sitemap.xml"],
+    ["public/site.webmanifest", "dist/site.webmanifest"],
     ["public/css/dark-mode.css", "dist/css/dark-mode.css"],
     ["public/_redirects", "dist/_redirects"],
     ["public/_headers", "dist/_headers"],
@@ -30,6 +32,7 @@ function ensureDiscoveryFilesPlugin() {
 export default defineConfig({
   plugins: [
     tailwindcss(),
+    htmlIncludesPlugin(),
     agentDiscoveryPlugin(),
     copyLegacyStaticPlugin(),
     ensureDiscoveryFilesPlugin(),
