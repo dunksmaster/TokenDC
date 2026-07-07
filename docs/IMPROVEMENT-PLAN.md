@@ -30,7 +30,7 @@ Step 0  →  Commit + push the current migration (split into sensible commits)  
 Step 1  →  Image optimization pipeline (highest remaining impact)               [DONE — this branch]
 Step 2  →  CSP + X-Content-Type-Options + Cache-Control headers               [DONE — this branch]
 Step 3  →  Delete dead assets (bootstrap, owlcarousel, wow, waypoints, counterup)
-Step 4  →  SEO polish (apple-touch-icon, webmanifest, hreflang when /sq/ exists)
+Step 4  →  SEO polish (apple-touch-icon, webmanifest, hreflang when /sq/ exists)  [PARTIAL — apple-touch-icon + webmanifest done]
 Step 5  →  Self-host fonts / Font Awesome subset (lower priority — already async-preloaded)
 ```
 

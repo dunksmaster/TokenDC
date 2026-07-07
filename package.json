@@ -19,6 +19,7 @@
     "verify:auth-md": "node scripts/verify-auth-md.mjs",
     "preview": "vite preview",
     "agent:generate": "node scripts/generate-agent-assets.mjs",
+    "inject:icons": "node scripts/inject-icons.mjs",
     "test:markdown": "node scripts/test-markdown-negotiation.mjs",
     "test:dns-names": "node scripts/test-dns-name-matching.mjs",
     "postinstall": "node scripts/patch-wrangler-templates.mjs"
