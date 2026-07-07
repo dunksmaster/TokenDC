@@ -60,7 +60,7 @@ Step 5  →  Self-host fonts / Font Awesome subset (lower priority — already a
 |-------|-------|--------|
 | 1 | `index.html`, `404.html`, `privacy.html`, `terms.html` | **Done** — Tailwind + partials |
 | 2 | `contact.html`, `faq.html`, `feature.html`, `service.html`, `roadmap.html` | Done |
-| 3 | `about.html`, `$10.html`, `events.html`, `donation.html`, `bitcoin-for-corporations.html` | Pending |
+| 3 | `about.html`, `$10.html`, `events.html`, `donation.html`, `bitcoin-for-corporations.html` | Done |
 
 Infrastructure: `src/partials/header.html`, `footer.html`, `vite-plugins/html-includes.js` (`<!-- @partial header active=about -->`).
 

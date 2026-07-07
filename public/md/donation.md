@@ -5,7 +5,7 @@ source: "donation.html"
 ---
 
 Donate a Book | DuaCrypto
-                        Why books
+                    Why books
 ## Long-form Bitcoin education that lasts
 Featured title
 Un sc&eacute;nario optimiste pour Bitcoin
@@ -31,7 +31,7 @@ Every ~150,000 sats (~$110 USD) funds roughly one quality Bitcoin book for a stu
                 Students reached
                 1
                 Publishing partner
-## Bitcoin Lightning Network
+##  Bitcoin Lightning Network
 Scan to pay with any Lightning wallet. Wallet of Satoshi, Phoenix, Muun, and others supported.
                     150,000
                     sats

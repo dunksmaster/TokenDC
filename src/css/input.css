@@ -602,6 +602,30 @@ html.dark {
     @apply inline-flex items-center justify-center rounded-md border-2 border-primary bg-transparent px-6 py-3 font-medium text-primary transition hover:bg-primary hover:text-white;
   }
 
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .newsletter-testimonials {
+    @apply bg-surface;
+  }
+
+  .newsletter-testimonial {
+    @apply m-0 rounded-xl border border-black/10 bg-card p-6 shadow-md;
+  }
+
+  .newsletter-testimonial p {
+    @apply italic text-secondary;
+  }
+
+  .newsletter-testimonial-author {
+    @apply text-sm font-semibold text-primary;
+  }
+
+  html.dark .newsletter-testimonial {
+    @apply border-white/10 shadow-lg shadow-black/25;
+  }
+
   .feature-row {
     @apply flex items-start gap-4;
   }

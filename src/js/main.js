@@ -7,6 +7,9 @@ import { initBrandCards } from "./brand-cards.js";
 import { initAffiliates } from "./affiliates.js";
 import { initContact } from "./contact.js";
 import { initRoadmapCarousel } from "./roadmap.js";
+import { initAboutPage } from "./about.js";
+import { initEventsPage } from "./events-page.js";
+import { initDonationPage } from "./donation-page.js";
 import "./webmcp.js";
 
 function initBackToTop() {
@@ -32,5 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initAffiliates();
   initContact();
   initRoadmapCarousel();
+  initAboutPage();
+  initEventsPage();
+  initDonationPage();
   initBackToTop();
 });

@@ -1,0 +1,397 @@
+/* Profile Card Styles */
+.profile-card-col {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .profile-card-col {
+    justify-content: flex-start;
+  }
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .profile-card {
+    max-width: 420px;
+    margin: 0;
+  }
+}
+
+.image-container {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 320px;
+  position: relative;
+  overflow: hidden;
+  background: #0d1117;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+  display: block;
+}
+
+.share-btn {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  width: 70px;
+  height: 32px;
+  background-color: #ff7d00;
+  color: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.info-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  background-color: #1a1a1a;
+  color: white;
+  font-size: 14px;
+}
+
+.info-bar-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.handle {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+.actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 0;
+}
+
+.icon {
+  font-size: 18px;
+}
+
+.edit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #1a1a1a;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  min-height: 36px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.bio {
+  margin-top: 0;
+  color: #444;
+  line-height: 1.55;
+  font-size: 14px;
+  padding: 16px;
+  border-top: 1px solid #eee;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.bio-lead {
+  margin: 0 0 0.75rem;
+}
+
+.bio-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+}
+
+.bio-tags li {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: #f2f8fe;
+  color: #333;
+}
+
+html.dark .bio {
+  color: #c9d1d9;
+  border-top-color: #30363d;
+}
+
+html.dark .bio-tags li {
+  background: #21262d;
+  color: #c9d1d9;
+}
+
+html.dark .edit-btn {
+  background-color: #21262d;
+  color: #e6edf3;
+  border-color: #30363d;
+}
+
+html.dark .edit-btn:hover {
+  background-color: #30363d;
+}
+
+.profile-join {
+  padding: 0 16px 16px;
+  border-top: 1px solid #eee;
+}
+
+.profile-join-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #16d5ff 0%, #00b8e0 100%);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(22, 213, 255, 0.35);
+}
+
+.profile-join-btn:hover {
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(22, 213, 255, 0.45);
+}
+
+html.dark .profile-join {
+  border-top-color: #30363d;
+}
+
+html.dark .profile-join-btn {
+  background: linear-gradient(135deg, #16d5ff 0%, #0891b2 100%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* Crypto Donation Banner */
+.donation-banner-row {
+  margin-top: 0.5rem;
+}
+
+.crypto-banner-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(29, 138, 90, 0.25);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (hover: hover) {
+  .crypto-banner-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(29, 138, 90, 0.35);
+  }
+}
+
+.crypto-banner {
+  background: linear-gradient(135deg, #25a56a 0%, #1d8a5a 100%);
+  padding: clamp(1.25rem, 4vw, 2rem);
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.crypto-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.crypto-icon {
+  position: absolute;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.7);
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) translateX(20px) rotate(10deg);
+  }
+  50% {
+    transform: translateY(0) translateX(40px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(20px) translateX(20px) rotate(-10deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+}
+
+.crypto-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
+
+.crypto-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 0.75rem;
+}
+
+.crypto-content h2 {
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  line-height: 1.2;
+}
+
+.crypto-content p {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  margin-bottom: 1.25rem;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.55;
+  opacity: 0.95;
+}
+
+.banner-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  background: linear-gradient(135deg, #ffd166 0%, #ffb74d 100%);
+  color: #1a2a32;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+@media (hover: hover) {
+  .crypto-banner-container:hover .banner-cta-pill {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.crypto-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.crypto-logo {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.crypto-logo:hover {
+  transform: scale(1.2) rotate(15deg);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+html.dark .crypto-banner {
+  border-color: rgba(48, 54, 61, 0.8);
+}
+
+html.dark .crypto-banner-container {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 575.98px) {
+  .crypto-logos {
+    gap: 0.5rem;
+  }
+
+  .crypto-logo {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+
+  .banner-cta-pill {
+    width: 100%;
+    max-width: 20rem;
+  }
+}
