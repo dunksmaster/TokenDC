@@ -51,9 +51,25 @@ for (const rel of [
 }
 
 // 3. HTML markers + no external fonts
+// Tailwind-migrated pages must not load Bootstrap/jQuery.
+const TAILWIND_PAGES = new Set([
+  "index.html",
+  "404.html",
+  "privacy.html",
+  "terms.html",
+]);
+
 for (const name of readdirSync(root)) {
   if (!name.endsWith(".html")) continue;
   const html = readFileSync(join(root, name), "utf8");
+  if (TAILWIND_PAGES.has(name)) {
+    if (/bootstrap\.min\.css|code\.jquery\.com/i.test(html)) {
+      fail(`${name}: Tailwind page still references Bootstrap/jQuery`);
+    }
+    if (!html.includes("/src/css/input.css")) {
+      fail(`${name}: Tailwind page missing input.css`);
+    }
+  }
   if (!html.includes("<!-- dc-icons:start -->")) {
     fail(`${name}: missing dc-icons block`);
   }

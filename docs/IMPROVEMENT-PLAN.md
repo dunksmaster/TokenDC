@@ -54,7 +54,17 @@ Step 5  →  Self-host fonts / Font Awesome subset (lower priority — already a
 
 ## Step 0 — Commit the migration (do this first)
 
-**Status:** Still required on your **local machine** if the Tailwind migration / partials work is not yet pushed. This cloud agent branch does **not** include `src/partials/` or `html-includes.js` — those exist only in your local working tree per prior verification.
+**Status:** In progress on `cursor/tailwind-migration-d4c1` (cloud agent).
+
+| Batch | Pages | Status |
+|-------|-------|--------|
+| 1 | `index.html`, `404.html`, `privacy.html`, `terms.html` | **Done** — Tailwind + partials |
+| 2 | `contact.html`, `faq.html`, `feature.html`, `service.html`, `roadmap.html` | Pending |
+| 3 | `about.html`, `$10.html`, `events.html`, `donation.html`, `bitcoin-for-corporations.html` | Pending |
+
+Infrastructure: `src/partials/header.html`, `footer.html`, `vite-plugins/html-includes.js` (`<!-- @partial header active=about -->`).
+
+Bootstrap pages remaining: **10** (down from 13).
 
 ### Remote branches reviewed (2026-07-07)
 
