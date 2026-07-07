@@ -597,6 +597,198 @@ html.dark {
   html.dark .line-hover {
     @apply text-secondary;
   }
+
+  .btn-outline-primary {
+    @apply inline-flex items-center justify-center rounded-md border-2 border-primary bg-transparent px-6 py-3 font-medium text-primary transition hover:bg-primary hover:text-white;
+  }
+
+  .feature-row {
+    @apply flex items-start gap-4;
+  }
+
+  .feature-row img {
+    @apply h-16 w-16 shrink-0 object-contain;
+  }
+
+  .service-link {
+    @apply inline-flex items-center font-medium text-primary transition hover:underline;
+  }
+
+  /* Roadmap timeline carousel */
+  .roadmap-carousel-wrap {
+    @apply relative;
+  }
+
+  .roadmap-carousel {
+    @apply relative;
+  }
+
+  .roadmap-carousel::before {
+    content: "";
+    @apply pointer-events-none absolute left-0 right-0 top-5 z-[1] border-t-2 border-dashed border-secondary;
+  }
+
+  .roadmap-carousel-track {
+    @apply flex snap-x snap-mandatory gap-[25px] overflow-x-auto scroll-smooth pb-2;
+    scrollbar-width: none;
+  }
+
+  .roadmap-carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .roadmap-item {
+    @apply flex min-w-0 flex-[0_0_100%] snap-start flex-col text-center sm:flex-[0_0_calc(50%-12.5px)] md:flex-[0_0_calc(33.333%-16.67px)] lg:flex-[0_0_calc(25%-18.75px)] xl:flex-[0_0_calc(20%-20px)];
+  }
+
+  .roadmap-item__track {
+    @apply relative h-32 shrink-0;
+  }
+
+  .roadmap-item__track::before {
+    content: "";
+    @apply absolute left-1/2 top-0 h-24 -translate-x-1/2 border-r-2 border-dashed border-secondary;
+  }
+
+  .roadmap-item__track::after {
+    content: "";
+    @apply absolute left-1/2 top-[104px] h-3.5 w-3.5 -translate-x-1/2 rotate-45 bg-primary;
+  }
+
+  .roadmap-point {
+    @apply absolute left-1/2 top-1.5 flex h-[30px] w-[30px] -translate-x-1/2 rotate-45 items-center justify-center border-2 border-primary bg-page;
+  }
+
+  .roadmap-point span {
+    @apply block h-[18px] w-[18px] bg-primary;
+  }
+
+  .roadmap-item__content {
+    @apply px-2 pb-6 pt-5;
+  }
+
+  .roadmap-item__content h5 {
+    @apply mb-3 font-semibold text-dark;
+  }
+
+  .roadmap-item__desc {
+    @apply block leading-relaxed text-secondary;
+  }
+
+  .roadmap-carousel-nav {
+    @apply mt-10 flex justify-center gap-6;
+  }
+
+  .roadmap-carousel-btn {
+    @apply flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl text-white transition hover:bg-dark;
+  }
+
+  html.dark .roadmap-carousel-btn:hover {
+    @apply bg-light text-primary;
+  }
+
+  .bitcoin-timeline {
+    @apply mx-auto max-w-[720px] overflow-hidden rounded-2xl shadow-lg;
+  }
+
+  .bitcoin-timeline-img {
+    @apply block h-auto w-full rounded-2xl;
+  }
+
+  /* Contact page */
+  .contact-email-box {
+    @apply inline-flex flex-wrap items-center justify-center gap-3 rounded-lg border border-border bg-card px-5 py-4;
+  }
+
+  .contact-email-address {
+    @apply text-lg font-semibold text-dark no-underline hover:text-primary;
+  }
+
+  .contact-map-section {
+    @apply pb-0;
+  }
+
+  .contact-map-wrap {
+    @apply relative mx-auto max-w-full overflow-hidden;
+  }
+
+  .contact-map-iframe {
+    @apply block h-[420px] w-full border-0;
+  }
+
+  .contact-map-pin {
+    @apply pointer-events-none absolute left-1/2 top-1/2 z-[3] -translate-x-1/2 text-5xl text-primary;
+    transform: translate(-50%, -100%);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+    animation: contact-map-pin-bounce 2s ease-in-out infinite;
+  }
+
+  .contact-map-badge {
+    @apply absolute left-4 top-4 z-[2] flex max-w-[min(320px,calc(100%-2rem))] items-start gap-3 rounded-xl bg-card px-4 py-3.5 text-inherit no-underline shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl;
+  }
+
+  .contact-map-badge-icon {
+    @apply mt-0.5 shrink-0 text-2xl text-primary;
+  }
+
+  .contact-map-badge-text {
+    @apply flex flex-col gap-0.5 text-sm leading-snug text-secondary;
+  }
+
+  .contact-map-badge-text strong {
+    @apply text-base text-dark;
+  }
+
+  /* Newsletter card */
+  .newsletter-card {
+    @apply overflow-hidden rounded-2xl border border-black/10 bg-card shadow-lg transition hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .newsletter-card-media {
+    @apply bg-surface;
+  }
+
+  .newsletter-img-wrap {
+    @apply relative flex min-h-[280px] items-center justify-center p-6;
+  }
+
+  .newsletter-img {
+    @apply block h-auto w-full max-w-xs rounded-xl object-contain;
+  }
+
+  .newsletter-price-badge {
+    @apply absolute bottom-5 right-5 rounded-full bg-primary px-3 py-1.5 text-sm font-semibold text-white shadow-md;
+  }
+
+  .newsletter-card-body {
+    @apply p-8;
+  }
+
+  .newsletter-features li {
+    @apply mb-2.5 text-secondary;
+  }
+
+  html.dark .newsletter-card {
+    @apply border-white/10 shadow-xl shadow-black/30;
+  }
+
+  @media (max-width: 767px) {
+    .newsletter-img-wrap {
+      @apply min-h-[220px] p-5;
+    }
+
+    .newsletter-card-body {
+      @apply p-6;
+    }
+
+    .contact-map-badge {
+      @apply bottom-4 left-1/2 top-auto max-w-[calc(100%-1.5rem)] -translate-x-1/2;
+    }
+
+    .contact-map-badge:hover {
+      transform: translateX(-50%) translateY(-2px);
+    }
+  }
 }
 
 /* Beat leftover utility classes from older markup */
@@ -647,5 +839,15 @@ html.dark .border-gray-300 {
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+@keyframes contact-map-pin-bounce {
+  0%,
+  100% {
+    transform: translate(-50%, -100%);
+  }
+  50% {
+    transform: translate(-50%, calc(-100% - 6px));
   }
 }

@@ -67,11 +67,6 @@ function syncBitcoinTimelineImages(isDark) {
   });
 }
 
-function refreshRoadmapCarousel() {
-  if (typeof window.jQuery === "undefined") return;
-  window.jQuery(".roadmap-carousel").trigger("refresh.owl.carousel");
-}
-
 export function applyTheme(theme) {
   const root = document.documentElement;
   const isDark = theme === "dark";
@@ -82,7 +77,6 @@ export function applyTheme(theme) {
   syncThemeToggleUi(theme);
   stabilizeWowAnimations();
   syncBitcoinTimelineImages(isDark);
-  refreshRoadmapCarousel();
 
   if (typeof window !== "undefined") {
     window.__DUACRYPTO_THEME__ = { early: false, theme };
