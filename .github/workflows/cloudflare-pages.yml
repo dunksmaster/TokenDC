@@ -56,6 +56,9 @@ jobs:
           export SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)
           npm ci && npm run build
 
+      - name: Verify build output
+        run: npm run verify:build
+
       - name: Ensure Pages project exists
         uses: cloudflare/wrangler-action@v3
         with:

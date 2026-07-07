@@ -332,10 +332,25 @@ ls css/bootstrap.min.css lib/owlcarousel lib/wow lib/waypoints lib/counterup 2>/
 ## Post-deploy checklist (extends SEO-CHECKLIST.md)
 
 - [ ] Migration commits pushed; Cloudflare deploy from `main`
-- [ ] `img/` total size under 5 MB
+- [ ] `img/` total size under 8 MB (`npm run verify:build`)
+- [ ] `npm run verify:build` passes in CI
 - [ ] Lighthouse mobile performance improved on `/` and `/events.html`
 - [ ] CSP report-only running with zero unexpected violations for 1 week
-- [ ] CSP enforced
+- [ ] CSP enforced: set `CSP_ENFORCE=1` before `npm run build` (see below)
 - [ ] `blog/` and `newsletter.html` in sitemap (if shipped)
 - [ ] No 404s for deleted bootstrap/lib paths
 - [ ] Core Web Vitals: no LCP regression (hero WebP still preloaded)
+
+### Enabling CSP enforcement
+
+After ~1 week of clean CSP reports in the browser console / Cloudflare logs:
+
+```bash
+CSP_ENFORCE=1 npm run build
+```
+
+This switches `Content-Security-Policy-Report-Only` → `Content-Security-Policy` in `_headers`. Verify with:
+
+```bash
+npm run verify:security-headers dist/_headers
+```

@@ -10,6 +10,8 @@
     "deploy": "wrangler pages deploy dist --project-name=dc-site --branch=backup-working-state --commit-dirty",
     "deploy:production": "wrangler pages deploy dist --project-name=dc-site --branch=main --commit-dirty",
     "verify:headers": "node scripts/verify-link-headers.mjs",
+    "verify:security-headers": "node scripts/verify-security-headers.mjs",
+    "verify:build": "node scripts/verify-build.mjs",
     "diagnose:domain": "node scripts/diagnose-domain.mjs",
     "fix:dns": "node scripts/fix-cloudflare-dns.mjs",
     "fix:email-dns": "node scripts/fix-email-dns.mjs",
