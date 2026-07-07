@@ -15,7 +15,9 @@ import { generateWebBotAuth } from "./generate-web-bot-auth.mjs";
 import { buildThemeAssets } from "./build-theme-assets.mjs";
 import { applySeoToHtmlFiles } from "./inject-seo.mjs";
 import { applyIconsToHtmlFiles } from "./inject-icons.mjs";
+import { applyVendorLinksToHtmlFiles } from "./inject-vendor-links.mjs";
 import { generatePwaIcons } from "./generate-pwa-icons.mjs";
+import { syncVendorAssets } from "./sync-vendor-assets.mjs";
 import { siteUrl as seoSiteUrl, seoPages } from "./seo-config.mjs";
 import { cloudflareHeadersBlock } from "../lib/agent-discovery-headers.mjs";
 import { buildHeadersFile } from "../lib/site-security-headers.mjs";
@@ -528,6 +530,8 @@ function writeRootDiscoveryFiles() {
 
 applySeoToHtmlFiles();
 applyIconsToHtmlFiles();
+syncVendorAssets();
+applyVendorLinksToHtmlFiles();
 await generatePwaIcons();
 generateMarkdown();
 collectSkills();

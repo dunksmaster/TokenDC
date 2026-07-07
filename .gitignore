@@ -32,3 +32,9 @@ public/js/main.js
 
 # Image optimize cache (scripts/optimize-images.mjs)
 scripts/.image-optimize-manifest.json
+
+# Self-hosted vendor assets (scripts/sync-vendor-assets.mjs)
+public/fonts/
+public/vendor/
+public/css/site-fonts.css
+css/site-fonts.css

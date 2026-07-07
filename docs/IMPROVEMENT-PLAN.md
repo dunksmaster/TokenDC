@@ -31,7 +31,7 @@ Step 1  →  Image optimization pipeline (highest remaining impact)             
 Step 2  →  CSP + X-Content-Type-Options + Cache-Control headers               [DONE — this branch]
 Step 3  →  Delete dead assets (bootstrap, owlcarousel, wow, waypoints, counterup)
 Step 4  →  SEO polish (apple-touch-icon, webmanifest, hreflang when /sq/ exists)  [PARTIAL — apple-touch-icon + webmanifest done]
-Step 5  →  Self-host fonts / Font Awesome subset (lower priority — already async-preloaded)
+Step 5  →  Self-host fonts / Font Awesome subset (lower priority — already async-preloaded)  [DONE]
 ```
 
 ### Completed on `cursor/image-pipeline-headers-d4c1` (2026-07-07)
@@ -44,6 +44,11 @@ Step 5  →  Self-host fonts / Font Awesome subset (lower priority — already a
 | CSP | `Content-Security-Policy-Report-Only` (enforce after 1 week clean reports) |
 | `nosniff` | `X-Content-Type-Options: nosniff` on `/*` |
 | Cache-Control | `max-age=31536000, immutable` on `/img/*`, `/css/*`, `/js/*`, `/lib/*`, `/webp/*` |
+| PWA icons | `site.webmanifest`, `apple-touch-icon.png`, favicon normalized on all 14 pages |
+| Favicon fix | Removed Wikimedia/IconArchive hotlinks and `via.placeholder.com` on `events.html` |
+| Self-hosted fonts | Open Sans + Roboto via `@fontsource` → `/css/site-fonts.css` (latin + latin-ext) |
+| Self-hosted FA | Font Awesome 6 from `@fortawesome/fontawesome-free` → `/vendor/font-awesome/` |
+| CSP tightened | Removed `fonts.googleapis.com`, `fonts.gstatic.com`, `cdnjs.cloudflare.com` from font/style allowlists |
 
 ---
 
