@@ -30,6 +30,9 @@ public/css/brand-logos.css
 # Image optimize cache (scripts/optimize-images.mjs)
 scripts/.image-optimize-manifest.json
 
+# Responsive gallery variants (scripts/optimize-images.mjs, build-time)
+img/*-*w.webp
+
 # Self-hosted vendor assets (scripts/sync-vendor-assets.mjs)
 public/fonts/
 public/vendor/

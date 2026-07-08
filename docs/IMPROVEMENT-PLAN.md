@@ -139,7 +139,7 @@ Bootstrap pages remaining: **10** (down from 13).
 
 - Resize to actual display dimensions (most images are served far larger than rendered)
 - Convert PNG/JPEG → WebP/AVIF; keep originals only in repo if needed for editing
-- Add responsive `srcset` / `sizes` on content images
+- ~~Add responsive `srcset` / `sizes` on content images~~ **Done** — `lib/gallery-responsive.mjs`, build-time `-480w/-800w/-1200w.webp` variants, `<picture>` on `events.html`
 - `loading="lazy"` + explicit `width`/`height` on below-the-fold images (prevents CLS)
 - Integrate into build: `sharp` step in `scripts/generate-agent-assets.mjs` or a Vite image plugin
 - **Target:** reduce `img/` from ~34 MB to ~2–4 MB
