@@ -6,6 +6,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
+import { GALLERY_IMAGE_BASES, galleryWebpSrcset } from "../lib/gallery-responsive.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
@@ -77,7 +78,12 @@ const DEAD_REPO_PATHS = [
   "js/theme-bootstrap.js",
   "src/js/theme-bootstrap.js",
   "public/js/theme-bootstrap.js",
-  "public/lib",
+  "public/lib/owlcarousel",
+  "public/lib/wow",
+  "public/lib/waypoints",
+  "public/lib/counterup",
+  "public/lib/animate",
+  "public/lib/easing",
   "lib/owlcarousel",
   "lib/wow",
   "lib/waypoints",
@@ -165,6 +171,17 @@ for (const filePath of collectHtmlSources()) {
     const alt = tag.match(/\balt\s*=\s*["']([^"']*)["']/i)?.[1];
     if (!alt?.trim()) {
       fail(`${label}: local <img> missing alt text`);
+    }
+  }
+}
+
+// 5b. Events gallery responsive srcset
+if (existsSync(join(root, "events.html"))) {
+  const eventsHtml = readFileSync(join(root, "events.html"), "utf8");
+  for (const base of GALLERY_IMAGE_BASES) {
+    const expected = galleryWebpSrcset(base);
+    if (!eventsHtml.includes(expected)) {
+      fail(`events.html: missing responsive srcset for ${base}`);
     }
   }
 }
