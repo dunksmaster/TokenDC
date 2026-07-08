@@ -6,6 +6,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
+import { GALLERY_IMAGE_BASES, galleryWebpSrcset } from "../lib/gallery-responsive.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
@@ -85,6 +86,37 @@ const TAILWIND_PAGES = new Set([
   "bitcoin-for-corporations.html",
 ]);
 
+const DEAD_REPO_PATHS = [
+  "css/bootstrap.min.css",
+  "css/style.css",
+  "js/main.js",
+  "js/main-token-slim.js",
+  "js/theme-bootstrap.js",
+  "src/js/theme-bootstrap.js",
+  "public/js/theme-bootstrap.js",
+  "public/lib/owlcarousel",
+  "public/lib/wow",
+  "public/lib/waypoints",
+  "public/lib/counterup",
+  "public/lib/animate",
+  "public/lib/easing",
+  "lib/owlcarousel",
+  "lib/wow",
+  "lib/waypoints",
+  "lib/counterup",
+  "lib/animate",
+  "lib/easing",
+  "public/css/dark-mode.css",
+  "css/dark-mode.css",
+  "src/js/carousel.js",
+];
+
+for (const rel of DEAD_REPO_PATHS) {
+  if (existsSync(join(root, rel))) {
+    fail(`dead asset still present in repo: ${rel}`);
+  }
+}
+
 for (const name of readdirSync(root)) {
   if (!name.endsWith(".html")) continue;
   const html = readFileSync(join(root, name), "utf8");
@@ -110,7 +142,49 @@ for (const name of readdirSync(root)) {
   }
 }
 
-// 4. img/ size budget (referenced assets only; target < 8 MB)
+// 4. Local /img/ markup: dimensions + alt text (CLS + a11y)
+function collectHtmlSources() {
+  const files = [];
+  for (const name of readdirSync(root)) {
+    if (name.endsWith(".html")) files.push(join(root, name));
+  }
+  const partialsDir = join(root, "src", "partials");
+  if (existsSync(partialsDir)) {
+    for (const name of readdirSync(partialsDir)) {
+      if (name.endsWith(".html")) files.push(join(partialsDir, name));
+    }
+  }
+  return files;
+}
+
+for (const filePath of collectHtmlSources()) {
+  const label = filePath.replace(root + "/", "");
+  const html = readFileSync(filePath, "utf8");
+  for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
+    const tag = match[0];
+    if (!/\bsrc\s*=\s*["']\/img\//i.test(tag)) continue;
+    if (!/\bwidth\s*=/i.test(tag) || !/\bheight\s*=/i.test(tag)) {
+      fail(`${label}: local <img> missing width/height — ${tag.slice(0, 80)}`);
+    }
+    const alt = tag.match(/\balt\s*=\s*["']([^"']*)["']/i)?.[1];
+    if (!alt?.trim()) {
+      fail(`${label}: local <img> missing alt text`);
+    }
+  }
+}
+
+// 4b. Events gallery responsive srcset
+if (existsSync(join(root, "events.html"))) {
+  const eventsHtml = readFileSync(join(root, "events.html"), "utf8");
+  for (const base of GALLERY_IMAGE_BASES) {
+    const expected = galleryWebpSrcset(base);
+    if (!eventsHtml.includes(expected)) {
+      fail(`events.html: missing responsive srcset for ${base}`);
+    }
+  }
+}
+
+// 5. img/ size budget (referenced assets only; target < 8 MB)
 const imgDir = join(root, "img");
 if (existsSync(imgDir)) {
   const mb = dirSizeBytes(imgDir) / (1024 * 1024);

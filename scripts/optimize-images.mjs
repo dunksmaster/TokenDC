@@ -16,6 +16,11 @@ import {
 import { basename, dirname, extname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
+import {
+  GALLERY_WIDTHS,
+  isGalleryImage,
+  responsiveVariantName,
+} from "../lib/gallery-responsive.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
@@ -90,7 +95,6 @@ function collectReferencedImages() {
     }
   };
 
-  // Root HTML pages
   for (const name of readdirSync(root)) {
     if (name.endsWith(".html")) scanFile(join(root, name));
   }
@@ -130,6 +134,10 @@ function formatBytes(n) {
   return `${n} B`;
 }
 
+function isResponsiveVariantFile(name) {
+  return /-\d+w\.webp$/i.test(name);
+}
+
 async function optimizeRaster(filePath, manifest) {
   const rel = relative(imgDir, filePath);
   const hash = fileHash(filePath);
@@ -139,6 +147,12 @@ async function optimizeRaster(filePath, manifest) {
 
   const before = statSync(filePath).size;
   const ext = extname(filePath).toLowerCase();
+  if (ext === ".webp") {
+    return { rel, skipped: true, saved: 0, reason: "webp-derived" };
+  }
+  if (isResponsiveVariantFile(basename(filePath))) {
+    return { rel, skipped: true, saved: 0, reason: "responsive-variant" };
+  }
   const maxW = maxWidthFor(rel);
 
   let pipeline = sharp(filePath, { failOn: "none" });
@@ -154,8 +168,6 @@ async function optimizeRaster(filePath, manifest) {
     out = await pipeline.jpeg({ quality: 82, mozjpeg: true }).toBuffer();
   } else if (ext === ".png") {
     out = await pipeline.png({ compressionLevel: 9, palette: meta.width <= 512 }).toBuffer();
-  } else if (ext === ".webp") {
-    out = await pipeline.webp({ quality: 82 }).toBuffer();
   } else {
     return { rel, skipped: true, saved: 0 };
   }
@@ -204,6 +216,48 @@ function existsSafe(p) {
   }
 }
 
+function baseRasterFromVariant(name) {
+  const m = name.match(/^(.+)-(\d+)w\.webp$/i);
+  if (!m) return null;
+  for (const ext of [".png", ".jpg", ".jpeg"]) {
+    const candidate = `${m[1]}${ext}`;
+    if (existsSafe(join(imgDir, candidate))) return candidate;
+  }
+  return `${m[1]}.png`;
+}
+
+async function ensureResponsiveVariants(filePath, referenced, manifest) {
+  const ext = extname(filePath).toLowerCase();
+  if (ext !== ".png" && ext !== ".jpg" && ext !== ".jpeg") return [];
+
+  const name = basename(filePath);
+  if (!referenced.has(name) || !isGalleryImage(name)) return [];
+
+  const base = basename(filePath, ext);
+  const meta = await sharp(filePath, { failOn: "none" }).metadata();
+  if (!meta.width) return [];
+
+  for (const width of GALLERY_WIDTHS) {
+    if (meta.width < width * 0.9) continue;
+
+    const variantName = responsiveVariantName(base, width);
+    const variantPath = join(dirname(filePath), variantName);
+    const rel = relative(imgDir, variantPath);
+
+    const out = await sharp(filePath, { failOn: "none" })
+      .resize({ width, withoutEnlargement: true })
+      .webp({ quality: 80 })
+      .toBuffer();
+
+    const hash = createHash("sha256").update(out).digest("hex");
+    if (manifest[rel]?.hash === hash) continue;
+
+    writeFileSync(variantPath, out);
+    manifest[rel] = { hash, bytes: out.length, at: new Date().toISOString() };
+    console.log(`  responsive ${variantName}: ${formatBytes(out.length)}`);
+  }
+}
+
 function pruneUnreferenced(referenced) {
   const removed = [];
 
@@ -213,6 +267,9 @@ function pruneUnreferenced(referenced) {
 
     const name = basename(filePath);
     if (referenced.has(name)) continue;
+
+    const variantBase = baseRasterFromVariant(name);
+    if (variantBase && referenced.has(variantBase)) continue;
 
     const size = statSync(filePath).size;
     if (size < 100 * 1024) continue;
@@ -236,6 +293,7 @@ async function main() {
 
   for (const filePath of rasterFiles) {
     const name = basename(filePath);
+    if (isResponsiveVariantFile(name)) continue;
     if (!referenced.has(name)) continue;
 
     const result = await optimizeRaster(filePath, manifest);
@@ -252,6 +310,10 @@ async function main() {
     const webp = await ensureWebpSibling(filePath, referenced);
     if (webp) {
       console.log(`  webp ${webp.webp}: ${formatBytes(webp.bytes)}`);
+    }
+
+    if (extname(filePath).toLowerCase() === ".png") {
+      await ensureResponsiveVariants(filePath, referenced, manifest);
     }
   }
 
