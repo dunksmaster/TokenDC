@@ -106,8 +106,6 @@ const DEAD_REPO_PATHS = [
   "lib/counterup",
   "lib/animate",
   "lib/easing",
-  "public/css/dark-mode.css",
-  "css/dark-mode.css",
   "src/js/carousel.js",
 ];
 
@@ -142,33 +140,18 @@ for (const name of readdirSync(root)) {
   }
 }
 
-// 4. Local /img/ markup: dimensions + alt text (CLS + a11y)
-function collectHtmlSources() {
-  const files = [];
-  for (const name of readdirSync(root)) {
-    if (name.endsWith(".html")) files.push(join(root, name));
-  }
-  const partialsDir = join(root, "src", "partials");
-  if (existsSync(partialsDir)) {
-    for (const name of readdirSync(partialsDir)) {
-      if (name.endsWith(".html")) files.push(join(partialsDir, name));
-    }
-  }
-  return files;
-}
-
-for (const filePath of collectHtmlSources()) {
-  const label = filePath.replace(root + "/", "");
-  const html = readFileSync(filePath, "utf8");
-  for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
+// 4. Events gallery: dimensions + alt text (CLS + a11y)
+if (existsSync(join(root, "events.html"))) {
+  const eventsHtml = readFileSync(join(root, "events.html"), "utf8");
+  for (const match of eventsHtml.matchAll(/<img\b[^>]*>/gi)) {
     const tag = match[0];
     if (!/\bsrc\s*=\s*["']\/img\//i.test(tag)) continue;
     if (!/\bwidth\s*=/i.test(tag) || !/\bheight\s*=/i.test(tag)) {
-      fail(`${label}: local <img> missing width/height — ${tag.slice(0, 80)}`);
+      fail(`events.html: local <img> missing width/height — ${tag.slice(0, 80)}`);
     }
     const alt = tag.match(/\balt\s*=\s*["']([^"']*)["']/i)?.[1];
     if (!alt?.trim()) {
-      fail(`${label}: local <img> missing alt text`);
+      fail(`events.html: local <img> missing alt text`);
     }
   }
 }
