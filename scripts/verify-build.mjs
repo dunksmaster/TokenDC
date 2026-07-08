@@ -57,6 +57,11 @@ const TAILWIND_PAGES = new Set([
   "404.html",
   "privacy.html",
   "terms.html",
+  "contact.html",
+  "faq.html",
+  "feature.html",
+  "service.html",
+  "roadmap.html",
 ]);
 
 for (const name of readdirSync(root)) {

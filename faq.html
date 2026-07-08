@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- dc-icons:start -->
     <link rel="icon" href="/img/duacrypto-mark.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180">
@@ -35,334 +34,76 @@
     <!-- dc-seo:end -->
     <link rel="preload" as="image" href="/img/hero-2.webp" type="image/webp" fetchpriority="high">
     <script defer src="/js/gtag-deferred.js"></script>
-
-    <!-- Favicon -->
-    <!-- Google Web Fonts -->    <noscript></noscript>
-<!-- Icon Font Stylesheet -->    <noscript></noscript>
-    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"></noscript>
-
-    <!-- Libraries Stylesheet -->
-    <link href="/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/dark-mode.css" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/input.css">
 </head>
+<body class="bg-page">
 
-<body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-    <!-- Spinner End -->
+    <!-- @partial header active=faq -->
 
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
-        <a href="index.html" class="navbar-brand d-flex align-items-center" aria-label="DuaCrypto &mdash; Albania crypto community">
-            <img class="navbar-brand-logo" src="/img/duacrypto-logo.png" alt="DuaCrypto &mdash; Albania crypto community">
-        </a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-4 py-lg-0">
-                <a href="index.html" class="nav-item nav-link" data-nav="home">Home</a>
-                <a href="about.html" class="nav-item nav-link" data-nav="about">About</a>
-                <a href="service.html" class="nav-item nav-link" data-nav="service">Service</a>
-                <a href="roadmap.html" class="nav-item nav-link" data-nav="roadmap">Roadmap</a>
-                <a href="events.html" class="nav-item nav-link" data-nav="events">Events</a>
-                <a href="donation.html" class="nav-item nav-link" data-nav="donation">Donate a Book</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Other</a>
-                    <div class="dropdown-menu shadow-sm m-0">
-                        <a href="feature.html" class="dropdown-item">Feature</a>
-                        <a href="bitcoin-for-corporations.html" class="dropdown-item">Bitcoin for Corporations</a>
-                        <a href="faq.html" class="dropdown-item">FAQs</a>
-                        <a href="$10.html" class="dropdown-item">Newsletter</a>
-                    </div>
+    <header class="page-hero-compact">
+        <div class="section-shell">
+            <div class="grid items-center gap-8 lg:grid-cols-2">
+                <div>
+                    <h1 class="text-4xl font-bold text-dark">FAQs</h1>
+                    <p class="mt-2 text-secondary"><a href="index.html" class="text-primary hover:underline">Home</a> / FAQs</p>
                 </div>
-                <a href="contact.html" class="nav-item nav-link" data-nav="contact">Contact</a>
-            </div>
-            <div class="d-flex d-lg-none align-items-center gap-2 py-3 mt-2 border-top">
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-            <div class="h-100 d-none d-lg-inline-flex align-items-center">
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-0" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Navbar End -->
-
-
-    <!-- Header Start -->
-    <div class="container-fluid hero-header hero-header--compact bg-light">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 hero-header-copy">
-                    <h1 class="display-4 mb-3 animated slideInDown">FAQs</h1>
-                    <nav aria-label="breadcrumb animated slideInDown">
-                        <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">FAQs</li>
-                        </ol>
-                    </nav>
-                </div>
-                <div class="col-lg-6 animated fadeIn hero-header-art">
-                                        <picture>
+                <div>
+                    <picture>
                         <source srcset="/img/hero-2.webp" type="image/webp">
-                        <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="/img/hero-2.png" alt="DuaCrypto page hero illustration" width="468" height="300" fetchpriority="high" decoding="async">
+                        <img class="mx-auto w-full max-w-md wave-animation" src="/img/hero-2.png" alt="DuaCrypto page hero illustration" width="468" height="300" fetchpriority="high" decoding="async">
                     </picture>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Header End -->
+    </header>
 
+    <main class="section-shell py-12">
+        <div class="section-title mb-10">
+            <h2 class="text-3xl font-bold text-dark">Common questions</h2>
+            <p class="mt-2 text-lg text-primary">About DuaCrypto &amp; Bitcoin in Albania</p>
+        </div>
 
-    <!-- FAQs Start -->
-    <div class="container-xxl page-section--compact">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h2 class="display-6">Common questions</h2>
-                <p class="text-primary fs-5 mb-5">About DuaCrypto &amp; Bitcoin in Albania</p>
+        <div id="faq-accordion" class="mx-auto max-w-4xl">
+            <div class="accordion-item">
+                <button data-accordion-btn type="button" class="accordion-btn accordion-btn-open" aria-expanded="true">What is DuaCrypto and how do I join the Albania crypto community?</button>
+                <div class="accordion-panel">DuaCrypto is Albania's first crypto community, founded in Tirana in 2020. Join free via our <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Telegram group</a>, attend Bitcoin meetups, or explore guides at <a href="https://duacrypto.org/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">duacrypto.org</a> &mdash; no prior experience required.</div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.1s">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    What is DuaCrypto and how do I join the Albania crypto community?
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    DuaCrypto is Albania's first crypto community, founded in Tirana in 2020. Join free via our <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer">Telegram group</a>, attend Bitcoin meetups, or explore guides at <a href="https://duacrypto.org/" target="_blank" rel="noopener noreferrer">duacrypto.org</a> &mdash; no prior experience required.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Does DuaCrypto offer Bitcoin and Web3 education in Albanian?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Yes. We provide beginner-friendly workshops, mentor-led sessions, and free guides in Albanian and English covering Bitcoin basics, wallet security, P2P trading, and Web3 concepts tailored for the Balkans.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.3s">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    How does DuaCrypto help businesses with crypto regulations in Albania?
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    We offer corporate consulting on Albania's DLT financial markets law, AMF compliance, AML/KYC obligations, and tax structuring for enterprises exploring Bitcoin or blockchain operations in Albania.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
-                            <h2 class="accordion-header" id="headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    Are DuaCrypto events in Tirana open to beginners?
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Absolutely. Our Tirana meetups &mdash; including Bitcoin Pizza Day and Balkans Crypto events &mdash; welcome beginners, students, developers, and professionals. See <a href="events.html">events.html</a> for upcoming dates.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
-                            <h2 class="accordion-header" id="headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    How can I contact DuaCrypto for partnerships or media?
-                                </button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Email <a href="mailto:info@duacrypto.com">info@duacrypto.com</a> or message us on <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer">Telegram</a>. We welcome collaborations, donations, and media inquiries.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
-                            <h2 class="accordion-header" id="headingSix">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    Is DuaCrypto financial advice or an exchange?
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    DuaCrypto is an educational community, not a licensed exchange or investment advisor. We teach Bitcoin and Web3 skills; always do your own research before investing.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.7s">
-                            <h2 class="accordion-header" id="headingSeven">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                    What is the best crypto community in Albania?
-                                </button>
-                            </h2>
-                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    DuaCrypto is Albania's leading Bitcoin and crypto community, founded in Tirana in 2020 with 10,000+ members. Join via <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer">Telegram</a>, attend monthly meetups, and access Albanian and English education on Bitcoin, Web3, and wallet security.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
-                            <h2 class="accordion-header" id="headingEight">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                    Where are Bitcoin meetups in Tirana?
-                                </button>
-                            </h2>
-                            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    DuaCrypto hosts monthly Bitcoin meetups in Tirana, including Bitcoin Pizza Day celebrations and Balkans Crypto conference side events. See <a href="events.html">events.html</a> for upcoming dates, photos, and registration details.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.9s">
-                            <h2 class="accordion-header" id="headingNine">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                                    What is DAL / Bitcoin for Corporations at DuaCrypto?
-                                </button>
-                            </h2>
-                            <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    DAL (Digital Asset Leaders Association) is DuaCrypto's enterprise program for corporate Bitcoin adoption, treasury strategy, and executive networking. Learn more at <a href="bitcoin-for-corporations.html">bitcoin-for-corporations.html</a>.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="accordion-item">
+                <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">Does DuaCrypto offer Bitcoin and Web3 education in Albanian?</button>
+                <div class="accordion-panel hidden">Yes. We provide beginner-friendly workshops, mentor-led sessions, and free guides in Albanian and English covering Bitcoin basics, wallet security, P2P trading, and Web3 concepts tailored for the Balkans.</div>
+            </div>
+            <div class="accordion-item">
+                <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">How does DuaCrypto help businesses with crypto regulations in Albania?</button>
+                <div class="accordion-panel hidden">We offer corporate consulting on Albania's DLT financial markets law, AMF compliance, AML/KYC obligations, and tax structuring for enterprises exploring Bitcoin or blockchain operations in Albania.</div>
+            </div>
+            <div class="accordion-item">
+                <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">Are DuaCrypto events in Tirana open to beginners?</button>
+                <div class="accordion-panel hidden">Absolutely. Our Tirana meetups &mdash; including Bitcoin Pizza Day and Balkans Crypto events &mdash; welcome beginners, students, developers, and professionals. See <a href="events.html" class="text-primary hover:underline">events.html</a> for upcoming dates.</div>
+            </div>
+            <div class="accordion-item">
+                <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">How can I contact DuaCrypto for partnerships or media?</button>
+                <div class="accordion-panel hidden">Email <a href="mailto:info@duacrypto.com" class="text-primary hover:underline">info@duacrypto.com</a> or message us on <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Telegram</a>. We welcome collaborations, donations, and media inquiries.</div>
+            </div>
+            <div class="accordion-item">
+                <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">Is DuaCrypto financial advice or an exchange?</button>
+                <div class="accordion-panel hidden">DuaCrypto is an educational community, not a licensed exchange or investment advisor. We teach Bitcoin and Web3 skills; always do your own research before investing.</div>
+            </div>
+            <div class="accordion-item">
+                <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">What is the best crypto community in Albania?</button>
+                <div class="accordion-panel hidden">DuaCrypto is Albania's leading Bitcoin and crypto community, founded in Tirana in 2020 with 10,000+ members. Join via <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Telegram</a>, attend monthly meetups, and access Albanian and English education on Bitcoin, Web3, and wallet security.</div>
+            </div>
+            <div class="accordion-item">
+                <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">Where are Bitcoin meetups in Tirana?</button>
+                <div class="accordion-panel hidden">DuaCrypto hosts monthly Bitcoin meetups in Tirana, including Bitcoin Pizza Day celebrations and Balkans Crypto conference side events. See <a href="events.html" class="text-primary hover:underline">events.html</a> for upcoming dates, photos, and registration details.</div>
+            </div>
+            <div class="accordion-item">
+                <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">What is DAL / Bitcoin for Corporations at DuaCrypto?</button>
+                <div class="accordion-panel hidden">DAL (Digital Asset Leaders Association) is DuaCrypto's enterprise program for corporate Bitcoin adoption, treasury strategy, and executive networking. Learn more at <a href="bitcoin-for-corporations.html" class="text-primary hover:underline">bitcoin-for-corporations.html</a>.</div>
             </div>
         </div>
-    </div>
-    <!-- FAQs End -->
+    </main>
 
+    <!-- @partial footer -->
 
-<!-- Footer Start -->
-    <div class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6">
-                    <div class="footer-brand-row d-flex align-items-center gap-2 mb-3">
-
-                        <img class="footer-brand-logo shrink-0" src="/img/duacrypto-logo.png" alt="DuaCrypto &mdash; Albania crypto community">
-
-                        <p class="mb-0"><strong>DuaCrypto</strong>, founded in 2020, is Albania's first crypto community &mdash; education, events, and Web3 support across the Balkans.</p>
-
-                    </div>
-
-                    <div class="footer-content text-center text-md-start">
-                        <p class="mb-0"><i class="fa fa-envelope me-2 text-primary"></i>Partnerships or media: <a href="mailto:info@duacrypto.com">info@duacrypto.com</a></p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h5 class="mb-4">Newsletter</h5>
-                    <p>Market insights, airdrop alerts, and community updates in your inbox.</p>
-                    <form action="https://formspree.io/f/xnnpkkqo" method="POST" class="position-relative">
-                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="email" name="email" placeholder="Your email" required aria-label="Email for newsletter">
-                        <button type="submit" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Sign Up</button>
-                    </form>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>Tirana, Albania</p>
-                    <p><i class="fa fa-envelope me-3"></i><a href="mailto:info@duacrypto.com">info@duacrypto.com</a></p>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="service.html">Education</a>
-                    <a class="btn btn-link" href="events.html">Events</a>
-                    <a class="btn btn-link" href="donation.html">Donate a Book</a>
-                    <a class="btn btn-link" href="$10.html">Newsletter</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact</a>
-                    <a class="btn btn-link" href="privacy.html">Privacy</a>
-                    <a class="btn btn-link" href="terms.html">Terms</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Follow Us</h5>
-                    <div class="d-flex flex-wrap gap-1">
-                        <a class="btn btn-square rounded-circle me-1" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://facebook.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://linkedin.com/company/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a href="index.html">DuaCrypto</a>, All Rights Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <span>Designed by DuaCrypto</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/wow/wow.min.js"></script>
-    <script src="/lib/easing/easing.min.js"></script>
-    <script src="/lib/waypoints/waypoints.min.js"></script>
-    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="/lib/counterup/counterup.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="/js/main.js"></script>
-    <script src="/js/theme-bootstrap.js" defer></script>
 </body>
-
 </html>

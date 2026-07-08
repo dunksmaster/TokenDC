@@ -5,6 +5,7 @@ import { initCounters } from "./counter.js";
 import { initAccordion } from "./accordion.js";
 import { initBrandCards } from "./brand-cards.js";
 import { initAffiliates } from "./affiliates.js";
+import { initContactPage } from "./contact.js";
 import "./webmcp.js";
 
 function initBackToTop() {
@@ -28,5 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initAccordion("faq-accordion");
   initBrandCards();
   initAffiliates();
+  initContactPage();
   initBackToTop();
 });

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- dc-icons:start -->
     <link rel="icon" href="/img/duacrypto-mark.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180">
@@ -34,134 +33,55 @@
     <!-- dc-seo:end -->
     <link rel="preload" as="image" href="/img/hero-2.webp" type="image/webp" fetchpriority="high">
     <script defer src="/js/gtag-deferred.js"></script>
-
-    <!-- Favicon -->
-    <!-- Google Web Fonts -->    <noscript></noscript>
-<!-- Icon Font Stylesheet -->    <noscript></noscript>
-    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"></noscript>
-
-    <!-- Libraries Stylesheet -->
-    <link href="/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/dark-mode.css" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/input.css">
 </head>
+<body class="bg-page">
 
-<body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-    <!-- Spinner End -->
+    <!-- @partial header active=contact -->
 
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
-        <a href="index.html" class="navbar-brand d-flex align-items-center" aria-label="DuaCrypto &mdash; Albania crypto community">
-            <img class="navbar-brand-logo" src="/img/duacrypto-logo.png" alt="DuaCrypto &mdash; Albania crypto community">
-        </a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-4 py-lg-0">
-                <a href="index.html" class="nav-item nav-link" data-nav="home">Home</a>
-                <a href="about.html" class="nav-item nav-link" data-nav="about">About</a>
-                <a href="service.html" class="nav-item nav-link" data-nav="service">Service</a>
-                <a href="roadmap.html" class="nav-item nav-link" data-nav="roadmap">Roadmap</a>
-                <a href="events.html" class="nav-item nav-link" data-nav="events">Events</a>
-                <a href="donation.html" class="nav-item nav-link" data-nav="donation">Donate a Book</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Other</a>
-                    <div class="dropdown-menu shadow-sm m-0">
-                        <a href="feature.html" class="dropdown-item">Feature</a>
-                        <a href="bitcoin-for-corporations.html" class="dropdown-item">Bitcoin for Corporations</a>
-                        <a href="faq.html" class="dropdown-item">FAQs</a>
-                        <a href="$10.html" class="dropdown-item">Newsletter</a>
-                    </div>
+    <header class="page-hero-compact">
+        <div class="section-shell">
+            <div class="grid items-center gap-8 lg:grid-cols-2">
+                <div>
+                    <h1 class="text-4xl font-bold text-dark">Contact Us</h1>
+                    <p class="mt-2 text-secondary"><a href="index.html" class="text-primary hover:underline">Home</a> / Contact Us</p>
                 </div>
-                <a href="contact.html" class="nav-item nav-link active" data-nav="contact">Contact</a>
-            </div>
-            <div class="d-flex d-lg-none align-items-center gap-2 py-3 mt-2 border-top">
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-            <div class="h-100 d-none d-lg-inline-flex align-items-center">
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-0" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Navbar End -->
-
-
-    <!-- Header Start -->
-    <div class="container-fluid hero-header hero-header--compact bg-light">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 hero-header-copy">
-                    <h1 class="display-4 mb-3 animated slideInDown">Contact Us</h1>
-                    <nav aria-label="breadcrumb animated slideInDown">
-                        <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
-                        </ol>
-                    </nav>
-                </div>
-                <div class="col-lg-6 animated fadeIn hero-header-art">
-                                        <picture>
+                <div>
+                    <picture>
                         <source srcset="/img/hero-2.webp" type="image/webp">
-                        <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="/img/hero-2.png" alt="DuaCrypto page hero illustration" width="468" height="300" fetchpriority="high" decoding="async">
+                        <img class="mx-auto w-full max-w-md wave-animation" src="/img/hero-2.png" alt="DuaCrypto page hero illustration" width="468" height="300" fetchpriority="high" decoding="async">
                     </picture>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Header End -->
+    </header>
 
+    <main class="section-shell py-12">
+        <div class="mx-auto max-w-2xl text-center">
+            <p class="mb-2 text-lg text-primary">Partnerships, consulting, and media inquiries</p>
+            <p class="mb-6 text-secondary">We typically respond within 1&ndash;2 business days.</p>
 
-    <!-- Contact Start -->
-    <div class="container-xxl page-section--compact">
-        <div class="container">
-            <div class="row justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                <div class="col-lg-8 text-center">
-                    <p class="text-primary fs-5 mb-2">Partnerships, consulting, and media inquiries</p>
-                    <p class="text-muted mb-4">We typically respond within 1&ndash;2 business days.</p>
-
-                    <div id="contact-email-panel" class="d-none mb-4">
-                        <div class="contact-email-box d-inline-flex flex-wrap align-items-center justify-content-center gap-2">
-                            <a id="contact-email-link" href="mailto:partner@duacrypto.com" class="contact-email-address">partner@duacrypto.com</a>
-                            <button type="button" id="contact-copy-btn" class="btn btn-sm btn-primary">
-                                <i class="far fa-copy me-1" aria-hidden="true"></i> Copy
-                            </button>
-                        </div>
-                        <p id="contact-copy-feedback" class="small text-success mt-2 mb-0 d-none" role="status">Copied to clipboard!</p>
-                    </div>
-
-                    <button type="button" id="contact-reveal-btn" class="btn btn-primary btn-lg px-5 py-3">Contact us</button>
-
-                    <p class="text-muted small mt-4 mb-0">
-                        Or message us on
-                        <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="text-primary">Telegram</a>
-                    </p>
+            <div id="contact-email-panel" class="mb-4 hidden">
+                <div class="contact-email-box">
+                    <a id="contact-email-link" href="mailto:partner@duacrypto.com" class="contact-email-address">partner@duacrypto.com</a>
+                    <button type="button" id="contact-copy-btn" class="btn-primary px-4 py-2 text-sm">
+                        <i class="far fa-copy mr-1" aria-hidden="true"></i> Copy
+                    </button>
                 </div>
+                <p id="contact-copy-feedback" class="mt-2 hidden text-sm text-green-600" role="status">Copied to clipboard!</p>
             </div>
-        </div>
-    </div>
-    <!-- Contact End -->
 
-    <!-- Google Map Start -->
-    <div class="container-xxl contact-map-section px-0 wow fadeInUp" data-wow-delay="0.2s">
-        <div class="contact-map-wrap position-relative mx-auto">
+            <button type="button" id="contact-reveal-btn" class="btn-primary px-8 py-3 text-lg">Contact us</button>
+
+            <p class="mt-6 text-sm text-secondary">
+                Or message us on
+                <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Telegram</a>
+            </p>
+        </div>
+    </main>
+
+    <section class="pb-0">
+        <div class="contact-map-wrap">
             <span class="contact-map-pin" aria-hidden="true"><i class="fa fa-map-marker-alt"></i></span>
             <a class="contact-map-badge" href="https://www.google.com/maps/search/?api=1&amp;query=Piramida+e+Tiran%C3%ABs" target="_blank" rel="noopener noreferrer" aria-label="Open Pyramid of Tirana on Google Maps">
                 <i class="fa fa-map-marker-alt contact-map-badge-icon" aria-hidden="true"></i>
@@ -171,7 +91,7 @@
                 </span>
             </a>
             <iframe
-                class="contact-map-iframe w-100"
+                class="contact-map-iframe"
                 title="DuaCrypto location — Pyramid of Tirana"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.057025941902!2d19.81889291539036!3d41.323146779272585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13503107e1aa76b1%3A0x5ad9a0df08c3c6b1!2sPiramida%20e%20Tiran%C3%ABs!5e0!3m2!1sen!2s!4v1698234922339!5m2!1sen!2s"
                 loading="lazy"
@@ -179,127 +99,9 @@
                 allowfullscreen="">
             </iframe>
         </div>
-    </div>
-    <!-- Google Map End -->
+    </section>
 
+    <!-- @partial footer -->
 
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-light footer contact-page-footer pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6">
-                    <div class="footer-brand-row d-flex align-items-center gap-2 mb-3">
-
-                        <img class="footer-brand-logo shrink-0" src="/img/duacrypto-logo.png" alt="DuaCrypto &mdash; Albania crypto community">
-
-                        <p class="mb-0"><strong>DuaCrypto</strong>, founded in 2020, is Albania's first crypto community &mdash; education, events, and Web3 support across the Balkans.</p>
-
-                    </div>
-
-                    <div class="footer-content text-center text-md-start">
-                        <p class="mb-0"><i class="fa fa-envelope me-2 text-primary"></i>Partnerships and media: <a href="mailto:partner@duacrypto.com">partner@duacrypto.com</a></p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h5 class="mb-4">Newsletter</h5>
-                    <p>Market insights, airdrop alerts, and community updates in your inbox.</p>
-                    <a href="$10.html" class="btn btn-primary py-2 px-4">Subscribe on our newsletter page</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>Pyramid of Tirana, Albania</p>
-                    <p><i class="fa fa-envelope me-3"></i><a href="mailto:partner@duacrypto.com">partner@duacrypto.com</a></p>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="service.html">Education</a>
-                    <a class="btn btn-link" href="events.html">Events</a>
-                    <a class="btn btn-link" href="donation.html">Donate a Book</a>
-                    <a class="btn btn-link" href="$10.html">Newsletter</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact</a>
-                    <a class="btn btn-link" href="privacy.html">Privacy</a>
-                    <a class="btn btn-link" href="terms.html">Terms</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Follow Us</h5>
-                    <div class="d-flex flex-wrap gap-1">
-                        <a class="btn btn-square rounded-circle me-1" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://facebook.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://linkedin.com/company/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a href="index.html">DuaCrypto</a>, All Rights Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <span>Designed by DuaCrypto</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/wow/wow.min.js"></script>
-    <script src="/lib/easing/easing.min.js"></script>
-    <script src="/lib/waypoints/waypoints.min.js"></script>
-    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="/lib/counterup/counterup.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="/js/main.js"></script>
-    <script src="/js/theme-bootstrap.js" defer></script>
-    <script>
-    (function () {
-      const EMAIL = "partner@duacrypto.com";
-      const revealBtn = document.getElementById("contact-reveal-btn");
-      const panel = document.getElementById("contact-email-panel");
-      const copyBtn = document.getElementById("contact-copy-btn");
-      const feedback = document.getElementById("contact-copy-feedback");
-
-      if (!revealBtn || !panel) return;
-
-      revealBtn.addEventListener("click", function () {
-        revealBtn.classList.add("d-none");
-        panel.classList.remove("d-none");
-      });
-
-      if (!copyBtn) return;
-
-      copyBtn.addEventListener("click", async function () {
-        try {
-          await navigator.clipboard.writeText(EMAIL);
-          if (feedback) {
-            feedback.classList.remove("d-none");
-            setTimeout(function () { feedback.classList.add("d-none"); }, 2000);
-          }
-        } catch (err) {
-          window.prompt("Copy this email:", EMAIL);
-        }
-      });
-    })();
-    </script>
 </body>
-
 </html>

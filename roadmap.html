@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- dc-icons:start -->
     <link rel="icon" href="/img/duacrypto-mark.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180">
@@ -34,273 +33,83 @@
     <!-- dc-seo:end -->
     <link rel="preload" as="image" href="/img/hero-2.webp" type="image/webp" fetchpriority="high">
     <script defer src="/js/gtag-deferred.js"></script>
-
-    <!-- Favicon -->
-    <!-- Google Web Fonts -->    <noscript></noscript>
-<!-- Icon Font Stylesheet -->    <noscript></noscript>
-    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"></noscript>
-
-    <!-- Libraries Stylesheet -->
-    <link href="/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/dark-mode.css" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/input.css">
 </head>
+<body class="bg-page">
 
-<body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-    <!-- Spinner End -->
+    <!-- @partial header active=roadmap -->
 
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
-        <a href="index.html" class="navbar-brand d-flex align-items-center" aria-label="DuaCrypto &mdash; Albania crypto community">
-            <img class="navbar-brand-logo" src="/img/duacrypto-logo.png" alt="DuaCrypto &mdash; Albania crypto community">
-        </a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-4 py-lg-0">
-                <a href="index.html" class="nav-item nav-link" data-nav="home">Home</a>
-                <a href="about.html" class="nav-item nav-link" data-nav="about">About</a>
-                <a href="service.html" class="nav-item nav-link" data-nav="service">Service</a>
-                <a href="roadmap.html" class="nav-item nav-link active" data-nav="roadmap">Roadmap</a>
-                <a href="events.html" class="nav-item nav-link" data-nav="events">Events</a>
-                <a href="donation.html" class="nav-item nav-link" data-nav="donation">Donate a Book</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Other</a>
-                    <div class="dropdown-menu shadow-sm m-0">
-                        <a href="feature.html" class="dropdown-item">Feature</a>
-                        <a href="bitcoin-for-corporations.html" class="dropdown-item">Bitcoin for Corporations</a>
-                        <a href="faq.html" class="dropdown-item">FAQs</a>
-                        <a href="$10.html" class="dropdown-item">Newsletter</a>
-                    </div>
+    <header class="page-hero-compact">
+        <div class="section-shell">
+            <div class="grid items-center gap-8 lg:grid-cols-2">
+                <div>
+                    <h1 class="text-4xl font-bold text-dark">Roadmap</h1>
+                    <p class="mt-2 text-secondary"><a href="index.html" class="text-primary hover:underline">Home</a> / Roadmap</p>
                 </div>
-                <a href="contact.html" class="nav-item nav-link" data-nav="contact">Contact</a>
-            </div>
-            <div class="d-flex d-lg-none align-items-center gap-2 py-3 mt-2 border-top">
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-            <div class="h-100 d-none d-lg-inline-flex align-items-center">
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-0" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Navbar End -->
-
-
-    <!-- Header Start -->
-    <div class="container-fluid hero-header hero-header--compact bg-light">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 hero-header-copy">
-                    <h1 class="display-4 mb-3 animated slideInDown">Roadmap</h1>
-                    <nav aria-label="breadcrumb animated slideInDown">
-                        <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Roadmap</li>
-                        </ol>
-                    </nav>
-                </div>
-                <div class="col-lg-6 animated fadeIn hero-header-art">
-                                        <picture>
+                <div>
+                    <picture>
                         <source srcset="/img/hero-2.webp" type="image/webp">
-                        <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="/img/hero-2.png" alt="DuaCrypto community roadmap illustration" width="468" height="300" fetchpriority="high" decoding="async">
+                        <img class="mx-auto w-full max-w-md wave-animation" src="/img/hero-2.png" alt="DuaCrypto community roadmap illustration" width="468" height="300" fetchpriority="high" decoding="async">
                     </picture>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Header End -->
+    </header>
 
-
-    <!-- Roadmap Start -->
-    <div class="container-xxl page-section--compact">
-        <div class="container">
-            <div class="roadmap-section-head text-center mx-auto" style="max-width: 500px;">
-                <h2 class="display-6">Our journey</h2>
-                <p class="text-primary fs-5 mb-5">From Tirana meetups to Balkans-wide Web3 education</p>
-            </div>
-            <div class="roadmap-carousel-wrap">
-            <div class="owl-carousel roadmap-carousel">
-                <div class="roadmap-item">
-                    <div class="roadmap-item__track" aria-hidden="true">
-                        <div class="roadmap-point"><span></span></div>
-                    </div>
-                    <div class="roadmap-item__content">
-                        <h5>2020 &mdash; Founded in Tirana</h5>
-                        <span class="roadmap-item__desc">DuaCrypto launches as Albania's first crypto community with weekly Bitcoin discussions and Telegram support.</span>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-item__track" aria-hidden="true">
-                        <div class="roadmap-point"><span></span></div>
-                    </div>
-                    <div class="roadmap-item__content">
-                        <h5>2021 &mdash; First Public Meetups</h5>
-                        <span class="roadmap-item__desc">In-person Bitcoin meetups in Tirana bring beginners and builders together for hands-on wallet and P2P workshops.</span>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-item__track" aria-hidden="true">
-                        <div class="roadmap-point"><span></span></div>
-                    </div>
-                    <div class="roadmap-item__content">
-                        <h5>2022 &mdash; 5,000+ Community Members</h5>
-                        <span class="roadmap-item__desc">Free guides at duacrypto.org and mentor-led sessions help thousands across Albania learn Web3 basics safely.</span>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-item__track" aria-hidden="true">
-                        <div class="roadmap-point"><span></span></div>
-                    </div>
-                    <div class="roadmap-item__content">
-                        <h5>2023 &mdash; Corporate &amp; Media Outreach</h5>
-                        <span class="roadmap-item__desc">Corporate consulting for DLT compliance and national TV features on Bitcoin adoption in the Balkans.</span>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-item__track" aria-hidden="true">
-                        <div class="roadmap-point"><span></span></div>
-                    </div>
-                    <div class="roadmap-item__content">
-                        <h5>2024 &mdash; 10,000+ Members &amp; Events</h5>
-                        <span class="roadmap-item__desc">Bitcoin Pizza Day celebrations, regional partnerships, and expanded Albanian-language education resources.</span>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-item__track" aria-hidden="true">
-                        <div class="roadmap-point"><span></span></div>
-                    </div>
-                    <div class="roadmap-item__content">
-                        <h5>2025 &mdash; Balkans Crypto Hub</h5>
-                        <span class="roadmap-item__desc">Balkans Crypto 2025 conference, student scholarships, and a Web3 builder network across the region.</span>
-                    </div>
-                </div>
-            </div>
-            </div>
-
-            <div class="bitcoin-timeline mt-5 pt-2">
-                <img
-                    class="bitcoin-timeline-img img-fluid"
-                    src="/img/bitcoin-price-timeline-light.svg"
-                    data-timeline-light="/img/bitcoin-price-timeline-light.svg"
-                    data-timeline-dark="/img/bitcoin-price-timeline-dark.svg"
-                    alt="Bitcoin price highs and lows: 2009 beginning, 2010 Pizza Day, 2013 breaks $100, 2017 bull run, 2018 correction, 2020 recovery, 2024 Bitcoin ETF approval"
-                    width="720"
-                    height="504"
-                    loading="lazy"
-                >
-            </div>
+    <main class="section-shell py-12">
+        <div class="section-title mb-12">
+            <h2 class="text-3xl font-bold text-dark">Our journey</h2>
+            <p class="mt-2 text-lg text-primary">From Tirana meetups to Balkans-wide Web3 education</p>
         </div>
-    </div>
-    <!-- Roadmap End -->
 
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6">
-                    <div class="footer-brand-row d-flex align-items-center gap-2 mb-3">
-
-                        <img class="footer-brand-logo shrink-0" src="/img/duacrypto-logo.png" alt="DuaCrypto &mdash; Albania crypto community">
-
-                        <p class="mb-0"><strong>DuaCrypto</strong>, founded in 2020, is Albania's first crypto community &mdash; education, events, and Web3 support across the Balkans.</p>
-
-                    </div>
-
-                    <div class="footer-content text-center text-md-start">
-                        <p class="mb-0"><i class="fa fa-envelope me-2 text-primary"></i>Partnerships or media: <a href="mailto:info@duacrypto.com">info@duacrypto.com</a></p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h5 class="mb-4">Newsletter</h5>
-                    <p>Market insights, airdrop alerts, and community updates in your inbox.</p>
-                    <form action="https://formspree.io/f/xnnpkkqo" method="POST" class="position-relative">
-                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="email" name="email" placeholder="Your email" required aria-label="Email for newsletter">
-                        <button type="submit" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Sign Up</button>
-                    </form>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>Tirana, Albania</p>
-                    <p><i class="fa fa-envelope me-3"></i><a href="mailto:info@duacrypto.com">info@duacrypto.com</a></p>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="service.html">Education</a>
-                    <a class="btn btn-link" href="events.html">Events</a>
-                    <a class="btn btn-link" href="donation.html">Donate a Book</a>
-                    <a class="btn btn-link" href="$10.html">Newsletter</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact</a>
-                    <a class="btn btn-link" href="privacy.html">Privacy</a>
-                    <a class="btn btn-link" href="terms.html">Terms</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Follow Us</h5>
-                    <div class="d-flex flex-wrap gap-1">
-                        <a class="btn btn-square rounded-circle me-1" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://facebook.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://linkedin.com/company/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="roadmap-card">
+                <span class="roadmap-year">2020</span>
+                <h3 class="mb-2 font-semibold text-dark">Founded in Tirana</h3>
+                <p class="text-secondary">DuaCrypto launches as Albania's first crypto community with weekly Bitcoin discussions and Telegram support.</p>
+            </article>
+            <article class="roadmap-card">
+                <span class="roadmap-year">2021</span>
+                <h3 class="mb-2 font-semibold text-dark">First Public Meetups</h3>
+                <p class="text-secondary">In-person Bitcoin meetups in Tirana bring beginners and builders together for hands-on wallet and P2P workshops.</p>
+            </article>
+            <article class="roadmap-card">
+                <span class="roadmap-year">2022</span>
+                <h3 class="mb-2 font-semibold text-dark">5,000+ Community Members</h3>
+                <p class="text-secondary">Free guides at duacrypto.org and mentor-led sessions help thousands across Albania learn Web3 basics safely.</p>
+            </article>
+            <article class="roadmap-card">
+                <span class="roadmap-year">2023</span>
+                <h3 class="mb-2 font-semibold text-dark">Corporate &amp; Media Outreach</h3>
+                <p class="text-secondary">Corporate consulting for DLT compliance and national TV features on Bitcoin adoption in the Balkans.</p>
+            </article>
+            <article class="roadmap-card">
+                <span class="roadmap-year">2024</span>
+                <h3 class="mb-2 font-semibold text-dark">10,000+ Members &amp; Events</h3>
+                <p class="text-secondary">Bitcoin Pizza Day celebrations, regional partnerships, and expanded Albanian-language education resources.</p>
+            </article>
+            <article class="roadmap-card">
+                <span class="roadmap-year">2025</span>
+                <h3 class="mb-2 font-semibold text-dark">Balkans Crypto Hub</h3>
+                <p class="text-secondary">Balkans Crypto 2025 conference, student scholarships, and a Web3 builder network across the region.</p>
+            </article>
         </div>
-        <div class="container-fluid copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a href="index.html">DuaCrypto</a>, All Rights Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <span>Designed by DuaCrypto</span>
-                    </div>
-                </div>
-            </div>
+
+        <div class="bitcoin-timeline mt-12">
+            <img
+                class="bitcoin-timeline-img"
+                src="/img/bitcoin-price-timeline-light.svg"
+                data-timeline-light="/img/bitcoin-price-timeline-light.svg"
+                data-timeline-dark="/img/bitcoin-price-timeline-dark.svg"
+                alt="Bitcoin price highs and lows: 2009 beginning, 2010 Pizza Day, 2013 breaks $100, 2017 bull run, 2018 correction, 2020 recovery, 2024 Bitcoin ETF approval"
+                width="720"
+                height="504"
+                loading="lazy"
+            >
         </div>
-    </div>
+    </main>
 
-    <!-- Footer End -->
+    <!-- @partial footer -->
 
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/wow/wow.min.js"></script>
-    <script src="/lib/easing/easing.min.js"></script>
-    <script src="/lib/waypoints/waypoints.min.js"></script>
-    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="/lib/counterup/counterup.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="/js/main.js"></script>
-    <script src="/js/theme-bootstrap.js" defer></script>
 </body>
-
 </html>
