@@ -58,6 +58,7 @@ const DEAD_DIST_PATHS = [
   "js/theme-bootstrap.js",
   "lib/owlcarousel",
   "lib/wow",
+  "scss",
 ];
 for (const rel of DEAD_DIST_PATHS) {
   if (existsSync(join(root, "dist", rel))) {
