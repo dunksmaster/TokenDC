@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- dc-icons:start -->
     <link rel="icon" href="/img/duacrypto-mark.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180">
@@ -33,332 +32,127 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://duacrypto.com/"},{"@type":"ListItem","position":2,"name":"Newsletter","item":"https://duacrypto.com/$10.html"}]}</script>
     <!-- dc-seo:end -->
     <link rel="preload" as="image" href="/img/hero-2.webp" type="image/webp" fetchpriority="high">
-    <script defer src="/js/gtag-deferred.js"></script>    <noscript></noscript>    <noscript></noscript>
-    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"></noscript>
-
-    <link href="/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/dark-mode.css" rel="stylesheet">
+    <script defer src="/js/gtag-deferred.js"></script>
+    <link rel="stylesheet" href="/src/css/input.css">
 </head>
+<body class="bg-page">
 
-<body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-    <!-- Spinner End -->
+    <!-- @partial header active=newsletter -->
 
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
-        <a href="index.html" class="navbar-brand d-flex align-items-center" aria-label="DuaCrypto &mdash; Albania crypto community">
-            <img class="navbar-brand-logo" src="/img/duacrypto-logo.png" alt="DuaCrypto &mdash; Albania crypto community">
-        </a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-4 py-lg-0">
-                <a href="index.html" class="nav-item nav-link" data-nav="home">Home</a>
-                <a href="about.html" class="nav-item nav-link" data-nav="about">About</a>
-                <a href="service.html" class="nav-item nav-link" data-nav="service">Service</a>
-                <a href="roadmap.html" class="nav-item nav-link" data-nav="roadmap">Roadmap</a>
-                <a href="events.html" class="nav-item nav-link" data-nav="events">Events</a>
-                <a href="donation.html" class="nav-item nav-link" data-nav="donation">Donate a Book</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Other</a>
-                    <div class="dropdown-menu shadow-sm m-0">
-                        <a href="feature.html" class="dropdown-item">Feature</a>
-                        <a href="bitcoin-for-corporations.html" class="dropdown-item">Bitcoin for Corporations</a>
-                        <a href="faq.html" class="dropdown-item">FAQs</a>
-                        <a href="$10.html" class="dropdown-item active">Newsletter</a>
-                    </div>
+    <header class="page-hero-compact">
+        <div class="section-shell">
+            <div class="grid items-center gap-8 lg:grid-cols-2">
+                <div>
+                    <h1 class="text-4xl font-bold text-dark">Premium Newsletter</h1>
+                    <p class="mt-2 text-secondary"><a href="index.html" class="text-primary hover:underline">Home</a> / Newsletter</p>
+                    <p class="mt-4 text-secondary">Bitcoin-first research, airdrop alerts, and market context from Albania&rsquo;s longest-running crypto community.</p>
                 </div>
-                <a href="contact.html" class="nav-item nav-link" data-nav="contact">Contact</a>
-            </div>
-            <div class="d-flex d-lg-none align-items-center gap-2 py-3 mt-2 border-top">
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-            <div class="h-100 d-none d-lg-inline-flex align-items-center">
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-0" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </nav>
-    <!-- Navbar End -->
-
-
-    <!-- Header Start -->
-    <div class="container-fluid hero-header hero-header--compact bg-light">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 hero-header-copy">
-                    <h1 class="display-4 mb-3 animated slideInDown">Premium Newsletter</h1>
-                    <nav aria-label="breadcrumb animated slideInDown">
-                        <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Newsletter</li>
-                        </ol>
-                    </nav>
-                    <p class="lead text-muted mt-3 mb-0">Bitcoin-first research, airdrop alerts, and market context from Albania&rsquo;s longest-running crypto community.</p>
-                </div>
-                <div class="col-lg-6 animated fadeIn hero-header-art">
-                                        <picture>
+                <div>
+                    <picture>
                         <source srcset="/img/hero-2.webp" type="image/webp">
-                        <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="/img/hero-2.png" alt="DuaCrypto newsletter hero illustration" width="468" height="300" fetchpriority="high" decoding="async">
+                        <img class="mx-auto w-full max-w-md wave-animation" src="/img/hero-2.png" alt="DuaCrypto newsletter hero illustration" width="468" height="300" fetchpriority="high" decoding="async">
                     </picture>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Header End -->
+    </header>
 
+    <main class="section-shell py-12">
+        <div class="section-title mb-10">
+            <p class="text-lg text-primary">Paid membership</p>
+            <p class="text-secondary">Not financial advice. Do your own research before trading or investing.</p>
+        </div>
 
-    <!-- Newsletter Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row justify-content-center mb-4 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="col-lg-8 text-center">
-                    <p class="text-primary fs-5 mb-2">Paid membership</p>
-                    <p class="text-muted mb-0">Not financial advice. Do your own research before trading or investing.</p>
+        <div class="newsletter-card mx-auto max-w-5xl">
+            <div class="grid md:grid-cols-5">
+                <div class="newsletter-card-media md:col-span-2">
+                    <div class="newsletter-img-wrap">
+                        <img src="https://public-files.gumroad.com/sn6ytm4khe3ql86ko2vmfozyqgh2" class="newsletter-img" alt="DuaCrypto Premium Newsletter cover">
+                        <span class="newsletter-price-badge"><i class="fas fa-bolt mr-1" aria-hidden="true"></i> $10/month</span>
+                    </div>
                 </div>
-            </div>
-
-            <div class="row justify-content-center wow fadeInUp" data-wow-delay="0.2s">
-                <div class="col-lg-10">
-                    <div class="newsletter-card row g-0">
-                        <div class="col-md-5 newsletter-card-media">
-                            <div class="newsletter-img-wrap">
-                                <img src="https://public-files.gumroad.com/sn6ytm4khe3ql86ko2vmfozyqgh2" class="newsletter-img" alt="DuaCrypto Premium Newsletter cover">
-                                <span class="newsletter-price-badge"><i class="fas fa-bolt me-1" aria-hidden="true"></i> $10/month</span>
-                            </div>
+                <div class="md:col-span-3">
+                    <div class="newsletter-card-body">
+                        <h2 class="mb-3 text-2xl font-semibold text-dark">Crypto Newsletter &amp; Airdrop Alerts</h2>
+                        <p class="mb-4 text-secondary">
+                            Curated signals from the DuaCrypto team: on-chain trends, airdrop opportunities, privacy and wallet hygiene, and Balkans-relevant market notes &mdash; delivered when they matter.
+                        </p>
+                        <ul class="newsletter-features mb-6 list-none pl-0">
+                            <li><i class="fas fa-check mr-2 text-primary" aria-hidden="true"></i> Early airdrop and launch alerts</li>
+                            <li><i class="fas fa-check mr-2 text-primary" aria-hidden="true"></i> Wallet privacy &amp; self-custody tips</li>
+                            <li><i class="fas fa-check mr-2 text-primary" aria-hidden="true"></i> Risk framing before volatile moves</li>
+                            <li><i class="fas fa-check mr-2 text-primary" aria-hidden="true"></i> Subscriber-only Telegram channel</li>
+                            <li><i class="fas fa-check mr-2 text-primary" aria-hidden="true"></i> Weekly research roundup</li>
+                        </ul>
+                        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+                            <a href="https://duacrypto.gumroad.com/l/newsleter?wanted=true" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 text-lg">
+                                <i class="fas fa-shopping-cart mr-2" aria-hidden="true"></i> Subscribe &mdash; $10/month
+                            </a>
+                            <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="btn-outline-primary px-6 py-3 text-lg">
+                                Free community on Telegram
+                            </a>
                         </div>
-                        <div class="col-md-7">
-                            <div class="newsletter-card-body">
-                                <h2 class="h3 mb-3">Crypto Newsletter &amp; Airdrop Alerts</h2>
-                                <p class="text-muted mb-4">
-                                    Curated signals from the DuaCrypto team: on-chain trends, airdrop opportunities, privacy and wallet hygiene, and Balkans-relevant market notes &mdash; delivered when they matter.
-                                </p>
-
-                                <ul class="list-unstyled newsletter-features mb-4">
-                                    <li><i class="fas fa-check text-primary me-2" aria-hidden="true"></i> Early airdrop and launch alerts</li>
-                                    <li><i class="fas fa-check text-primary me-2" aria-hidden="true"></i> Wallet privacy &amp; self-custody tips</li>
-                                    <li><i class="fas fa-check text-primary me-2" aria-hidden="true"></i> Risk framing before volatile moves</li>
-                                    <li><i class="fas fa-check text-primary me-2" aria-hidden="true"></i> Subscriber-only Telegram channel</li>
-                                    <li><i class="fas fa-check text-primary me-2" aria-hidden="true"></i> Weekly research roundup</li>
-                                </ul>
-
-                                <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-3">
-                                    <a href="https://duacrypto.gumroad.com/l/newsleter?wanted=true" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg px-4">
-                                        <i class="fas fa-shopping-cart me-2" aria-hidden="true"></i> Subscribe &mdash; $10/month
-                                    </a>
-                                    <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-lg px-4">
-                                        Free community on Telegram
-                                    </a>
-                                </div>
-                                <p class="small text-muted mt-3 mb-0">Secure checkout via Gumroad &bull; Cancel anytime</p>
-                            </div>
-                        </div>
+                        <p class="mt-3 text-sm text-secondary">Secure checkout via Gumroad &bull; Cancel anytime</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Newsletter End -->
+    </main>
 
-
-    <!-- Testimonials Start -->
-    <div class="container-fluid newsletter-testimonials py-5">
-        <div class="container py-4">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 520px;">
-                <h2 class="display-6 mb-3">What subscribers say</h2>
-                <p class="text-muted mb-5">Real feedback from readers in our community</p>
+    <section class="newsletter-testimonials">
+        <div class="section-shell py-4">
+            <div class="section-title mb-10">
+                <h2 class="text-3xl font-bold text-dark">What subscribers say</h2>
+                <p class="mt-2 text-secondary">Real feedback from readers in our community</p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <blockquote class="newsletter-testimonial h-100">
-                        <p class="mb-3">&ldquo;The airdrop alerts paid for the subscription within the first month. Clear write-ups, no hype.&rdquo;</p>
-                        <footer class="newsletter-testimonial-author">&mdash; Alex K.</footer>
-                    </blockquote>
-                </div>
-                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <blockquote class="newsletter-testimonial h-100">
-                        <p class="mb-3">&ldquo;I like the Balkans angle &mdash; local exchange context and tax-aware framing I don&rsquo;t get from US newsletters.&rdquo;</p>
-                        <footer class="newsletter-testimonial-author">&mdash; Sarah M.</footer>
-                    </blockquote>
-                </div>
-                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <blockquote class="newsletter-testimonial h-100">
-                        <p class="mb-3">&ldquo;Wallet hygiene and privacy sections alone changed how I manage cold storage. Worth it for education.&rdquo;</p>
-                        <footer class="newsletter-testimonial-author">&mdash; James T.</footer>
-                    </blockquote>
-                </div>
+            <div class="grid gap-6 md:grid-cols-3">
+                <blockquote class="newsletter-testimonial">
+                    <p>&ldquo;The airdrop alerts paid for the subscription within the first month. Clear write-ups, no hype.&rdquo;</p>
+                    <footer class="newsletter-testimonial-author">&mdash; Alex K.</footer>
+                </blockquote>
+                <blockquote class="newsletter-testimonial">
+                    <p>&ldquo;I like the Balkans angle &mdash; local exchange context and tax-aware framing I don&rsquo;t get from US newsletters.&rdquo;</p>
+                    <footer class="newsletter-testimonial-author">&mdash; Sarah M.</footer>
+                </blockquote>
+                <blockquote class="newsletter-testimonial">
+                    <p>&ldquo;Wallet hygiene and privacy sections alone changed how I manage cold storage. Worth it for education.&rdquo;</p>
+                    <footer class="newsletter-testimonial-author">&mdash; James T.</footer>
+                </blockquote>
             </div>
         </div>
-    </div>
-    <!-- Testimonials End -->
+    </section>
 
-
-    <!-- FAQ Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h2 class="display-6">FAQs</h2>
-                <p class="text-primary fs-5 mb-5">Common questions about the premium newsletter</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="accordion" id="newsletterFaq">
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.1s">
-                            <h2 class="accordion-header" id="faqHeadingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
-                                    How often will I receive alerts?
-                                </button>
-                            </h2>
-                            <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#newsletterFaq">
-                                <div class="accordion-body">
-                                    Expect several curated updates each week (typically 3&ndash;5), plus time-sensitive airdrop notifications when we verify them. Quality over quantity.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
-                            <h2 class="accordion-header" id="faqHeadingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
-                                    Can I cancel anytime?
-                                </button>
-                            </h2>
-                            <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#newsletterFaq">
-                                <div class="accordion-body">
-                                    Yes. Manage or cancel your subscription anytime from your Gumroad account. No long-term lock-in.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.3s">
-                            <h2 class="accordion-header" id="faqHeadingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
-                                    What payment methods do you accept?
-                                </button>
-                            </h2>
-                            <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#newsletterFaq">
-                                <div class="accordion-body">
-                                    Gumroad accepts major credit cards, PayPal, and select cryptocurrency options at checkout.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
-                            <h2 class="accordion-header" id="faqHeadingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
-                                    How do I access the subscriber Telegram group?
-                                </button>
-                            </h2>
-                            <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#newsletterFaq">
-                                <div class="accordion-body">
-                                    After purchase, Gumroad sends a receipt with an invite link to the private Telegram channel. Keep that email &mdash; it is your access key.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.2s">
-                <a href="https://duacrypto.gumroad.com/l/newsleter?wanted=true" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg px-5 py-3">
-                    Get instant access
-                </a>
-            </div>
+    <section class="section-shell py-12">
+        <div class="section-title mb-10">
+            <h2 class="text-3xl font-bold text-dark">FAQs</h2>
+            <p class="mt-2 text-lg text-primary">Common questions about the premium newsletter</p>
         </div>
-    </div>
-    <!-- FAQ End -->
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6">
-                    <div class="footer-brand-row d-flex align-items-center gap-2 mb-3">
-                        <img class="footer-brand-logo shrink-0" src="/img/duacrypto-logo.png" alt="DuaCrypto &mdash; Albania crypto community">
-                        <p class="mb-0"><strong>DuaCrypto</strong>, founded in 2020, is Albania's first crypto community &mdash; education, events, and Web3 support across the Balkans.</p>
-                    </div>
-                    <div class="footer-content text-center text-md-start">
-                        <p class="mb-0"><i class="fa fa-envelope me-2 text-primary"></i>Partnerships and media: <a href="mailto:partner@duacrypto.com">partner@duacrypto.com</a></p>
-                    </div>
+            <div id="newsletter-faq-accordion" class="mx-auto max-w-4xl">
+                <div class="accordion-item">
+                    <button data-accordion-btn type="button" class="accordion-btn accordion-btn-open" aria-expanded="true">How often will I receive alerts?</button>
+                    <div class="accordion-panel">Expect several curated updates each week (typically 3&ndash;5), plus time-sensitive airdrop notifications when we verify them. Quality over quantity.</div>
                 </div>
-                <div class="col-md-6">
-                    <h5 class="mb-4">Newsletter</h5>
-                    <p>Market insights, airdrop alerts, and community updates in your inbox.</p>
-                    <a href="https://duacrypto.gumroad.com/l/newsleter?wanted=true" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-4">Subscribe for $10/month</a>
+                <div class="accordion-item">
+                    <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">Can I cancel anytime?</button>
+                    <div class="accordion-panel hidden">Yes. Manage or cancel your subscription anytime from your Gumroad account. No long-term lock-in.</div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>Pyramid of Tirana, Albania</p>
-                    <p><i class="fa fa-envelope me-3"></i><a href="mailto:partner@duacrypto.com">partner@duacrypto.com</a></p>
+                <div class="accordion-item">
+                    <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">What payment methods do you accept?</button>
+                    <div class="accordion-panel hidden">Gumroad accepts major credit cards, PayPal, and select cryptocurrency options at checkout.</div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="service.html">Education</a>
-                    <a class="btn btn-link" href="events.html">Events</a>
-                    <a class="btn btn-link" href="donation.html">Donate a Book</a>
-                    <a class="btn btn-link" href="$10.html">Newsletter</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact</a>
-                    <a class="btn btn-link" href="privacy.html">Privacy</a>
-                    <a class="btn btn-link" href="terms.html">Terms</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Follow Us</h5>
-                    <div class="d-flex flex-wrap gap-1">
-                        <a class="btn btn-square rounded-circle me-1" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://youtube.com/@duacrypto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://facebook.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://linkedin.com/company/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                <div class="accordion-item">
+                    <button data-accordion-btn type="button" class="accordion-btn" aria-expanded="false">How do I access the subscriber Telegram group?</button>
+                    <div class="accordion-panel hidden">After purchase, Gumroad sends a receipt with an invite link to the private Telegram channel. Keep that email &mdash; it is your access key.</div>
                 </div>
             </div>
+        <div class="mt-10 text-center">
+            <a href="https://duacrypto.gumroad.com/l/newsleter?wanted=true" target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-3 text-lg">
+                Get instant access
+            </a>
         </div>
-        <div class="container-fluid copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a href="index.html">DuaCrypto</a>, All Rights Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <span>Designed by DuaCrypto</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+    </section>
 
+    <!-- @partial footer -->
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/wow/wow.min.js"></script>
-    <script src="/lib/easing/easing.min.js"></script>
-    <script src="/lib/waypoints/waypoints.min.js"></script>
-    <script src="/lib/counterup/counterup.min.js"></script>
-    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="/js/main.js"></script>
-    <script src="/js/theme-bootstrap.js" defer></script>
 </body>
-
 </html>

@@ -6,27 +6,15 @@ import { initAccordion } from "./accordion.js";
 import { initBrandCards } from "./brand-cards.js";
 import { initAffiliates } from "./affiliates.js";
 import { initContactPage } from "./contact.js";
+import { initBackToTop } from "./page-shell.js";
 import "./webmcp.js";
-
-function initBackToTop() {
-  const button = document.querySelector(".back-to-top");
-  if (!button) return;
-
-  window.addEventListener("scroll", () => {
-    button.classList.toggle("show", window.scrollY > 300);
-  });
-
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initNav();
   initCounters();
   initAccordion("faq-accordion");
+  initAccordion("newsletter-faq-accordion");
   initBrandCards();
   initAffiliates();
   initContactPage();

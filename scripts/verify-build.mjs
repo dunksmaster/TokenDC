@@ -62,6 +62,11 @@ const TAILWIND_PAGES = new Set([
   "feature.html",
   "service.html",
   "roadmap.html",
+  "about.html",
+  "$10.html",
+  "events.html",
+  "donation.html",
+  "bitcoin-for-corporations.html",
 ]);
 
 for (const name of readdirSync(root)) {

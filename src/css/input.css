@@ -718,6 +718,34 @@ html.dark {
     @apply text-[#c9d1d9];
   }
 
+  .newsletter-testimonials {
+    @apply bg-surface py-12;
+  }
+
+  .newsletter-testimonial {
+    @apply h-full rounded-xl border border-border bg-card p-6 shadow-md;
+  }
+
+  .newsletter-testimonial p {
+    @apply mb-3 italic text-secondary;
+  }
+
+  .newsletter-testimonial-author {
+    @apply text-sm font-semibold text-primary;
+  }
+
+  html.dark .newsletter-testimonial {
+    @apply bg-card;
+  }
+
+  html.dark .newsletter-testimonial p {
+    @apply text-secondary;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
   @media (max-width: 767px) {
     .newsletter-img-wrap {
       @apply min-h-[220px] p-5;

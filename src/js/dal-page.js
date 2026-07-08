@@ -1,5 +1,8 @@
 import "../css/dal-page.css";
 import { DAL_CONFIG } from "./dal-config.js";
+import { initTheme } from "./theme.js";
+import { initNav } from "./nav.js";
+import { initBackToTop } from "./page-shell.js";
 
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -34,6 +37,9 @@ function initReveal() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initTheme();
+  initNav();
+  initBackToTop();
   initSmoothScroll();
   initReveal();
 
