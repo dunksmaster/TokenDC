@@ -114,59 +114,19 @@ Bootstrap pages remaining: **0** (all 14 pages on Tailwind).
 
 ## 1. Speed
 
-### Already done (local, uncommitted)
+### Already done
 
-- Bootstrap (164 KB) + jQuery + owlcarousel/wow/waypoints/counterup removed from all HTML pages
-- Font Awesome and Google Fonts loaded async via `rel="preload" as="style"` + `onload` swap
-- Hero image uses WebP `<picture>` + `fetchpriority="high"` on homepage
+- Bootstrap + jQuery removed from all HTML pages
+- Image pipeline: `img/` ~33 MB → ~4.8 MB (`scripts/optimize-images.mjs`)
+- Hero WebP `<picture>` + `fetchpriority="high"` on homepage
+- Self-hosted fonts and Font Awesome
+- `loading="lazy"` + explicit `width`/`height` on local `/img/` assets (verified in `npm run verify:build`)
+- Cache-Control headers on static asset paths
 
-### Still to do
+### Still to do (polish)
 
-#### 1a. Image pipeline — **single highest-impact item**
-
-`img/` is **~33–34 MB** on disk. Largest offenders:
-
-| File | Size |
-|------|------|
-| `Iphone_cards.png` | ~11 MB |
-| `54568959275_c50b3efc4c_o.jpg` | ~4.5 MB |
-| `GsXvXFKWYAAhs3-.jpeg` | ~3.5 MB |
-| `ChatGPT Image Jun 8, 2025, 02_22_28 PM.png` | ~2.5 MB |
-| `setup-mode-03.webp` | ~1.2 MB |
-| `binance-partner-light-src.png` | ~1.1 MB |
-
-**Actions:**
-
-- Resize to actual display dimensions (most images are served far larger than rendered)
-- Convert PNG/JPEG → WebP/AVIF; keep originals only in repo if needed for editing
-- Add responsive `srcset` / `sizes` on content images
-- `loading="lazy"` + explicit `width`/`height` on below-the-fold images (prevents CLS)
-- Integrate into build: `sharp` step in `scripts/generate-agent-assets.mjs` or a Vite image plugin
-- **Target:** reduce `img/` from ~34 MB to ~2–4 MB
-
-#### 1b. Cache-Control headers (not yet in `_headers`)
-
-Add to `public/_headers`:
-
-```
-/img/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/css/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/js/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/lib/*
-  Cache-Control: public, max-age=31536000, immutable
-```
-
-Vite-hashed build assets in `dist/assets/` get new filenames on each deploy, so long cache is safe.
-
-#### 1c. Self-host fonts / Font Awesome (lower priority)
-
-Already async-preloaded from Google Fonts and cdnjs. Self-hosting removes two cross-origin connections and tightens CSP, but impact is smaller than images. Defer until after image pipeline.
+- Add responsive `srcset` / `sizes` on large content images (events gallery, etc.)
+- Further compress individual PNGs if targeting &lt; 4 MB total
 
 ---
 
@@ -192,11 +152,11 @@ See [SEO-CHECKLIST.md](./SEO-CHECKLIST.md) for GSC/Bing/GBP operational tasks.
 
 | Item | Priority | Notes |
 |------|----------|-------|
-| `apple-touch-icon` + `site.webmanifest` | Medium | Only SVG favicon today; iOS home-screen and PWA metadata missing |
-| `hreflang` for Albanian (`/sq/`) | Low (when pages exist) | Audience is Albania/Balkans; add when `/sq/` pages ship |
-| Image alt audit | Medium | Run after image pipeline; ensure descriptive alt on all content images |
-| Wire `blog/` + `newsletter.html` into SEO pipeline | High (with Step 0) | Must get sitemap entries, titles, canonical, JSON-LD |
-| GSC / Bing sitemap submission | Ops | Submit only `https://duacrypto.com/sitemap.xml` |
+| `apple-touch-icon` + `site.webmanifest` | **Done** |
+| `hreflang` for Albanian (`/sq/`) | Low — add when `/sq/` pages ship |
+| Image alt audit | **Done** for local `/img/` assets (`verify:build` enforces alt + dimensions) |
+| Wire `blog/` + `newsletter.html` into SEO pipeline | **Not done** — pages not in repo |
+| GSC / Bing sitemap submission | Ops — after merge/deploy |
 
 ---
 
@@ -230,46 +190,24 @@ Untracked new pages must use the same partials include syntax and pass through `
 
 ## 4. Security
 
-### Already done (local, uncommitted)
+### Already done
 
-Partial security headers added to `_headers`:
-
-- `X-Frame-Options`
-- `Referrer-Policy`
-- `Permissions-Policy`
-- `Strict-Transport-Security` (HSTS)
+- CSP report-only, nosniff, HSTS, cache headers (`lib/site-security-headers.mjs`)
+- Self-hosted fonts/FA — no external CDN SRI needed
 
 ### Still to do
 
-#### 4a. Content-Security-Policy
+#### 4a. CSP enforcement
 
-Not present on committed `main` or in the verified local tree. Start with report-only:
+After ~1 week clean report-only logs, build with `CSP_ENFORCE=1`.
 
-```
-Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'
-```
+#### 4b. API / payment surface audit
 
-Tighten and switch to enforcing once report-only shows no violations. Allowlist must include: Formspree, Gumroad, GA4, any CDN still in use.
+`functions/api/` and x402 payment endpoints (`lib/x402-site-api.mjs`) — input validation and secret handling.
 
-#### 4b. X-Content-Type-Options
+#### 4c. External link audit
 
-```
-X-Content-Type-Options: nosniff
-```
-
-Add site-wide in `_headers`.
-
-#### 4c. SRI on remaining CDN assets
-
-Add `integrity` + `crossorigin` to any CDN `<script>` / `<link>` that remains, or self-host to eliminate the need.
-
-#### 4d. API / payment surface audit
-
-`functions/api/` and x402 payment endpoints (`lib/x402-site-api.mjs`) should be reviewed for input validation and secret handling. Relevant on a crypto/donation site.
-
-#### 4e. External link audit
-
-Confirm all `target="_blank"` links use `rel="noopener noreferrer"` across all pages (including new `blog/`).
+Spot-check `target="_blank"` links use `rel="noopener noreferrer"` (most pages already do).
 
 ---
 
@@ -285,10 +223,10 @@ Confirm all `target="_blank"` links use `rel="noopener noreferrer"` across all p
 
 | Item | Notes |
 |------|-------|
-| CLS pass on all pages | Ensure every `<img>` has explicit `width`/`height` (hero already does) |
-| Consistent section spacing | Audit migrated pages against `index.html` section-shell / padding patterns |
-| Dark mode parity | Verify all migrated pages respect `.dark` tokens from `head-common` partial |
-| Blog layout | Define list + article templates consistent with site chrome |
+| CLS pass — `width`/`height` on local images | **Done** — enforced in `verify:build` |
+| Consistent section spacing | Visual QA vs `index.html` |
+| Dark mode parity | Manual verify across pages |
+| Blog layout | Blocked on `blog/` pages |
 
 ---
 

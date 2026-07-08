@@ -21,9 +21,6 @@ debug-*.log
 **/c__Users*
 img/test-c__*
 
-# Mirrored from public/css/dark-mode.css by scripts/generate-agent-assets.mjs
-css/dark-mode.css
-
 # Mirrored from css/ by scripts/generate-agent-assets.mjs (for Vite public/)
 public/css/brand-logos.css
 public/js/events-supporters.js

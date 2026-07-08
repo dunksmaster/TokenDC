@@ -412,33 +412,6 @@ function writeStaticHealthJson() {
   );
 }
 
-/**
- * Canonical dark-mode stylesheet: public/css/dark-mode.css (copied to dist/ by Vite).
- * Mirror to css/dark-mode.css for legacy HTML opened from the repo root without Vite.
- */
-function syncThemeCss() {
-  const publicPath = join(root, "public", "css", "dark-mode.css");
-  const mirrorPath = join(root, "css", "dark-mode.css");
-
-  if (!existsSync(publicPath) && existsSync(mirrorPath)) {
-    mkdirSync(dirname(publicPath), { recursive: true });
-    copyFileSync(mirrorPath, publicPath);
-    console.warn(
-      "syncThemeCss: migrated css/dark-mode.css → public/css/dark-mode.css"
-    );
-  }
-
-  if (!existsSync(publicPath)) {
-    console.warn(
-      "syncThemeCss: missing public/css/dark-mode.css (required for Vite build / dist deploy)"
-    );
-    return;
-  }
-
-  mkdirSync(dirname(mirrorPath), { recursive: true });
-  copyFileSync(publicPath, mirrorPath);
-}
-
 /** Mirror root /css and /js assets still referenced by HTML into public/ for Vite dev. */
 function syncLegacyAssetsToPublic() {
   const mirrors = [
@@ -519,7 +492,6 @@ generateMarkdown();
 collectSkills();
 syncSiteApi();
 await buildThemeAssets();
-syncThemeCss();
 syncLegacyAssetsToPublic();
 generateWebBotAuth();
 syncAuthMdFiles();
