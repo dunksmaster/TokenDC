@@ -46,6 +46,14 @@ const htmlPages = [
   { file: "donation.html", loc: "/donation.html", changefreq: "yearly", priority: "0.5" },
   { file: "privacy.html", loc: "/privacy.html", changefreq: "yearly", priority: "0.4" },
   { file: "terms.html", loc: "/terms.html", changefreq: "yearly", priority: "0.4" },
+  { file: "newsletter.html", loc: "/newsletter.html", changefreq: "monthly", priority: "0.7" },
+  { file: "blog/index.html", loc: "/blog/index.html", changefreq: "weekly", priority: "0.8" },
+  { file: "blog/join-duacrypto-community.html", loc: "/blog/join-duacrypto-community.html", changefreq: "monthly", priority: "0.7" },
+  { file: "blog/bitcoin-self-custody-basics.html", loc: "/blog/bitcoin-self-custody-basics.html", changefreq: "monthly", priority: "0.7" },
+  { file: "blog/dal-corporate-bitcoin-guide.html", loc: "/blog/dal-corporate-bitcoin-guide.html", changefreq: "monthly", priority: "0.7" },
+  { file: "blog/donate-a-book-campaign.html", loc: "/blog/donate-a-book-campaign.html", changefreq: "monthly", priority: "0.7" },
+  { file: "blog/bitcoin-pizza-day-2025.html", loc: "/blog/bitcoin-pizza-day-2025.html", changefreq: "monthly", priority: "0.7" },
+  { file: "blog/balkans-crypto-2025-recap.html", loc: "/blog/balkans-crypto-2025-recap.html", changefreq: "monthly", priority: "0.7" },
 ];
 
 const DISALLOW_PATHS = [

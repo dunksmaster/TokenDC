@@ -279,6 +279,104 @@ export const seoPages = [
     includeOrganization: true,
     breadcrumb: [{ name: "Terms of Service", path: "/terms.html" }],
   },
+  {
+    file: "newsletter.html",
+    path: "/newsletter.html",
+    title: "Premium Newsletter | DuaCrypto",
+    description:
+      "DuaCrypto premium newsletter — Bitcoin market insights, airdrop alerts, and Balkans-focused crypto research for $10/month. Cancel anytime via Gumroad.",
+    ogType: "website",
+    includeOrganization: true,
+    breadcrumb: [{ name: "Newsletter", path: "/newsletter.html" }],
+  },
+  {
+    file: "blog/index.html",
+    path: "/blog/index.html",
+    title: "Blog | DuaCrypto",
+    description:
+      "DuaCrypto blog — Bitcoin and Web3 event recaps, guides, and community news from Albania and the Balkans.",
+    ogType: "website",
+    includeOrganization: true,
+    breadcrumb: [{ name: "Blog", path: "/blog/index.html" }],
+  },
+  {
+    file: "blog/join-duacrypto-community.html",
+    path: "/blog/join-duacrypto-community.html",
+    title: "How to Join the DuaCrypto Community | DuaCrypto Blog",
+    description:
+      "Telegram, meetups, free guides, and what to expect as a new member of Albania's crypto community.",
+    ogType: "article",
+    includeOrganization: true,
+    breadcrumb: [
+      { name: "Blog", path: "/blog/index.html" },
+      { name: "Join Community", path: "/blog/join-duacrypto-community.html" },
+    ],
+  },
+  {
+    file: "blog/bitcoin-self-custody-basics.html",
+    path: "/blog/bitcoin-self-custody-basics.html",
+    title: "Bitcoin Self-Custody Basics | DuaCrypto Blog",
+    description:
+      "A practical intro to holding your own keys — hardware wallets, seed phrases, and avoiding common custody mistakes.",
+    ogType: "article",
+    includeOrganization: true,
+    breadcrumb: [
+      { name: "Blog", path: "/blog/index.html" },
+      { name: "Self-Custody Basics", path: "/blog/bitcoin-self-custody-basics.html" },
+    ],
+  },
+  {
+    file: "blog/dal-corporate-bitcoin-guide.html",
+    path: "/blog/dal-corporate-bitcoin-guide.html",
+    title: "DAL: Bitcoin for Corporations Explained | DuaCrypto Blog",
+    description:
+      "Enterprise treasury strategy, executive networking, and Durana Tech Park residency for corporate Bitcoin adoption.",
+    ogType: "article",
+    includeOrganization: true,
+    breadcrumb: [
+      { name: "Blog", path: "/blog/index.html" },
+      { name: "DAL Guide", path: "/blog/dal-corporate-bitcoin-guide.html" },
+    ],
+  },
+  {
+    file: "blog/donate-a-book-campaign.html",
+    path: "/blog/donate-a-book-campaign.html",
+    title: "Donate a Book: Lightning-Powered Education | DuaCrypto Blog",
+    description:
+      "How sats become Bitcoin books for Balkans students via Konsensus Network and DuaCrypto.",
+    ogType: "article",
+    includeOrganization: true,
+    breadcrumb: [
+      { name: "Blog", path: "/blog/index.html" },
+      { name: "Donate a Book", path: "/blog/donate-a-book-campaign.html" },
+    ],
+  },
+  {
+    file: "blog/bitcoin-pizza-day-2025.html",
+    path: "/blog/bitcoin-pizza-day-2025.html",
+    title: "Bitcoin Pizza Day 2025 Recap | DuaCrypto Blog",
+    description:
+      "Highlights from DuaCrypto's Bitcoin Pizza Day meetup in Tirana — community, pizza, and live photos.",
+    ogType: "article",
+    includeOrganization: true,
+    breadcrumb: [
+      { name: "Blog", path: "/blog/index.html" },
+      { name: "Bitcoin Pizza Day 2025", path: "/blog/bitcoin-pizza-day-2025.html" },
+    ],
+  },
+  {
+    file: "blog/balkans-crypto-2025-recap.html",
+    path: "/blog/balkans-crypto-2025-recap.html",
+    title: "Balkans Crypto 2025 Recap | DuaCrypto Blog",
+    description:
+      "Recap of the Balkans Crypto Tech Conference in Tirana — DeFi, Web3, and community highlights.",
+    ogType: "article",
+    includeOrganization: true,
+    breadcrumb: [
+      { name: "Blog", path: "/blog/index.html" },
+      { name: "Balkans Crypto 2025", path: "/blog/balkans-crypto-2025-recap.html" },
+    ],
+  },
 ];
 
 export function pageUrl(path) {
