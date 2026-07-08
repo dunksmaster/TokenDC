@@ -6,6 +6,9 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const partialsDir = join(root, "src", "partials");
 
 const PARTIAL_RE = /<!-- @partial\s+(\w+)(?:\s+active=(\w+))? -->/g;
+const LEGACY_INCLUDE_RE = /<!-- include:(\w+) -->/g;
+const PAGE_ACTIVE_RE = /<!-- page-active:(\w+) -->\s*/g;
+const PAGE_PREFIX_RE = /<!-- page-prefix:[^>]+ -->\s*/g;
 
 /** @type {Record<string, string>} */
 const cache = {};
@@ -44,13 +47,24 @@ function applyActiveNav(html, active) {
  * @param {string} html
  */
 export function processHtmlIncludes(html) {
-  return html.replace(PARTIAL_RE, (_match, name, active) => {
+  const activeFromComment = html.match(/<!-- page-active:(\w+) -->/)?.[1];
+  let result = html.replace(PARTIAL_RE, (_match, name, active) => {
     let partial = loadPartial(name);
     if (name === "header") {
-      partial = applyActiveNav(partial, active);
+      partial = applyActiveNav(partial, active ?? activeFromComment);
     }
     return partial;
   });
+  result = result.replace(LEGACY_INCLUDE_RE, (_match, name) => {
+    let partial = loadPartial(name);
+    if (name === "header") {
+      partial = applyActiveNav(partial, activeFromComment);
+    }
+    return partial;
+  });
+  result = result.replace(PAGE_ACTIVE_RE, "");
+  result = result.replace(PAGE_PREFIX_RE, "");
+  return result;
 }
 
 /** Vite plugin: expand partial includes at dev/build time. */

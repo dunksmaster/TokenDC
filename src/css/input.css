@@ -755,6 +755,30 @@ html.dark {
       @apply p-6;
     }
   }
+
+  .blog-card {
+    @apply rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md;
+  }
+
+  .blog-meta {
+    @apply mb-2 text-sm font-medium uppercase tracking-wide text-primary;
+  }
+
+  .page-breadcrumb {
+    @apply flex flex-wrap items-center gap-2 text-sm text-secondary;
+  }
+
+  .page-breadcrumb a {
+    @apply text-primary hover:underline;
+  }
+
+  .prose-content p {
+    @apply mb-4 leading-relaxed text-secondary;
+  }
+
+  .prose-content h2 {
+    @apply mb-3 mt-8 text-2xl font-bold text-dark;
+  }
 }
 
 @keyframes contact-map-pin-bounce {

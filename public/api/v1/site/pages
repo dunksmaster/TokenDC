@@ -59,6 +59,46 @@
       "path": "/terms.html",
       "title": "Terms of Service | DuaCrypto",
       "url": "https://duacrypto.com/terms.html"
+    },
+    {
+      "path": "/newsletter.html",
+      "title": "Premium Newsletter | DuaCrypto",
+      "url": "https://duacrypto.com/newsletter.html"
+    },
+    {
+      "path": "/blog/index.html",
+      "title": "Blog | DuaCrypto",
+      "url": "https://duacrypto.com/blog/index.html"
+    },
+    {
+      "path": "/blog/join-duacrypto-community.html",
+      "title": "How to Join the DuaCrypto Community | DuaCrypto Blog",
+      "url": "https://duacrypto.com/blog/join-duacrypto-community.html"
+    },
+    {
+      "path": "/blog/bitcoin-self-custody-basics.html",
+      "title": "Bitcoin Self-Custody Basics | DuaCrypto Blog",
+      "url": "https://duacrypto.com/blog/bitcoin-self-custody-basics.html"
+    },
+    {
+      "path": "/blog/dal-corporate-bitcoin-guide.html",
+      "title": "DAL: Bitcoin for Corporations Explained | DuaCrypto Blog",
+      "url": "https://duacrypto.com/blog/dal-corporate-bitcoin-guide.html"
+    },
+    {
+      "path": "/blog/donate-a-book-campaign.html",
+      "title": "Donate a Book: Lightning-Powered Education | DuaCrypto Blog",
+      "url": "https://duacrypto.com/blog/donate-a-book-campaign.html"
+    },
+    {
+      "path": "/blog/bitcoin-pizza-day-2025.html",
+      "title": "Bitcoin Pizza Day 2025 Recap | DuaCrypto Blog",
+      "url": "https://duacrypto.com/blog/bitcoin-pizza-day-2025.html"
+    },
+    {
+      "path": "/blog/balkans-crypto-2025-recap.html",
+      "title": "Balkans Crypto 2025 Recap | DuaCrypto Blog",
+      "url": "https://duacrypto.com/blog/balkans-crypto-2025-recap.html"
     }
   ]
 }

@@ -68,6 +68,20 @@ for (const rel of DEAD_DIST_PATHS) {
 }
 
 // 3. HTML markers + no external fonts
+function collectRootHtmlFiles() {
+  const files = [];
+  for (const name of readdirSync(root)) {
+    if (name.endsWith(".html")) files.push(name);
+  }
+  const blogDir = join(root, "blog");
+  if (existsSync(blogDir)) {
+    for (const name of readdirSync(blogDir)) {
+      if (name.endsWith(".html")) files.push(join("blog", name));
+    }
+  }
+  return files;
+}
+
 // Tailwind-migrated pages must not load Bootstrap/jQuery.
 const TAILWIND_PAGES = new Set([
   "index.html",
@@ -84,6 +98,14 @@ const TAILWIND_PAGES = new Set([
   "events.html",
   "donation.html",
   "bitcoin-for-corporations.html",
+  "newsletter.html",
+  "blog/index.html",
+  "blog/join-duacrypto-community.html",
+  "blog/bitcoin-self-custody-basics.html",
+  "blog/dal-corporate-bitcoin-guide.html",
+  "blog/donate-a-book-campaign.html",
+  "blog/bitcoin-pizza-day-2025.html",
+  "blog/balkans-crypto-2025-recap.html",
 ]);
 
 const DEAD_REPO_PATHS = [
@@ -115,21 +137,22 @@ for (const rel of DEAD_REPO_PATHS) {
   }
 }
 
-for (const name of readdirSync(root)) {
-  if (!name.endsWith(".html")) continue;
+for (const name of collectRootHtmlFiles()) {
   const html = readFileSync(join(root, name), "utf8");
   if (TAILWIND_PAGES.has(name)) {
     if (/bootstrap\.min\.css|code\.jquery\.com/i.test(html)) {
       fail(`${name}: Tailwind page still references Bootstrap/jQuery`);
     }
-    if (!html.includes("/src/css/input.css")) {
+    if (!html.includes("/src/css/input.css") && !html.includes("include:head-common")) {
       fail(`${name}: Tailwind page missing input.css`);
     }
   }
-  if (!html.includes("<!-- dc-icons:start -->")) {
+  const hasIcons = html.includes("<!-- dc-icons:start -->") || html.includes("include:head-common");
+  const hasVendor = html.includes("<!-- dc-vendor:start -->") || html.includes("include:head-common");
+  if (!hasIcons) {
     fail(`${name}: missing dc-icons block`);
   }
-  if (!html.includes("<!-- dc-vendor:start -->")) {
+  if (!hasVendor) {
     fail(`${name}: missing dc-vendor block`);
   }
   if (/fonts\.googleapis\.com|cdnjs\.cloudflare\.com\/ajax\/libs\/font-awesome/i.test(html)) {
