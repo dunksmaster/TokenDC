@@ -13,7 +13,6 @@ function ensureDiscoveryFilesPlugin() {
     ["public/robots.txt", "dist/robots.txt"],
     ["public/sitemap.xml", "dist/sitemap.xml"],
     ["public/site.webmanifest", "dist/site.webmanifest"],
-    ["public/css/dark-mode.css", "dist/css/dark-mode.css"],
     ["public/_redirects", "dist/_redirects"],
     ["public/_headers", "dist/_headers"],
   ];

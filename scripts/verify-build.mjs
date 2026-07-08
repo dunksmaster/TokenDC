@@ -69,13 +69,54 @@ const TAILWIND_PAGES = new Set([
   "bitcoin-for-corporations.html",
 ]);
 
+const DEAD_REPO_PATHS = [
+  "css/bootstrap.min.css",
+  "css/style.css",
+  "js/main.js",
+  "js/main-token-slim.js",
+  "js/theme-bootstrap.js",
+  "src/js/theme-bootstrap.js",
+  "public/js/theme-bootstrap.js",
+  "public/lib",
+  "lib/owlcarousel",
+  "lib/wow",
+  "lib/waypoints",
+  "lib/counterup",
+  "lib/animate",
+  "lib/easing",
+];
+
+const DEAD_DIST_PATHS = [
+  "css/bootstrap.min.css",
+  "css/style.css",
+  "js/main.js",
+  "js/theme-bootstrap.js",
+  "lib",
+  "lib/owlcarousel",
+  "lib/wow",
+  "lib/waypoints",
+  "lib/counterup",
+];
+
+for (const rel of DEAD_REPO_PATHS) {
+  if (existsSync(join(root, rel))) {
+    fail(`dead asset still present in repo: ${rel}`);
+  }
+}
+
+for (const rel of DEAD_DIST_PATHS) {
+  if (existsSync(join(root, "dist", rel))) {
+    fail(`dead asset copied to dist/: ${rel}`);
+  }
+}
+
 for (const name of readdirSync(root)) {
   if (!name.endsWith(".html")) continue;
   const html = readFileSync(join(root, name), "utf8");
+  if (/bootstrap\.min\.css|code\.jquery\.com|owlcarousel|wow\.min\.js|waypoints|counterup/i.test(html)) {
+    fail(`${name}: still references legacy Bootstrap/jQuery plugins`);
+  }
   if (TAILWIND_PAGES.has(name)) {
-    if (/bootstrap\.min\.css|code\.jquery\.com/i.test(html)) {
-      fail(`${name}: Tailwind page still references Bootstrap/jQuery`);
-    }
     if (!html.includes("/src/css/input.css")) {
       fail(`${name}: Tailwind page missing input.css`);
     }

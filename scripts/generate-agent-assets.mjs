@@ -1,7 +1,6 @@
 import { createHash } from "node:crypto";
 import {
   copyFileSync,
-  cpSync,
   existsSync,
   readFileSync,
   writeFileSync,
@@ -440,39 +439,22 @@ function syncThemeCss() {
   copyFileSync(publicPath, mirrorPath);
 }
 
-/** Mirror legacy /css, /lib, and /js assets into public/ for Vite dev + GitHub Pages. */
+/** Mirror root /css and /js assets still referenced by HTML into public/ for Vite dev. */
 function syncLegacyAssetsToPublic() {
-  const bootstrapSrc = join(root, "css", "bootstrap.min.css");
-  const bootstrapDest = join(root, "public", "css", "bootstrap.min.css");
-  if (!existsSync(bootstrapSrc)) {
-    throw new Error(
-      `Missing ${bootstrapSrc} — required for legacy pages (about, service, etc.)`
-    );
-  }
-  mkdirSync(dirname(bootstrapDest), { recursive: true });
-  copyFileSync(bootstrapSrc, bootstrapDest);
+  const mirrors = [
+    ["css/brand-logos.css", "public/css/brand-logos.css"],
+    ["js/events-supporters.js", "public/js/events-supporters.js"],
+  ];
 
-  const styleSrc = join(root, "css", "style.css");
-  const styleDest = join(root, "public", "css", "style.css");
-  if (!existsSync(styleSrc)) {
-    throw new Error(`Missing ${styleSrc}`);
+  for (const [srcRel, destRel] of mirrors) {
+    const src = join(root, srcRel);
+    const dest = join(root, destRel);
+    if (!existsSync(src)) {
+      throw new Error(`Missing ${src} — required by HTML pages`);
+    }
+    mkdirSync(dirname(dest), { recursive: true });
+    copyFileSync(src, dest);
   }
-  copyFileSync(styleSrc, styleDest);
-
-  const libSrc = join(root, "lib");
-  const libDest = join(root, "public", "lib");
-  if (!existsSync(libSrc)) {
-    throw new Error(`Missing ${libSrc}`);
-  }
-  cpSync(libSrc, libDest, { recursive: true });
-
-  const mainJsSrc = join(root, "js", "main.js");
-  const mainJsDest = join(root, "public", "js", "main.js");
-  if (!existsSync(mainJsSrc)) {
-    throw new Error(`Missing ${mainJsSrc}`);
-  }
-  mkdirSync(dirname(mainJsDest), { recursive: true });
-  copyFileSync(mainJsSrc, mainJsDest);
 }
 
 /** auth.md + OAuth PRM / AS metadata for agent registration discovery. */

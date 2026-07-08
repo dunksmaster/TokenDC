@@ -2,7 +2,7 @@
 
 Operational plan for speed, SEO, template, security, and layout improvements for [duacrypto.com](https://duacrypto.com).
 
-**Last updated:** 2026-07-07 (Steps 1–2 implemented on `cursor/image-pipeline-headers-d4c1`)  
+**Last updated:** 2026-07-08 (Steps 0–3 on `cursor/tailwind-migration-d4c1`; Steps 1–2 on `cursor/image-pipeline-headers-d4c1`)  
 **Related:** [SEO-CHECKLIST.md](./SEO-CHECKLIST.md), [MISSING-ASSETS.md](./MISSING-ASSETS.md)
 
 ---
@@ -26,10 +26,10 @@ This plan was written against the **committed `main` branch** (what ships today)
 ## Revised execution order
 
 ```
-Step 0  →  Commit + push the current migration (split into sensible commits)  [LOCAL ONLY — not in remote main]
-Step 1  →  Image optimization pipeline (highest remaining impact)               [DONE — this branch]
-Step 2  →  CSP + X-Content-Type-Options + Cache-Control headers               [DONE — this branch]
-Step 3  →  Delete dead assets (bootstrap, owlcarousel, wow, waypoints, counterup)
+Step 0  →  Tailwind migration + partials (14/14 pages)                              [DONE — PR #7]
+Step 1  →  Image optimization pipeline (highest remaining impact)               [DONE — merged in PR #7 stack]
+Step 2  →  CSP + X-Content-Type-Options + Cache-Control headers               [DONE]
+Step 3  →  Delete dead assets (bootstrap, owlcarousel, wow, waypoints, counterup)  [DONE]
 Step 4  →  SEO polish (apple-touch-icon, webmanifest, hreflang when /sq/ exists)  [PARTIAL — apple-touch-icon + webmanifest done]
 Step 5  →  Self-host fonts / Font Awesome subset (lower priority — already async-preloaded)  [DONE]
 ```
@@ -54,17 +54,17 @@ Step 5  →  Self-host fonts / Font Awesome subset (lower priority — already a
 
 ## Step 0 — Commit the migration (do this first)
 
-**Status:** In progress on `cursor/tailwind-migration-d4c1` (cloud agent).
+**Status:** **Done** on `cursor/tailwind-migration-d4c1` (draft PR #7).
 
 | Batch | Pages | Status |
 |-------|-------|--------|
 | 1 | `index.html`, `404.html`, `privacy.html`, `terms.html` | **Done** — Tailwind + partials |
-| 2 | `contact.html`, `faq.html`, `feature.html`, `service.html`, `roadmap.html` | Done |
-| 3 | `about.html`, `$10.html`, `events.html`, `donation.html`, `bitcoin-for-corporations.html` | Done |
+| 2 | `contact.html`, `faq.html`, `feature.html`, `service.html`, `roadmap.html` | **Done** |
+| 3 | `about.html`, `$10.html`, `events.html`, `donation.html`, `bitcoin-for-corporations.html` | **Done** |
 
 Infrastructure: `src/partials/header.html`, `footer.html`, `vite-plugins/html-includes.js` (`<!-- @partial header active=about -->`).
 
-Bootstrap pages remaining: **10** (down from 13).
+Bootstrap pages remaining: **0** (all 14 pages on Tailwind).
 
 ### Remote branches reviewed (2026-07-07)
 
@@ -210,19 +210,17 @@ See [SEO-CHECKLIST.md](./SEO-CHECKLIST.md) for GSC/Bing/GBP operational tasks.
 
 ### Still to do
 
-#### 3a. Delete dead assets (~400 KB cruft, may still copy to `dist`)
+#### 3a. Delete dead assets — **Done** (2026-07-08)
 
-These files exist on disk but are no longer referenced after migration:
+Removed ~492 KB of unused Bootstrap/jQuery plugin files from repo and `dist/`:
 
-```
-css/bootstrap.min.css          (164 KB)
-lib/owlcarousel/
-lib/wow/
-lib/waypoints/
-lib/counterup/
-```
-
-Also check `vite-plugins/copy-legacy-static.js` — confirm it does not copy deleted paths to `dist/`.
+- `css/bootstrap.min.css`, `css/style.css`
+- `lib/owlcarousel/`, `lib/wow/`, `lib/waypoints/`, `lib/counterup/`, `lib/animate/`, `lib/easing/`
+- Legacy `js/main.js`, `js/theme-bootstrap.js`, `src/js/theme-bootstrap.js`
+- `vite-plugins/copy-legacy-static.js` no longer copies `lib/`; only `img/`, `css/`, `js/`
+- `scripts/generate-agent-assets.mjs` mirrors only `brand-logos.css` and `events-supporters.js`
+- CSP tightened: removed `code.jquery.com` and `cdn.jsdelivr.net` allowlists
+- `scripts/verify-build.mjs` asserts dead paths absent from repo and `dist/`
 
 #### 3b. Verify `blog/` and `newsletter.html`
 
@@ -298,18 +296,18 @@ Confirm all `target="_blank"` links use `rel="noopener noreferrer"` across all p
 
 | Original claim | Status |
 |----------------|--------|
-| 13 pages still on Bootstrap/jQuery | **Stale** — done locally, uncommitted |
-| Nav/footer copy-pasted 14× | **Stale** — partials exist locally |
-| Wikimedia favicon hotlink | **Stale locally** — still on committed `main` (`index.html`) |
-| `via.placeholder.com` on events | **Stale locally** — still on committed `main` |
-| No security headers at all | **Partially stale** — some headers added locally; CSP and nosniff still missing |
-| `img/` is 33 MB | **Still true** — highest-impact remaining work |
-| No Cache-Control for static assets | **Still true** |
-| Dead bootstrap/lib assets on disk | **Still true** |
-| SEO JSON-LD / sitemap / OG | **Done** (committed) |
-| Fonts/FA on external CDN | **Still true** but lower priority (async-preloaded) |
-| No apple-touch-icon / webmanifest | **Still true** |
-| ~50 uncommitted files at risk | **Still true** — **Step 0** |
+| 13 pages still on Bootstrap/jQuery | **Done** — PR #7 |
+| Nav/footer copy-pasted 14× | **Done** — partials + html-includes |
+| Wikimedia favicon hotlink | **Done** locally — still on committed `main` until merge |
+| `via.placeholder.com` on events | **Done** locally — still on committed `main` until merge |
+| No security headers at all | **Done** — CSP report-only, nosniff, HSTS, cache headers |
+| `img/` is 33 MB | **Done** — ~5 MB after optimize pipeline |
+| No Cache-Control for static assets | **Done** |
+| Dead bootstrap/lib assets on disk | **Done** — Step 3 |
+| SEO JSON-LD / sitemap / OG | **Done** |
+| Fonts/FA on external CDN | **Done** — self-hosted |
+| No apple-touch-icon / webmanifest | **Done** |
+| ~50 uncommitted files at risk | **Resolved** — pushed on PR #7 |
 
 ---
 

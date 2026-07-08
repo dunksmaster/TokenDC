@@ -1,6 +1,6 @@
 /**
  * Early theme apply (blocking script in <head>) — prevents flash before paint.
- * Bundled/copied to /theme-init.js. theme-bootstrap.js reads __DUACRYPTO_THEME__.early
+ * Bundled/copied to /theme-init.js. theme.js reads __DUACRYPTO_THEME__.early
  * and skips re-applying root classes.
  */
 (function () {

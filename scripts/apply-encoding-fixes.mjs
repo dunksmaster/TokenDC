@@ -84,7 +84,7 @@ for (const file of ROOT_HTML) {
 }
 
 // css/js scan: replacement char only
-for (const rel of ["css/style.css", "js/theme-bootstrap.js"]) {
+for (const rel of ["css/brand-logos.css", "js/events-supporters.js"]) {
   const fp = path.join(ROOT, rel);
   if (!fs.existsSync(fp)) continue;
   let t = fs.readFileSync(fp, "utf8");
