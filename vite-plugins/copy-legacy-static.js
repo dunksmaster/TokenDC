@@ -1,4 +1,4 @@
-import { cpSync, existsSync } from "node:fs";
+import { cpSync, existsSync, rmSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -10,10 +10,15 @@ export function copyLegacyStaticPlugin() {
   return {
     name: "copy-legacy-static",
     closeBundle() {
+      for (const dead of ["lib"]) {
+        rmSync(join(root, "dist", dead), { recursive: true, force: true });
+      }
       for (const dir of dirs) {
         const src = join(root, dir);
         if (!existsSync(src)) continue;
-        cpSync(src, join(root, "dist", dir), { recursive: true });
+        const dest = join(root, "dist", dir);
+        rmSync(dest, { recursive: true, force: true });
+        cpSync(src, dest, { recursive: true });
       }
     },
   };

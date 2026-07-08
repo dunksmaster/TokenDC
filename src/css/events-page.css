@@ -41,6 +41,12 @@
             color: inherit;
         }
 
+        .insta-item picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         @media (hover: hover) {
             .insta-item:hover {
                 transform: scale(1.03);

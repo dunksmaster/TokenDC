@@ -125,7 +125,7 @@ Bootstrap pages remaining: **0** (all 14 pages on Tailwind).
 
 ### Still to do (polish)
 
-- Add responsive `srcset` / `sizes` on large content images (events gallery, etc.)
+- ~~Add responsive `srcset` / `sizes` on large content images (events gallery, etc.)~~ **Done** — `lib/gallery-responsive.mjs`, build-time `-480w/-800w/-1200w.webp` variants, `<picture>` on `events.html`
 - Further compress individual PNGs if targeting &lt; 4 MB total
 
 ---
