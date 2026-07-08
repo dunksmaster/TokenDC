@@ -440,39 +440,15 @@ function syncThemeCss() {
   copyFileSync(publicPath, mirrorPath);
 }
 
-/** Mirror legacy /css, /lib, and /js assets into public/ for Vite dev + GitHub Pages. */
+/** Mirror root CSS still linked directly from HTML (Vite bundles the rest). */
 function syncLegacyAssetsToPublic() {
-  const bootstrapSrc = join(root, "css", "bootstrap.min.css");
-  const bootstrapDest = join(root, "public", "css", "bootstrap.min.css");
-  if (!existsSync(bootstrapSrc)) {
-    throw new Error(
-      `Missing ${bootstrapSrc} — required for legacy pages (about, service, etc.)`
-    );
+  const brandSrc = join(root, "css", "brand-logos.css");
+  const brandDest = join(root, "public", "css", "brand-logos.css");
+  if (!existsSync(brandSrc)) {
+    throw new Error(`Missing ${brandSrc}`);
   }
-  mkdirSync(dirname(bootstrapDest), { recursive: true });
-  copyFileSync(bootstrapSrc, bootstrapDest);
-
-  const styleSrc = join(root, "css", "style.css");
-  const styleDest = join(root, "public", "css", "style.css");
-  if (!existsSync(styleSrc)) {
-    throw new Error(`Missing ${styleSrc}`);
-  }
-  copyFileSync(styleSrc, styleDest);
-
-  const libSrc = join(root, "lib");
-  const libDest = join(root, "public", "lib");
-  if (!existsSync(libSrc)) {
-    throw new Error(`Missing ${libSrc}`);
-  }
-  cpSync(libSrc, libDest, { recursive: true });
-
-  const mainJsSrc = join(root, "js", "main.js");
-  const mainJsDest = join(root, "public", "js", "main.js");
-  if (!existsSync(mainJsSrc)) {
-    throw new Error(`Missing ${mainJsSrc}`);
-  }
-  mkdirSync(dirname(mainJsDest), { recursive: true });
-  copyFileSync(mainJsSrc, mainJsDest);
+  mkdirSync(dirname(brandDest), { recursive: true });
+  copyFileSync(brandSrc, brandDest);
 }
 
 /** auth.md + OAuth PRM / AS metadata for agent registration discovery. */

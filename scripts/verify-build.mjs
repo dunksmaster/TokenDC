@@ -40,6 +40,7 @@ if (headersCheck.status !== 0) fail("verify-security-headers.mjs failed");
 for (const rel of [
   "site.webmanifest",
   "css/site-fonts.css",
+  "css/brand-logos.css",
   "vendor/font-awesome/css/all.min.css",
   "img/apple-touch-icon.png",
   "robots.txt",
@@ -47,6 +48,20 @@ for (const rel of [
 ]) {
   if (!existsSync(join(root, "dist", rel))) {
     fail(`dist/${rel} missing`);
+  }
+}
+
+const DEAD_DIST_PATHS = [
+  "css/bootstrap.min.css",
+  "css/style.css",
+  "js/main.js",
+  "js/theme-bootstrap.js",
+  "lib/owlcarousel",
+  "lib/wow",
+];
+for (const rel of DEAD_DIST_PATHS) {
+  if (existsSync(join(root, "dist", rel))) {
+    fail(`dist/${rel} should have been removed (dead legacy asset)`);
   }
 }
 

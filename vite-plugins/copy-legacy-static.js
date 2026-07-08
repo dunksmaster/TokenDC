@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 /** Copy root static dirs into dist/ for GitHub Pages (no Cloudflare ASSETS binding). */
 export function copyLegacyStaticPlugin() {
   const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-  const dirs = ["img", "lib", "css", "js"];
+  const dirs = ["img", "css"];
 
   return {
     name: "copy-legacy-static",

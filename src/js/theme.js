@@ -46,15 +46,6 @@ export function syncThemeToggleUi(theme) {
   });
 }
 
-function stabilizeWowAnimations() {
-  document.querySelectorAll(".wow").forEach((el) => {
-    el.style.visibility = "visible";
-    el.style.opacity = "1";
-    el.style.transform = "none";
-    el.classList.remove("animated");
-  });
-}
-
 function syncBitcoinTimelineImages(isDark) {
   document.querySelectorAll(".bitcoin-timeline-img").forEach((img) => {
     const lightSrc =
@@ -67,11 +58,6 @@ function syncBitcoinTimelineImages(isDark) {
   });
 }
 
-function refreshRoadmapCarousel() {
-  if (typeof window.jQuery === "undefined") return;
-  window.jQuery(".roadmap-carousel").trigger("refresh.owl.carousel");
-}
-
 export function applyTheme(theme) {
   const root = document.documentElement;
   const isDark = theme === "dark";
@@ -80,9 +66,7 @@ export function applyTheme(theme) {
   root.setAttribute("data-bs-theme", isDark ? "dark" : "light");
   root.style.colorScheme = isDark ? "dark" : "light";
   syncThemeToggleUi(theme);
-  stabilizeWowAnimations();
   syncBitcoinTimelineImages(isDark);
-  refreshRoadmapCarousel();
 
   if (typeof window !== "undefined") {
     window.__DUACRYPTO_THEME__ = { early: false, theme };
@@ -99,38 +83,6 @@ export function toggleTheme() {
     ? "light"
     : "dark";
   setTheme(next);
-}
-
-export function injectThemeToggle() {
-  if (document.querySelector("[data-theme-toggle]")) return;
-
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "theme-toggle";
-  button.setAttribute("data-theme-toggle", "");
-  button.setAttribute("aria-pressed", "false");
-  button.setAttribute("aria-label", "Switch to dark mode");
-  button.innerHTML =
-    '<i data-theme-icon class="fas fa-moon" aria-hidden="true"></i>';
-
-  const bootstrapSocial = document.querySelector(
-    ".navbar .h-100.d-lg-inline-flex",
-  );
-  if (bootstrapSocial) {
-    button.classList.add("me-2");
-    bootstrapSocial.insertAdjacentElement("afterbegin", button);
-    return;
-  }
-
-  const eventsNav = document.querySelector(".navbar-collapse");
-  if (eventsNav) {
-    button.classList.add("ms-lg-2", "mb-3", "mb-lg-0");
-    eventsNav.appendChild(button);
-    return;
-  }
-
-  document.body.appendChild(button);
-  button.classList.add("theme-toggle-floating");
 }
 
 export function initTheme() {
