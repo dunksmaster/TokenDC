@@ -35,9 +35,14 @@ Captured via Lighthouse CLI (Chrome headless). Re-run: `npm run pagespeed:baseli
 | https://duacrypto.com/ | 63 | 0.013 | 8.6 s | 90 | 0.001 | 2026-07-09 |
 | https://duacrypto.com/events.html | 63 | 0.024 | 7.6 s | 96 | 0.051 | 2026-07-09 |
 
-### Post LCP/CLS fix
+### Post LCP/CLS fix (2026-07-09 deploy)
 
-Re-run `npm run pagespeed:baseline` after deploy. Changes: font preload, async Font Awesome, hero responsive WebP, site-wide image width/height.
+| URL | Mobile perf | Mobile CLS | Mobile LCP | Desktop perf | Desktop CLS | Date |
+|-----|-------------|------------|------------|--------------|-------------|------|
+| https://duacrypto.com/ | 64 | 0 | 7.3 s | 96 | 0.001 | 2026-07-09 |
+| https://duacrypto.com/events.html | 67 | 0.021 | 6.4 s | 91 | 0.096 | 2026-07-09 |
+
+Home mobile LCP improved ~1.3s vs Phase D baseline (8.6s → 7.3s).
 
 ## Mobile LCP + CLS fixes
 
