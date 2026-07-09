@@ -3,7 +3,7 @@
 Production deploys on every push to `main` via **`.github/workflows/cloudflare-pages.yml`**
 → build `dist/` → **dc-site** on Cloudflare Pages.
 
-**Cloudflare native Git is not connected** on `dc-site` (`Source: none`), so GitHub
+**Cloudflare native Git is not connected** on `dc-site` (`Git Provider: No` per `npx wrangler pages project list`, verified 2026-07-09), so GitHub
 Actions is the active deploy path. Optional later: connect Git in the dashboard and
 then disable the push trigger here to avoid double-deploys.
 

@@ -27,7 +27,9 @@ css/dark-mode.css
 # Mirrored from css/ by scripts/generate-agent-assets.mjs (for Vite public/)
 public/css/brand-logos.css
 
-# Image optimize cache (scripts/optimize-images.mjs)
+# Lighthouse / PageSpeed artifacts (npm run pagespeed:baseline)
+docs/psi-artifacts/
+docs/psi-*.json
 scripts/.image-optimize-manifest.json
 
 # Responsive gallery variants (scripts/optimize-images.mjs, build-time)

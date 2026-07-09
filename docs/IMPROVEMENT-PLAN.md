@@ -35,7 +35,7 @@ Operational plan for speed, SEO, template, security, and layout improvements for
 [DONE] Step 3  →  Delete dead Bootstrap/jQuery assets (verify-build enforces)
 [DONE] Step 4  →  apple-touch-icon + webmanifest; blog/newsletter in sitemap
 [DONE] Step 5  →  Self-host fonts / Font Awesome
-[NEXT] Step 6  →  GSC sitemap submit + PSI baseline (see PHASE-D-POST-SHIP.md)
+[DONE] Step 6  →  GSC preflight + PSI baseline (see PHASE-D-POST-SHIP.md; GSC UI submit is operator action)
 [DEFER]        →  hreflang /sq/, CSP enforce, x402 audit, further img/ compression
 ```
 
@@ -72,7 +72,7 @@ Operational plan for speed, SEO, template, security, and layout improvements for
 
 | Item | Priority | Notes |
 |------|----------|-------|
-| GSC sitemap submission | High | Manual in Search Console — see [PHASE-D-POST-SHIP.md](./PHASE-D-POST-SHIP.md) |
+| GSC sitemap submission | High | Preflight passed (`npm run verify:sitemap`); submit in GSC UI — see [PHASE-D-POST-SHIP.md](./PHASE-D-POST-SHIP.md) |
 | Request indexing for new URLs | Medium | blog index, newsletter, events |
 | `hreflang` for Albanian (`/sq/`) | Low | When `/sq/` pages exist |
 | Image alt audit (site-wide) | Medium | Events gallery has alt; audit remaining pages |
@@ -134,7 +134,7 @@ npm run verify:headers -- https://duacrypto.com/events.html
 npm run verify:security-headers dist/_headers
 ```
 
-PageSpeed (manual): https://pagespeed.web.dev/ — test `/` and `/events.html`
+PageSpeed: `npm run pagespeed:baseline` or https://pagespeed.web.dev/ — test `/` and `/events.html`
 
 ---
 
@@ -145,8 +145,8 @@ PageSpeed (manual): https://pagespeed.web.dev/ — test `/` and `/events.html`
 - [x] `npm run verify:build` passes
 - [x] Blog + newsletter in sitemap
 - [x] Events dark-mode layout fix
-- [ ] Lighthouse scores recorded in [PHASE-D-POST-SHIP.md](./PHASE-D-POST-SHIP.md)
-- [ ] GSC sitemap submitted (manual)
+- [x] Lighthouse scores recorded in [PHASE-D-POST-SHIP.md](./PHASE-D-POST-SHIP.md)
+- [x] GSC sitemap preflight passed (`npm run verify:sitemap`); submit in GSC UI when ready
 - [ ] CSP enforced after clean report-only period
 
 ### Enabling CSP enforcement

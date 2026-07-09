@@ -2,17 +2,19 @@
 
 After srcset ship (PR #7 cherry-picks) and blog/newsletter (PR #8), this records Phase D QA and ops follow-up.
 
+**Phase D closed:** 2026-07-09 (PR #9 deployed; baseline + preflight recorded below).
+
 ## Production baseline
 
 | Check | Result |
 |-------|--------|
-| `main` tip | `0b1d884` + events dark-mode fix (`fix/events-dark-mode-qa`) |
+| `main` tip | `86ae4b7` (PR #9 — events dark-mode + docs) |
 | `/events.html` srcset | Live — `<picture>` + `-480w.webp` variants |
 | `/blog/index.html` | HTTP 200 |
 | `/newsletter.html` | HTTP 200 |
-| `/sitemap.xml` | HTTP 200 — includes blog + newsletter URLs |
+| `/sitemap.xml` | HTTP 200 — 20 URLs including blog + newsletter |
 | GitHub Actions deploy | Green on push to `main` |
-| Local sync | `main` matches `origin/main`; leftover untracked junk removed |
+| Cloudflare native Git | **Disconnected** — `wrangler pages project list` shows Git Provider: `No` |
 
 ## Events layout QA (2026-07-09)
 
@@ -24,36 +26,34 @@ Fixed in [`src/css/events-page.css`](../src/css/events-page.css):
 
 ## Lighthouse / PageSpeed baseline
 
-Automated capture was blocked during this run (PageSpeed API HTTP 429; Lighthouse CLI needs local Chrome).
+Captured via Lighthouse CLI (Chrome headless) on 2026-07-09. Re-run: `npm run pagespeed:baseline` (artifacts in `docs/psi-artifacts/`).
 
-**Run manually and record scores here:**
+| URL | Mobile perf | Mobile CLS | Mobile LCP | Desktop perf | Desktop CLS | Date |
+|-----|-------------|------------|------------|--------------|-------------|------|
+| https://duacrypto.com/ | 63 | 0.013 | 8.6 s | 90 | 0.001 | 2026-07-09 |
+| https://duacrypto.com/events.html | 63 | 0.024 | 7.6 s | 96 | 0.051 | 2026-07-09 |
 
-| URL | Mobile perf | Mobile CLS | Desktop perf | Date |
-|-----|-------------|------------|--------------|------|
-| https://duacrypto.com/ | _run PSI_ | _run PSI_ | _run PSI_ | |
-| https://duacrypto.com/events.html | _run PSI_ | _run PSI_ | _run PSI_ | |
+**Notes:** Desktop scores are strong. Mobile LCP is elevated (7–9 s) — likely hero/font payload; defer to a future perf pass unless Core Web Vitals reports a regression in GSC. No CLS issues tied to the recent srcset ship.
 
-Tool: [PageSpeed Insights](https://pagespeed.web.dev/)
-
-No high-impact regressions were found in code review tied to the recent srcset/blog ship; re-run PSI after the events dark-mode deploy to confirm.
+Manual cross-check: [PageSpeed Insights](https://pagespeed.web.dev/)
 
 ## Google Search Console — sitemap
 
-Google deprecated the public sitemap ping endpoint (404 as of 2023). **Submit in the GSC UI:**
+**Preflight (automated):** `npm run verify:sitemap` — passed 2026-07-09 (20 URLs in sitemap; spot-check 200s for `/`, events, blog, newsletter).
+
+Google deprecated the public sitemap ping endpoint. **Submit in the GSC UI** (requires Google account):
 
 1. [Google Search Console](https://search.google.com/search-console) → property `https://duacrypto.com`
 2. **Sitemaps** → add `https://duacrypto.com/sitemap.xml` (only this URL — not individual HTML pages)
 3. **URL Inspection** → request indexing for:
    - `https://duacrypto.com/blog/index.html`
    - `https://duacrypto.com/newsletter.html`
-   - `https://duacrypto.com/events.html` (re-crawl after srcset deploy)
+   - `https://duacrypto.com/events.html`
 
-Preconditions verified: sitemap is valid XML, all listed URLs return 200.
+## Cloudflare Workers Builds
 
-## Cloudflare Workers Builds (optional)
+**Status (2026-07-09):** Native Git is already disconnected on `dc-site` (`Git Provider: No` via `npx wrangler pages project list`).
 
-If PRs show a red **Workers Builds: dc-site** check while GitHub **Verify build** passes:
+Historical PRs may still show a red **Workers Builds: dc-site** check from Cloudflare’s GitHub app integration. This does **not** block production deploys — GitHub Actions [`.github/workflows/cloudflare-pages.yml`](../.github/workflows/cloudflare-pages.yml) is the active path.
 
-**Workers & Pages → dc-site → Settings → Builds → Disconnect Git**
-
-GitHub Actions [`.github/workflows/cloudflare-pages.yml`](../.github/workflows/cloudflare-pages.yml) remains the production deploy path.
+If the check reappears after reconnecting Git: **Workers & Pages → dc-site → Settings → Builds → Disconnect Git**.

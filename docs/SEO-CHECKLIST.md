@@ -11,7 +11,7 @@ Operational checklist for search visibility, rich results, and post-deploy verif
 1. Go to [Google Search Console](https://search.google.com/search-console).
 2. Add property **URL prefix**: `https://duacrypto.com`.
 3. Verify ownership (HTML file upload, DNS TXT, or Google Analytics if already linked — site uses GA4 `G-BH7BJVBLP2`).
-4. Submit sitemap: `https://duacrypto.com/sitemap.xml`.
+4. Submit sitemap: `https://duacrypto.com/sitemap.xml` (preflight: `npm run verify:sitemap`).
 5. Request indexing for key URLs after deploy: `/`, `/about.html`, `/events.html`, `/faq.html`, `/bitcoin-for-corporations.html`, `/blog/index.html`, `/newsletter.html`.
 6. Monitor **Pages**, **Core Web Vitals**, and **Enhancements** (FAQ, Organization) weekly.
 
