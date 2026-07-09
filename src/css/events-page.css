@@ -9,12 +9,9 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #fafafa;
-            color: #333;
         }
 
         html.dark body {
-            background-color: #0d1117;
             color: #e6edf3;
         }
 
@@ -117,6 +114,21 @@
             max-width: 1200px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             padding-inline: 0.5rem;
+        }
+
+        html.dark .event-card {
+            background: #161b22;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        .event-content p {
+            margin: 0;
+            color: #444;
+            line-height: 1.65;
+        }
+
+        html.dark .event-content p {
+            color: #8b949e;
         }
 
         .event-card:last-of-type {
@@ -348,6 +360,18 @@
             color: var(--brand-green-dark);
         }
 
+        html.dark .page-hero-title {
+            color: #e6edf3;
+        }
+
+        html.dark .page-hero-label {
+            color: #c9d1d9;
+        }
+
+        html.dark .page-hero-tags {
+            color: #8b949e;
+        }
+
         .events-cta {
             padding: 1.75rem 1rem 1rem;
         }
@@ -355,6 +379,11 @@
         .events-cta h3 {
             font-size: 1.35rem;
             margin-bottom: 0.75rem;
+            color: #1a1a1a;
+        }
+
+        html.dark .events-cta h3 {
+            color: #e6edf3;
         }
 
         /* Navbar */
@@ -438,34 +467,4 @@
         .navbar-brand-lockup.is-fallback .navbar-brand-fallback {
             display: inline-flex;
             align-items: center;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 1.25rem 1rem;
-            background: #f1f1f1;
-            margin-top: 0;
-        }
-
-        footer p {
-            margin-bottom: 0.5rem;
-        }
-
-        footer p:last-child {
-            margin-bottom: 0;
-        }
-
-        .footer-home-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-weight: 600;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .footer-home-link:hover {
-            text-decoration: underline;
-            color: #0a58ca;
         }
