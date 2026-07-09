@@ -54,6 +54,7 @@ jobs:
       - name: Install and build
         run: |
           export SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)
+          export CSP_ENFORCE=1
           npm ci && npm run build
 
       - name: Verify build output
