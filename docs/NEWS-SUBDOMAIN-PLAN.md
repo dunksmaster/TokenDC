@@ -280,7 +280,26 @@ The site is static, so live counters need a tiny backend: **Cloudflare Pages Fun
 - **Newsletter capture box** mid-article and at end — feeds the Gumroad funnel.
 - **"Last updated" date** shown when a post is revised — Google rewards freshness signals.
 
-### 4d. Private stats dashboard
+### 4d. Nostr integration — zap sats to a post ⚡
+Perfect audience fit: Bitcoin community + value-for-value. Two levels, do them in order:
+
+1. **Level 1 — Zap button via Lightning address (simple, ship first):**
+   - Create a Lightning address for the site (e.g. Alby Hub or Wallet of Satoshi: `duacrypto@getalby.com`).
+   - Each post gets a "⚡ Zap this post" button → LNURL-pay QR/modal (a small static widget, no backend; WebLN support so Alby-extension users pay in one click).
+   - Log zap-button clicks in D1 (alongside views/likes) — sats become an engagement metric per post.
+2. **Level 2 — Real Nostr zaps (NIP-57) + comments:**
+   - Create a Nostr identity for DuaCrypto (npub, key stored like other secrets; publish `nostr.json` / NIP-05 verification at `news.duacrypto.com/.well-known/nostr.json`).
+   - On merge, a GitHub Action publishes each post as a **NIP-23 long-form note** to major relays (nostr-tools script, ~50 lines) — the post now exists on Nostr, zappable from every Nostr client, with a canonical link back to the site.
+   - Embed **ZapThreads** on post pages: Nostr-based comments + zap counts shown on-site, no accounts, no moderation infra, censorship-resistant — replaces the need for Giscus.
+   - Show "⚡ 2,100 sats zapped" next to views — social proof in the community's own currency.
+
+### 4e. Share & embed
+- **Rich link previews (already largely planned, verify):** OG/Twitter meta with 1200×630 image per post means pasting a link into Telegram/WhatsApp/X/Discord auto-renders a preview card. This is the "share as link that embeds a preview" — no code needed by the sharer, we just have to ship correct OG tags + per-post OG images (auto-generate them at build: title + brand on a template, `@vercel/og`-style or satori in Astro — no manual design per post).
+- **Embed card for other websites:** an `/embed/[slug]/` route rendering a compact card (image, title, excerpt, "Read on DuaCrypto News") + a "Copy embed code" button on each post that copies `<iframe src="https://news.duacrypto.com/embed/slug" …>`. Bloggers/forums can embed your posts like tweets — each embed is a backlink-adjacent traffic channel.
+- **oEmbed endpoint** (`/oembed.json?url=…` + discovery `<link>` tag) so platforms that support oEmbed (WordPress, Discourse forums) auto-embed the card when someone pastes the bare URL.
+- Share buttons row (Telegram, WhatsApp, X, copy-link) + native `navigator.share` on mobile.
+
+### 4f. Private stats dashboard
 - Simple `/admin/stats` page (protected by Cloudflare Access — free, ties to your Google login): table of posts × views × likes × affiliate clicks over time. This is where the scoring template pays off: compare each post's target profile against its real engagement.
 
 **Effort:** ~1 day for views + clicks + likes (they share one D1 + one Functions pattern); dashboard another half day.
