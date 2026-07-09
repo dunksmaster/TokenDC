@@ -1,0 +1,18 @@
+name: Fix news DNS CNAME
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fix-dns:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: node scripts/fix-cloudflare-dns.mjs

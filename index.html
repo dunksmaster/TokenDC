@@ -9,9 +9,16 @@
     <link rel="manifest" href="/site.webmanifest">
     <!-- dc-icons:end -->
     <!-- dc-vendor:start -->
+    <link rel="preload" href="/fonts/roboto/roboto-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/open-sans/open-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/site-fonts.css">
-    <link rel="stylesheet" href="/vendor/font-awesome/css/all.min.css">
+    <link rel="preload" href="/vendor/font-awesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/vendor/font-awesome/css/all.min.css"></noscript>
     <!-- dc-vendor:end -->
+                        
+    
+    
+    
     
     
                             <script src="/theme-init.js"></script>
@@ -33,7 +40,7 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://duacrypto.com/#organization","name":"DuaCrypto","url":"https://duacrypto.com","description":"Albania's first Bitcoin and crypto community in Tirana. Web3 education, Balkans events, corporate Bitcoin (DAL), and 10,000+ members.","foundingDate":"2020","areaServed":["Albania","Balkans"],"knowsAbout":["Bitcoin","Cryptocurrency","Web3","Blockchain education","Corporate Bitcoin treasury"],"logo":"https://duacrypto.com/img/duacrypto-mark.svg","email":"info@duacrypto.com","address":{"@type":"PostalAddress","addressLocality":"Tirana","addressCountry":"AL"},"sameAs":["https://t.me/dua_crypto","https://x.com/duacrypto","https://youtube.com/@duacrypto","https://facebook.com/duacrypto","https://linkedin.com/company/duacrypto"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"DuaCrypto","url":"https://duacrypto.com","description":"Albania's first Bitcoin and crypto community in Tirana. Web3 education, Balkans events, corporate Bitcoin (DAL), and 10,000+ members.","publisher":{"@id":"https://duacrypto.com/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://duacrypto.com/faq.html?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
     <!-- dc-seo:end -->
-    <link rel="preload" as="image" href="/img/hero-albania-blockchain.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/img/hero-albania-blockchain-480w.webp" imagesrcset="/img/hero-albania-blockchain-480w.webp 480w, /img/hero-albania-blockchain-800w.webp 800w, /img/hero-albania-blockchain-1024w.webp 1024w" imagesizes="(max-width: 768px) 100vw, 512px" type="image/webp" fetchpriority="high">
     <!-- Agent discovery (RFC 8288); HTML link tags (GitHub Pages cannot set HTTP Link headers) -->
     <link rel="api-catalog" href="/.well-known/api-catalog">
     <link rel="describedby" href="/.well-known/agent-skills/index.json" type="application/json">
@@ -61,7 +68,7 @@
                 </div>
                 <div>
                     <picture>
-                        <source srcset="/img/hero-albania-blockchain.webp" type="image/webp">
+                        <source type="image/webp" srcset="/img/hero-albania-blockchain-480w.webp 480w, /img/hero-albania-blockchain-800w.webp 800w, /img/hero-albania-blockchain-1024w.webp 1024w" sizes="(max-width: 768px) 100vw, 512px">
                         <img class="mx-auto w-full max-w-lg wave-animation" src="/img/hero-albania-blockchain.png" alt="DuaCrypto Bitcoin and Web3 community in Albania" width="1024" height="571" fetchpriority="high" decoding="async">
                     </picture>
                 </div>
@@ -74,7 +81,7 @@
         <div class="section-shell">
             <div class="grid items-center gap-10 lg:grid-cols-2">
                 <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img class="w-full transition duration-500 hover:scale-105" src="/img/2029.webp" alt="Understanding Bitcoin">
+                    <img height="874" width="1170" class="w-full transition duration-500 hover:scale-105" src="/img/2029.webp" alt="Understanding Bitcoin">
                 </div>
                 <div>
                     <h2 class="mb-4 text-3xl font-bold">About Us</h2>
@@ -106,7 +113,7 @@
         <div class="section-shell">
             <div class="grid gap-8 text-center md:grid-cols-3">
                 <div class="stat-card">
-                    <img class="mx-auto mb-4 h-16 w-auto opacity-90" src="/img/icon-9.png" alt="Company collaboration icon">
+                    <img height="64" width="64" class="mx-auto mb-4 h-16 w-auto opacity-90" src="/img/icon-9.png" alt="Company collaboration icon">
                     <h3 class="stat-value mb-2 flex items-center justify-center gap-3">
                         <span class="stat-icon stat-icon-student"><i class="fas fa-handshake"></i></span>
                         <span data-counter="13">0</span>
@@ -115,7 +122,7 @@
                 </div>
                 <div class="stat-card">
                     <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="block text-inherit no-underline">
-                        <img class="mx-auto mb-4 h-16 w-auto opacity-90" src="/img/icon-10.png" alt="Telegram community icon">
+                        <img height="64" width="64" class="mx-auto mb-4 h-16 w-auto opacity-90" src="/img/icon-10.png" alt="Telegram community icon">
                         <h3 class="stat-value mb-2 flex items-center justify-center gap-3">
                             <span class="stat-icon stat-icon-telegram"><i class="fab fa-telegram-plane"></i></span>
                             <span
@@ -131,7 +138,7 @@
                     </a>
                 </div>
                 <div class="stat-card">
-                    <img class="mx-auto mb-4 h-16 w-auto opacity-90" src="/img/icon-2.png" alt="Community donations icon">
+                    <img height="64" width="64" class="mx-auto mb-4 h-16 w-auto opacity-90" src="/img/icon-2.png" alt="Community donations icon">
                     <h3 class="stat-value mb-2 flex items-center justify-center gap-3">
                         <span class="stat-icon stat-icon-dollar">$</span>
                         <span
@@ -158,42 +165,42 @@
             </div>
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <article class="flex gap-4">
-                    <img class="h-16 w-16 shrink-0" src="/img/icon-7.png" alt="Blockchain consulting icon">
+                    <img height="64" width="64" class="h-16 w-16 shrink-0" src="/img/icon-7.png" alt="Blockchain consulting icon">
                     <div>
                         <h3 class="mb-2 font-semibold">Blockchain Consulting</h3>
                         <p class="text-secondary">Strategy, audits, and pilot launches for companies entering Bitcoin and Web3 in the Balkans. <a href="contact.html" class="text-primary hover:underline">Contact us</a> to scope your project.</p>
                     </div>
                 </article>
                 <article class="flex gap-4">
-                    <img class="h-16 w-16 shrink-0" src="/img/icon-3.png" alt="Bitcoin self-custody icon">
+                    <img height="64" width="64" class="h-16 w-16 shrink-0" src="/img/icon-3.png" alt="Bitcoin self-custody icon">
                     <div>
                         <h3 class="mb-2 font-semibold">Bitcoin Self-Custody</h3>
                         <p class="text-secondary">Hardware wallets, seed security, and cold-storage training. Not your keys, not your coins &mdash; we teach the maxi way.</p>
                     </div>
                 </article>
                 <article class="flex gap-4">
-                    <img class="h-16 w-16 shrink-0" src="/img/icon-5.png" alt="Local exchange icon">
+                    <img height="64" width="64" class="h-16 w-16 shrink-0" src="/img/icon-5.png" alt="Local exchange icon">
                     <div>
                         <h3 class="mb-2 font-semibold">Local Exchange (690&ndash;730)</h3>
                         <p class="text-secondary">Honest local buy/sell guidance with transparent rates around 690&ndash;730 ALL/EUR. Your gateway to Bitcoin in Albania without hidden fees.</p>
                     </div>
                 </article>
                 <article class="flex gap-4">
-                    <img class="h-16 w-16 shrink-0" src="/img/icon-4.png" alt="Education content icon">
+                    <img height="64" width="64" class="h-16 w-16 shrink-0" src="/img/icon-4.png" alt="Education content icon">
                     <div>
                         <h3 class="mb-2 font-semibold">Education Content</h3>
                         <p class="text-secondary">Free guides, videos, and workshops in Albanian and English. Partner with us to reach 10,000+ engaged learners.</p>
                     </div>
                 </article>
                 <article class="flex gap-4">
-                    <img class="h-16 w-16 shrink-0" src="/img/icon-6.png" alt="Community meetups icon">
+                    <img height="64" width="64" class="h-16 w-16 shrink-0" src="/img/icon-6.png" alt="Community meetups icon">
                     <div>
                         <h3 class="mb-2 font-semibold">Community Meetups</h3>
                         <p class="text-secondary">Monthly events in Tirana and across the region. Sponsor a meetup or speak &mdash; put your brand in front of real Bitcoiners.</p>
                     </div>
                 </article>
                 <article class="flex gap-4">
-                    <img class="h-16 w-16 shrink-0" src="/img/icon-8.png" alt="P2P exchange icon">
+                    <img height="64" width="64" class="h-16 w-16 shrink-0" src="/img/icon-8.png" alt="P2P exchange icon">
                     <div>
                         <h3 class="mb-2 font-semibold">P2P Exchanges</h3>
                         <p class="text-secondary">Peer-to-peer trading inside our vetted community. Trade directly, build reputation, stay sovereign.</p>
@@ -214,12 +221,12 @@
                 <p class="text-lg text-primary">Powered Crypto Services</p>
             </div>
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-7.png" alt="Crypto meetup events icon"><h3 class="mb-3 font-semibold">Crypto Meetup Events</h3><p class="mb-4 text-secondary">We organize events that bring crypto enthusiasts together to learn and share.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
-                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-3.png" alt="On-chain analysis icon"><h3 class="mb-3 font-semibold">On-Chain Transactions</h3><p class="mb-4 text-secondary">Deep on-chain analysis to identify scams and explore smart opportunities.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
-                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-9.png" alt="Bitcoin investment education icon"><h3 class="mb-3 font-semibold">Bitcoin Investment</h3><p class="mb-4 text-secondary">Learn smart DCA strategies and how to buy low and sell at highs.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
-                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-5.png" alt="Currency exchange icon"><h3 class="mb-3 font-semibold">Currency Exchange</h3><p class="mb-4 text-secondary">Trusted P2P exchange system with real liquidity and secure transactions.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
-                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-2.png" alt="Airdrop hunting icon"><h3 class="mb-3 font-semibold">Airdrop Hunting</h3><p class="mb-4 text-secondary">Legit airdrops with high value so the community can earn free crypto.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
-                <article class="service-card"><img class="mb-4 h-14 w-14" src="/img/icon-8.png" alt="Crypto education icon"><h3 class="mb-3 font-semibold">Education</h3><p class="mb-4 text-secondary">Expert mentors help you build a trader's mindset from scratch.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+                <article class="service-card"><img height="64" width="64" class="mb-4 h-14 w-14" src="/img/icon-7.png" alt="Crypto meetup events icon"><h3 class="mb-3 font-semibold">Crypto Meetup Events</h3><p class="mb-4 text-secondary">We organize events that bring crypto enthusiasts together to learn and share.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+                <article class="service-card"><img height="64" width="64" class="mb-4 h-14 w-14" src="/img/icon-3.png" alt="On-chain analysis icon"><h3 class="mb-3 font-semibold">On-Chain Transactions</h3><p class="mb-4 text-secondary">Deep on-chain analysis to identify scams and explore smart opportunities.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+                <article class="service-card"><img height="64" width="64" class="mb-4 h-14 w-14" src="/img/icon-9.png" alt="Bitcoin investment education icon"><h3 class="mb-3 font-semibold">Bitcoin Investment</h3><p class="mb-4 text-secondary">Learn smart DCA strategies and how to buy low and sell at highs.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+                <article class="service-card"><img height="64" width="64" class="mb-4 h-14 w-14" src="/img/icon-5.png" alt="Currency exchange icon"><h3 class="mb-3 font-semibold">Currency Exchange</h3><p class="mb-4 text-secondary">Trusted P2P exchange system with real liquidity and secure transactions.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+                <article class="service-card"><img height="64" width="64" class="mb-4 h-14 w-14" src="/img/icon-2.png" alt="Airdrop hunting icon"><h3 class="mb-3 font-semibold">Airdrop Hunting</h3><p class="mb-4 text-secondary">Legit airdrops with high value so the community can earn free crypto.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
+                <article class="service-card"><img height="64" width="64" class="mb-4 h-14 w-14" src="/img/icon-8.png" alt="Crypto education icon"><h3 class="mb-3 font-semibold">Education</h3><p class="mb-4 text-secondary">Expert mentors help you build a trader's mindset from scratch.</p><a href="service.html" class="font-medium text-primary">Read More <i class="fa fa-arrow-right ml-1"></i></a></article>
             </div>
         </div>
     </section>
@@ -264,7 +271,7 @@
                         <p class="mb-0 text-xs text-secondary sm:text-sm">Official book partner — hover or tap the book to fund a Bitcoin book for a student.</p>
                     </div>
                     <div class="pizza-book-reveal">
-                        <img src="/img/donation-book-featured.png" class="pizza-book-reveal-img pizza-book-reveal-img--compact" alt="Un scénario optimiste pour Bitcoin — Vijay Boyapati">
+                        <img height="428" width="320" src="/img/donation-book-featured.png" class="pizza-book-reveal-img pizza-book-reveal-img--compact" alt="Un scénario optimiste pour Bitcoin — Vijay Boyapati">
                         <a href="donation.html" class="pizza-book-reveal-btn">Donate a Book</a>
                     </div>
                 </div>

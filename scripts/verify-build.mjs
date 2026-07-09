@@ -7,6 +7,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 import { GALLERY_IMAGE_BASES, galleryWebpSrcset } from "../lib/gallery-responsive.mjs";
+import { HERO_IMAGE_BASE, heroWebpSrcset } from "../lib/hero-responsive.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
@@ -155,6 +156,19 @@ for (const name of collectRootHtmlFiles()) {
   if (!hasVendor) {
     fail(`${name}: missing dc-vendor block`);
   }
+  if (hasVendor) {
+    const withoutNoscript = html.replace(/<noscript\b[\s\S]*?<\/noscript>/gi, "");
+    if (
+      /<link\b(?:[^>]*\s)rel\s*=\s*["']stylesheet["'][^>]*href=["']\/vendor\/font-awesome\/css\/all\.min\.css["']/i.test(
+        withoutNoscript
+      ) ||
+      /<link\b[^>]*href=["']\/vendor\/font-awesome\/css\/all\.min\.css["'][^>]*\srel\s*=\s*["']stylesheet["']/i.test(
+        withoutNoscript
+      )
+    ) {
+      fail(`${name}: Font Awesome still loaded as render-blocking stylesheet`);
+    }
+  }
   if (/fonts\.googleapis\.com|cdnjs\.cloudflare\.com\/ajax\/libs\/font-awesome/i.test(html)) {
     fail(`${name}: still references external font CDN`);
   }
@@ -163,15 +177,48 @@ for (const name of collectRootHtmlFiles()) {
   }
 }
 
-// 4. Events gallery: dimensions + alt text (CLS + a11y)
+// 4. Site-wide local images: width/height (CLS)
+function collectSourceHtmlFiles() {
+  const files = [];
+  for (const name of readdirSync(root)) {
+    if (name.endsWith(".html")) files.push({ path: join(root, name), label: name });
+  }
+  const blogDir = join(root, "blog");
+  if (existsSync(blogDir)) {
+    for (const name of readdirSync(blogDir)) {
+      if (name.endsWith(".html")) {
+        files.push({ path: join(blogDir, name), label: `blog/${name}` });
+      }
+    }
+  }
+  const partialsDir = join(root, "src", "partials");
+  if (existsSync(partialsDir)) {
+    for (const name of readdirSync(partialsDir)) {
+      if (name.endsWith(".html")) {
+        files.push({ path: join(partialsDir, name), label: `src/partials/${name}` });
+      }
+    }
+  }
+  return files;
+}
+
+for (const { path: filePath, label } of collectSourceHtmlFiles()) {
+  const html = readFileSync(filePath, "utf8");
+  for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
+    const tag = match[0];
+    if (!/\bsrc\s*=\s*["']\/img\//i.test(tag)) continue;
+    if (!/\bwidth\s*=/i.test(tag) || !/\bheight\s*=/i.test(tag)) {
+      fail(`${label}: local <img> missing width/height — ${tag.slice(0, 80)}`);
+    }
+  }
+}
+
+// 4a. Events gallery alt text (a11y)
 if (existsSync(join(root, "events.html"))) {
   const eventsHtml = readFileSync(join(root, "events.html"), "utf8");
   for (const match of eventsHtml.matchAll(/<img\b[^>]*>/gi)) {
     const tag = match[0];
     if (!/\bsrc\s*=\s*["']\/img\//i.test(tag)) continue;
-    if (!/\bwidth\s*=/i.test(tag) || !/\bheight\s*=/i.test(tag)) {
-      fail(`events.html: local <img> missing width/height — ${tag.slice(0, 80)}`);
-    }
     const alt = tag.match(/\balt\s*=\s*["']([^"']*)["']/i)?.[1];
     if (!alt?.trim()) {
       fail(`events.html: local <img> missing alt text`);
@@ -187,6 +234,15 @@ if (existsSync(join(root, "events.html"))) {
     if (!eventsHtml.includes(expected)) {
       fail(`events.html: missing responsive srcset for ${base}`);
     }
+  }
+}
+
+// 4c. Homepage hero responsive srcset
+if (existsSync(join(root, "index.html"))) {
+  const indexHtml = readFileSync(join(root, "index.html"), "utf8");
+  const expected = heroWebpSrcset(HERO_IMAGE_BASE);
+  if (!indexHtml.includes(expected)) {
+    fail(`index.html: missing responsive hero srcset for ${HERO_IMAGE_BASE}`);
   }
 }
 

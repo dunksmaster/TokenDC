@@ -18,6 +18,7 @@ Curated signals from the DuaCrypto team: on-chain trends, airdrop opportunities,
                             [ Subscribe — $10/month](https://duacrypto.gumroad.com/l/newsletter?wanted=true)
                             [Free community on Telegram](https://t.me/dua_crypto)
 Secure checkout via Gumroad &bull; Cancel anytime
+Free public articles: [DuaCrypto News](https://news.duacrypto.com/) &bull; RSS: [news.duacrypto.com/rss.xml](https://news.duacrypto.com/rss.xml)
 ## What subscribers say
 &ldquo;The airdrop alerts paid for the subscription within the first month. Clear write-ups, no hype.&rdquo;
 &ldquo;I like the Balkans angle — local exchange context and tax-aware framing I don't get from US newsletters.&rdquo;

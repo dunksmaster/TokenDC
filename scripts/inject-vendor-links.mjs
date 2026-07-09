@@ -11,8 +11,11 @@ const MARKER_END = "<!-- dc-vendor:end -->";
 const MARKER_RE = /<!-- dc-vendor:start -->[\s\S]*?<!-- dc-vendor:end -->\n?/;
 
 const VENDOR_BLOCK = `${MARKER_START}
+    <link rel="preload" href="/fonts/roboto/roboto-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/open-sans/open-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/site-fonts.css">
-    <link rel="stylesheet" href="/vendor/font-awesome/css/all.min.css">
+    <link rel="preload" href="/vendor/font-awesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/vendor/font-awesome/css/all.min.css"></noscript>
     ${MARKER_END}`;
 
 function stripExternalFontTags(html) {

@@ -17,6 +17,7 @@ import {
 import { publishDnsAid } from "../lib/publish-dns-aid.mjs";
 
 const PAGES_TARGET = "dc-site-4p3.pages.dev";
+const NEWS_PAGES_TARGET = "dc-news-9n3.pages.dev";
 const GITHUB_A_IPS = new Set([
   "185.199.108.153",
   "185.199.109.153",
@@ -39,6 +40,7 @@ const EMAIL_RECORDS = [
 const SITE_RECORDS = [
   { type: "CNAME", name: ZONE_NAME, content: PAGES_TARGET, proxied: true },
   { type: "CNAME", name: `www.${ZONE_NAME}`, content: PAGES_TARGET, proxied: true },
+  { type: "CNAME", name: `news.${ZONE_NAME}`, content: NEWS_PAGES_TARGET, proxied: true },
 ];
 
 const token = process.env.CLOUDFLARE_API_TOKEN;

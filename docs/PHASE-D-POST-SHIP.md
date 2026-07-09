@@ -26,29 +26,28 @@ Fixed in [`src/css/events-page.css`](../src/css/events-page.css):
 
 ## Lighthouse / PageSpeed baseline
 
-Captured via Lighthouse CLI (Chrome headless) on 2026-07-09. Re-run: `npm run pagespeed:baseline` (artifacts in `docs/psi-artifacts/`).
+Captured via Lighthouse CLI (Chrome headless). Re-run: `npm run pagespeed:baseline` (artifacts in `docs/psi-artifacts/`).
+
+### Pre LCP/CLS fix (Phase D ship)
 
 | URL | Mobile perf | Mobile CLS | Mobile LCP | Desktop perf | Desktop CLS | Date |
 |-----|-------------|------------|------------|--------------|-------------|------|
 | https://duacrypto.com/ | 63 | 0.013 | 8.6 s | 90 | 0.001 | 2026-07-09 |
 | https://duacrypto.com/events.html | 63 | 0.024 | 7.6 s | 96 | 0.051 | 2026-07-09 |
 
-**Notes:** Desktop scores are strong. Mobile LCP is elevated (7–9 s) — likely hero/font payload; defer to a future perf pass unless Core Web Vitals reports a regression in GSC. No CLS issues tied to the recent srcset ship.
+### Post LCP/CLS fix
 
-Manual cross-check: [PageSpeed Insights](https://pagespeed.web.dev/)
+Re-run `npm run pagespeed:baseline` after deploy. Changes: font preload, async Font Awesome, hero responsive WebP, site-wide image width/height.
+
+## Mobile LCP + CLS fixes
+
+- Font preload (Roboto 700, Open Sans 400) + non-blocking Font Awesome in `dc-vendor`
+- Hero responsive WebP (`480/800/1024w`) on homepage
+- `scripts/fix-image-markup.mjs` + site-wide verify-build width/height checks
 
 ## Google Search Console — sitemap
 
-**Preflight (automated):** `npm run verify:sitemap` — passed 2026-07-09 (20 URLs in sitemap; spot-check 200s for `/`, events, blog, newsletter).
-
-Google deprecated the public sitemap ping endpoint. **Submit in the GSC UI** (requires Google account):
-
-1. [Google Search Console](https://search.google.com/search-console) → property `https://duacrypto.com`
-2. **Sitemaps** → add `https://duacrypto.com/sitemap.xml` (only this URL — not individual HTML pages)
-3. **URL Inspection** → request indexing for:
-   - `https://duacrypto.com/blog/index.html`
-   - `https://duacrypto.com/newsletter.html`
-   - `https://duacrypto.com/events.html`
+**Preflight (automated):** `npm run verify:sitemap` and `npm run verify:gsc-preflight`. Operator steps: [`docs/GSC-NEXT-STEPS.md`](GSC-NEXT-STEPS.md).
 
 ## Cloudflare Workers Builds
 

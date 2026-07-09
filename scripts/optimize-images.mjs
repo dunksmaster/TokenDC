@@ -21,6 +21,7 @@ import {
   isGalleryImage,
   responsiveVariantName,
 } from "../lib/gallery-responsive.mjs";
+import { isHeroImage, HERO_WIDTHS } from "../lib/hero-responsive.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
@@ -231,13 +232,15 @@ async function ensureResponsiveVariants(filePath, referenced, manifest) {
   if (ext !== ".png" && ext !== ".jpg" && ext !== ".jpeg") return [];
 
   const name = basename(filePath);
-  if (!referenced.has(name) || !isGalleryImage(name)) return [];
+  if (!referenced.has(name) || (!isGalleryImage(name) && !isHeroImage(name))) return [];
 
   const base = basename(filePath, ext);
   const meta = await sharp(filePath, { failOn: "none" }).metadata();
   if (!meta.width) return [];
 
-  for (const width of GALLERY_WIDTHS) {
+  const widths = isHeroImage(name) ? HERO_WIDTHS : GALLERY_WIDTHS;
+
+  for (const width of widths) {
     if (meta.width < width * 0.9) continue;
 
     const variantName = responsiveVariantName(base, width);

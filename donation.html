@@ -26,9 +26,15 @@
     <link rel="manifest" href="/site.webmanifest">
     <!-- dc-icons:end -->
     <!-- dc-vendor:start -->
+    <link rel="preload" href="/fonts/roboto/roboto-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/open-sans/open-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/site-fonts.css">
-    <link rel="stylesheet" href="/vendor/font-awesome/css/all.min.css">
+    <link rel="preload" href="/vendor/font-awesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/vendor/font-awesome/css/all.min.css"></noscript>
     <!-- dc-vendor:end -->
+                        
+        
+    
     
     
             <script src="/theme-init.js"></script>
@@ -42,7 +48,7 @@
     <nav class="donation-nav" aria-label="Site">
         <div class="section-shell donation-nav-inner">
             <a href="index.html" class="donation-nav-brand" aria-label="DuaCrypto &mdash; Albania crypto community">
-                <img class="navbar-brand-logo" src="/img/duacrypto-logo.png" alt="DuaCrypto &mdash; Albania crypto community">
+                <img height="378" width="379" class="navbar-brand-logo" src="/img/duacrypto-logo.png" alt="DuaCrypto &mdash; Albania crypto community">
             </a>
             <div class="donation-nav-links">
                 <a href="index.html">Home</a>
@@ -75,7 +81,7 @@
                     </div>
 
                     <div class="mission-book-hero">
-                        <img src="/img/donation-book-featured.png" class="featured-book-cover" alt="Un scénario optimiste pour Bitcoin — Vijay Boyapati, Konsensus Network">
+                        <img height="428" width="320" src="/img/donation-book-featured.png" class="featured-book-cover" alt="Un scénario optimiste pour Bitcoin — Vijay Boyapati, Konsensus Network">
                         <div>
                             <p class="text-uppercase small text-muted mb-1">Featured title</p>
                             <p class="featured-book-title">Un sc&eacute;nario optimiste pour Bitcoin</p>
@@ -154,7 +160,7 @@
                     <p class="lightning-amount-note">Donate a Book</p>
                 </div>
                 <div class="lightning-qr-wrap">
-                    <img src="/img/donation-lightning-qr-only.png" class="lightning-qr" alt="Lightning Network QR code for Donate a Book — scan with your Bitcoin wallet">
+                    <img height="378" width="400" src="/img/donation-lightning-qr-only.png" class="lightning-qr" alt="Lightning Network QR code for Donate a Book — scan with your Bitcoin wallet">
                 </div>
                 <p class="text-muted small mt-3 mb-0">Suggested amount per book &mdash; any sats amount helps.</p>
             </div>
