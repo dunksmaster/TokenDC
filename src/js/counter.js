@@ -1,22 +1,5 @@
 const FORMAT = (n) => n.toLocaleString("en-US");
 
-function animateTo(el, target, onComplete) {
-  const duration = 2000;
-  const step = target / (duration / 10);
-  let count = 0;
-
-  const timer = setInterval(() => {
-    count += step;
-    if (count >= target) {
-      el.textContent = FORMAT(target);
-      clearInterval(timer);
-      onComplete?.();
-    } else {
-      el.textContent = FORMAT(Math.floor(count));
-    }
-  }, 10);
-}
-
 function withVisibilityInterval(callback, intervalMs) {
   let timerId = null;
 
@@ -44,7 +27,8 @@ function withVisibilityInterval(callback, intervalMs) {
 function initStaticCounter(counter) {
   const target = Number(counter.dataset.counter);
   if (Number.isNaN(target)) return;
-  animateTo(counter, target);
+  // Show the real number immediately — never flash "0" before JS runs.
+  counter.textContent = FORMAT(target);
 }
 
 function initLoopCounter(counter) {
@@ -56,14 +40,13 @@ function initLoopCounter(counter) {
   if ([min, max, step, intervalMs].some(Number.isNaN)) return;
 
   let value = min;
+  counter.textContent = FORMAT(min);
 
-  animateTo(counter, min, () => {
-    withVisibilityInterval(() => {
-      value += step;
-      if (value > max) value = min;
-      counter.textContent = FORMAT(value);
-    }, intervalMs);
-  });
+  withVisibilityInterval(() => {
+    value += step;
+    if (value > max) value = min;
+    counter.textContent = FORMAT(value);
+  }, intervalMs);
 }
 
 function initDonationCounter(counter) {
@@ -78,15 +61,14 @@ function initDonationCounter(counter) {
   if ([min, max, intervalMs].some(Number.isNaN) || steps.length === 0) return;
 
   let value = min;
+  counter.textContent = FORMAT(min);
 
-  animateTo(counter, min, () => {
-    withVisibilityInterval(() => {
-      const bump = steps[Math.floor(Math.random() * steps.length)];
-      value = Math.min(value + bump, max);
-      counter.textContent = FORMAT(value);
-      if (value >= max) value = min;
-    }, intervalMs);
-  });
+  withVisibilityInterval(() => {
+    const bump = steps[Math.floor(Math.random() * steps.length)];
+    value = Math.min(value + bump, max);
+    counter.textContent = FORMAT(value);
+    if (value >= max) value = min;
+  }, intervalMs);
 }
 
 export function initCounters() {

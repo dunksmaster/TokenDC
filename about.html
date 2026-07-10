@@ -15,12 +15,9 @@
     <link rel="preload" href="/vendor/font-awesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/vendor/font-awesome/css/all.min.css"></noscript>
     <!-- dc-vendor:end -->
-                                
-        
     
     
-    
-            <script src="/theme-init.js"></script>
+    <script src="/theme-init.js"></script>
     <title>About Us | DuaCrypto</title>
     <meta name="description" content="Learn about DuaCrypto, Albania's first crypto community, founder Dkane, and our mission for Web3 education in the Balkans.">
     <!-- dc-seo:start -->
@@ -39,7 +36,7 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://duacrypto.com/#organization","name":"DuaCrypto","url":"https://duacrypto.com","description":"Albania's first Bitcoin and crypto community in Tirana. Web3 education, Balkans events, corporate Bitcoin (DAL), and 10,000+ members.","foundingDate":"2020","areaServed":["Albania","Balkans"],"knowsAbout":["Bitcoin","Cryptocurrency","Web3","Blockchain education","Corporate Bitcoin treasury"],"logo":"https://duacrypto.com/img/duacrypto-mark.svg","email":"info@duacrypto.com","address":{"@type":"PostalAddress","addressLocality":"Tirana","addressCountry":"AL"},"sameAs":["https://t.me/dua_crypto","https://x.com/duacrypto","https://youtube.com/@duacrypto","https://facebook.com/duacrypto","https://linkedin.com/company/duacrypto"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://duacrypto.com/"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://duacrypto.com/about.html"}]}</script>
     <!-- dc-seo:end -->
-    <link rel="preload" as="image" href="/img/hero-2.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/img/kane-profile.png" fetchpriority="high">
     <script defer src="/js/gtag-deferred.js"></script>
     <link rel="stylesheet" href="/src/css/input.css">
 </head>
@@ -49,28 +46,53 @@
 
     <header class="page-hero-compact">
         <div class="section-shell">
-            <div class="grid items-center gap-8 lg:grid-cols-2">
-                <div>
-                    <h1 class="text-4xl font-bold text-dark">About Us</h1>
-                    <p class="mt-2 text-secondary"><a href="index.html" class="text-primary hover:underline">Home</a> / About Us</p>
-                </div>
-                <div>
-                    <picture>
-                        <source srcset="/img/hero-2.webp" type="image/webp">
-                        <img class="mx-auto w-full max-w-md wave-animation" src="/img/hero-2.png" alt="DuaCrypto page hero illustration" width="468" height="300" fetchpriority="high" decoding="async">
-                    </picture>
-                </div>
-            </div>
+            <h1 class="text-4xl font-bold text-dark">About DuaCrypto</h1>
+            <p class="mt-2 text-lg text-primary">Albania&rsquo;s first Bitcoin &amp; crypto community &mdash; founded in 2020.</p>
+            <p class="mt-2 text-secondary"><a href="index.html" class="text-primary hover:underline">Home</a> / About</p>
         </div>
     </header>
 
     <main class="section-shell py-12">
-        <div class="grid items-start gap-10 lg:grid-cols-2">
-            <div class="profile-card-col">
+        <div class="about-layout">
+            <div class="about-story">
+                <h2 class="text-3xl font-bold text-dark">Our story</h2>
+                <p class="mt-2 text-lg text-primary">Building a Bitcoin-native community across the Balkans</p>
+                <p class="mt-4 text-secondary">
+                    DuaCrypto started in Tirana in 2020 to bring people together around Bitcoin, self-custody, and Web3 education.
+                    We help beginners and builders learn safely &mdash; in Albanian and English &mdash; without the noise of hype cycles.
+                </p>
+                <p class="mb-6 text-secondary">
+                    Today we run meetups, publish guides, and support companies exploring Bitcoin in Albania.
+                    Join 10,000+ members learning and collaborating every day.
+                </p>
+
+                <div class="check-row group/check mb-2">
+                    <span class="check-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span>Community education in Albanian &amp; English</span>
+                </div>
+                <div class="check-row group/check mb-2">
+                    <span class="check-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span>Meetups and Web3 guidance across the Balkans</span>
+                </div>
+                <div class="check-row group/check mb-2">
+                    <span class="check-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span>Self-custody and corporate Bitcoin pathways</span>
+                </div>
+                <div class="check-row group/check mb-6">
+                    <span class="check-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span>Crypto-native only &mdash; Bitcoin &amp; Lightning, no Stripe or card checkout</span>
+                </div>
+
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <a class="btn-primary" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer">Join Telegram</a>
+                    <a class="btn-outline-primary" href="service.html">Our services</a>
+                </div>
+            </div>
+
+            <aside class="profile-card-col" aria-label="Founder">
                 <div class="profile-card">
                     <div class="image-container">
-                        <img id="profile-img" src="/img/kane-profile.png" alt="Dkane &mdash; DuaCrypto" class="profile-image" width="420" height="525">
-                        <button type="button" class="share-btn" onclick="document.getElementById('upload-input').click()"><i class="fas fa-share mr-1" aria-hidden="true"></i> Share</button>
+                        <img src="/img/kane-profile.png" alt="Dkane &mdash; DuaCrypto founder" class="profile-image" width="420" height="525" fetchpriority="high" decoding="async">
                     </div>
                     <div class="info-bar">
                         <div class="info-bar-main">
@@ -78,16 +100,15 @@
                             <div class="handle">@Duacrypto</div>
                         </div>
                         <div class="actions">
-                            <span class="icon" aria-hidden="true"><i class="fas fa-bolt"></i></span>
-                            <span class="icon" aria-hidden="true"><i class="fab fa-x-twitter"></i></span>
-                            <a class="edit-btn" href="https://signup.cluborange.org/co/duacryptofile_copy" target="_blank" rel="noopener noreferrer">Join</a>
+                            <a class="social-icon-link" href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram-plane" aria-hidden="true"></i></a>
+                            <a class="social-icon-link" href="https://x.com/duacrypto" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <div class="bio">
                         <p class="bio-lead">Building crypto in public (NFA). Web3 advisor and community lead for Albania and the Balkans.</p>
                         <ul class="bio-tags">
                             <li>Web3 community</li>
-                            <li>DeFi security</li>
+                            <li>Self-custody</li>
                             <li>On-chain analysis</li>
                             <li>Tirana, Albania</li>
                         </ul>
@@ -96,59 +117,18 @@
                         <a class="profile-join-btn" href="https://signup.cluborange.org/co/duacryptofile_copy" target="_blank" rel="noopener noreferrer">Join Club Orange</a>
                     </div>
                 </div>
-            </div>
-
-            <div>
-                <h2 class="text-3xl font-bold text-dark">About Us</h2>
-                <p class="mt-2 text-lg text-primary">Albania's Most Trusted Cryptocurrency Community</p>
-                <p class="mt-4 text-secondary">
-                    DuaCrypto was founded in 2020 to provide expert guidance in cryptocurrency trading, blockchain education,
-                    and Web3 development. We help our community make informed decisions with real-time market insights and actionable strategies.
-                </p>
-                <p class="mb-6 text-secondary">
-                    Our mission is to empower both beginners and advanced traders in Albania and the Balkans to navigate the crypto space safely
-                    and successfully. Join thousands of members learning, collaborating, and growing with us every day.
-                </p>
-
-                <div class="check-row group/check mb-2">
-                    <span class="check-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
-                    <span>Real-Time Crypto Signals &amp; Market Alerts</span>
-                </div>
-                <div class="check-row group/check mb-2">
-                    <span class="check-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
-                    <span>Exclusive Access to Meme Coin Opportunities</span>
-                </div>
-                <div class="check-row group/check mb-6">
-                    <span class="check-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
-                    <span>Educational Resources for Blockchain &amp; Web3</span>
-                </div>
-
-                <a class="btn-primary" href="service.html">Read More</a>
-            </div>
+            </aside>
         </div>
 
-        <div class="donation-banner-row mt-10">
-            <a class="crypto-banner-container" href="donation.html" aria-labelledby="about-donation-heading">
-                <div class="crypto-banner">
-                    <div class="crypto-icons" id="crypto-icons" aria-hidden="true"></div>
-                    <div class="crypto-content">
-                        <span class="crypto-eyebrow">#DonateABook</span>
-                        <h2 id="about-donation-heading">Send a Bitcoin book to a student</h2>
-                        <p>100% of Lightning donations fund Bitcoin books for Balkans students &mdash; in partnership with Konsensus Network.</p>
-                        <span class="banner-cta-pill">Donate a Book</span>
-                        <div class="crypto-logos" aria-hidden="true">
-                            <div class="crypto-logo"><i class="fab fa-bitcoin"></i></div>
-                            <div class="crypto-logo"><i class="fas fa-bolt"></i></div>
-                            <div class="crypto-logo"><i class="fas fa-book"></i></div>
-                            <div class="crypto-logo"><i class="fas fa-graduation-cap"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+        <section class="about-donate mt-12" aria-labelledby="about-donation-heading">
+            <div class="about-donate-inner">
+                <p class="about-donate-eyebrow">#DonateABook &middot; Lightning</p>
+                <h2 id="about-donation-heading" class="about-donate-title">Send a Bitcoin book to a student</h2>
+                <p class="about-donate-body">100% of Lightning donations fund Bitcoin books for Balkans students &mdash; in partnership with Konsensus Network. Crypto only: no cards, no Stripe.</p>
+                <a class="btn-primary" href="donation.html">Donate with Lightning</a>
+            </div>
+        </section>
     </main>
-
-    <input type="file" id="upload-input" accept="image/*" class="hidden">
 
     <!-- @partial footer -->
 
