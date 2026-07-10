@@ -5,14 +5,18 @@ source: "contact.html"
 ---
 
 Contact | DuaCrypto
-Partnerships, consulting, and media inquiries
-We typically respond within 1&ndash;2 business days.
+            We typically respond within 1&ndash;2 business days. Fastest path: Telegram. Crypto-native outreach — no Stripe on this site.
+## Telegram
+Join 10,000+ members for questions, events, and community support.
+                [Message on Telegram](https://t.me/dua_crypto)
+## Email
+Partnerships, media, and consulting inquiries.
                     [partner@duacrypto.com](mailto:partner@duacrypto.com)
                          Copy
 Copied to clipboard!
-            Contact us
-                Or message us on
-                [Telegram](https://t.me/dua_crypto)
+## Official wallet
+Donations and on-chain contact via our published address.
+                [View wallet](https://blockscan.com/address/2ECp5NXzGzx4R49DDnQu2nbJiVPKMzKXRHVmHrxp4Exh)
             [
                     We are here
                     Pyramid of Tirana, Albania

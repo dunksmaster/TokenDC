@@ -5,12 +5,12 @@ export function initContactPage() {
   const copyBtn = document.getElementById("contact-copy-btn");
   const feedback = document.getElementById("contact-copy-feedback");
 
-  if (!revealBtn || !panel) return;
-
-  revealBtn.addEventListener("click", () => {
-    revealBtn.classList.add("hidden");
-    panel.classList.remove("hidden");
-  });
+  if (revealBtn && panel) {
+    revealBtn.addEventListener("click", () => {
+      revealBtn.classList.add("hidden");
+      panel.classList.remove("hidden");
+    });
+  }
 
   if (!copyBtn) return;
 

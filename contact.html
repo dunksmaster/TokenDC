@@ -15,15 +15,9 @@
     <link rel="preload" href="/vendor/font-awesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/vendor/font-awesome/css/all.min.css"></noscript>
     <!-- dc-vendor:end -->
-        
     
     
-                                
-        
-    
-    
-    
-            <script src="/theme-init.js"></script>
+    <script src="/theme-init.js"></script>
     <title>Contact | DuaCrypto</title>
     <meta name="description" content="Contact DuaCrypto in Tirana for partnerships, Bitcoin education, donations, and Balkans crypto community support.">
     <!-- dc-seo:start -->
@@ -42,7 +36,6 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://duacrypto.com/#organization","name":"DuaCrypto","url":"https://duacrypto.com","description":"Albania's first Bitcoin and crypto community in Tirana. Web3 education, Balkans events, corporate Bitcoin (DAL), and 10,000+ members.","foundingDate":"2020","areaServed":["Albania","Balkans"],"knowsAbout":["Bitcoin","Cryptocurrency","Web3","Blockchain education","Corporate Bitcoin treasury"],"logo":"https://duacrypto.com/img/duacrypto-mark.svg","email":"info@duacrypto.com","address":{"@type":"PostalAddress","addressLocality":"Tirana","addressCountry":"AL"},"sameAs":["https://t.me/dua_crypto","https://x.com/duacrypto","https://youtube.com/@duacrypto","https://facebook.com/duacrypto","https://linkedin.com/company/duacrypto"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://duacrypto.com/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://duacrypto.com/contact.html"}]}</script>
     <!-- dc-seo:end -->
-    <link rel="preload" as="image" href="/img/hero-2.webp" type="image/webp" fetchpriority="high">
     <script defer src="/js/gtag-deferred.js"></script>
     <link rel="stylesheet" href="/src/css/input.css">
 </head>
@@ -52,46 +45,48 @@
 
     <header class="page-hero-compact">
         <div class="section-shell">
-            <div class="grid items-center gap-8 lg:grid-cols-2">
-                <div>
-                    <h1 class="text-4xl font-bold text-dark">Contact Us</h1>
-                    <p class="mt-2 text-secondary"><a href="index.html" class="text-primary hover:underline">Home</a> / Contact Us</p>
-                </div>
-                <div>
-                    <picture>
-                        <source srcset="/img/hero-2.webp" type="image/webp">
-                        <img class="mx-auto w-full max-w-md wave-animation" src="/img/hero-2.png" alt="DuaCrypto page hero illustration" width="468" height="300" fetchpriority="high" decoding="async">
-                    </picture>
-                </div>
-            </div>
+            <h1 class="text-4xl font-bold text-dark">Contact DuaCrypto</h1>
+            <p class="mt-2 text-lg text-primary">Partnerships, consulting, and community support in Tirana</p>
+            <p class="mt-2 text-secondary"><a href="index.html" class="text-primary hover:underline">Home</a> / Contact</p>
         </div>
     </header>
 
     <main class="section-shell py-12">
-        <div class="mx-auto max-w-2xl text-center">
-            <p class="mb-2 text-lg text-primary">Partnerships, consulting, and media inquiries</p>
-            <p class="mb-6 text-secondary">We typically respond within 1&ndash;2 business days.</p>
+        <p class="contact-page-intro">
+            We typically respond within 1&ndash;2 business days. Fastest path: Telegram. Crypto-native outreach &mdash; no Stripe on this site.
+        </p>
 
-            <div id="contact-email-panel" class="mb-4 hidden">
-                <div class="contact-email-box">
+        <div class="contact-options">
+            <article class="contact-card">
+                <span class="contact-card-icon" aria-hidden="true"><i class="fab fa-telegram-plane"></i></span>
+                <h2>Telegram</h2>
+                <p>Join 10,000+ members for questions, events, and community support.</p>
+                <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="btn-primary">Message on Telegram</a>
+            </article>
+
+            <article class="contact-card">
+                <span class="contact-card-icon" aria-hidden="true"><i class="fa fa-envelope"></i></span>
+                <h2>Email</h2>
+                <p>Partnerships, media, and consulting inquiries.</p>
+                <div id="contact-email-panel" class="contact-email-box w-full">
                     <a id="contact-email-link" href="mailto:partner@duacrypto.com" class="contact-email-address">partner@duacrypto.com</a>
                     <button type="button" id="contact-copy-btn" class="btn-primary px-4 py-2 text-sm">
                         <i class="far fa-copy mr-1" aria-hidden="true"></i> Copy
                     </button>
                 </div>
-                <p id="contact-copy-feedback" class="mt-2 hidden text-sm text-green-600" role="status">Copied to clipboard!</p>
-            </div>
+                <p id="contact-copy-feedback" class="contact-copy-feedback hidden" role="status">Copied to clipboard!</p>
+            </article>
 
-            <button type="button" id="contact-reveal-btn" class="btn-primary px-8 py-3 text-lg">Contact us</button>
-
-            <p class="mt-6 text-sm text-secondary">
-                Or message us on
-                <a href="https://t.me/dua_crypto" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Telegram</a>
-            </p>
+            <article class="contact-card">
+                <span class="contact-card-icon" aria-hidden="true"><i class="fab fa-bitcoin"></i></span>
+                <h2>Official wallet</h2>
+                <p>Donations and on-chain contact via our published address.</p>
+                <a href="https://blockscan.com/address/2ECp5NXzGzx4R49DDnQu2nbJiVPKMzKXRHVmHrxp4Exh" target="_blank" rel="noopener noreferrer" class="btn-outline-primary">View wallet</a>
+            </article>
         </div>
     </main>
 
-    <section class="pb-0">
+    <section class="contact-map-section pb-0">
         <div class="contact-map-wrap">
             <span class="contact-map-pin" aria-hidden="true"><i class="fa fa-map-marker-alt"></i></span>
             <a class="contact-map-badge" href="https://www.google.com/maps/search/?api=1&amp;query=Piramida+e+Tiran%C3%ABs" target="_blank" rel="noopener noreferrer" aria-label="Open Pyramid of Tirana on Google Maps">
@@ -114,5 +109,6 @@
 
     <!-- @partial footer -->
 
+    <script type="module" src="/src/js/contact-page.js"></script>
 </body>
 </html>

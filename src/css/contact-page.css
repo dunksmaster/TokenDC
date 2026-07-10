@@ -1,0 +1,84 @@
+/* Contact page — option cards + map */
+
+.contact-page-intro {
+  max-width: 42rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  color: var(--color-secondary);
+  line-height: 1.6;
+}
+
+.contact-options {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .contact-options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-card);
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.contact-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  font-size: 1.125rem;
+}
+
+.contact-card h2 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.contact-card p {
+  margin: 0;
+  flex: 1;
+  font-size: 0.9375rem;
+  color: var(--color-secondary);
+  line-height: 1.5;
+}
+
+.contact-card .contact-email-box {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.contact-card .btn-primary,
+.contact-card .btn-outline-primary {
+  width: 100%;
+  margin-top: auto;
+}
+
+.contact-copy-feedback {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+}
+
+.contact-map-section {
+  margin-top: 3rem;
+  padding-top: 0;
+}
