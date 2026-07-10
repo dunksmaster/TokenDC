@@ -1,0 +1,94 @@
+/* Service page — flatter cards, newsletter panel */
+
+.service-page-intro {
+  max-width: 42rem;
+  margin-bottom: 2.5rem;
+  color: var(--color-secondary);
+  line-height: 1.6;
+}
+
+.service-grid .service-card {
+  border: 1px solid var(--color-border);
+  box-shadow: none;
+  transform: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-grid .service-card:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 45%, var(--color-border));
+  box-shadow: none;
+  transform: none;
+  scale: none;
+}
+
+.service-grid .service-card p:last-of-type {
+  flex: 1;
+}
+
+.service-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.service-card-link:hover {
+  text-decoration: underline;
+}
+
+.service-cta-row {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .service-cta-row {
+    flex-direction: row;
+  }
+}
+
+.service-newsletter {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.service-newsletter-panel {
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.service-newsletter-panel .newsletter-card {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+.service-newsletter-panel .newsletter-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.service-newsletter-header {
+  margin-bottom: 1.5rem;
+}
+
+.service-newsletter-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
