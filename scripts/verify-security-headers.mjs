@@ -62,9 +62,17 @@ if (!globalBlock) {
   for (const name of required) {
     if (!h[name]) errors.push(`/* missing ${name}`);
   }
-  const csp =
-    h["Content-Security-Policy"] ?? h["Content-Security-Policy-Report-Only"];
-  if (!csp) errors.push("/* missing Content-Security-Policy (or Report-Only)");
+  const csp = h["Content-Security-Policy"];
+  const cspReportOnly = h["Content-Security-Policy-Report-Only"];
+  if (!csp && !cspReportOnly) {
+    errors.push("/* missing Content-Security-Policy (or Report-Only)");
+  }
+  const isDistHeaders = /[/\\]dist[/\\]_headers$/i.test(headersPath);
+  if (isDistHeaders && !csp && cspReportOnly) {
+    errors.push(
+      "dist/_headers must use enforced Content-Security-Policy, not Report-Only",
+    );
+  }
   if (h["X-Content-Type-Options"] !== "nosniff") {
     errors.push("/* X-Content-Type-Options must be nosniff");
   }
@@ -93,6 +101,8 @@ if (errors.length) {
 
 const cspMode = globalBlock.headers["Content-Security-Policy"]
   ? "enforce"
-  : "report-only";
+  : globalBlock.headers["Content-Security-Policy-Report-Only"]
+    ? "report-only"
+    : "missing";
 console.log(`\nOK: security headers verified (CSP mode: ${cspMode}).`);
 console.log(`  Sections parsed: ${sections.length}`);

@@ -19,6 +19,7 @@
     "publish:dns-aid": "node scripts/publish-dns-aid.mjs",
     "verify:dns-aid": "node scripts/verify-dns-aid.mjs",
     "verify:cf-token": "node scripts/verify-cloudflare-token.mjs",
+    "set:pages-secret": "node scripts/set-pages-github-secret.mjs",
     "verify:auth-md": "node scripts/verify-auth-md.mjs",
     "verify:gsc-preflight": "node scripts/verify-gsc-preflight.mjs",
     "audit:x402": "node scripts/audit-x402.mjs",

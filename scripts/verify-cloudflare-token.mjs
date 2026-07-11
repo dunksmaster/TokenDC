@@ -27,15 +27,15 @@ async function api(path) {
 
 let failed = 0;
 
-const pages = await api(
-  `/accounts/${accountId}/pages/projects/dc-site`
-);
-if (pages.status === 200 && pages.data.success) {
-  console.log("[OK] Pages deploy — can read dc-site project");
-} else {
-  console.log(`[FAIL] Pages deploy — HTTP ${pages.status}`);
-  console.log("  Need: Account → Cloudflare Pages → Edit (Edit Cloudflare Workers template)");
-  failed++;
+for (const project of ["dc-site", "dc-news"]) {
+  const pages = await api(`/accounts/${accountId}/pages/projects/${project}`);
+  if (pages.status === 200 && pages.data.success) {
+    console.log(`[OK] Pages deploy — can read ${project} project`);
+  } else {
+    console.log(`[FAIL] Pages deploy — ${project} HTTP ${pages.status}`);
+    console.log("  Need: Account → Cloudflare Pages → Edit (Edit Cloudflare Workers template)");
+    failed++;
+  }
 }
 
 const zones = await api(`/zones?name=${zone}`);
