@@ -95,7 +95,6 @@ const TAILWIND_PAGES = new Set([
   "service.html",
   "roadmap.html",
   "about.html",
-  "$10.html",
   "events.html",
   "donation.html",
   "bitcoin-for-corporations.html",

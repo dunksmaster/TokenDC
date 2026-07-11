@@ -51,6 +51,7 @@ const htmlPages = [
 
 const DISALLOW_PATHS = [
   "/404.html",
+  "/$10",
   "/$10.html",
   "/node_modules/",
   "/src/",

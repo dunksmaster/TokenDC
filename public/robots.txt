@@ -7,6 +7,7 @@
 User-agent: GPTBot
 Allow: /
 Disallow: /404.html
+Disallow: /$10
 Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
@@ -22,6 +23,7 @@ Content-Signal: ai-train=no, search=yes, ai-input=yes
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /404.html
+Disallow: /$10
 Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
@@ -37,6 +39,7 @@ Content-Signal: ai-train=no, search=yes, ai-input=yes
 User-agent: Claude-Web
 Allow: /
 Disallow: /404.html
+Disallow: /$10
 Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
@@ -52,6 +55,7 @@ Content-Signal: ai-train=no, search=yes, ai-input=yes
 User-agent: Google-Extended
 Allow: /
 Disallow: /404.html
+Disallow: /$10
 Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
@@ -67,6 +71,7 @@ Content-Signal: ai-train=no, search=yes, ai-input=yes
 User-agent: Amazonbot
 Allow: /
 Disallow: /404.html
+Disallow: /$10
 Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
@@ -82,6 +87,7 @@ Content-Signal: ai-train=no, search=yes, ai-input=yes
 User-agent: anthropic-ai
 Allow: /
 Disallow: /404.html
+Disallow: /$10
 Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
@@ -105,6 +111,7 @@ Content-Signal: ai-train=no, search=yes, ai-input=no
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /404.html
+Disallow: /$10
 Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
@@ -120,6 +127,7 @@ Content-Signal: ai-train=no, search=yes, ai-input=yes
 User-agent: PerplexityBot
 Allow: /
 Disallow: /404.html
+Disallow: /$10
 Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
@@ -137,6 +145,7 @@ Content-Signal: ai-train=no, search=yes, ai-input=yes
 User-agent: *
 Allow: /
 Disallow: /404.html
+Disallow: /$10
 Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
@@ -152,6 +161,7 @@ Content-Signal: ai-train=no, search=yes, ai-input=yes
 User-agent: Googlebot
 Allow: /
 Disallow: /404.html
+Disallow: /$10
 Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/
@@ -167,6 +177,7 @@ Content-Signal: ai-train=no, search=yes, ai-input=yes
 User-agent: Bingbot
 Allow: /
 Disallow: /404.html
+Disallow: /$10
 Disallow: /$10.html
 Disallow: /node_modules/
 Disallow: /src/

@@ -57,7 +57,6 @@ export default defineConfig({
         donation: "donation.html",
         privacy: "privacy.html",
         terms: "terms.html",
-        "$10": "$10.html",
         "404": "404.html",
         newsletter: "newsletter.html",
         "blog/index": "blog/index.html",

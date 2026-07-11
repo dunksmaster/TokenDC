@@ -97,6 +97,13 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
   if (
     request.method === "GET" &&
+    (url.pathname === "/$10" || url.pathname === "/$10.html")
+  ) {
+    return Response.redirect(new URL("/newsletter", url.origin).href, 301);
+  }
+
+  if (
+    request.method === "GET" &&
     url.pathname === WEB_BOT_AUTH_DIRECTORY &&
     env.WEB_BOT_AUTH_PRIVATE_JWK
   ) {
