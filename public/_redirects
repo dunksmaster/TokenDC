@@ -1,5 +1,6 @@
 /docs/api /docs/api/index.html 200
-/$10.html /newsletter.html 301
+/$10 /newsletter 301
+/$10.html /newsletter 301
 /token.html /bitcoin-for-corporations.html 301
 /learn/* https://duacrypto.org/ 301
 /bitcoin/* https://duacrypto.org/ 301

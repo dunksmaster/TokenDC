@@ -105,12 +105,12 @@ Phase 2: return `SELECT COUNT(*) FROM members WHERE status = 'paid'` or cached T
 
 ## Frontend swap (Phase 2)
 
-In [`src/js/dal-payment-mock.js`](../src/js/dal-payment-mock.js):
+In [`src/js/dal-page.js`](../src/js/dal-page.js) (and a future dedicated payment module):
 
-1. Replace `simulateCreateInvoice()` with `fetch('/api/create-invoice', { method: 'POST', ... })`
+1. Replace manual Lightning proof flow with `fetch('/api/create-invoice', { method: 'POST', ... })`
 2. Poll invoice status or use BTCPay SSE until settled
 3. On success, fetch invite URL and redirect to Telegram
-4. Remove demo "I've paid" button
+4. Remove manual email-proof step once webhooks are live
 
 ## Security checklist
 
@@ -143,5 +143,5 @@ curl http://localhost:8788/api/telegram-count
 - Page: [`bitcoin-for-corporations.html`](../bitcoin-for-corporations.html)
 - Styles: [`src/css/dal-page.css`](../src/css/dal-page.css)
 - Three.js: [`src/js/dal-three.js`](../src/js/dal-three.js)
-- Payment UI: [`src/js/dal-payment-mock.js`](../src/js/dal-payment-mock.js)
+- Page shell: [`src/js/dal-page.js`](../src/js/dal-page.js)
 - SEO: [`scripts/seo-config.mjs`](../scripts/seo-config.mjs)
