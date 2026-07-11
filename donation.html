@@ -32,6 +32,10 @@
     <link rel="preload" href="/vendor/font-awesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/vendor/font-awesome/css/all.min.css"></noscript>
     <!-- dc-vendor:end -->
+    
+    
+    
+    
         
     
     
@@ -44,36 +48,23 @@
     <title>Donate a Book | DuaCrypto</title>
     <script defer src="/js/gtag-deferred.js"></script>
     <link rel="stylesheet" href="/src/css/input.css">
-    <link href="/css/brand-logos.css" rel="stylesheet">    <noscript></noscript>
-    </head>
+    <link rel="stylesheet" href="/css/brand-logos.css">
+    <script defer src="/js/gtag-deferred.js"></script>
+</head>
 <body class="bg-page donation-page">
 
-    <nav class="donation-nav" aria-label="Site">
-        <div class="section-shell donation-nav-inner">
-            <a href="index.html" class="donation-nav-brand" aria-label="DuaCrypto &mdash; Albania crypto community">
-                <img height="378" width="379" class="navbar-brand-logo" src="/img/duacrypto-logo.png" alt="DuaCrypto &mdash; Albania crypto community">
-            </a>
-            <div class="donation-nav-links">
-                <a href="index.html">Home</a>
-                <a href="donation.html" class="active" aria-current="page">Donate a Book</a>
-                <a href="events.html">Events</a>
-                <button type="button" data-theme-toggle class="theme-toggle ms-1" aria-pressed="false" aria-label="Switch color theme">
-                    <i data-theme-icon class="fas fa-moon" aria-hidden="true"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <!-- @partial header active=donation -->
 
-    <!-- Header Section -->
-    <header class="donation-header">
-        <div class="section-shell relative">
-            <p class="goal-badge mb-3 header-badge">#DonateABook</p>
-            <h1 class="display-5 fw-bold mb-3">Donate a Bitcoin book to a student</h1>
-            <p class="lead mb-0">100% of donations buy Bitcoin books shipped to Balkans students &mdash; in collaboration with our publishing partner.</p>
+    <header class="page-hero-compact">
+        <div class="section-shell">
+            <p class="goal-badge mb-3">#DonateABook</p>
+            <h1 class="text-4xl font-bold text-dark">Donate a Bitcoin book to a student</h1>
+            <p class="mt-2 text-lg text-primary">100% of donations buy Bitcoin books shipped to Balkans students</p>
+            <p class="mt-2 text-secondary"><a href="index.html" class="text-primary hover:underline">Home</a> / Donate a Book</p>
         </div>
     </header>
 
-    <div class="section-shell my-12">
+    <main class="section-shell py-8">
         <!-- Mission Section -->
         <section class="mission-section">
             <div class="grid gap-6">
@@ -178,14 +169,9 @@
                 </ol>
             </div>
         </section>
-    </div>
+    </main>
 
-    <footer>
-        <div class="section-shell">
-            <p>Thank you for building Albania&rsquo;s Bitcoin library &mdash; one book at a time.</p>
-            <p>&copy; 2026 DuaCrypto Education Initiative. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- @partial footer -->
 
     <script type="module" src="/src/js/donation-page.js"></script>
 </body>

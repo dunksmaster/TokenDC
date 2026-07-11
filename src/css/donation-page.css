@@ -13,126 +13,13 @@
             color: #333;
         }
 
-        .donation-nav {
-            position: sticky;
-            top: 0;
-            z-index: 1030;
-            background: #fff;
-            border-bottom: 1px solid rgba(37, 165, 106, 0.2);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .donation-nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.75rem;
-            min-height: 56px;
-            padding-block: 0.5rem;
-        }
-
-        .donation-nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
-            color: var(--dark-green);
-            text-decoration: none;
-            font-size: 1rem;
-            min-width: 0;
-        }
-
-        .donation-nav-brand .navbar-brand-logo {
-            height: 40px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-            flex-shrink: 0;
-        }
-
-        .donation-nav-links {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem 0.75rem;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        .donation-nav-links a {
-            color: #444;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 0.35rem 0.5rem;
-            border-radius: 6px;
-            min-height: 44px;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .donation-nav-links a:hover {
-            color: var(--primary-green);
-            background: var(--light-green);
-        }
-
-        .donation-nav-links a.active {
-            color: var(--dark-green);
-            background: var(--light-green);
-        }
-
-        html.dark .donation-nav {
-            background: #161b22;
-            border-bottom-color: #30363d;
-        }
-
-        html.dark .donation-nav-brand {
-            color: #7ee787;
-        }
-
-        html.dark .donation-nav-links a {
-            color: #c9d1d9;
-        }
-
-        html.dark .donation-nav-links a:hover,
-        html.dark .donation-nav-links a.active {
-            color: #7ee787;
-            background: #21262d;
-        }
-        
-        .donation-header {
-            background: var(--gradient);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .donation-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,138.7C672,149,768,139,864,128C960,117,1056,107,1152,112C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-            background-size: cover;
-            background-position: center;
-        }
-        
         .mission-section {
             background-color: white;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             padding: 2.5rem;
-            margin-top: -50px;
+            margin-top: 0;
             position: relative;
-        }
-        
-        .header-badge {
-            background: rgba(255, 255, 255, 0.22) !important;
-            color: #fff !important;
-            border: 1px solid rgba(255, 255, 255, 0.35);
         }
 
         .mission-eyebrow,
@@ -417,14 +304,6 @@
             100% { transform: scale(1); }
         }
         
-        footer {
-            background: var(--gradient);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        
         @media (max-width: 576px) {
             .wallet-card .text-center {
                 display: flex;
@@ -541,11 +420,6 @@
         }
 
         html.dark .donation-cta h2 {
-            color: #e6edf3;
-        }
-
-        html.dark footer {
-            background: linear-gradient(135deg, #1a5c3a 0%, #0f3d26 100%) !important;
             color: #e6edf3;
         }
 
@@ -728,18 +602,6 @@
         }
 
         @media (max-width: 768px) {
-            .donation-header {
-                padding: 2.5rem 0;
-            }
-
-            .donation-header h1 {
-                font-size: clamp(1.35rem, 5vw, 2rem);
-            }
-
-            .donation-header .lead {
-                font-size: 1rem;
-            }
-
             body > .container {
                 padding-left: 1rem;
                 padding-right: 1rem;
@@ -747,7 +609,7 @@
             
             .mission-section {
                 padding: 1.5rem;
-                margin-top: -30px;
+                margin-top: 0;
             }
             
             .wallet-address {
@@ -762,10 +624,6 @@
 
             .donation-impact {
                 grid-template-columns: 1fr;
-            }
-
-            .donation-nav-brand span {
-                font-size: 0.9rem;
             }
         }
 
