@@ -15,7 +15,7 @@ Curated signals from the DuaCrypto team: on-chain trends, airdrop opportunities,
 -  Risk framing before volatile moves
 -  Subscriber-only Telegram channel
 -  Weekly research roundup
-                            [ Subscribe — $10/month](https://duacrypto.gumroad.com/l/newsletter?wanted=true)
+                            [ Subscribe — $10/month](https://duacrypto.gumroad.com/l/newsleter?wanted=true)
                             [Free community on Telegram](https://t.me/dua_crypto)
 Secure checkout via Gumroad &bull; Cancel anytime
 Free public articles: [DuaCrypto News](https://news.duacrypto.com/) &bull; RSS: [news.duacrypto.com/rss.xml](https://news.duacrypto.com/rss.xml)

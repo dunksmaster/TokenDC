@@ -12,7 +12,7 @@ Context: the main site (this repo, `dc-site` on Cloudflare Pages) already has a 
 - Main site (duacrypto.com) is live with 6 English blog posts (redirect to news), self-hosted fonts/FA, security headers, sitemap/robots/JSON-LD in place.
 - **news.duacrypto.com is live** — Astro site in `duacrypto-news` repo, 8+ seed posts, Albanian affiliate queue, `/go/*` redirects, scoring frontmatter, AI draft pipeline.
 - Existing monetization inventory promoted on the news site:
-  - **Own product:** DuaCrypto Premium Newsletter — `https://duacrypto.gumroad.com/l/newsletter` ($10/mo, Gumroad).
+  - **Own product:** DuaCrypto Premium Newsletter — `https://duacrypto.gumroad.com/l/newsleter` ($10/mo, Gumroad; permalink slug is `newsleter`).
   - **Affiliates:** Tangem (`/go/tangem` on news), Bitget (`/go/bitget`), CEX.io (`/go/cex`), Deeper Network (`/go/deeper`) — centralized in `duacrypto-news/src/data/affiliates.ts`.
 - Five Albanian affiliate posts published on news (Tangem, Bitget, CEX.io, Deeper, Newsletter proof).
 

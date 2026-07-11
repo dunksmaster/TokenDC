@@ -40,6 +40,6 @@ Not financial advice. Do your own research before trading or investing.
 -  Weekly research roundup
                                     [
                                          Subscribe — $10/month
-                                    ](https://duacrypto.gumroad.com/l/newsletter?wanted=true)
-                                    [Learn more]($10.html)
+                                    ](https://duacrypto.gumroad.com/l/newsleter?wanted=true)
+                                    [Learn more](newsletter.html)
 Pay with Bitcoin on Gumroad &bull; Cancel anytime

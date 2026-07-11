@@ -11,7 +11,7 @@ Join 10,000+ members for questions, events, and community support.
                 [Message on Telegram](https://t.me/dua_crypto)
 ## Email
 Partnerships, media, and consulting inquiries.
-                    [partner@duacrypto.com](mailto:partner@duacrypto.com)
+                    [info@duacrypto.com](mailto:info@duacrypto.com)
                          Copy
 Copied to clipboard!
 ## Official wallet

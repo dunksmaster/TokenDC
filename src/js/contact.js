@@ -1,16 +1,7 @@
 export function initContactPage() {
-  const email = "partner@duacrypto.com";
-  const revealBtn = document.getElementById("contact-reveal-btn");
-  const panel = document.getElementById("contact-email-panel");
+  const email = "info@duacrypto.com";
   const copyBtn = document.getElementById("contact-copy-btn");
   const feedback = document.getElementById("contact-copy-feedback");
-
-  if (revealBtn && panel) {
-    revealBtn.addEventListener("click", () => {
-      revealBtn.classList.add("hidden");
-      panel.classList.remove("hidden");
-    });
-  }
 
   if (!copyBtn) return;
 

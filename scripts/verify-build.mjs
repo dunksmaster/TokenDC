@@ -175,6 +175,9 @@ for (const name of collectRootHtmlFiles()) {
   if (/upload\.wikimedia\.org|via\.placeholder\.com/i.test(html)) {
     fail(`${name}: still references placeholder/wikimedia hotlink`);
   }
+  if (/gumroad\.com\/l\/newsletter\b/i.test(html)) {
+    fail(`${name}: broken Gumroad slug /l/newsletter (use /l/newsleter)`);
+  }
 }
 
 // 4. Site-wide local images: width/height (CLS)
