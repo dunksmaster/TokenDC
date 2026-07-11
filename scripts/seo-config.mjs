@@ -292,6 +292,7 @@ export const seoPages = [
   {
     file: "blog/index.html",
     path: "/blog/index.html",
+    canonicalUrl: "https://news.duacrypto.com/",
     title: "Blog | DuaCrypto",
     description:
       "DuaCrypto blog — Bitcoin and Web3 event recaps, guides, and community news from Albania and the Balkans.",
@@ -302,6 +303,7 @@ export const seoPages = [
   {
     file: "blog/join-duacrypto-community.html",
     path: "/blog/join-duacrypto-community.html",
+    canonicalUrl: "https://news.duacrypto.com/posts/join-duacrypto-community/",
     title: "How to Join the DuaCrypto Community | DuaCrypto Blog",
     description:
       "Telegram, meetups, free guides, and what to expect as a new member of Albania's crypto community.",
@@ -315,6 +317,7 @@ export const seoPages = [
   {
     file: "blog/bitcoin-self-custody-basics.html",
     path: "/blog/bitcoin-self-custody-basics.html",
+    canonicalUrl: "https://news.duacrypto.com/posts/bitcoin-self-custody-basics/",
     title: "Bitcoin Self-Custody Basics | DuaCrypto Blog",
     description:
       "A practical intro to holding your own keys — hardware wallets, seed phrases, and avoiding common custody mistakes.",
@@ -328,6 +331,7 @@ export const seoPages = [
   {
     file: "blog/dal-corporate-bitcoin-guide.html",
     path: "/blog/dal-corporate-bitcoin-guide.html",
+    canonicalUrl: "https://news.duacrypto.com/posts/dal-corporate-bitcoin-guide/",
     title: "DAL: Bitcoin for Corporations Explained | DuaCrypto Blog",
     description:
       "Enterprise treasury strategy, executive networking, and Durana Tech Park residency for corporate Bitcoin adoption.",
@@ -341,6 +345,7 @@ export const seoPages = [
   {
     file: "blog/donate-a-book-campaign.html",
     path: "/blog/donate-a-book-campaign.html",
+    canonicalUrl: "https://news.duacrypto.com/posts/donate-a-book-campaign/",
     title: "Donate a Book: Lightning-Powered Education | DuaCrypto Blog",
     description:
       "How sats become Bitcoin books for Balkans students via Konsensus Network and DuaCrypto.",
@@ -354,6 +359,7 @@ export const seoPages = [
   {
     file: "blog/bitcoin-pizza-day-2025.html",
     path: "/blog/bitcoin-pizza-day-2025.html",
+    canonicalUrl: "https://news.duacrypto.com/posts/bitcoin-pizza-day-2025/",
     title: "Bitcoin Pizza Day 2025 Recap | DuaCrypto Blog",
     description:
       "Highlights from DuaCrypto's Bitcoin Pizza Day meetup in Tirana — community, pizza, and live photos.",
@@ -367,6 +373,7 @@ export const seoPages = [
   {
     file: "blog/balkans-crypto-2025-recap.html",
     path: "/blog/balkans-crypto-2025-recap.html",
+    canonicalUrl: "https://news.duacrypto.com/posts/balkans-crypto-2025-recap/",
     title: "Balkans Crypto 2025 Recap | DuaCrypto Blog",
     description:
       "Recap of the Balkans Crypto Tech Conference in Tirana — DeFi, Web3, and community highlights.",
@@ -499,7 +506,7 @@ export function jsonLdScripts(page) {
 }
 
 export function buildSeoHeadBlock(page) {
-  const url = pageUrl(page.path);
+  const url = page.canonicalUrl ?? pageUrl(page.path);
   const ogImage = page.ogImage ?? defaultOgImage;
   const lines = [
     `<link rel="canonical" href="${url}">`,
