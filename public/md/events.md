@@ -5,6 +5,8 @@ source: "events.html"
 ---
 
 Bitcoin & Web3 Events in Tirana | DuaCrypto
+Balkans Crypto 2026 partners
+            Photos and recaps from DuaCrypto meetups in Tirana. New dates and partner announcements land on Telegram first.
              Balkans Crypto 2026
             Our next regional DeFi and Web3 conference in Tirana. Follow Telegram for dates, lineup, and partnership announcements — the supporters above are partners we work with for community events.
                 [
@@ -43,7 +45,7 @@ Bitcoin & Web3 Events in Tirana | DuaCrypto
                 [
                      Top Channel
                 ](https://top-channel.tv)
-### Want more events like this?
         [
-             Follow on Telegram
+             Join Telegram
         ](https://t.me/dua_crypto)
+        [Partner with us](contact.html)
